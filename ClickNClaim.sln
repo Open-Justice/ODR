@@ -1,0 +1,124 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{FE5F0BF6-FDC6-4EFE-B3A2-617578E11BFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{10402244-181A-424A-8C6E-479716FFBD11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{06509145-D775-4C6D-A8D0-301D293462C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{28599A67-E942-400E-82FE-642A77F3DD77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.Data", "..\Projects\ClickNClaim.Data\ClickNClaim.Data.csproj", "{39948DC6-58C9-4581-AFEA-B14209AAC4E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.Business", "..\Projects\ClickNClaim.Business\ClickNClaim.Business.csproj", "{1FFD405E-B5C7-4FFA-A5DB-FE8F9E9B3B35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.Common", "..\Projects\ClickNClaim.Common\ClickNClaim.Common.csproj", "{3D6F3030-D12C-45C0-925A-44870E4ABCE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.WebPortal", "..\Projects\ClickNClaim.WebPortal\ClickNClaim.WebPortal.csproj", "{E2845B67-FAF4-4D69-9737-9150791194EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.Setup", "..\Projects\ClickNClaim.Setup\ClickNClaim.Setup.csproj", "{1534EA58-F62B-4571-83A5-8B511E9AA614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.OpenFireConnector", "..\Projects\ClickNClaim.OpenFireConnector\ClickNClaim.OpenFireConnector.csproj", "{820B7910-D989-4B9F-8060-CBCA5A7C5A2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C085E6D5-24E6-4814-A966-3FC7A18B2ADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocX.Testings", "..\Tests\DocX.Testings\DocX.Testings.csproj", "{0D4B6363-C4C1-4AA3-BF9D-568B8E2AAD33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickNClaim.BodaccReader", "..\Projects\ClickNClaim.BodaccReader\ClickNClaim.BodaccReader.csproj", "{F51A5340-D863-4719-A490-7B8843FF4C2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WWW API", "WWW API", "{40DA8B33-B784-4CFB-A1C0-C3A70A69D0C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39948DC6-58C9-4581-AFEA-B14209AAC4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39948DC6-58C9-4581-AFEA-B14209AAC4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39948DC6-58C9-4581-AFEA-B14209AAC4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39948DC6-58C9-4581-AFEA-B14209AAC4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FFD405E-B5C7-4FFA-A5DB-FE8F9E9B3B35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFD405E-B5C7-4FFA-A5DB-FE8F9E9B3B35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFD405E-B5C7-4FFA-A5DB-FE8F9E9B3B35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFD405E-B5C7-4FFA-A5DB-FE8F9E9B3B35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6F3030-D12C-45C0-925A-44870E4ABCE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6F3030-D12C-45C0-925A-44870E4ABCE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6F3030-D12C-45C0-925A-44870E4ABCE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6F3030-D12C-45C0-925A-44870E4ABCE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2845B67-FAF4-4D69-9737-9150791194EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2845B67-FAF4-4D69-9737-9150791194EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2845B67-FAF4-4D69-9737-9150791194EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2845B67-FAF4-4D69-9737-9150791194EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1534EA58-F62B-4571-83A5-8B511E9AA614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1534EA58-F62B-4571-83A5-8B511E9AA614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1534EA58-F62B-4571-83A5-8B511E9AA614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1534EA58-F62B-4571-83A5-8B511E9AA614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820B7910-D989-4B9F-8060-CBCA5A7C5A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820B7910-D989-4B9F-8060-CBCA5A7C5A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820B7910-D989-4B9F-8060-CBCA5A7C5A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820B7910-D989-4B9F-8060-CBCA5A7C5A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4B6363-C4C1-4AA3-BF9D-568B8E2AAD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4B6363-C4C1-4AA3-BF9D-568B8E2AAD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4B6363-C4C1-4AA3-BF9D-568B8E2AAD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4B6363-C4C1-4AA3-BF9D-568B8E2AAD33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51A5340-D863-4719-A490-7B8843FF4C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51A5340-D863-4719-A490-7B8843FF4C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51A5340-D863-4719-A490-7B8843FF4C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51A5340-D863-4719-A490-7B8843FF4C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39948DC6-58C9-4581-AFEA-B14209AAC4E3} = {FE5F0BF6-FDC6-4EFE-B3A2-617578E11BFE}
+		{1FFD405E-B5C7-4FFA-A5DB-FE8F9E9B3B35} = {FE5F0BF6-FDC6-4EFE-B3A2-617578E11BFE}
+		{3D6F3030-D12C-45C0-925A-44870E4ABCE0} = {FE5F0BF6-FDC6-4EFE-B3A2-617578E11BFE}
+		{E2845B67-FAF4-4D69-9737-9150791194EA} = {28599A67-E942-400E-82FE-642A77F3DD77}
+		{1534EA58-F62B-4571-83A5-8B511E9AA614} = {10402244-181A-424A-8C6E-479716FFBD11}
+		{820B7910-D989-4B9F-8060-CBCA5A7C5A2E} = {06509145-D775-4C6D-A8D0-301D293462C8}
+		{0D4B6363-C4C1-4AA3-BF9D-568B8E2AAD33} = {C085E6D5-24E6-4814-A966-3FC7A18B2ADD}
+		{F51A5340-D863-4719-A490-7B8843FF4C2A} = {06509145-D775-4C6D-A8D0-301D293462C8}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pierrelasvigne.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\Projects\\ClickNClaim.Data\\ClickNClaim.Data.csproj
+		SccProjectTopLevelParentUniqueName1 = ClickNClaim.sln
+		SccProjectName1 = ../Projects/ClickNClaim.Data
+		SccLocalPath1 = ..\\Projects\\ClickNClaim.Data
+		SccProjectUniqueName2 = ..\\Projects\\ClickNClaim.Business\\ClickNClaim.Business.csproj
+		SccProjectTopLevelParentUniqueName2 = ClickNClaim.sln
+		SccProjectName2 = ../Projects/ClickNClaim.Business
+		SccLocalPath2 = ..\\Projects\\ClickNClaim.Business
+		SccProjectUniqueName3 = ..\\Projects\\ClickNClaim.Common\\ClickNClaim.Common.csproj
+		SccProjectTopLevelParentUniqueName3 = ClickNClaim.sln
+		SccProjectName3 = ../Projects/ClickNClaim.Common
+		SccLocalPath3 = ..\\Projects\\ClickNClaim.Common
+		SccProjectUniqueName4 = ..\\Projects\\ClickNClaim.WebPortal\\ClickNClaim.WebPortal.csproj
+		SccProjectTopLevelParentUniqueName4 = ClickNClaim.sln
+		SccProjectName4 = ../Projects/ClickNClaim.WebPortal
+		SccLocalPath4 = ..\\Projects\\ClickNClaim.WebPortal
+		SccProjectUniqueName5 = ..\\Projects\\ClickNClaim.Setup\\ClickNClaim.Setup.csproj
+		SccProjectTopLevelParentUniqueName5 = ClickNClaim.sln
+		SccProjectName5 = ../Projects/ClickNClaim.Setup
+		SccLocalPath5 = ..\\Projects\\ClickNClaim.Setup
+		SccProjectUniqueName6 = ..\\Projects\\ClickNClaim.OpenFireConnector\\ClickNClaim.OpenFireConnector.csproj
+		SccProjectTopLevelParentUniqueName6 = ClickNClaim.sln
+		SccProjectName6 = ../Projects/ClickNClaim.OpenFireConnector
+		SccLocalPath6 = ..\\Projects\\ClickNClaim.OpenFireConnector
+		SccProjectUniqueName7 = ..\\Tests\\DocX.Testings\\DocX.Testings.csproj
+		SccProjectTopLevelParentUniqueName7 = ClickNClaim.sln
+		SccProjectName7 = ../Tests/DocX.Testings
+		SccLocalPath7 = ..\\Tests\\DocX.Testings
+		SccProjectUniqueName8 = ..\\Projects\\ClickNClaim.BodaccReader\\ClickNClaim.BodaccReader.csproj
+		SccProjectTopLevelParentUniqueName8 = ClickNClaim.sln
+		SccProjectName8 = ../Projects/ClickNClaim.BodaccReader
+		SccLocalPath8 = ..\\Projects\\ClickNClaim.BodaccReader
+	EndGlobalSection
+EndGlobal
