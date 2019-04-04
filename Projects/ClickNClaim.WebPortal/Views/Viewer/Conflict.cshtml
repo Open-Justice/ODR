@@ -1,0 +1,1370 @@
+﻿@model ClickNClaim.Common.Conflict
+
+@using ClickNClaim.WebPortal.Extensions
+@using ClickNClaim.WebPortal.Helpers
+@using ClickNClaim.Common.Enums
+@using ClickNClaim.Common
+@using ClickNClaim.Business
+
+@{
+    ViewBag.Title = "Conflict";
+
+    var creator = Model.UsersInConflicts.Where(c => c.IdUser == Model.IdCreationUser).FirstOrDefault();
+    var demandeurs = new List<string>();
+    demandeurs.Add(creator.IdUser);
+    UsersInConflict demandeur = null;
+    UsersInConflict avocatDemandeur = null;
+
+    UsersInConflict defendeur = null;
+    UsersInConflict avocatDefendeur = null;
+
+    if (creator.IsLawyer != null && creator.IsLawyer.Value)
+    {
+        avocatDemandeur = creator;
+        demandeur = Model.UsersInConflicts.Where(c => c.IdLawyer == creator.IdUser).FirstOrDefault();
+        demandeurs.Add(demandeur.IdUser);
+    }
+    else
+    {
+        demandeur = creator;
+    }
+
+    var demandeurId = avocatDemandeur != null ? avocatDemandeur.IdUser : demandeur.IdUser;
+
+    var others = Model.UsersInConflicts.Where(c => !demandeurs.Contains(c.IdUser)).ToList();
+    if (others.Count > 0)
+    {
+        foreach (var item in others)
+        {
+            if (item.IsLawyer != null && item.IsLawyer.Value)
+            {
+                avocatDefendeur = item;
+            }
+            else
+            {
+                defendeur = item;
+            }
+        }
+    }
+    else
+    {
+        var invit = Model.Invitations.FirstOrDefault();
+        if (invit != null)
+        {
+            defendeur = new UsersInConflict();
+            defendeur.CompanyName = invit.CompanyName;
+            defendeur.User = new AspNetUser();
+            defendeur.User.FirstName = invit.FirstName;
+            defendeur.User.LastName = invit.LastName;
+            defendeur.User.Email = invit.Email;
+        }
+    }
+
+
+
+    //var MyDeclaration = User.Identity.IsAuthenticated ? Model.UsersInConflicts.Where(c => c.IdUser == User.Identity.GetId()).FirstOrDefault() : null;
+    //var DeclaredByDeclaration = Model.UsersInConflicts.Where(c => c.IdUser == Model.IdCreationUser).FirstOrDefault();
+    //var OtherDeclaration = Model.UsersInConflicts.Where(c => c.IdUser != Model.IdCreationUser).ToList();
+    //var MainDefender = OtherDeclaration.FirstOrDefault();
+    //List<UsersInConflict> Declarations = new List<UsersInConflict>();
+    //foreach (var item in Model.UsersInConflicts)
+    //{
+    //    if (item.IsLawyer == null || !item.IsLawyer.HasValue)
+    //    {
+    //        if (item.IdUser != DeclaredByDeclaration.IdUser)
+    //        {
+    //            Declarations.Add(item);
+    //        }
+
+    //    }
+    //}
+
+    //var DeclaredByLawyer = DeclaredByDeclaration != null && DeclaredByDeclaration.IsRepresented ? Model.UsersInConflicts.Where(c => c.IdUser == DeclaredByDeclaration.IdLawyer).FirstOrDefault() : null;
+    //var ResolutionAsked = Model.Events.Where(c => c.Type == (int)EventTypeEnum.Resolution && c.IdUser == Model.IdCreationUser).FirstOrDefault();
+    //var Resolutions = Model.Events.Where(c => c.Type == (int)EventTypeEnum.Resolution).ToList();
+    //var YourResolution = Model.Events.Where(c => c.Type == (int)EventTypeEnum.Resolution && c.IdUser == User.Identity.GetId()).FirstOrDefault();
+    //string otherId = MainDefender != null ? MainDefender.IdUser : "";
+
+}
+
+<div class="container view-container">
+
+    <div class="row">
+        <div class="col s12">
+            <h1 class="center-align">Résumé du dossier</h1>
+
+            <div class="row last-row">
+                <div class="col s12 no-padding">
+                    <div class="card no-padding">
+                        <div class="card-title-custom blue">
+                            <div class="low-margin pos-relative">
+                                <div class="card-title-line"></div>
+                                <div class="card-title-custom-text">
+                                    <div>
+                                        <p class="blue">Dossier N° @Model.Id</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col s12 center-align padding-bottom padding-top">
+                                <h2>@MetadataHelper.GetEnumDisplayNAme((ClickNClaim.Common.ConflictState)Model.State)</h2>
+                                @if (Request.QueryString.AllKeys.Contains("i") &&
+                  Model.Invitations.Any(c => Request.QueryString["i"].ToLower() == c.Id.ToString().ToLower() && !c.IsUsed))
+                                {
+                                    <div class="row last-row">
+                                        <div class="col s12 center-align  margin-top">
+                                            <a href="@Url.Content("~/Conflict/" + Model.Id + "/Identification?i=" + Request.QueryString.Get("i"))"> <input type="button" class="btn btn-flat blue" value="Contestez la déclaration de @Model.CreatedBy.DisplayName" /></a>
+                                        </div>
+                                    </div>
+
+                                }
+                                @if (Model.State == (int)ClickNClaim.Common.ConflictState.Open && Model.UsersInConflicts.Any(c => c.IdUser == User.Identity.GetId()))
+                                {
+                                    <div class="col s12 margin-top center-align">
+                                        <a href="@Url.Action("AskArbitration", new { conflictId = Model.Id })" class="btn btn-flat blue">Demander un arbitrage</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+
+                        @*ARBITRE*@
+                        @if (!String.IsNullOrWhiteSpace(Model.IdArbiterAssigned) && Model.Arbiter != null && Model.HasArbiterAccepted != null && Model.HasArbiterAccepted.Value)
+                        {
+                            <div class="row last-row">
+                                <div class="card-title-custom blue inverted">
+                                    <div class="low-margin pos-relative">
+                                        <div class="card-title-line"></div>
+                                        <div class="card-title-custom-text">
+                                            <div>
+                                                <p class="blue">L'arbitre</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row last-row ">
+                                <div class="col s12 center-align margin-bottom-small">
+                                    <img src="@Model.Arbiter.PhotoPath" class="circle " width="60" height="60" style="margin-top:10px" />
+                                    <div style="display:inline-block;margin-left:10px;margin-top:5px;" class="user-info"><p class="name-title" style="display:inline">@Model.Arbiter.DisplayName<br /> </p></div>
+                                    @if (User.Identity.GetId() != Model.IdArbiterAssigned)
+                                    {
+                                        <input type="button" class="btn btn-flat margin-left modal-trigger complementaryBlue" data-target="contact-arbitre-modal" style="display:inline-block" value="Contacter" />
+                                    }
+                                    @if (Model.MessageCount > 0)
+                                    {
+                                        <a class="btn btn-flat margin-left complementaryBlue" href="@Url.Action("Messages", "Arbitre", new { conflictId = Model.Id})">Voir les messages</a>
+                                    }
+                                </div>
+                                <hr class="no-margin clearfix" />
+                                <div class="col s6 center-align">
+                                    @if (Model.Events.Any(c => c.Debates != null && c.Debates.Count > 0 && c.Debates.Any(d => !d.Closed)))
+                                    {
+                                         <!-- Dropdown Trigger -->
+                                        <a class='dropdown-button btn red' style="margin-top:6px;padding:0 40px" href='#' data-activates='dropdown1'>@Model.Events.Count(c => c.Debates != null && c.Debates.Count > 0 && c.Debates.Any(d => !d.Closed)) Débat@(Model.Events.Count(c => c.Debates != null && c.Debates.Count > 0 && c.Debates.Any(d => !d.Closed)) > 1 ? "s" : "") en cours</a>
+
+                                         <!-- Dropdown Structure -->
+                                        <ul id='dropdown1' class='dropdown-content'>
+                                            @foreach (var item in Model.Events.Where(c => c.Debates != null && c.Debates.Count > 0 && c.Debates.Any(d => !d.Closed)))
+                                            {
+                                                var debat = item.Debates.First();
+                                                <li><a href="@Url.Action("MailDebate","Arbitre", new { debatId = debat.Id })">@debat.Title</a></li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <h5><i class="grey-text">Aucun débat en cours</i></h5>
+                                    }
+                                </div>
+                                <div class="col s6 left-bordered center-align">
+                                    @if (Model.Events.Any(c => c.MeetingDebates != null && c.MeetingDebates.Count > 0))
+                                    {
+                                        var next = Model.Events.Where(c => c.MeetingDebates != null && c.MeetingDebates.Count > 0).OrderByDescending(c => c.DateBegin).First();
+                                        if (next.MeetingDebates.First().Date == null)
+                                        {
+                                            <h5><i class="grey-text">Organisation de la visio-conférence en cours</i></h5>
+                                            <a onclick="smoothScroll('visio')" class="btn btn-flat blue margin-bottom-small">Voir la visio</a>
+                                        }
+                                        else
+                                        {
+                                            <h5>Visio-conférence prévu le @next.DateBegin.ToShortDateString() à @next.DateBegin.Hour:@next.DateBegin.Minute</h5>
+
+                                            <a href="#" class="btn btn-flat blue disable-content">Accéder à la visio-conférence</a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <h5><i class="grey-text">Aucune visio-conférence prévue pour l'instant</i></h5>
+                                        if (Model.IdArbiterAssigned == User.Identity.GetId())
+                                        {
+                                            <input type="button" class="btn btn-flat blue margin-bottom-small" value="Planifier une visio-conférence" data-bind="click:$root.openPropositionModal" />
+
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+
+                        @*PARTIES*@
+                        <div class="row last-row">
+
+                            <div class="card-title-custom blue inverted">
+                                <div class="low-margin pos-relative">
+                                    <div class="card-title-line"></div>
+                                    <div class="card-title-custom-text">
+                                        <div>
+                                            <p class="blue">Les parties au litige</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row padding-bottom">
+                            <div class="col s6 low-height table padding-top center-align no-bottom-margin">
+                                <div class="table-cell center">
+                                    @if (String.IsNullOrWhiteSpace(demandeur.User.PhotoPath))
+                                    {
+                                        <div class="image-presentation">
+                                            <i class="fa fa-user fa-4x"></i>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <img src="@demandeur.User.PhotoPath" class="circle  image-presentation" width="60" height="60" />
+                                    }
+                                    <div style="margin-top:5px;" class="user-info">
+                                        <p class="name-title text-center">@demandeur.CompanyName </p>
+                                        <p class="text-center">@demandeur.User.DisplayName</p>
+
+                                        <hr />
+
+                                        @if (demandeur.UserCompany != null)
+                                        {
+                                            if (!string.IsNullOrWhiteSpace(demandeur.UserCompany.Company.Address1))
+                                            {
+                                            <p>@demandeur.UserCompany.Company.Address1</p>
+                                                if (!String.IsNullOrWhiteSpace(demandeur.UserCompany.Company.Address2))
+                                                {
+                                                <p>@demandeur.UserCompany.Company.Address2</p>
+                                                }
+                                                if (!String.IsNullOrWhiteSpace(demandeur.UserCompany.Company.Address3))
+                                                {
+                                                <p>@demandeur.UserCompany.Company.Address3</p>
+                                                }
+                                            <p>@demandeur.UserCompany.Company.PostalCode @demandeur.UserCompany.Company.City</p>
+                                            }
+                                            else
+                                            {
+                                                <i class="grey-text">Adresse inconnue</i>
+                                                <br/>
+                                            }
+                                            if (!String.IsNullOrWhiteSpace(demandeur.UserCompany.Company.Siret))
+                                            {
+                                                <p><b>SIREN </b>: @demandeur.UserCompany.Company.Siret</p>
+                                            }
+                                            else
+                                            {
+                                                <i class="grey-text">SIREN inconnue</i>
+                                                <br />
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (!String.IsNullOrWhiteSpace(demandeur.CompanyName))
+                                            {
+                                                <i class="grey-text">Adresse inconnue</i>
+                                            }
+                                            else
+                                            {
+                                                <h5><i class="grey-text">Raison sociale inconnue</i></h5>
+                                                <i class="grey-text">Adresse inconnue</i>
+                                            }
+                                            <br />
+                                            <i class="grey-text">SIREN inconnue</i>
+                                            <br />
+                                        }
+                                        <br />
+                                        @if (User.Identity.GetId() == demandeur.IdUser || (avocatDemandeur != null && User.Identity.GetId() == avocatDemandeur.IdUser) || (User.IsInRole("Arbiter") && User.Identity.GetId() == Model.IdArbiterAssigned) || User.IsInRole("CentreAdministration"))
+                                        {
+                                            <input type="button" class="btn btn-flat  complementaryBlue margin-top" value="Mettre à jour" data-bind="click:function(data,event){openUpdateCompany('@demandeur.IdUser' )}" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s6 low-height table padding-top center-align no-bottom-margin">
+                                <div class="table-cell center">
+                                    @if (String.IsNullOrWhiteSpace(defendeur.User.PhotoPath))
+                                    {
+                                    <div class="image-presentation">
+                                        <i class="fa fa-user fa-4x"></i>
+                                    </div>
+                                    }
+                                    else
+                                    {
+                                    <img src="@defendeur.User.PhotoPath" class="circle  image-presentation" width="60" height="60" />
+                                    }
+                                    <div style="margin-top:5px;" class="user-info">
+                                        <p class="name-title text-center">@defendeur.CompanyName </p>
+                                        <p class="text-center">@defendeur.User.DisplayName</p>
+
+                                        <hr />
+
+                                        @if (defendeur != null && defendeur.UserCompany != null)
+                                        {
+                                            if (!String.IsNullOrWhiteSpace(defendeur.UserCompany.Company.Address1))
+                                            {
+                                            <p>@defendeur.UserCompany.Company.Address1</p>
+                                                if (!String.IsNullOrWhiteSpace(defendeur.UserCompany.Company.Address2))
+                                                {
+                                        <p>@defendeur.UserCompany.Company.Address2</p>
+                                                }
+
+                                                if (!String.IsNullOrWhiteSpace(defendeur.UserCompany.Company.Address3))
+                                                {
+                                        <p>@defendeur.UserCompany.Company.Address3</p>
+                                                }
+
+                                        <p>@defendeur.UserCompany.Company.PostalCode @defendeur.UserCompany.Company.City</p>
+                                            }
+                                            else
+                                            {
+                                                <i class="grey-text">Adresse inconnue</i>
+                                                <br />
+                                            }
+                                            if (!String.IsNullOrWhiteSpace(defendeur.UserCompany.Company.Siret))
+                                            {
+                                        <p><b>SIREN </b>: @defendeur.UserCompany.Company.Siret</p>
+                                            }
+                                            else{
+                                                <i class="grey-text">SIREN inconnue</i>
+                                                <br />
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (defendeur != null && !String.IsNullOrWhiteSpace(defendeur.CompanyName))
+                                            {
+                                        <i class="grey-text">Adresse inconnue</i>
+                                            }
+                                            else
+                                            {
+                                        <h5><i class="grey-text">Raison sociale inconnue</i></h5>
+                                        <i class="grey-text">Adresse inconnue</i>
+                                            }
+                                        <br />
+                                        <i class="grey-text">SIREN inconnue</i>
+                                        <br />
+                                        }
+                                        <br />
+                                        @if ((User.Identity.GetId() == defendeur.IdUser) || (avocatDefendeur != null && User.Identity.GetId() == avocatDefendeur.IdUser) || (User.IsInRole("Arbiter") && User.Identity.GetId() == Model.IdArbiterAssigned) || (User.IsInRole("CentreAdministration") && defendeur != null))
+                                        {
+                                        <input type="button" class="btn btn-flat  complementaryBlue margin-top" value="Mettre à jour" data-bind="click:function(data,event){openUpdateCompany('@defendeur.IdUser')}" />
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            @if (User.IsInRole("Arbiter") && Model.IdArbiterAssigned == User.Identity.GetId())
+                            {
+                                <div class="row last-row">
+                                    <div class="col s6 center-align">
+                                        <input type="button" class="btn btn-flat  complementaryBlue modal-trigger margin-top-small margin-bottom-small" data-target="contact-party-modal" data-bind="click:function(data, event){setParty('@demandeur.User.DisplayName')}" style="display:inline-block" value="Contacter" />
+                                    </div>
+                                    <div class="col s6 left-bordered center-align">
+                                        <input type="button" class="btn btn-flat  complementaryBlue margin-top-small margin-bottom-small modal-trigger" data-target="contact-party-modal" data-bind="click:function(data, event){setParty('@defendeur.User.DisplayName')}" style="display:inline-block" value="Contacter" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                @*ARBITRATION PART*@
+
+                @if (Model.State >= (int)ConflictState.ArbitrationStarted)
+            {
+
+                    <h4>
+                        Situation de l'affaire @if (Model.State == (int)ConflictState.FreeHandsArbitration)
+                        { <span data-bind="text:'(Fin de l\'étape dans ' + countDown()+ ')', visible: countDown"></span>}
+                    </h4>
+                        @Html.Partial("_ConflictState", Model)
+                }
+
+                <h4 class="margin-bottom">Déclarations</h4>
+
+                <div class="row last-row">
+                    <div class="col s6 decla-box">
+                        <div class="card no-padding">
+                            <div class="card-title-custom blue">
+                                <div class="low-margin pos-relative">
+                                    <div class="card-title-line"></div>
+                                    <div class="card-title-custom-text">
+                                        <div>
+                                            @if (avocatDemandeur != null)
+                                            {
+                                                <p class="blue">Déclaration de  @avocatDemandeur.User.DisplayName (avocat de @demandeur.User.DisplayName)</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="blue">Déclaration de  @demandeur.User.DisplayName</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    @if (avocatDemandeur != null)
+                                    {
+                                        @(String.IsNullOrWhiteSpace(avocatDemandeur.UserDescriptionOfTheConflict) ? avocatDemandeur.User.DisplayName + " (avocat de " + demandeur.User.DisplayName + ") n'a pas encore renseigné de déclaration" : avocatDemandeur.UserDescriptionOfTheConflict);
+                                    }
+                                    else
+                                    {
+                                        @(String.IsNullOrWhiteSpace(demandeur.UserDescriptionOfTheConflict) ? demandeur.User.DisplayName + " n'a pas encore renseigné de déclaration" : demandeur.UserDescriptionOfTheConflict );
+                                    }
+
+                                </p>
+                                @if ((User.Identity.IsAuthenticated && Model.IdCreationUser != User.Identity.GetId() &&
+Model.Invitations.Any(c => c.Email == User.Identity.Email() && !c.IsUsed)) ||
+(!User.Identity.IsAuthenticated && Request.QueryString.AllKeys.Contains("i"))
+)
+                                {
+                                    <div class="row last-row">
+                                        <div class="col s12 center-align  margin-top">
+                                            <a href="@Url.Content("~/Conflict/" + Model.Id + "/Identification?i=" + Request.QueryString.Get("i"))"> <input type="button" class="btn btn-flat blue" value="Contestez la déclaration de @Model.CreatedBy.DisplayName" /></a>
+                                        </div>
+                                    </div>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    @if (String.IsNullOrWhiteSpace(defendeur.UserDescriptionOfTheConflict) && (avocatDefendeur == null || String.IsNullOrWhiteSpace(avocatDefendeur.UserDescriptionOfTheConflict)))
+                    {
+                        <div style="opacity:.7">
+                            <div class="col s6 decla-box">
+                                <div class="card no-padding">
+                                    <div class="card-title-custom blue">
+                                        <div class="low-margin pos-relative">
+                                            <div class="card-title-line"></div>
+                                            <div class="card-title-custom-text">
+                                                <div>
+                                                    <p class="blue">Contestation de  @(defendeur.User.DisplayName)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+
+                                        <p class="watermark">@(defendeur.User.DisplayName) n'a pas encore renseigné de contestation</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col s6 decla-box">
+                            <div class="card no-padding">
+                                <div class="card-title-custom blue">
+                                    <div class="low-margin pos-relative">
+                                        <div class="card-title-line"></div>
+                                        <div class="card-title-custom-text">
+                                            <div>
+                                                @if (avocatDefendeur != null)
+                                                {
+                                                    <p class="blue">Déclaration de  @avocatDefendeur.User.DisplayName (avocat de @defendeur.User.DisplayName)</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="blue">Déclaration de  @defendeur.User.DisplayName</p>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p>
+                                        @if (avocatDefendeur != null)
+                                        {
+                                            @(String.IsNullOrWhiteSpace(avocatDefendeur.UserDescriptionOfTheConflict) ? avocatDefendeur.User.DisplayName + " (avocat de " + defendeur.User.DisplayName + ") n'a pas encore renseigné de déclaration" : avocatDefendeur.UserDescriptionOfTheConflict);
+                                        }
+                                        else
+                                        {
+                                            @(String.IsNullOrWhiteSpace(defendeur.UserDescriptionOfTheConflict) ? defendeur.User.DisplayName + " n'a pas encore renseigné de déclaration" : defendeur.UserDescriptionOfTheConflict );
+                                        }
+
+                                    </p>
+                                    @if ((User.Identity.IsAuthenticated && Model.IdCreationUser != User.Identity.GetId() &&
+Model.Invitations.Any(c => c.Email == User.Identity.Email() && !c.IsUsed)) ||
+(!User.Identity.IsAuthenticated && Request.QueryString.AllKeys.Contains("i"))
+)
+                                    {
+                                        <div class="row last-row">
+                                            <div class="col s12 center-align  margin-top">
+                                                <a href="@Url.Content("~/Conflict/" + Model.Id + "/Identification?i=" + Request.QueryString.Get("i"))"> <input type="button" class="btn btn-flat blue" value="Contestez la déclaration de @Model.CreatedBy.DisplayName" /></a>
+                                            </div>
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+                <h4 class="no-bottom-margin">Chronologie du litige</h4>
+                @if (Model.State != (int)ConflictState.Concluded)
+                {
+                    <div class="row margin-top">
+                        <div class="col s12">
+                            @if (Model.IdArbiterAssigned == User.Identity.GetId())
+                            {
+                                <input type="button" class="btn btn-flat blue" value="Planifier une visio-conférence" data-bind="click:$root.openPropositionModal" />
+                                <input type="button" class="btn btn-flat blue modal-trigger" value="Lancer une procédure incidente" data-target="procedureModal" />
+
+                            }
+                            @if ((Model.HasArbitralClause && !User.IsInRole("Arbiter") && Model.State < (int)ConflictState.PreConcluded) || (Model.UsersInConflicts.Any(c => c.IdUser == User.Identity.GetId()) && Model.State == (int)ConflictState.FreeHandsArbitration))
+                            {
+                                <input type="button" class="btn btn-flat blue modal-trigger" data-target="addNewEventModal" value="Ajouter un évènement" style="margin:20px" />
+                            }
+                        </div>
+                    </div>
+                }
+                <div id="events" class="row">
+                    <div class="missing-elt" data-bind="visible:$root.events().length <= 0">
+                        <div style="text-align:center">
+                            <h4 class="watermark">Aucun évènement n'existe pour l'instant pour ce conflit.</h4>
+                        </div>
+                    </div>
+                    <div data-bind="visible:$root.events().length > 0">
+                        <div class="col s6">
+                            <h5 class="center-align no-top-margin">@demandeur.CompanyName</h5>
+                        </div>
+                        <div class="col s6">
+                            <h5 class="center-align no-top-margin">@(defendeur.CompanyName ?? defendeur.User.DisplayName)</h5>
+                        </div>
+                    </div>
+                    <section id="cd-timeline" data-bind="template: {name : eventTemplateSelector, foreach:$root.events}, visible: events().length >  0"></section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="contact-arbitre-modal">
+        <form action="@Url.Action("ContactArbitre", "Arbitre")" method="post">
+            <input type="hidden" name="conflictId" value="@Model.Id" />
+            <div class="modal-content">
+                <h5>Contacter l' arbitre</h5>
+                <p>Vous pouvez écrire à votre arbitre à tout moment. Une copie de votre message est automatiquement transmis à la partie adverse.</p>
+                <div class="input-field ">
+                    <textarea data-validation="required" name="text" id="text" class="materialize-textarea"></textarea>
+                    <label for="text">Mail pour l'arbitre</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-flat blue modal-close modal-action">Annuler</a>
+                <input type="submit" value="Valider" class="btn btn-flat blue modal-action" />
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="contact-party-modal">
+        <form action="@Url.Action("ContactParty", "Arbitre")" method="post">
+            <input type="hidden" name="conflictId" value="@Model.Id" />
+            <input type="hidden" name="partyName" id="partyName" />
+            <div class="modal-content">
+                <h5>Message pour <span data-bind="text:partyName"></span></h5>
+                <p>Vous pouvez écrire à l'une des parties à tout moment. Une copie de votre message est automatiquement transmis à l'autre partie.</p>
+                <div class="input-field ">
+                    <textarea data-validation="required" name="text" id="text" class="materialize-textarea"></textarea>
+                    <label for="text">Mail pour une <span data-bind="text:partyName"></span></label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-flat blue modal-close modal-action">Annuler</a>
+                <input type="submit" value="Valider" class="btn btn-flat blue modal-action" />
+            </div>
+        </form>
+    </div>
+
+
+    <div id="companyInfoModal" class="modal">
+        <form action="@Url.Action("UpdateCompanyInfo","Viewer")" method="post" data-bind="with:updatableCompany">
+            <input type="hidden" name="conflictId" value="@Model.Id" />
+            <input type="hidden" name="company.Id" data-bind="value:Id" />
+            <input type="hidden" name="company.Name" data-bind="value:Name" />
+            <input type="hidden" name="userId" id="companyUpdateUserId" data-bind="value:Id" />
+            <div class="modal-content">
+                <h3 class="margin-bottom">Mettre à jour les informations d'entreprises</h3>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <input type="text" id="companyName"  required data-validation="required" data-bind="value:Name" />
+                            <label data-bind="css:{'active' :Name() != null && Name().length > 0 }" for="companyName">Raison sociale</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="company.Address1"  data-bind="value:Address1" />
+                            <label data-bind="css:{'active' :Address1() != null && Address1().length > 0 }" for="address1">Adresse 1</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="address2" name="company.Address2" data-bind="value:Address2" />
+                            <label data-bind="css:{'active' :Address2() != null && Address2().length > 0 }" for="address1">Adresse 2</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="address3" name="company.Address3" data-bind="value:Address3" />
+                            <label data-bind="css:{'active' :Address3() != null && Address3().length > 0 }" for="address3">Adresse 3</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="postalCode" name="company.PostalCode"  data-bind="value:PostalCode" />
+                            <label data-bind="css:{'active' :PostalCode() != null && PostalCode().length > 0 }" for="postalCode">Code postal</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="city" name="company.City"  data-bind="value:City" />
+                            <label data-bind="css:{'active' :City() != null && City().length > 0 }" for="city">Ville</label>
+                        </div>
+
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field">
+                            <input type="text" id="telCompany" name="company.TelCompany" data-bind="value:TelCompany" />
+                            <label data-bind="css:{'active' :TelCompany() != null && TelCompany().length > 0 }" for="telCompany">Téléphone de l'entreprise</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="siret" name="company.Siret" data-bind="value:Siret" />
+                            <label data-bind="css:{'active' :Siret() != null && Siret().length > 0 }" for="siret">Siret</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="forme" name="company.Forme" data-bind="value:Forme" />
+                            <label data-bind="css:{'active' :Forme() != null && Forme().length > 0 }" for="forme">Forme (SAS, SARL, etc)</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="capital" name="company.Capital" data-bind="value:Capital" />
+                            <label data-bind="css:{'active' :Capital() != null && Capital().length > 0 }" for="capital">Capital</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-flat blue modal-close modal-action">Annuler</a>
+                <input type="submit" value="Valider" class="btn btn-flat blue modal-action" />
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="askForVisioModal">
+        <form action="@Url.Action("AskForVisio")" method="post">
+            <input type="hidden" name="conflictId" value="@Model.Id" />
+            <div class="modal-content">
+                <p>Vous souhaitez que l arbitre organise une visio-conférence. Merci d'en précisez la raison. L'arbitre pourra accepter ou refuser votre demande. Si l'arbitre l'accepte, il vous proposera une série de date afin de faire cette visio-conférence.</p>
+                <div class="input-field">
+                    <textarea rows="4" name="reason" id="reason"></textarea>
+                    <label for="reason">Raison de votre demande de visio-conférence</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-flat blue modal-close modal-action">Annuler</a>
+                <input type="submit" value="Valider" class="btn btn-flat blue modal-action" />
+            </div>
+        </form>
+    </div>
+
+    <div id="addNewEventModal" class="modal modal-fixed-footer" data-bind="with : $root.newEvent">
+        <div class="modal-content">
+            <div data-bind="visible:Id() == 0">
+                <h4>Nouvel évènement</h4>
+                <p>Veuillez nommer cet évènement</p>
+                <br />
+                <div class="input-field">
+                    <input type="text" data-validation="required" id="newEventName" data-bind="value:Name" />
+                    <label for="newEventName" class="active">Nom de l'évènement</label>
+                </div>
+            </div>
+            <div data-bind="visible:Id() > 0">
+                <h4 data-bind="text:Name"></h4>
+            </div>
+            <div class="input-field">
+                <input class="datepicker date" data-validation="required" id="newEventBeginDate" data-bind="dateString : DateBegin" />
+                <label for="newEventBeginDate" class="active">Date</label>
+            </div>
+            <div class="input-field">
+                <textarea id="newEventDescription" class="materialize-textarea" data-bind="value:Description"></textarea>
+                <label for="newEventDescription" class="active">Description (optionel)</label>
+            </div>
+            <div class="drop-area-div">
+                <input type="file" class="none" name="files" multiple="multiple" title="Ajouter une pièce">
+                <input type="hidden" name="Id" data-bind="value:Id" />
+            </div>
+            <div class="input-field">
+                <input type="button" class="btn btn-flat blue" data-bind="click:$root.uploadFileToNewEvent" value="Ajouter pièce(s)" />
+            </div>
+            <div class="row last-row" data-bind="visible:ProofFiles().length > 0">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Fichier</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:ProofFiles">
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                <span data-bind="text:$index()+1"></span>
+                            </td>
+                            <td>
+                                <a target="_blank" data-bind="href:FilePath">
+                                    <p data-bind="text:Name" class="truncate"></p>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="progress" data-bind="visible:IsDownloading">
+                <div class="determinate" data-bind="style:{width : Percent()}"></div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" data-bind="click:$root.addNewEvent" class="modal-action modal-close btn blue btn-flat ">Valider</a>
+            <a href="#!" data-bind="click:$root.clean" class="modal-action modal-close btn blue btn-flat ">Annuler</a>
+        </div>
+
+    </div>
+
+    <div class="modal" id="updateStateModal">
+        <form action="@Url.Action("UpdateState")" method="post">
+            <input type="hidden" name="conflictId" value="@Model.Id" />
+            <input type="hidden" name="newStateId" data-bind="value:$root.updateStateId" />
+            <input type="hidden" name="hasCountdown" data-bind="value:$root.needsCountDown" />
+            <div class="modal-content">
+                <h4 data-bind="text:$root.updateStateName"></h4>
+                <p>Vous souhaitez faire passer ce conflit à l' étape suivante : <span data-bind="text:$root.updateStateName"></span></p>
+                <div data-bind="visible:$root.needsCountDown">
+                    <p>Cette étape requiert que vous définissiez un nombre de jours au bout desquelles le conflit passera automatiquement à l'étape suivante.</p>
+                    <div class="input-field">
+                        <input type="number" name="countdown" id="countdown" />
+                        <label for="countdown">Durée de l'étape (en jours) :</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-flat blue modal-close modal-action">Annuler</a>
+                <input type="submit" value="Valider" class="btn btn-flat blue modal-action" />
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="planVisio">
+        <form action="@Url.Action("DatePropositions", "Arbitre")" method="post">
+            <input type="hidden" name="conflictId" data-bind="value:$root.data.Id" />
+            <div class="modal-content">
+                <h4>Organiser une visio-conférence</h4>
+                <div class="input-field">
+                    <input type="text" name="visioTitle" id="visioTitle" />
+                    <label for="visioTitle">Vueillez nommer cette visio-conférence</label>
+                </div>
+                <div class="input-field">
+                    <textarea class="materialize-textarea" name="visioDescription" cols="4" id="visioDescription"></textarea>
+                    <label for="visioDescription">Veuillez définir la raison de cette visio-conférence</label>
+                </div>
+                <div class="input-field">
+                    <select name="estimateDuration" id="estimateDuration">
+                        <option value="15min">15 min.</option>
+                        <option value="30min">30 min.</option>
+                        <option value="1h">1h</option>
+                        <option value="2h">2h</option>
+                        <option value="3h">3h</option>
+                        <option value="+3h">+3h</option>
+                    </select>
+                    <label for="estimateDuration">Veuillez estimer la durée de votre visio-conférences</label>
+                </div>
+                <p>Veuillez proposer vos dates pour la visio-conférence :</p>
+                <input type="button" class="btn btn-flat blue" data-bind="click:$root.addDateProposistion" value="Ajouter une autre date" />
+                <div data-bind="foreach:$root.datePropositions">
+                    <div class="input-field">
+                        <input id="rdv" type="text" name="rdv" class="rdv" data-bind="attr:{ name : 'rdv[' + $index() + ']', id : 'rdv_' + $index()}" class="datepicker" />
+                        <label data-bind="attr:{'for' : 'rdv_' + $index()}" for="rdv">Date et heure de la visio-conférence</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="modal-content">
+                    <input type="submit" class="btn-flat btn right blue" value="Proposer les dates" />
+                    <input type="button" class="btn-flat btn right blue modal-close" value="Annuler" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="procedureModal" class="modal">
+        <form action="@Url.Action("StartProcedure", "Arbitre")" method="post">
+            <input type="hidden" name="conflictId" data-bind="value:$root.data.Id" />
+            <div class="modal-content">
+                <h4>Lancer une procédure incidente</h4>
+                <div class="mail">
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="text" name="mailTitle" id="mailTitle" />
+                                <label for="mailTitle">Objet de la procédure</label>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="number" data-validation="required number" name="debatTime" id="debatTime" />
+                                <label for="debatTime">Durée de la procédure (en jours)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <textarea class="materialize-textarea" name="mailBody" cols="4" id="mail"></textarea>
+                        <label for="mail">Description de la procédure</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn-flat btn right blue" value="Lancer la procédure" />
+                    <input type="button" class="btn-flat btn right blue modal-close" value="Annuler" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div id="startdebateModal" class="modal">
+        <form action="@Url.Action("StartDebate", "Arbitre")" method="post">
+            <input type="hidden" name="conflictId" data-bind="value:$root.data.Id" />
+            <input type="hidden" name="debatType" value="mail" />
+            <input type="hidden" name="eventId" data-bind="value:$root.selectedEvent" />
+            <div class="modal-content">
+                <h4>Lancer un débat entre les parties</h4>
+                <div class="mail">
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="text" name="mailTitle" id="mailTitle" />
+                                <label for="mailTitle">Objet du débat</label>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="number" data-validation="required number" name="debatTime" id="debatTime" />
+                                <label for="debatTime">Durée du débat (en jours)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <textarea class="materialize-textarea" name="mailBody" cols="4" id="mail"></textarea>
+                        <label for="mail">Description du débat</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn-flat btn right blue" value="Lancer le débat" />
+                    <input type="button" class="btn-flat btn right blue modal-close" value="Annuler" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div id="official-disagreement" class="modal">
+        <form action="@Url.Action("StartDebate", "Arbitre")" method="post">
+            <input type="hidden" name="conflictId" data-bind="value:$root.data.Id" />
+            <input type="hidden" name="debatType" value="mail" />
+            <input type="hidden" name="eventId" data-bind="value:$root.selectedEvent" />
+            <div class="modal-content">
+                <h4>Contester le document</h4>
+                <div class="mail">
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="text" name="mailTitle" id="mailTitle" />
+                                <label for="mailTitle">Objet de la contestation</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="input-field">
+                        <textarea class="materialize-textarea" name="mailBody" cols="4" id="mail"></textarea>
+                        <label for="mail">Description de la contestation</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-flat right blue" value="Contester" />
+                    <input type="button" class="btn btn-flat right blue modal-close" value="Annuler" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal" id="newDateModal">
+        <form action="@Url.Action("AddNewDates", "Conflict")" method="post">
+            <input type="hidden" name="conflictId" data-bind="value:$root.data.Id" />
+            <input type="hidden" name="eventId" data-bind="value:$root.selectedEvent() != null ? $root.selectedEvent().Id : null" />
+            <div class="modal-content">
+                <p>Veuillez proposer vos dates pour la visio-conférence :</p>
+                <input type="button" class="btn btn-flat blue" data-bind="click:$root.addDateProposistion" value="Ajouter une autre date" />
+                <div data-bind="foreach:$root.datePropositions">
+                    <div class="input-field">
+                        <input id="rdv" type="text" name="rdv" class="rdv" data-bind="attr:{ name : 'rdv[' + $index() + ']', id : 'rdv_' + $index()}" class="datepicker" />
+                        <label data-bind="attr:{'for' : 'rdv_' + $index()}" for="rdv">Date et heure de la visio-conférence</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-content">
+                    <input type="submit" class="btn-flat right blue" value="Proposer les dates" />
+                    <input type="button" class="btn-flat right blue modal-close" value="Annuler" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="debatEventModal" class="modal modal-fixed-footer">
+        <div class="modal-content" data-bind="with:debateEvt">
+            <h4>Désaccord sur l'évènement</h4>
+            <hr />
+            <h5>Je ne suis pas d'accord sur</h5>
+            <div class="tab">
+                <p>
+                    <input class="with-gap filled-in" value="0" name="group1" type="checkbox" id="radio-event" data-bind="checked:$root.newDisagreement().DisagreementOnDescription" />
+                    <label for="radio-event">L'évènement et sa description</label>
+                </p>
+                <p>
+                    <input class="with-gap filled-in" value="1" name="group1" type="checkbox" id="date-event" data-bind="checked:$root.newDisagreement().DisagreementOnDate" />
+                    <label for="date-event">La date de l'évènement</label>
+                </p>
+                <p data-bind="visible:ProofFiles().length > 0 && (ProofFiles()[0].Id() != 0 || ProofFiles()[1].Id() != 0 || ProofFiles()[2].Id() != 0)">
+                    <input class="with-gap filled-in" value="2" name="group1" type="checkbox" id="piece-event" data-bind="checked:$root.newDisagreement().DisagreementOnPiece" />
+                    <label for="piece-event">Une pièce lié à cet évènement</label>
+                </p>
+            </div>
+            <div data-bind="visible:$root.newDisagreement().DisagreementOnDescription">
+                <h5>Détaillez la raison de votre désaccord sur cet évènement :</h5>
+                <textarea class="materialize-textarea" data-bind="value:$root.newDisagreement().ConcurrentDescription"></textarea>
+            </div>
+            <div data-bind="visible:$root.newDisagreement().DisagreementOnDate">
+                <h5>Précisez la date à laquelle vous juger cet évènement avoir lieu :</h5>
+                <input type="text" class="date" data-bind="value:$root.newDisagreement().ConcurrentDate" />
+            </div>
+            <div data-bind="visible:$root.newDisagreement().DisagreementOnPiece">
+                <h5>Précisez sur quelle pièce porte votre désaccord :</h5>
+                <div class="row" data-bind="foreach:ProofFiles">
+                    <div class="tab" data-bind="visible:$data.Id() > 0">
+                        <p>
+                            <input class="with-gap" name="group2" type="checkbox" data-bind="checked: function(){$root.isSelected($data.Name)}, value:Name, attr:{id:Name}" />
+                            <label data-bind="text:Name, attr:{'for': Name}"></label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" data-bind="click:$root.setDisagreement" class="modal-action modal-close waves-effect waves-green btn-flat ">Valider</a>
+            <a href="#!" data-bind="click:$root.clean" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+        </div>
+    </div>
+
+    <script type="text/html" id="classic-event-template">
+        <div class="cd-timeline-block" data-bind="css:{'other' : IdUser() != '@demandeurId'}">
+            <div class="cd-timeline-img" data-bind="css:{hasDisagreement : Disagreements().length > 0, hasDebate : Debates().length > 0, IsDebateClosed : Debates().length > 0 && Debates()[0].Closed()}">
+                <i class="fa fa-file-text fa-2x-responsive"></i>
+            </div>
+            <div class="cd-timeline-positioning">
+                <div class="cd-timeline-content" data-bind="css: { reso : Type() == 4}">
+                    <h2 data-bind="visible: Type() == 4 ">Demande</h2>
+                    <h2 data-bind="text:Name">Title of section 1</h2>
+                    <div class="underliner" data-bind="css:{'other' : IdUser() != '@User.Identity.GetId()'}"></div>
+                    @*<div class="timeline-elt-edit ">
+                            <a class="btn-floating waves-effect waves-light  orange tooltipped" data-position="top" data-tooltip="Lancer un débat" data-bind='visible: "@User.IsInRole("Arbiter")" == "True" && "@Model.IdArbiterAssigned" == "@User.Identity.GetId()" && $data.Debates().length == 0 ,click:$root.startDebat'><i class="fa fa-exclamation"></i></a>
+                            <a class="btn-floating waves-effect waves-light  red tooltipped" data-position="top" data-tooltip="voir le débat" data-bind='visible:$data.Debates().length > 0 , href: $data.Debates().length > 0 ? "@Url.Action("ShowDebate", "Arbitre")" + "?debatId=" + $data.Debates()[0].Id() : "#"  '><i class="fa fa-exclamation"></i></a>
+                        </div>*@
+                    <p data-bind="html:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                    <span class="cd-date" data-bind="text:moment(DateBegin()).format('LL'), css:{disagreed : Disagreements().length > 0}">Jan 14</span>
+                    <div class="row" style="clear:both">
+                        @if (Model.State >= (int)ConflictState.ArbitrationStarted)
+                        {
+                            @*if (!User.IsInRole("Arbiter"))
+                                {
+                                <div class="col s6" data-bind='visible:$data.Debates().length == 0'>
+                                    <a class="btn btn-flat blue full-width center-align " data-bind="visible: IdUser() != '@(User.Identity.IsAuthenticated ? User.Identity.GetId() : "" )' ,click:$root.startDebate">Contester</a>
+                                </div>
+                                }*@
+                            <div class="col s6">
+                                <a class="btn btn-flat red  full-width center-align" data-bind='visible:$data.Debates().length > 0 , href: $data.Debates().length > 0 ? "@Url.Action("ShowDebate", "Arbitre")" + "?debatId=" + $data.Debates()[0].Id() : "#"  '>Voir le débat</a>
+                                <input type="button" class="btn btn-flat complementaryBlue full-width center-align" value="Lancer un débat" data-bind='visible:"@User.IsInRole("Arbiter")" == "True" && "@Model.IdArbiterAssigned" == "@User.Identity.GetId()"  && $data.Debates().length == 0 ,click:$root.startDebat' />
+
+                            </div>
+                        }
+                        @*<div class="col s6" data-bind="visible:Comments().length > 0 || ProofFiles().length > 0 "><a href="#0" class="read-more btn btn-flat hoverable full-width center-align blue" data-target="comments">Voir détail</a></div>*@
+                    </div>
+                    <div id="comments" @*class="accordion" data-bind="visible:Comments().length > 0 || ProofFiles().length > 0 "*@>
+                        <div data-bind="foreach:Comments">
+                            <p><b data-bind="text:UserEmail"></b> a écrit :</p>
+                            <i data-bind="text:Text"></i>
+                        </div>
+                        <hr data-bind="visible:ProofFiles().length > 0 " />
+                        <table class="striped" data-bind="visible:ProofFiles().length > 0 ">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Fichier</td>
+
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:ProofFiles">
+                                <tr>
+                                    <td>
+                                        <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                        <span data-bind="text:$index()+1"></span>
+                                    </td>
+                                    <td width="90%">
+                                        <a target="_blank" data-bind="href:FilePath">
+                                            <p data-bind="text:Name" class="truncate"></p>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="drop-area-div">
+                        <input type="file" class="none" name="files" multiple="multiple" title="Ajouter une pièce">
+                        <input type="hidden" data-bind="value:Id" />
+                    </div>
+                </div>
+                <div class="cd-disagreement-container" data-bind="foreach : Disagreements">
+                    <div class="cd-timeline-content cd-disagreement">
+                        <p data-bind="text:CreatedBy.FirstName() + ' ' + CreatedBy.LastName() + ' n\'est pas d\'accord'"></p>
+                        <b>Désaccord(s) sur :</b>
+                        <ol>
+                            <li data-bind="visible:DisagreementOnDescription">
+                                <p>L'évènement lui-même</p>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i><span data-bind="text:ConcurrentDescription"></span><i class="fa fa-quote-right" aria-hidden="true"></i>
+                            </li>
+                            <li data-bind="visible:DisagreementOnDate">
+                                <p>La date de l'évènement</p>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i><span data-bind="text:moment(ConcurrentDate()).format('L')"></span><i class="fa fa-quote-right" aria-hidden="true"></i>
+                            </li>
+                            <li data-bind="visible:DisagreementOnPiece">
+                                La/les pièce(s) : <p data-bind="text:ConcurrentPieces"></p>
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="official-event-template">
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-positioning">
+                <div class="cd-timeline-content official-doc">
+
+                    <h2 data-bind="text:Name">Title of section 1</h2>
+
+                    <p data-bind="html:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                    <div class="row" style="clear:both">
+
+                        <div class="col s6">
+                            <a class="btn btn-flat blue  full-width center-align" data-bind='visible:$data.Debates().length > 0 , href: $data.Debates().length > 0 ? "@Url.Action("ShowDebate", "Arbitre")" + "?debatId=" + $data.Debates()[0].Id() : "#"  '>Voir le débat</a>
+                            <input type="button" class="btn btn-flat complementaryBlue full-width center-align" value="Contester" data-bind='visible:"@User.Identity.GetId()" != $root.data.IdArbiterAssigned() &&  $data.Debates().length == 0 ,click:$root.startDisagreement' />
+
+                        </div>
+
+                    </div>
+                    <div id="comments">
+
+                        <table class="striped" data-bind="visible:ProofFiles().length > 0 ">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Fichier</td>
+
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:ProofFiles">
+                                <tr>
+                                    <td>
+                                        <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                        <span data-bind="text:$index()+1"></span>
+                                    </td>
+                                    <td width="90%">
+                                        <a target="_blank" data-bind="click:function(data,event){$root.showDoc(FilePath)}" @*data-bind="href:'http://docs.google.com/gview?url='+ FilePath() + '&embedded=true'"*@>
+                                            <p data-bind="text:Name" class="truncate"></p>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <script type="text/html" id="visio-event-template">
+        <div class="cd-timeline-block" id="visio">
+            <div class="cd-timeline-img">
+                <i class="fa fa-file-text fa-2x-responsive"></i>
+            </div>
+            <div class="cd-timeline-positioning">
+                <div class="cd-timeline-content" data-bind="visible: MeetingDebates()[0].Date() == null">
+                    <h2 data-bind="text:Name">Title of section 1</h2>
+                    <input type="button" value="ajouter des dates" class="btn btn-flat blue" data-bind="visible : '@User.IsInRole("Arbiter")' == 'True', click:$root.addNewDateToEvent" />
+                    <p data-bind="text:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Nom</td>
+                                <!-- ko foreach: MeetingDebates()[0].MeetingPropositions -->
+                                <td>
+                                    @if (User.IsInRole("Arbiter"))
+                                    {
+                                        <div class="btn btn-flat blue" data-bind="click:$root.setDate">
+                                            <p style="font-size:1.5rem;margin:0" data-bind="text:moment(DateTimeProposition()).format('DD/MM')"></p>
+                                            <p style="margin:0" data-bind="text:moment(DateTimeProposition()).format('HH:mm')"></p>
+                                        </div>
+                                    }
+                                    else
+                                    {
+
+                                        <p style="font-size:1.5rem;margin:0" data-bind="text:moment(DateTimeProposition()).format('DD/MM')"></p>
+                                        <p style="margin:0" data-bind="text:moment(DateTimeProposition()).format('HH:mm')"></p>
+                                    }
+
+                                </td>
+                                <!-- /ko -->
+
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach:$root.data.UsersInConflicts">
+                            <tr>
+                                <td>
+                                    <span data-bind="text:User.DisplayName"></span>
+                                </td>
+                                <!-- ko foreach: $data.User.MeetingPropositionAnswers -->
+                                <!-- ko if : isInMeetingDebate($parents[1].MeetingDebates()[0], $data.IdMeetingProposition()) -->
+                                <td data-bind="css:{ligthgrey : $data.IdUser() != '@User.Identity.GetId()' && Response() == null, green:  Response() == true, red : Response() == false }">
+
+                                    <p style="line-height:0;">
+                                        <input type="checkbox" class="filled-in" data-bind="checked: Response, disable : $data.IdUser() != '@User.Identity.GetId()', attr: { id : IdMeetingProposition() + '_' + IdUser()}" />
+                                        <label style="padding:10px;margin-top:10px" data-bind="attr:{'for' : IdMeetingProposition() + '_' + IdUser() }"></label>
+                                    </p>
+
+                                </td>
+                                <!-- /ko-->
+                                <!-- /ko -->
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="button" class="btn btn-flat blue" value="Valider" data-bind="click:$root.saveEvent" />
+                </div>
+                <div class="cd-timeline-content" data-bind="visible: MeetingDebates()[0].Date() != null">
+                    <h2 data-bind="text:Name">Title of section 1</h2>
+                    <p data-bind="text:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                    <div>
+                        <p>Visio conférence prévue pour le <span data-bind="text:moment(MeetingDebates()[0].Date()).format('DD MMMM YYYY, h:mm:ss a')"></span></p>
+                        <p>Lien de la visio-conférence : <a data-bind="attr:{href: $data.Link}">Cliquer ici</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+</div>
+
+<div class="modal modal-fixed-footer" style="overflow:hidden" id="ViewDocument">
+    <div class="loader" data-bind="visible:isIFrameLoading">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="iFrameContainer" style="width:100%;height:100%" data-bind="visible:!isIFrameLoading()">
+
+    </div>
+</div>
+
+@if (Request.QueryString.AllKeys.Contains("i"))
+{
+    @Html.Partial("_ProcessPopupOpponent")
+}
+
+@section css{
+    <link href="~/Content/css/timeline.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/timeline-arbitrage.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .recap-card p, .recap-card .row {
+            margin-bottom: 0;
+        }
+
+        .recap-card {
+            margin-bottom: 10px;
+            position: relative;
+            height: 40px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .recap-card-icon {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .links {
+            margin-top: 1.13rem;
+        }
+
+            .links li.active {
+                border-left: solid 2px #2196f3;
+                margin-left: -8px;
+                color: #2196f3 !important;
+                padding-left: 6px;
+            }
+
+                .links li.active a {
+                    color: #2196f3 !important;
+                }
+
+        ul li ul {
+            margin-left: 15px;
+        }
+
+        links li.active ul li:not(.active) {
+            border-left: none;
+            color: #acb7c0;
+        }
+
+        table tr td {
+            text-align: center;
+        }
+
+            table tr td p {
+                margin: 0 !important;
+            }
+
+
+        div.btn, div.btn-flat, div.btn-large {
+            height: auto;
+        }
+
+        .stepper-link {
+            height: 100px;
+            width: 24%;
+        }
+
+        .line {
+            top: 50%;
+        }
+
+        .stepper-link {
+            cursor: default !important;
+        }
+
+        .stepper-content-text, .stepper-content-text:hover {
+            color: white !important;
+        }
+
+        .stepper-link:hover:not(.active) p {
+            color: grey !important;
+        }
+
+        hr.no-pad {
+            margin: 20px -.75rem !important;
+        }
+
+        .sameSized {
+            min-height: 270px;
+        }
+
+        .image-presentation {
+            display: inline-block;
+        }
+
+        .official-doc {
+            width: 60%;
+            left: 20%;
+            text-align: center;
+        }
+
+            .official-doc.cd-timeline-content::before {
+                border: none !important;
+            }
+    </style>
+}
+
+
+@section scripts{
+    <script src="~/Scripts/jquery.form-validator.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/dmuploader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/Jquery-ajax-yql.js"></script>
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js" type="text/javascript"></script>
+    <script src="~/Scripts/viewModels/viewer/conflictViewerViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validate({
+                lang: 'fr',
+                modules: 'html5'
+            });
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            loadComponents();
+            $('.tooltipped').tooltip({ delay: 50 });
+            userId = '@User.Identity.GetId()';
+            @(Model.State >= (int)ConflictState.ArbitrationStarted ? Html.Raw("$(\"#step_\" +" + Model.State +")[0].scrollIntoView();") : null)
+
+            var info = '@ViewBag.Info';
+            if (info != '') {
+                Layout.showInfo({ infoHeader: 'Demande envoyée', infoText: info });
+            }
+            var success = '@ViewBag.Success';
+            if (success != '') {
+                Layout.showInfo({ infoHeader: 'Message envoyé', infoText: success });
+            }
+
+            @(Request.QueryString.AllKeys.Contains("i") == true ?  Html.Raw("$('#process-explanation-modal').openModal();") : Html.Raw("") )
+
+
+        })
+    </script>
+}

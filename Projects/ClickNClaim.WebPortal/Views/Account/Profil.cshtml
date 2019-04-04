@@ -1,0 +1,300 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.Common.AspNetUser
+@using ClickNClaim.WebPortal.Helpers
+@using ClickNClaim.Common
+@using ClickNClaim.WebPortal.Extensions
+@{
+    ViewBag.Title = "Profil";
+    var Conflicts = Model.Conflicts.Where(c => !c.UsersInConflicts.First(u => u.IdUser == User.Identity.GetId()).Disable).Distinct().ToList();
+    var ConflictIds = Conflicts.Select(c => c.Id);
+    Conflicts = Conflicts.OrderByDescending(c => c.Id).ToList();
+    int Page = ViewBag.Page;
+    var NbElts = 4;
+    var totalElts = Conflicts.Count();
+    var totalPages = (totalElts / NbElts) + (totalElts % NbElts != 0 ? 1 : 0);
+    var CurrentElts = Conflicts.Skip(Page * NbElts).Take(NbElts);
+}
+
+
+<div class="container  root-container">
+    <div class="row last-row">
+        <div class="col s4">
+            <h2>Mon Profil</h2>
+            <div class="card center-align">
+                @if (String.IsNullOrWhiteSpace(Model.PhotoPath))
+                {
+                    <div class="img-presentation">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                }
+                else
+                {
+                    <img src="@Model.PhotoPath" class="circle profile-picture" />
+                }
+                <form action="@Url.Action("UpdatePhoto")" method="post" enctype="multipart/form-data">
+                    <input type="file" class="none" name="PhotoFile" id="PhotoFile" />
+                    <a onclick="fileClick()">@Account.ChangePic</a>
+                    <input type="submit" class="none" id="PhotoFileSubmit" />
+                </form>
+                <hr />
+                <form action="@Url.Action("UpdateUserPersonalInfo")" method="post">
+                    <input type="hidden" value="@Model.Id" name="Id" />
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="text" id="FirstName" name="FirstName" data-validation="required" class="validate" value="@Model.FirstName" />
+                                <label for="Firstname">@Account.Name</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" id="LastName" name="LastName" data-validation="required" class="validate" value="@Model.LastName" />
+                                <label for="LastName">@Account.Surname</label>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="text" id="BirthDay" placeholder="jj/mm/aaaa" class="validate" name="DateOfBirth" value="@(Model.DateOfBirth != null ? Model.DateOfBirth.Value.ToShortDateString() : "")" />
+                                <label for="BirthDay" class="active">@Account.DOB</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" id="TelMobile" name="TelMobile" class="validate" value="@Model.TelMobile" />
+                                <label for="TelMobile">@Account.Mobile</label>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <div class="input-field">
+                                <input type="text" id="Email" data-validation="required email" class="validate" name="Email" value="@Model.Email" />
+                                <label for="Email ">@Account.Email</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row last-row">
+                        <div class="col s12">
+                            <input type="submit" class="btn btn-flat blue full-width margin-bottom-small" value="@Account.Save" />
+                        </div>
+
+                        @if (User.IsInRole("Arbiter"))
+                        {
+                            <div class="col s12">
+                                <hr />
+                                <a class="btn btn-flat blue full-width margin-bottom-small" href="@Url.Action("Detail", "Arbitre", new { id = Model.Id, name = Model.DisplayName.Replace(" ","-") })">Profil arbitre</a>
+                            </div>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col s8">
+
+            <h2>@Account.MyCaseFiles </h2>
+
+            <div class="card">
+                @*<i class="fa fa-plus-circle blue-text fa-3x absolute top-right" aria-hidden="true"></i>*@
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <td class="center-align" colspan="2">@Account.Case</td>
+                            <td class="center-align">Créé le</td>
+                            <td class="center-align">Etat</td>
+                            <td class="center-align" width="140">@Account.Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in CurrentElts)
+                        {
+                            var demandeur = new UsersInConflict();
+                            demandeur = item.UsersInConflicts.Where(
+                                c => c.IdUser == item.IdCreationUser).First();
+
+                            if (demandeur.IsLawyer != null && demandeur.IsLawyer.Value)
+                            {
+                                demandeur = item.UsersInConflicts.FirstOrDefault(c => c.IdLawyer == item.UsersInConflicts.First().IdUser);
+                                if (demandeur == null)
+                                {
+                                    demandeur = item.UsersInConflicts.Where(c => c.IdUser == item.IdCreationUser).First();
+                                }
+                            }
+
+
+                            var Opponent = item.UsersInConflicts.Where(c => (c.IsLawyer == null || !c.IsLawyer.Value) && c.IdUser != demandeur.IdUser).FirstOrDefault();
+                            if (Opponent == null)
+                            {
+                                var invit = item.Invitations.FirstOrDefault();
+                                if (invit != null)
+                                {
+                                    Opponent = new UsersInConflict()
+                                    {
+                                        User
+                                     = new AspNetUser()
+                                     {
+                                         FirstName = invit.FirstName,
+                                         LastName = invit.LastName
+                                     },
+                                        CompanyName = invit.CompanyName
+                                    };
+                                }
+                            }
+                            <tr>
+                                <td colspan="2" style="text-align:center">@Account.Case N°@item.Id - @(!String.IsNullOrWhiteSpace(demandeur.CompanyName) ? demandeur.CompanyName : demandeur.User.DisplayName) / @(Opponent != null ? (!String.IsNullOrWhiteSpace(Opponent.CompanyName) ? Opponent.CompanyName : Opponent.User.DisplayName) : Account.UnknownOpposingParty)</td>
+                                @*<td></td>*@
+                                <td style="text-align:center">@item.CreateDate.Value.ToShortDateString()</td>
+                                <td style="text-align:center"><p style="margin:0;padding:0;margin-left:20px;"> @MetadataHelper.GetEnumDisplayNAme((ClickNClaim.Common.ConflictState)item.State)</p></td>
+                                <td class="center-align">
+                                    <a class="btn  blue low-padding btn-flat" href="@( (item.State < (int)ConflictState.Pending || (item.State == (int)ConflictState.Pending && item.IdCreationUser != User.Identity.GetId()))  ?  Url.Content("~/Conflict/" + item.Id + "/Declaration") : Url.Action("Conflict", "Viewer", new { conflictId = item.Id }))">@Account.View</a>
+                                    @if (!demandeur.Completed || Opponent == null || !Opponent.Completed)
+                                    {<a class="btn btn-flat blue low-padding delete" data-href="@Url.Action("Delete", "Conflict", new { conflictId = item.Id })" onclick="deleteConfirm(this, @item.Id)"><i class="fa fa-trash text-white"></i></a>}
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <hr style="margin-bottom:0;" />
+                <div class="row last-row">
+                    <div class="col s6">
+                        <ul class="pagination pagination-sm">
+                            <li @(Page == 0 ? Html.Raw("class='disabled'") : Html.Raw("")) class="disabled"><a href="@Url.Action("Profil", new { page = Page - 1 })"><i class="material-icons">chevron_left</i></a></li>
+
+                            @for (int i = 0; i < totalPages; i++)
+                            {
+                                <li @( Page == i ? Html.Raw("class=\"active\"") : Html.Raw(""))><a class="pagination-page" href="@Url.Action("Profil",new { page = i }) ">@(i + 1)</a></li>
+                            }
+                            <li @(Page == totalPages ? Html.Raw("class=\"disabled\"") : Html.Raw(""))><a href="@Url.Action("Profil", new { page = Page + 1 })"><i class="material-icons">chevron_right</i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col s6">
+                        <a href="@Url.Action("Create", "Conflict", new { firstname = Model.FirstName, lastname = Model.LastName, email = Model.Email })" class="btn btn-flat blue right" style="margin-left:20px;margin-top:25px">@Account.CreateFolder</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            @if (Model.Invitations != null && Model.Invitations.Where(c => !c.IsUsed).Count() > 0)
+            {
+                <div class="row">
+                    <div class="col s12">
+                        <h5>@Account.MyInvites</h5>
+                        <div class="card">
+                            <table class="striped">
+                                <thead>
+                                    <tr>
+                                        <td class="center-align" colspan="2">@Account.Cases</td>
+                                        <td class="center-align">Reçu le</td>
+                                        <td class="center-align">Etat</td>
+                                        <td class="center-align" width="140">@Account.Actions</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Invitations.Where(c => !c.IsUsed).OrderByDescending(c => c.IdConflict))
+                                    {
+                                        <tr>
+                                            <td class="center-align" colspan="2">@Account.CaseNo@item.IdConflict</td>
+                                            <td style="text-align:center">@(item.CreationDate != null ? item.CreationDate.Value.ToShortDateString() : "")</td>
+                                            <td style="text-align:center"><p style="margin:0;padding:0;margin-left:20px;"> @Account.AwaitingYourParticipation</p></td>
+                                           
+                                            <td class="center-align">
+                                                <a class="btn  blue low-padding btn-flat" href="@Url.Action("Conflict", "Viewer", new { conflictId = item.IdConflict, i = item.Id })">@Account.View</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+
+
+
+</div>
+
+@section css{
+    <style type="text/css">
+        .img-presentation {
+            border-radius: 50%;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .pagination {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery.form-validator.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.validate({
+            lang: 'fr'
+        });
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+
+            $("input[type=file]").change(function (event) {
+                $("#PhotoFileSubmit").click();
+            });
+            $('input.date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY', lang: 'fr', weekStart: 1, cancelText: '@Account.Cancel', time: false });
+        });
+
+        function fileClick() {
+            $("#PhotoFile").click();
+
+        }
+
+        function SearchSiret() {
+            $.ajax({
+                url: rootDir + "Viewer/SearchCompany",
+                data: {
+                    'siren': $("#Siret").val(),
+                },
+                complete: function (data, status, xhr) {
+                    if (status == 'success') {
+                        $("#Company").val(data.responseJSON.company.names.best);
+                        $("#Company").siblings("label").addClass("active");
+                        $("#Address1").val(data.responseJSON.company.address);
+                        $("#Address1").siblings("label").addClass("active");
+                        $("#PostalCode").val(data.responseJSON.company.postal_code);
+                        $("#PostalCode").siblings("label").addClass("active");
+                        $("#City").val(data.responseJSON.company.city);
+                        $("#City").siblings("label").addClass("active");
+                    }
+                    else {
+                        Layout.showInfo({
+                            infoHeader: '@Account.UnknownTaxNumber', infoText: '@Account.UnknownTaxNumberSolutionProposal'
+                        })
+                    }
+                }
+            })
+        }
+
+        function deleteConfirm(data, id) {
+
+            var link = $(data).closest('td').find("a.delete").data("href");
+
+            Layout.showConfirm({
+                header: @Account.DeletionOfCase,
+                text: "@Account.WarningCaseDeletion",
+                confirmYes: function (data, id) {
+                    window.location = Layout.obj.link;
+                },
+                confirmNo: function () {
+
+                },
+                object: { link: link, id: id }
+            })
+
+        }
+
+    </script>
+
+}

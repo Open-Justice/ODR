@@ -1,0 +1,491 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.WebPortal.Models.ConflictTypeModel
+@{
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+
+
+<div class="container view-container">
+    <form class="main-form" id="save-conflictType" action="@Url.Action("SaveStep1Declaration")" data-bind="submit:updateDates">
+        <input type="hidden" data-validation="required" name="Conflict.IdConflictType" data-bind="value:typologySelected" />
+        <input type="hidden" name="Conflict.Id" value="@Model.Conflict.Id" />
+        <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+        <div class="row">
+            <div class="col s8">
+                <div class="stepper-wrapper no-margin left " style="margin-top:5px !important;margin-right:10px !important; background-color:rgb(243,124,46)">
+                    <div class="stepper-white-ring">
+                        <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                            <p class="stepper-content-text">3</p>
+                        </div>
+                    </div>
+                </div> <h5 style="color:rgb(243,124,46)">@Conflict.FactsExhibits</h5>
+
+                <div class="card">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="tip">
+                                <div class="sized-tip">
+                                    <i class="fa fa-info-circle text-white fa-3x"></i>
+                                    <ol>
+                                        <li>@Conflict.ContractualDispute</li>
+                                        <li>
+                                            @Conflict.ConstitutionContract
+                                            <ul>
+                                                <li>@Conflict.PurchaseOrder</li>
+                                                <li>@Conflict.Quotation</li>
+                                                <li>@Conflict.Bill</li>
+                                                <li>@Conflict.SignedDoc</li>
+                                                <li>@Conflict.EmailExchange</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                    <p>@Conflict.NoContract</p>
+
+                                </div>
+                                <p><span>&hellip;</span> <a href="#" class="tip-accordion-action" style="float:right">@Conflict.SeeMore</a></p>
+                            </div>
+
+
+                            <h3>@Conflict.ContractualDisputeQ</h3>
+                            <div class="col s5 card card-option pointer" data-bind="click: function(data,event){selectedType('1')}, css : {'card-option-selected' : selectedType() == 1  }">
+                                <p>
+                                    <input type="radio" value="1" data-bind="checked: selectedType" id="yesContract" />
+                                    <label for="yesContract">@ButtonsAndRecurring.Yes</label>
+                                </p>
+                            </div>
+                            <div class="col offset-s2 s5 card card-option hoverable pointer" data-bind="click: function(data,event){selectedType('2'); }, css : {'card-option-selected' : selectedType() == 2  }">
+                                <p>
+                                    <input type="radio" value="2" data-bind="checked:selectedType" id="noContract" />
+                                    <label for="noContract">@ButtonsAndRecurring.No</label>
+                                </p>
+                            </div>
+                        </div>
+                        <div id="docs" class="col s12" data-bind="visible:selectedType() != ''">
+                            <hr />
+                            <h2>@Conflict.DisputeConcerns</h2>
+                            <div class="input-field">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle full-width" type="button" id="typology" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span data-bind="text:$root.dropText"></span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <span class="error red-text" data-bind="text:error"></span>
+                                    <ul class="dropdown-menu full-width" aria-labelledby="typology" data-bind="foreach:availableTypes">
+                                        <li data-bind="click:$root.selectType">
+                                            <div class="row last-row">
+                                                <div class="col s10"><span data-bind="text:Name"></span> </div>
+                                                <div class="col s2"><i class="fa fa-question-circle right tooltipped " data-position="top" data-bind="attr:{'data-tooltip':Info}" aria-hidden="true"></i> </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div data-bind="visible:cat1().length > 0">
+                    <h2>@Conflict.WhatContract</h2>
+                    <div data-bind="template: {name : conflictTypeTemplateSelector, foreach:existingCat1Events, afterRender : loadActionsForElement}">
+
+
+                    </div>
+                </div>
+                <div data-bind="visible:cat2().length > 0">
+                    <h2>@Conflict.AboutDispute</h2>
+                    <div data-bind="template: {name : conflictTypeTemplateSelector, foreach:existingCat2Events, afterRender : loadActionsForElement}">
+
+                    </div>
+                    <div data-bind="visible:existingCat2Events().length > 0">
+                        <h2>@Conflict.AboutSmthgElse</h2>
+                    </div>
+                    <div class="card">
+                        <div class="dropup">
+                            @Conflict.SelectCorresponding
+                            <br />
+                            <button class="btn btn-default dropdown-toggle" type="button" id="typology" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                @Conflict.ChooseFromList
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="typology">
+                                <li class="blue shades-text text-white">@Conflict.AboutDisagreement</li>
+                                <!-- ko foreach: cat2 -->
+                                <li data-bind="click:$root.addToExistingElement">
+                                    <div class="row last-row">
+                                        <div class="col s10"><span data-bind="text:Name"></span> </div>
+                                        <div class="col s2"><i class="fa fa-question-circle right valign  tooltipped" data-position="top" data-bind="attr:{'data-tooltip':Info}" aria-hidden="true"></i></div>
+                                    </div>
+                                </li>
+                                <!-- /ko -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div data-bind="visible:cat3().length > 0">
+                    <h2>@Conflict.PriorResolutionAttempt</h2>
+                    <div data-bind="template: {name : conflictTypeTemplateSelector, foreach:existingCat3Events, afterRender : loadActionsForElement}">
+
+                    </div>
+                    <div data-bind="visible:existingCat3Events().length > 0">
+                        <h2>@Conflict.OtherResolutionAttempt</h2>
+                    </div>
+                    <div class="card">
+                        <div class="dropup">
+                            @Conflict.SelectFromListCorrespondingElements
+                            <br />
+                            <button class="btn btn-default dropdown-toggle" type="button" id="typology" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                @Conflict.ChooseFromList
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="typology">
+                                <li class="blue shades-text text-white">@Conflict.PriorResolutionAttempt</li>
+                                <!-- ko foreach:  cat3 -->
+                                <li data-bind="click:$root.addToExistingElement">
+                                    <div class="row last-row">
+                                        <div class="col s10"><span data-bind="text:Name"></span> </div>
+                                        <div class="col s2"><i class="fa fa-question-circle right valign tooltipped" data-position="top" data-bind="attr:{'data-tooltip':Info}" aria-hidden="true"></i></div>
+                                    </div>
+                                </li>
+                                <!-- /ko -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <input type="button" data-bind="click:save" value="@ButtonsAndRecurring.Save" class="btn btn-flat blue left" />
+                <input type="submit" value="@ButtonsAndRecurring.NextStep" class="btn btn-flat blue right" />
+            </div>
+            <div class="col s4 ">
+                <div class="fixed-resume">
+                    @Html.Partial("_ConflictResume")
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/html" id="base-accord-template">
+    <form class="event-form" action="@Url.Action("SaveEvent")" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="IdConflict" value="@Model.Conflict.Id" />
+        <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+        <input type="hidden" id="defaultEventId" name="IdDefaultEvent" data-bind="value:Id" />
+        <input type="hidden" name="Id" data-bind="value:IdEvent" />
+        <input type="hidden" name="Name" data-bind="value:Name" />
+        <input type="hidden" name="Type" data-bind="value:Type" />
+
+        <div class="card" data-bind='attr:{id: "event_" + $index()}'>
+            <div class="edit-elt">
+                <a class="btn-floating waves-effect waves-light  red" title="@ButtonsAndRecurring.Delete" data-bind="click:$root.deleteElt, visible:$data.IdEvent() > 0"><i class="fa fa-trash"></i></a>
+            </div>
+            <div class="tip">
+                <i class="fa fa-info-circle text-white fa-3x"></i>
+                <p>@Conflict.ContractInfo</p>
+                <p>@Conflict.IfNoContract</p>
+            </div>
+            <h3 data-bind="text:Name"></h3>
+            <p data-bind="text:Placeholder"></p>
+            <div class="date-holder">
+                <div class="input-field">
+                    <input class="date" name="DateBegin" data-validation="required" data-bind='value:Date' placeholder="@Conflict.DateContract" />
+                </div>
+            </div>
+
+
+
+            <div class="drop-area-div">
+                <input type="file" class="none" name="files" @*multiple="multiple"*@ title="@ButtonsAndRecurring.AddExhibit">
+                <input type="hidden" name="Id" data-bind="value:IdEvent" />
+                <input type="hidden" name="IdDefaultEvent" class="defaultEventId" data-bind='value:Id' />
+                <input type="hidden" name="uid" class="uid" data-bind="value:uid" />
+            </div>
+            <div class="input-field">
+                <textarea class="materialize-textarea" data-bind="id:'description_'+$index(), value:Description" name="Description"></textarea>
+                <label data-bind="for:'description_'+$index()">@ButtonsAndRecurring.Comment</label>
+
+            </div><hr />
+            <p>@Conflict.DoYouHaveDocs</p>
+            <div class="input-field">
+                <input type="button" class="btn btn-flat blue" data-bind="click:$root.uploadFile" value="@ButtonsAndRecurring.Download" />
+            </div>
+            <div class="row last-row" data-bind="visible:Files().length > 0">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>@ButtonsAndRecurring.File</td>
+                            <td>@ButtonsAndRecurring.Action</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:Files">
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                <span data-bind="text:$index()+1"></span>
+                            </td>
+                            <td width="90%">
+                                <a target="_blank" data-bind="href:FilePath">
+                                    <p data-bind="text:Name" class="truncate"></p>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="progress" data-bind="visible:IsDownloading">
+                <div class="determinate" data-bind="style:{width : Percent()}"></div>
+            </div>
+        </div>
+    </form>
+</script>
+<script id="accord-issue-template" type="text/html">
+    <form class="event-form" action="@Url.Action("SaveEvent")" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="IdConflict" value="@Model.Conflict.Id" />
+        <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+        <input type="hidden" id="defaultEventId" name="IdDefaultEvent" data-bind="value:Id" />
+        <input type="hidden" name="Id" data-bind="value:IdEvent" />
+        <input type="hidden" name="Name" data-bind="value:Name" />
+        <input type="hidden" name="Type" value="2" />
+        <div data-bind="visible:$root.firstOfKind($data.Id(), $index())">
+            <div class="event-header">
+                <h2 data-bind="text:SubPbTitle"></h2>
+                @*<p data-bind="text:SubPbInfo"></p>
+                <p data-bind="text:SubPbPlaceholder"></p>*@
+            </div>
+           
+            <div class="tip">
+                <i class="fa fa-info-circle text-white fa-3x"></i>
+                @*<p>Merci de renseigner le plus précisément possible les faits qui ont entrainés votre problème. N'hésitez pas à créer autant de fait qu'il vous semble nécessaire. Cela peut être l'envoi d'un email dont le contenu plaide en votre faveur, un document qui vous a été transmis ou que vous avez transmis, ou tout autre chose qui ammèneront l'arbitre à mieux cerné la situation.</p>*@
+                <p>@Conflict.ChronologyInstructions</p>
+                <p>@Conflict.ChronologyEx</p>
+                <p>@Conflict.ChronologyAddNewEntry</p>
+                <p>@Conflict.ChronologyDetails</p>
+                <p>@Conflict.ChronologyEntries</p>
+                <ul>
+                    <li>
+                        @Conflict.ChronologyMoreEntries
+                    </li>
+                    <li>@Conflict.ChronologyHelpArb</li>
+                </ul>
+            </div>
+        </div>
+        <h2>@Conflict.Chronology</h2>
+        <div class="card" data-bind='attr:{id: "event_" + $index()}'>
+            <div class="edit-elt">
+                <a class="btn-floating waves-effect waves-light  red" title="@ButtonsAndRecurring.Delete" data-bind="click:$root.deleteElt"><i class="fa fa-trash"></i></a>
+            </div>
+            <div class="row">
+
+                <div class="col s6">
+                    <div class="input-field">
+                        <input type="text" data-validation="required" name="SubName" data-bind="id:'subName_'+$index(), value:SubName" />
+                        <label data-bind="for:'subName_'+$index()">@ButtonsAndRecurring.Entry</label>
+                    </div>
+                </div>
+                <div class="col s4 offset-s2 date-holder">
+                    <div class="input-field">
+                        <input class="date" name="DateBegin" data-validation="required" data-bind='value:Date' placeholder="Date" />
+                    </div>
+                </div>
+                <div class="col s12 input-field">
+                    <textarea class="materialize-textarea" data-bind="id:'description_'+$index(), value:Description" name="Description"></textarea>
+                    <label data-bind="for:'description_'+$index()">Description</label>
+                </div>
+                <div class="drop-area-div">
+                    <input type="file" class="none" name="files" multiple="multiple" title="@ButtonsAndRecurring.AddExhibit">
+                    <input type="hidden" name="Id" data-bind="value:IdEvent" />
+                    <input type="hidden" name="IdDefaultEvent" class="defaultEventId" data-bind='value:Id' />
+                    <input type="hidden" name="uid" class="uid" data-bind="value:uid" />
+                </div>
+                <div class="col s12">
+                    <hr />
+                    <p>@Conflict.DoYouHaveExhibits</p>
+                    <div class="input-field">
+                        <input type="button" class="btn btn-flat blue" data-bind="click:$root.uploadFile" value="@ButtonsAndRecurring.Upload" />
+                    </div>
+                </div>
+            </div>
+            <div class="row last-row" data-bind="visible:Files().length > 0">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>@ButtonsAndRecurring.File</td>
+                            <td>@ButtonsAndRecurring.Action</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:Files">
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                <span data-bind="text:$index()+1"></span>
+                            </td>
+                            <td width="90%">
+                                <a target="_blank" data-bind="href:FilePath">
+                                    <p data-bind="text:Name" class="truncate"></p>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="progress" data-bind="visible:IsDownloading">
+                <div class="determinate" data-bind="style:{width : Percent()}"></div>
+            </div>
+        </div>
+        <div data-bind="visible:$root.lastOfKind($data.Id(), $index())" class="margin-bottom" style="margin-top:-30px;">
+            <input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.AddEntry" data-bind="click : $root.addAnother" />
+        </div>
+    </form>
+</script>
+<script id="resolution-issue-template" type="text/html">
+    <form class="event-form" action="@Url.Action("SaveEvent")" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="IdConflict" value="@Model.Conflict.Id" />
+        <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+        <input type="hidden" id="defaultEventId" name="IdDefaultEvent" data-bind="value:Id" />
+        <input type="hidden" name="Id" data-bind="value:IdEvent" />
+        <input type="hidden" name="Name" data-bind="value:Name" />
+        <input type="hidden" name="Type" value="3" />
+        <div data-bind="visible:$root.firstOfKind($data.Id(), $index())">
+            <div class="event-header">
+                <h2 data-bind="text:Name"></h2>
+                <p data-bind="text:Placeholder"></p>
+            </div>
+            <h2>@Conflict.Chronology</h2>
+        </div>
+        <div class="card" data-bind='attr:{id: "event_" + $index()}'>
+            <div class="edit-elt">
+                <a class="btn-floating waves-effect waves-light  red" title="@ButtonsAndRecurring.Delete" data-bind="click:$root.deleteElt"><i class="fa fa-trash"></i></a>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="input-field">
+                        <input type="text" data-validation="required" name="SubName" data-bind="id:'subName_cat3_'+$index(), value:SubName" />
+                        <label data-bind="for:'subName_cat3_'+$index()">@ButtonsAndRecurring.Title</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="date-holder">
+                        <div class="input-field">
+                            <input class="date" name="DateBegin" data-validation="required" data-bind='value:Date' placeholder="@Conflict.DateEvent" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field">
+                <textarea class="materialize-textarea" data-bind="id:'description_cat3_'+$index(), value:Description" name="Description"></textarea>
+                <label data-bind="for:'description_cat3_'+$index()">@ButtonsAndRecurring.Comment</label>
+            </div>
+            <div class="drop-area-div">
+                <input type="file" class="none" name="files" multiple="multiple" title="@ButtonsAndRecurring.AddExhibit">
+                <input type="hidden" name="Id" data-bind="value:IdEvent" />
+                <input type="hidden" name="IdDefaultEvent" class="defaultEventId" data-bind='value:Id' />
+                <input type="hidden" name="uid" class="uid" data-bind="value:uid" />
+            </div>
+            <p>@Conflict.DoYouHaveExhibits</p>
+            <div class="input-field">
+                <input type="button" class="btn btn-flat blue" data-bind="click:$root.uploadFile" value="@ButtonsAndRecurring.Upload" />
+            </div>
+            <div class="row last-row" data-bind="visible:Files().length > 0">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>@ButtonsAndRecurring.File</td>
+                            <td>@ButtonsAndRecurring.Action</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:Files">
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                <span data-bind="text:$index()+1"></span>
+                            </td>
+                            <td width="90%">
+                                <a target="_blank" data-bind="href:FilePath">
+                                    <p data-bind="text:Name" class="truncate"></p>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="progress" data-bind="visible:IsDownloading">
+                <div class="determinate" data-bind="style:{width : Percent()}"></div>
+            </div>
+        </div>
+    </form>
+</script>
+
+
+@section css{
+    <style type="text/css">
+        .edit-elt {
+            position: absolute;
+            right: 10px;
+            top: -18px;
+        }
+
+        .dropdown-menu li {
+            padding: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+            .dropdown-menu li:hover {
+                background-color: #EEE;
+            }
+
+        button .caret {
+            float: right;
+            margin-top: 15px;
+            border-top-color: white !important;
+        }
+
+        .dropdown-toggle {
+            text-align: left;
+        }
+
+        .input-like {
+            padding: 0;
+            min-height: unset;
+        }
+
+        .dropup .btn-default .caret {
+            border-bottom-color: white;
+        }
+    </style>
+}
+
+
+@section scripts{
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js" type="text/javascript"></script>
+    <script src="~/Scripts/dmuploader.js" type="text/javascript"></script>
+    <script src="~/Scripts/viewModels/conflictTypeViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            $("select").material_select();
+            loadComponents();
+            $('.tooltipped').tooltip({ delay: 50 });
+            setTimeout(function () {
+                $('.tooltipped').tooltip({ delay: 50 });
+            }, 500);
+            
+        })
+
+        //window.onbeforeunload = function () {
+        //    return "Avez-vous bien enregistré vous données ? Si vous n'avez pas cliqué sur le bouton sauvegarder, vos données ne seront pas sauvegardées. Êtes-vous sûr de vouloir quitter la page ?";
+        //}
+
+    </script>
+}

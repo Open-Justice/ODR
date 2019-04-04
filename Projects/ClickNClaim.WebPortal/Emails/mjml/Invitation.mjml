@@ -1,0 +1,105 @@
+﻿<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Arial" />
+      
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-container>
+
+      <mj-section background-color="#ffffff" padding="0">
+          <mj-column>
+          <mj-text align="center" font-size="10px">
+            Si vous ne visualisez pas correctement cet email, vous pouvez l'ouvrir dans votre navigateur en cliquant <a href="|*EMAILLINK*|">ici</a>.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      
+      <mj-navbar background-color="rgb(243,124,46)">
+        <mj-column width="100%">
+          <mj-text>
+            <a style="text-decoration:none" href="http://cc-1.azurewebsites.net">
+              <h2 style="margin:0;width:150px;margin-top:5px">
+                <span style="color:black;font-weight:bold">Fast</span>
+                <span style="color:white">Arbitre</span>
+              </h2>
+            </a>
+          </mj-text>
+        </mj-column>
+        <!--<mj-column width="40%">
+          <mj-inline-links base-url="http://cc-1.azurewebsites.net/Account/Profil">
+            <mj-link href="/Account/Profil" color="#ffffff">Mes dossiers</mj-link>
+          
+          </mj-inline-links>
+        </mj-column>-->
+      </mj-navbar>
+
+     
+      <!-- Image Header -->
+      <mj-section background-color="#f0f0f0">
+        <mj-column>
+          <mj-text align="center">
+            <h3 style="margin:0;padding:0">|*ADVERSAIRE*| a formulé des demandes à votre encontre</h3>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Introduction Text -->
+      <mj-section background-color="#fafafa">
+        <mj-column>
+          <mj-text align="justify">
+            <p>Bonjour |*CLIENT*|,</p>
+            <p>Un dossier contentieux vous concernant a été ouvert sur Fast-Arbitre.com : </p>
+            <p style="margin:3px 0">
+              <b>Dossier n° :</b>
+              |*REFDOSSIER*|
+            </p>
+            <p style="margin:3px 0">
+              <b>Demandeur : </b>|*ADVERSAIRE*|
+            </p>
+            <p style="margin:3px 0">
+              <b>Défendeur : </b>|*CLIENT*|
+            </p>
+            <div style="width:100%;text-align:center;font-size:20px;font-weight:bold;margin-top:20px;margin-bottom:20px">
+              <a href="http://|*URL*|">Voir le litige</a>
+            </div>
+            <p  style="margin-top:10px;margin-bottom:3px;">
+              <b>Que me reproche |*ADVERSAIRE*| ?</b>
+            </p>
+            <p style="margin:3px 0">|*DECLARATION*|</p>
+            <p  style="margin-top:10px;margin-bottom:3px;">
+              <b>Quelles sont les demandes formulées contre moi ?</b>
+            </p>
+            <p style="margin:3px 0">
+              |*DEMANDES*|
+            </p>
+            <p  style="margin-top:10px;margin-bottom:3px;">
+              <b>Puis-je contester ces demandes ?</b>
+            </p>
+            <p style="margin:3px 0">Oui, vous pouvez contester ces demandes en vous rendant dès à présent sur Fast-Arbitre.com.</p>
+            <p>Cordialement,<br/>
+          Emmanuel Mouclier<br/>
+          Président de l'Institut digital d'arbitrage et de médiation</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+
+
+      <mj-section background-color="rgb(243,124,46)">
+        <mj-column width="100%">
+          <mj-text color="#fff" font-size="11px" padding-bottom="0">www.fast-arbitre.com est une plateforme éditée par l'institut digital d'arbitrage et de médiation</mj-text>
+          <mj-text color="#fff" font-size="11px" padding-bottom="0"  padding-top="0">
+            Idam 58 avenue de Wagram 75017 Paris. Tel : 01.86.95.47.61</mj-text>
+        </mj-column>
+        <!--<mj-column width="30%">
+          <mj-inline-links base-url="http://cc-1.azurewebsites.net">
+            <mj-link href="/FAQ" align="right" color="#ffffff">FAQ</mj-link>
+          </mj-inline-links>
+        </mj-column>-->
+      </mj-section>
+      
+    </mj-container>
+  </mj-body>
+</mjml>

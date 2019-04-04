@@ -1,0 +1,406 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Business
+@model  ClickNClaim.WebPortal.Models.TimelineModel
+@using ClickNClaim.WebPortal.Extensions
+@{
+    ViewBag.Title = "Timeline";
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="stepper-wrapper left  stepper-link-page-title">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                        <p class="stepper-content-text">3</p>
+                    </div>
+                </div>
+            </div> <h1  style="color:rgb(243,124,46)">@Conflict.FactsExhibits</h1>
+            @*<h2 style="text-align:justify">Vous pouvez modifier, préciser ou ajouter tout événement pertinent dans le cadre du dossier.
+De même, vous pouvez insérer des commentaires de forme libre.
+</h2>*@
+
+          
+            <div class="tip">
+                <div class="sized-tip">
+                    <i class="fa fa-info-circle text-white fa-3x"></i>
+                    <p>
+                        @Conflict.TimelineInfoInstructions_L1<br/>
+                        @Conflict.TimelineInfoInstructions_L2<br />
+                        @Conflict.TimelineInfoInstructions_L3<br />
+                        @Conflict.TimelineInfoInstructions_L4<br />
+                        @Conflict.TimelineInfoInstructions_L5
+                    </p>
+                </div>
+                <p><span>&hellip;</span> <a href="#" class="tip-accordion-action" style="float:right">@ButtonsAndRecurring.SeeMore</a></p>
+            </div>
+
+
+            <div class="row">
+                <div class="col s12">
+
+                    <input type="button" class="btn btn-flat blue modal-trigger" data-target="addNewEventModal" value="@Conflict.AddFact" style="margin:10px" />
+                    <input type="button" class="btn btn-flat blue modal-trigger" data-target="addNewCommentModal" value="@Conflict.AddComment" style="margin:10px" />
+                    <input type="button" class="btn btn-flat blue " value="@ButtonsAndRecurring.NextStep" style="margin:10px" data-bind="click : next" />
+                    <h2>@Conflict.DisputeTimeline</h2>
+                </div>
+            </div>
+
+            <div data-bind="visible:events().length <= 0">
+                <h4 class="watermark">@Conflict.NoFactsExist</h4>
+            </div>
+            <section id="cd-timeline" data-bind="template: {name : eventTemplateSelector, foreach: events, afterRender : allowDownload}, visible: events().length >  0"></section>
+            <div class="row">
+                <div class="col s12">
+                    <input type="button" class="btn btn-flat blue right" value="@ButtonsAndRecurring.NextStep" data-bind="click : next" />
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-md-3">
+            <div class="fixed-resume-3">
+                @Html.Partial("_ConflictResume")
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div id="addNewEventModal" class="modal modal-fixed-footer" data-bind="with : $root.newEvent">
+        <div class="modal-content">
+            <div data-bind="visible:Id() == 0">
+                <h4>Nouveau fait</h4>
+                <div class="tip">
+                    <i class="fa fa-info-circle text-white fa-3x" ></i>
+                    <p>@Conflict.FactsInstructions_L1<b>@Conflict.FactsInstructions_L2</b></p>
+                </div>
+                <br />
+                <div class="input-field">
+                    <input type="text" data-validation="required" id="newEventName" data-bind="value:Name" />
+                    <label for="newEventName" class="active">@Conflict.FactTitle</label>
+                </div>
+            </div>
+            <div data-bind="visible:Id() > 0">
+                <h4 data-bind="text:Name"></h4>
+            </div>
+            <div class="input-field">
+                <input class="datepicker date" data-validation="required" id="newEventBeginDate" data-bind="dateString : DateBegin" />
+                <label for="newEventBeginDate" class="active">@ButtonsAndRecurring.Date</label>
+            </div>
+            <div class="input-field">
+                <textarea id="newEventDescription" class="materialize-textarea" data-bind="value:Description"></textarea>
+                <label for="newEventDescription" class="active">@ButtonsAndRecurring.Description</label>
+            </div>
+            <div class="drop-area-div">
+                <input type="file" class="none" name="files" multiple="multiple" title="@ButtonsAndRecurring.AddExhibit">
+                <input type="hidden" name="Id" data-bind="value:Id" />
+            </div>
+            <div class="input-field">
+                <input type="button" class="btn btn-flat blue" data-bind="click:$root.uploadFileToNewEvent" value="@ButtonsAndRecurring.Upload" />
+            </div>
+            <div class="row last-row" data-bind="visible:ProofFiles().length > 0">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>@ButtonsAndRecurring.File</td>
+                            <td>@ButtonsAndRecurring.Action</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:ProofFiles">
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                <span data-bind="text:$index()+1"></span>
+                            </td>
+                            <td>
+                                <a target="_blank" data-bind="href:FilePath">
+                                    <p data-bind="text:Name" style="max-width:200px;" class="truncate"></p>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="progress" data-bind="visible:IsDownloading">
+                <div class="determinate" data-bind="style:{width : Percent()}"></div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" data-bind="click:$root.addNewEvent" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Validate</a>
+            <a href="#!" data-bind="click:$root.clean" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Cancel</a>
+        </div>
+
+    </div>
+
+    <div id="addNewCommentModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>@Conflict.AddComment</h4>
+            <div class="input-field">
+                <textarea id="comment" class="materialize-textarea" data-bind="value:newFreeComment"></textarea>
+                <label for="comment" class="active">@ButtonsAndRecurring.Comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" data-bind="click:$root.addNewFreeComment" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Validate</a>
+            <a href="#!" data-bind="click:$root.clean" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Cancel</a>
+        </div>
+    </div>
+
+    <div id="commentEventModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>@ButtonsAndRecurring.AddComment</h4>
+            <div class="input-field">
+                <textarea id="eventComment" class="materialize-textarea" data-bind="value:newComment"></textarea>
+                <label for="eventComment" class="active">@ButtonsAndRecurring.Comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" data-bind="click:$root.addNewComment" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Validate</a>
+            <a href="#!" data-bind="click:$root.clean" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Cancel</a>
+        </div>
+    </div>
+
+    <div id="debatEventModal" class="modal modal-fixed-footer">
+        <div class="modal-content" data-bind="with:debateEvt">
+            <h4>@Conflict.DisagreementOnFact</h4>
+            <hr />
+            <h5>@Conflict.IDisagreeWith</h5>
+            <div class="tab">
+                <p>
+                    <input class="with-gap filled-in" value="0" name="group1" type="checkbox" id="radio-event" data-bind="checked:$root.newDisagreement().DisagreementOnDescription" />
+                    <label for="radio-event">@Conflict.TheFactAndDescription</label>
+                </p>
+                <p>
+                    <input class="with-gap filled-in" value="1" name="group1" type="checkbox" id="date-event" data-bind="checked:$root.newDisagreement().DisagreementOnDate" />
+                    <label for="date-event">@Conflict.TheDate</label>
+                </p>
+                <p data-bind="visible:ProofFiles().length > 0 && (ProofFiles()[0].Id() != 0 || ProofFiles()[1].Id() != 0 || ProofFiles()[2].Id() != 0)">
+                    <input class="with-gap filled-in" value="2" name="group1" type="checkbox" id="piece-event" data-bind="checked:$root.newDisagreement().DisagreementOnPiece" />
+                    <label for="piece-event">@Conflict.AnExhibit</label>
+                </p>
+            </div>
+            <div data-bind="visible:$root.newDisagreement().DisagreementOnDescription">
+                <h5>@Conflict.SpecifyDisagreement</h5>
+                <textarea class="materialize-textarea" data-bind="value:$root.newDisagreement().ConcurrentDescription"></textarea>
+            </div>
+            <div data-bind="visible:$root.newDisagreement().DisagreementOnDate">
+                <h5>@Conflict.SpecifyDate</h5>
+                <input type="text" id="disagreementDate" class="date" data-bind="value: $root.newDisagreement().ConcurrentDate() != null ? moment($root.newDisagreement().ConcurrentDate()).format('L') : moment().format('L')" />
+            </div>
+            <div data-bind="visible:$root.newDisagreement().DisagreementOnPiece">
+                <h5>@Conflict.SpecifyExhibit</h5>
+                <div class="row" data-bind="foreach:ProofFiles">
+                    <div class="tab" data-bind="visible:$data.Id() > 0">
+                        <p>
+                            <input class="with-gap" name="group2" type="checkbox" data-bind="checked: function(){$root.isSelected($data.Name)}, value:Name, attr:{id:Name}" />
+                            <label data-bind="text:Name, attr:{'for': Name}"></label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" data-bind="click:$root.setDisagreement" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Validate</a>
+            <a href="#!" data-bind="click:$root.clean" class="modal-action modal-close btn blue btn-flat ">@ButtonsAndRecurring.Cancel</a>
+        </div>
+    </div>
+
+
+    <script type="text/html" id="classic-event-template">
+        <div class="cd-timeline-block" >
+            <div class="cd-timeline-img">
+                <i class="fa fa-file-text fa-2x-responsive"></i>
+            </div>
+            <div class="cd-timeline-positioning">
+                <div class="cd-timeline-content" data-bind="css: { reso : Type() == 4}">
+                    <h2 data-bind="visible: Type() == 4 ">@ButtonsAndRecurring.Claim</h2>
+                    <h2 class="event-title" data-bind="text:Name">Title of section 1</h2>
+                    <i data-bind="text:SubName"></i>
+                    <div class="timeline-elt-edit ">
+                        <a class="btn-floating waves-effect waves-light  true-blue tooltipped" data-position="top" data-tooltip="Ajouter une pièce jointe" data-bind="visible: IdUser() == ui ,click:$root.uploadFile"><i class="fa fa-paperclip"></i></a>
+                        <a class="btn-floating waves-effect waves-light  orange  tooltipped" data-position="top" data-tooltip="Editer" data-bind="visible: IdUser() == ui ,click:$root.editEvent"><i class="fa fa-pencil"></i></a>
+                        <a class="btn-floating waves-effect waves-light  red  tooltipped" data-position="top" data-tooltip="Supprimer" data-bind="visible: IdUser() == ui ,click:$root.deleteEventHandler"><i class="fa fa-trash"></i></a>
+                        <a class="btn-floating waves-effect waves-light  orange  tooltipped" data-position="top" data-tooltip="Commenter" data-bind="visible: IdUser() != ui ,click:$root.commentEvent"><i class="fa fa-comment"></i></a>
+                        @*<a class="btn-floating waves-effect waves-light contest tooltipped" data-position="top" data-tooltip="Contester" data-bind="visible: IdUser() != ui ,click:$root.startDebate, css : Disagreements().length > 0  ?  'red' : 'grey'"><i class="fa" data-bind="css: Disagreements().length > 0  ? 'fa-frown-o' : 'fa-meh-o'"></i></a>*@
+                    </div>
+                    <p data-bind="html:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                    <span class="cd-date" data-bind="text:moment(DateBegin()).format('LL')">Jan 14</span>
+                    <div class="row" style="clear:both">
+                        <div class="col s6">
+                            <a class="btn btn-flat blue full-width center-align" data-bind="visible: IdUser() != ui ,click:$root.startDebate">@ButtonsAndRecurring.Challenge</a>
+                        </div>
+                        <div class="col s6" data-bind="visible:Comments().length > 0 || ProofFiles().length > 0 "><a href="#0" class="read-more btn btn-flat blue hoverable full-width center-align" data-target="comments">@ButtonsAndRecurring.Expand</a></div>
+                    </div>
+                    <div id="comments" class="accordion" data-bind="visible:Comments().length > 0 || ProofFiles().length > 0">
+                        <div data-bind="foreach:Comments">
+                            <p><b data-bind="text:CreatedBy.DisplayName"></b>@Conflict.HasWritten</p>
+                            <i data-bind="text:Text"></i>
+                        </div>
+                        <hr />
+                        <table class="striped" @*data-bind="visible:ProofFiles().length > 0 "*@>
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Fichier</td>
+                                    <td data-bind="visible:IdUser() == ui">@ButtonsAndRecurring.Action</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:ProofFiles">
+                                <tr>
+                                    <td>
+                                        <input type="hidden" data-bind='name: "ProofFiles["+ $index() + "].Id", value:Id' />
+                                        <span data-bind="text:$index()+1"></span>
+                                    </td>
+                                    <td width="90%">
+                                        <a target="_blank" data-bind="href:FilePath">
+                                            <p data-bind="text:Name" class="truncate"></p>
+                                        </a>
+                                    </td>
+                                    <td data-bind="visible:$parent.IdUser() == ui">
+                                        <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="drop-area-div">
+                        <input type="file" class="none" name="files" multiple="multiple" title="@ButtonsAndRecurring.AddExhibit">
+                        <input type="hidden" data-bind="value:Id" />
+                    </div>
+                </div>
+                <div class="cd-disagreement-container" data-bind="foreach : Disagreements">
+                    <div class="cd-timeline-content cd-disagreement">
+                        <p data-bind="text:CreatedBy.FirstName() + ' ' + CreatedBy.LastName() + ' n\'est pas d\'accord'"></p>
+                        <b>@Conflict.DisagreementOver</b>
+                        <ol>
+                            <li data-bind="visible:DisagreementOnDescription">
+                                <p>@Conflict.TheFactItself</p>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i><span data-bind="text:ConcurrentDescription"></span><i class="fa fa-quote-right" aria-hidden="true"></i>
+                            </li>
+                            <li data-bind="visible:DisagreementOnDate">
+                                <p>@Conflict.TheDate</p>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i><span data-bind="text:moment(ConcurrentDate()).format('L')"></span><i class="fa fa-quote-right" aria-hidden="true"></i>
+                            </li>
+                            <li data-bind="visible:DisagreementOnPiece">
+                                @Conflict.TheExhibits <p data-bind="text:ConcurrentPieces"></p>
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="visio-event-template">
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img">
+                <i class="fa fa-file-text fa-2x-responsive"></i>
+            </div>
+            <div class="cd-timeline-content" data-bind="visible: MeetingDebates()[0].Date() == null">
+                <h2 data-bind="text:Name">Title of section 1</h2>
+                <input type="button" value="@Conflict.AddDates" class="btn btn-flat blue" data-bind="visible : '@User.IsInRole("Arbiter")' == 'True', click:$root.addNewDateToEvent" />
+                <p data-bind="text:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                <span class="cd-date" data-bind="text:moment(DateBegin).format('LL')">Jan 14</span>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>@Conflict.Name</td>
+                            <!-- ko foreach: MeetingDebates()[0].MeetingPropositions -->
+                            <td>
+                                @if (User.IsInRole("Arbiter"))
+                                {
+                                <div class="btn btn-flat blue" data-bind="click:$root.setDate">
+                                    <p style="font-size:1.5rem;margin:0" data-bind="text:moment(DateTimeProposition()).format('DD/MM')"></p>
+                                    <p style="margin:0" data-bind="text:moment(DateTimeProposition()).format('HH:mm')"></p>
+                                </div>
+                                }
+                                else
+                                {
+
+                                <p style="font-size:1.5rem;margin:0" data-bind="text:moment(DateTimeProposition()).format('DD/MM')"></p>
+                                <p style="margin:0" data-bind="text:moment(DateTimeProposition()).format('HH:mm')"></p>
+                                }
+
+                            </td>
+                            <!-- /ko -->
+
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:$root.data.UsersInConflicts">
+                        <tr>
+                            <td>
+                                <span data-bind="text:User.DisplayName"></span>
+                            </td>
+                            <!-- ko foreach: $data.User.MeetingPropositionAnswers -->
+                            <td data-bind="css:{ligthgrey : $data.IdUser() != '@User.Identity.GetId()' && Response() == null, green:  Response() == true, red : Response() == false }">
+
+                                <p style="line-height:0;">
+                                    <input type="checkbox" class="filled-in" data-bind="checked: Response, disable : $data.IdUser() != '@User.Identity.GetId()', attr: { id : IdMeetingProposition() + '_' + IdUser()}" />
+                                    <label style="padding:10px;margin-top:10px" data-bind="attr:{'for' : IdMeetingProposition() + '_' + IdUser() }"></label>
+                                </p>
+
+                            </td>
+
+
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.Validate" data-bind="click:$root.saveEvent" />
+            </div>
+            <div class="cd-timeline-content" data-bind="visible: MeetingDebates()[0].Date() != null">
+                <h2 data-bind="text:Name">Title of section 1</h2>
+                <p data-bind="text:Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+                <div>
+                    <p>@Conflict.VideoConfDate <span data-bind="text:moment(MeetingDebates()[0].Date()).format('DD MMMM YYYY, h:mm:ss a')"></span></p>
+                    <p>@Conflict.LinkToVideoConf <a data-bind="attr:{href: $data.Link}">@ButtonsAndRecurring.ClickHere</a> </p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+</div>
+@section css{
+    <link href="~/Content/css/timeline.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/timeline-process.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        li p {
+            margin: 0 !important;
+        }
+        .cd-disagreement-container{
+            margin-top:10px;
+        }
+        .cd-timeline-block:nth-child(even) .cd-timeline-content.reso::before{
+            border-right-color:#d3d8dc!important;
+            border-left-color:transparent !important;
+        }
+
+    </style>
+}
+
+
+@section scripts{
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js" type="text/javascript"></script>
+    <script src="~/Scripts/dmuploader.js" type="text/javascript"></script>
+    <script src="~/Scripts/viewModels/timelineViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            loadComponents();
+            $("#timeline-nav").prev().css('display', 'inline-block');
+            $('.tooltipped').tooltip({ delay: 50 });
+        })
+    </script>
+}

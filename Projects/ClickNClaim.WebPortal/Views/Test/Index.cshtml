@@ -1,0 +1,23 @@
+﻿@model ClickNClaim.Common.Event
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="card hoverable">
+    <div class="card-content recorder-content">
+        <i class="fa fa-microphone fa-3x" onclick="toggleRecording(this)"></i>
+    </div>
+</div>
+<ul id="recordingslist"></ul>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/lz-string.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/recorder.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var conflictId = @Model.IdConflict;
+        var eventId = @Model.Id;
+    </script>
+    <script type="text/javascript" src="~/Scripts/viewModels/test.js"></script>
+}

@@ -1,0 +1,22 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "Jobs";
+}
+
+<div class="container margin-top">
+    <div class="card">
+        <div class="card-content">
+            <h2>@Home.Jobs</h2>
+            <p>@Home.NoJobs <a href="mailto:jobs@fast-arbitre.com">@Home.JobsContactEMail</a></p>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}

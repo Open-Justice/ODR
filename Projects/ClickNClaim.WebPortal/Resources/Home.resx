@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutFastArbitre" xml:space="preserve">
+    <value>About FastArbitre</value>
+  </data>
+  <data name="ADR" xml:space="preserve">
+    <value>alternative dispute resolution method (ADR)</value>
+  </data>
+  <data name="AllOnlineAndConfidential" xml:space="preserve">
+    <value>FastArbitre offers online arbitration and is 100 % secure. We guarantee the confidentiality and security of the data exchanged.</value>
+    <comment>Avec FastArbitre, la procédure arbitrale se déroule en ligne et est 100% sécurisée. Nous garantissons la confidentialité et la sécurité des données.</comment>
+  </data>
+  <data name="AndInt" xml:space="preserve">
+    <value>and internationnally (by the 149 countries that have ratified the</value>
+    <comment>et international (par les 149 pays qui ont ratifié la</comment>
+  </data>
+  <data name="ArbExplanation" xml:space="preserve">
+    <value>It is an extra-judicial proceeding allowing parties to appeal to an arbitral tribunal to hear the case, hear the parties, and to settle the dispute. At the end of the proceedings, the arbitral tribunal will render an award which may be enforced by a bailiff just as a judgment from a state court.</value>
+    <comment>Il s’agit d’une procédure extra-judiciaire qui consiste pour les parties à faire appel à un tribunal arbitral afin d’instruire l’affaire, d’écouter les parties et de prendre une décision pour trancher le litige. A l’issue de la procédure, le tribunal arbitral rend une sentence qui peut être exécutée par un huissier comme jugement d'un tribunal étatique.</comment>
+  </data>
+  <data name="ArbIs" xml:space="preserve">
+    <value>Arbitration is an</value>
+  </data>
+  <data name="ArbIsRecognized" xml:space="preserve">
+    <value>Arbitration is recognized in France</value>
+    <comment>L’arbitrage est reconnu au niveau national</comment>
+  </data>
+  <data name="Art1442" xml:space="preserve">
+    <value>articles 1442 and following of the French Code of Civil Procedure</value>
+    <comment>articles 1442 et suivants du code de procédure civile</comment>
+  </data>
+  <data name="Comparison" xml:space="preserve">
+    <value>A classical procedure before the commercial court lasts on average one year in first instance and costs more than 20,000 € in France. This constitutes, for many companies, a double impediment to obtain compensation in the event of a dispute with another company.</value>
+    <comment>Une procédure classique devant le tribunal de commerce dure en moyenne un an en première instance et coûte plus de 20.000 € en France. Cela constitue, pour nombre d’entreprise, un double frein pour obtenir réparation en cas de litige avec une autre entreprise.</comment>
+  </data>
+  <data name="Comparison2" xml:space="preserve">
+    <value>Diverting out of the judicial system dispute resolution between companies is now a less costly and more appropriate response to the pace of business. The use of online arbitration procedures in economic relations, as an alternative to the classical court system, is a factor of economic progress and improvement of justice on a daily basis.</value>
+    <comment>Déjudiciariser le règlement des litiges entre les entreprises représente aujourd’hui une réponse moins coûteuse et plus adaptée au rythme de la vie des affaires. Le recours aux procédures d’arbitrage en ligne dans les relations économiques, comme alternative à la justice commerciale, constitue un facteur de progrès économique et d’amélioration de la justice au quotidien.</comment>
+  </data>
+  <data name="ECArt1" xml:space="preserve">
+    <value>ARTICLE 1.	ACCREDITATION</value>
+  </data>
+  <data name="ECArt1_L1" xml:space="preserve">
+    <value>In order to guarantee a high level of quality of the decisions rendered, FastArbitre commits to designate Arbitrators with a high level of competence for the disputes submitted to them.</value>
+    <comment>Afin de garantir un haut niveau de qualité des décisions rendues, FastArbitre s’engage à désigner des Arbitres bénéficiant d’un haut niveau de compétence relativement aux litiges qui leur sont soumis.</comment>
+  </data>
+  <data name="ECArt1_L10" xml:space="preserve">
+    <value>Justify specific qualifications in arbitration,</value>
+  </data>
+  <data name="ECArt1_L11" xml:space="preserve">
+    <value>Have not faced a final criminal conviction or a civil conviction that may have an impact on arbitral practice,</value>
+    <comment>Ils n’ont pas fait l’objet d’une condamnation définitive pénale, ou civile dès lors qu’elle est susceptible d’avoir un impact sur la pratique arbitrale,</comment>
+  </data>
+  <data name="ECArt1_L12" xml:space="preserve">
+    <value>Have not faced a disciplinary conviction for a reason that may have an impact on arbitral practice,</value>
+    <comment>Ils n’ont pas fait l’objet d’une condamnation disciplinaire pour un motif susceptible d’avoir un impact sur la pratique arbitrale,</comment>
+  </data>
+  <data name="ECArt1_L13" xml:space="preserve">
+    <value>Have sufficient computer skills to be able to use professionnally the arbitration platform,</value>
+    <comment>Ils maîtrisent suffisamment l’outil informatique pour avoir un usage professionnel de la plateforme d'arbitrage,</comment>
+  </data>
+  <data name="ECArt1_L14" xml:space="preserve">
+    <value>Are able to provide a professional liability insurance policy contract covering the activity of arbitration.</value>
+    <comment>Ils justifient d’un contrat d’assurance responsabilité professionnelle couvrant l’activité d’arbitrage.</comment>
+  </data>
+  <data name="ECArt1_L15" xml:space="preserve">
+    <value>Candidates submit their application to the Digital Institute of Arbitration and Mediation (DIAM), which decides on applications on a regular basis according to its needs and at least every two years.</value>
+    <comment>Les candidats présentent leur demande auprès de l’Institut Digital d’Arbitrage et de Médiation (IDAM) qui statue de manière régulière en fonction des besoins et au moins tous les deux ans.</comment>
+  </data>
+  <data name="ECArt1_L16" xml:space="preserve">
+    <value>To apply, candidates are required to submit a cover letter, a CV, as well as their criminal record, and indicate the field of specialty in which they would like to intervene as Arbitrator.</value>
+    <comment>Pour postuler, les candidats font parvenir une lettre de motivation, un curriculum vitae, ainsi qu’un bulletin n°3 de leur casier judiciaire, et précisent le domaine de spécialité dans lequel ils aimeraient intervenir comme Arbitre.</comment>
+  </data>
+  <data name="ECArt1_L17" xml:space="preserve">
+    <value>DIAM reserves the right to refuse accreditation or to issue it only for certain fields of specialty and may, if necessary, meet with the candidates in order to assess their level of knowledge.</value>
+    <comment>IDAM se réserve le droit de refuser l’accréditation ou de ne la délivrer que pour certains domaines de spécialité et pourra le cas échéant rencontrer les candidats afin d’apprécier leur niveau de connaissances.</comment>
+  </data>
+  <data name="ECArt1_L18" xml:space="preserve">
+    <value>Any new Arbitrator approved by DIAM committs to abiding to this Ethical Charter.</value>
+    <comment>Tout nouvel Arbitre agréé par IDAM s’engage à respecter la présente Charte éthique.</comment>
+  </data>
+  <data name="ECArt1_L19" xml:space="preserve">
+    <value>DIAM reserves the right to exclude an Arbitrator who has failed to report any known conflict of interest.</value>
+    <comment>IDAM se réserve le droit d’exclure un Arbitre ayant omis de signaler toute situation de conflit d’intérêt avéré.</comment>
+  </data>
+  <data name="ECArt1_L2" xml:space="preserve">
+    <value>As a result, can only apply to become Arbitrators on FastArbitre:</value>
+    <comment>En conséquence, ne peuvent postuler pour devenir Arbitres auprès de FastArbitre que :</comment>
+  </data>
+  <data name="ECArt1_L3" xml:space="preserve">
+    <value>law professors and lecturers,</value>
+  </data>
+  <data name="ECArt1_L4" xml:space="preserve">
+    <value>magistrates on availability leave or retired,</value>
+  </data>
+  <data name="ECArt1_L5" xml:space="preserve">
+    <value>lawyers or retired lawyers,</value>
+  </data>
+  <data name="ECArt1_L6" xml:space="preserve">
+    <value>general counsels or former general counsels,</value>
+  </data>
+  <data name="ECArt1_L7" xml:space="preserve">
+    <value>in-house lawyers or former in-house lawyers,</value>
+  </data>
+  <data name="ECArt1_L8" xml:space="preserve">
+    <value>Once they cumulatively:</value>
+  </data>
+  <data name="ECArt1_L9" xml:space="preserve">
+    <value>Have at least eight years of professional experience in the legal and / or judicial field;</value>
+  </data>
+  <data name="ECArt2" xml:space="preserve">
+    <value>ARTICLE 2.	ARBITRATOR'S ROLE</value>
+  </data>
+  <data name="ECArt2_L1" xml:space="preserve">
+    <value>The Arbitrator is in a relationship of trust with the Parties, who have entrusted him with the task of resolving their dispute. He carries out his mission in good faith and personally.</value>
+    <comment>L’Arbitre se trouve dans une relation de confiance avec les Parties, qui l'ont investi de la mission de régler leur différend. Il accomplit de bonne foi et personnellement sa mission.</comment>
+  </data>
+  <data name="ECArt2_L2" xml:space="preserve">
+    <value>The Arbitrator's mission is contractual and of a judicial nature.</value>
+    <comment>La mission de l'Arbitre est d'origine contractuelle et de nature juridictionnelle.</comment>
+  </data>
+  <data name="ECArt2_L3" xml:space="preserve">
+    <value>The Arbitrator shall decide upon the dispute by reference to the rules of law or in equity if the Parties have entrusted him with the role of amiable compositor.</value>
+    <comment>L’Arbitre tranche le litige par référence aux règles de droit ou à l'équité si les Parties lui ont confié le rôle d'amiable compositeur.</comment>
+  </data>
+  <data name="ECArt2_L4" xml:space="preserve">
+    <value>The Arbitrator resolves the dispute all the while applying the fundamental guarantees of good justice. The Arbitrator may at any time reconcile the Parties.</value>
+    <comment>L’Arbitre tranche le litige en respectant les garanties fondamentales de bonne justice. L’Arbitre peut à tout moment concilier les Parties.</comment>
+  </data>
+  <data name="ECArt3" xml:space="preserve">
+    <value>ARTICLE 3.	SKILL, AVAILABILITY AND DILIGENCE</value>
+  </data>
+  <data name="ECArt3_L1" xml:space="preserve">
+    <value>An Arbitrator shall only accept the assignment offered to him / her if he or she has the necessary legal and / or technical skills in relation to the dispute and has ensured that he / she is available to arbitrate the dispute within a reasonable time with regards to the circumstances and complexity of the dispute.</value>
+    <comment>Un Arbitre pressenti ne doit accepter la mission qui lui est proposée que s'il possède la compétence juridique et/ou technique nécessaire en fonction du litige, et s'il s'est assuré de sa disponibilité pour arbitrer le litige dans des délais raisonnables au regard des circonstances et de la complexité du litige.</comment>
+  </data>
+  <data name="ECArt3_L2" xml:space="preserve">
+    <value>The Arbitrator shall guarantee the proper conduct of the arbitral proceedings. The Arbitrator shall act expeditiously throughout the performance of his duties, including to promote the expeditiousness of the arbitral proceedings, while ensuring that the costs of the arbitration are not increased excessively with regard to the interests at stake.</value>
+    <comment>L’Arbitre garantit le bon déroulement de la procédure arbitrale. L’Arbitre agit avec diligence tout au long de l'exercice de sa mission, y compris pour favoriser la célérité de la procédure arbitrale, en veillant toutefois à éviter une augmentation des coûts de l'arbitrage excessive au regard des intérêts en jeu.</comment>
+  </data>
+  <data name="ECArt3_L3" xml:space="preserve">
+    <value>The Parties shall also act in good faith and with due diligence, avoiding any abusive or dilatory maneuver in order to delay or disrupt the proceedings.</value>
+    <comment>Les Parties doivent elles aussi agir de bonne foi et avec diligence, en évitant toute manœuvre abusive ou dilatoire dans le but de retarder ou de perturber la procédure.</comment>
+  </data>
+  <data name="ECArt4" xml:space="preserve">
+    <value>ARTICLE 4.	INDEPENDENCE ET IMPARTIALITY</value>
+  </data>
+  <data name="ECArt4_L1" xml:space="preserve">
+    <value>An Arbitrator shall accept the offered mission only if he or she is both independent and impartial vis-à-vis the Parties, except where the latter are informed of the elements putting into doubt the independence or impartiality of the arbitrator, but nevertheless agree to allow his appointment.</value>
+    <comment>Un Arbitre pressenti ne doit accepter la mission qui lui est proposée que s'il est à la fois indépendant et impartial vis-à-vis de l'ensemble des Parties, excepté dans les cas où ces dernières, informées des éléments propres à mettre en doute l'indépendance ou l’impartialité de l'Arbitre, s'accordent néanmoins pour permettre sa nomination.</comment>
+  </data>
+  <data name="ECArt4_L2" xml:space="preserve">
+    <value>An Arbitrator shall immediately disclose to all the Parties all the elements that could cast doubt on his independence or impartiality. If such elements appear during the arbitral proceedings, the arbitrator must also disclose them without delay.</value>
+    <comment>Un Arbitre pressenti doit immédiatement dévoiler à l'ensemble des Parties l’ensemble des éléments propres à mettre en doute son indépendance ou son impartialité. Si de tels éléments apparaissent au cours de la procédure arbitrale, l'Arbitre concerné doit également les révéler sans délai.</comment>
+  </data>
+  <data name="ECArt4_L3" xml:space="preserve">
+    <value>The independence of the Arbitrator is defined as the disclosure of any past or present direct or indirect personal or business relationship between the Arbitrator or a third party closely related to him or her, whether personally or professionally, and either or both of the parties, their representatives or co-Arbitrators, or any person closely related to one of the Parties, their representatives or the Co-Arbitrators.</value>
+    <comment>L’indépendance de l'Arbitre se définit comme la révélation de toute relation d’affaires ou personnelle passée ou présente, directe ou indirecte, entre l'Arbitre ou un tiers qui lui est étroitement lié personnellement ou professionnellement, et l'une ou l'ensemble des Parties, leurs représentants ou les co-Arbitres, ou avec toute personne étroitement liée à l'une des Parties, à leurs représentants ou les co-Arbitres.</comment>
+  </data>
+  <data name="ECArt4_L4" xml:space="preserve">
+    <value>The impartiality of the Arbitrator is defined as the lack of a bias towards the claims of the Parties, equal treatment of the Parties and independence of mind, particularly with regard to external pressures.</value>
+    <comment>L’impartialité de l'Arbitre se définit comme l'absence de préventions à l'égard des prétentions des Parties, par un traitement égal des Parties et par une indépendance d'esprit, notamment vis-à-vis des pressions extérieures.</comment>
+  </data>
+  <data name="ECArt4_L5" xml:space="preserve">
+    <value>In no event shall the Arbitrator or the Arbitral Tribunal be subject to any direct or indirect influence or pressures.</value>
+    <comment>Il ne peut en aucun cas être exercé sur l'Arbitre ou sur le Tribunal arbitral de quelconques pressions ou influences, directes ou indirectes.</comment>
+  </data>
+  <data name="EthicalCharter" xml:space="preserve">
+    <value>FastArbitre Ethical Charter</value>
+  </data>
+  <data name="FAOfferedByIDAM" xml:space="preserve">
+    <value>FastArbitre is a service offered by the Digital Institute of Arbitration and Mediation (DIAM SAS).</value>
+  </data>
+  <data name="FastArbitreAimsAt" xml:space="preserve">
+    <value>FastArbitre aims to disseminate the practice of arbitration throughout the national economy. This service is for all companies, whatever their size or their turnover.</value>
+    <comment>FastArbitre a pour ambition de diffuser la pratique de l’arbitrage dans l’ensemble du tissu économique national. Ce service s’adresse à toutes les entreprises, quels que soient leur taille ou leur chiffre d’affaires.</comment>
+  </data>
+  <data name="FAYourOnlineArbTrib" xml:space="preserve">
+    <value>FastArbitre, your online arbitral tribunal</value>
+  </data>
+  <data name="FixedFees" xml:space="preserve">
+    <value>our prices are flat rate and do not include hidden fees</value>
+    <comment>nos tarifs sont forfaitaires et sans frais cachés</comment>
+  </data>
+  <data name="InnovativeSolution" xml:space="preserve">
+    <value>To make arbitration accessible to all companies, we have designed an innovative, simple and fast solution allowing cost management</value>
+    <comment>Pour rendre la procédure arbitrale accessible à toutes les entreprises, nous avons conçu une solution innovante, simple et rapide pour un coût maîtrisé</comment>
+  </data>
+  <data name="NYConv" xml:space="preserve">
+    <value>1958 Convention on the Recognition and
+Enforcement of Foreign Arbitral Awards</value>
+  </data>
+  <data name="OurVision" xml:space="preserve">
+    <value>Our vision: a solution to address the shortcomings of the traditional judicial system</value>
+    <comment>Notre vision : une solution pour répondre aux carences de la justice traditionnelle</comment>
+  </data>
+  <data name="WhatIsArb" xml:space="preserve">
+    <value>What is arbitration?</value>
+  </data>
+  <data name="ArbClause" xml:space="preserve">
+    <value>Arbitration Clause</value>
+  </data>
+  <data name="ArbClauseInfo1" xml:space="preserve">
+    <value>In order to guarantee in advance the choice of arbitration as a means of resolving any dispute between them in connection with the conclusion, performance or termination of a contract,</value>
+    <comment>Pour garantir à l’avance le choix de la voie arbitrale comme mode de résolution de tout litige intervenant entre elles à l’occasion de la conclusion, l’exécution ou la rupture d’un contrat,</comment>
+  </data>
+  <data name="ArbClauseInfo2" xml:space="preserve">
+    <value>we advise that you include an arbitration clause</value>
+    <comment>nous vous conseillons d’insérer une clause compromissoire</comment>
+  </data>
+  <data name="ArbClauseInfo3" xml:space="preserve">
+    <value>in each of your contracts with companies. Under French law, the principle of autonomy of the arbitration clause has been established in relation to the other clauses of the contract (art. 1447 of the Code of Civil Procedure). In practice, the nullity, termination or end of the contract shall not affect the arbitration clause contained in the contract when it is valid in itself.</value>
+    <comment>dans chacun de vos contrats entre entreprises. En droit français, la loi a consacré le principe d’autonomie de la clause d’arbitrage par rapport aux autres clauses du contrat (art 1447 du code de procédure civile). En pratique, la nullité, la résiliation ou la cessation du contrat n’entraine aucun effet sur la clause compromissoire comprise dans ledit contrat lorsque celle-ci est valable en soi.</comment>
+  </data>
+  <data name="ECArt5" xml:space="preserve">
+    <value>ARTICLE 5.	ADVERSARIAL PRINCIPLE</value>
+  </data>
+  <data name="ECArt5_L1" xml:space="preserve">
+    <value>Once the Arbitrator or the Arbitral Tribunal is seized of the case, he may not communicate with any of the Parties, on his own initiative or that of the Party, on a matter concerning the merits of the dispute, unless he informs the other Parties or requests that the Party inform the other Parties and, where appropriate, the other Arbitrators of the existence and content of such communication.</value>
+    <comment>Une fois que l'Arbitre ou le Tribunal arbitral est saisi de l'affaire, il ne peut communiquer avec une seule des Parties, à son initiative ou à celle de la Partie, sur un sujet concernant le fond du litige, sauf à informer - ou demander à la Partie d'informer - les autres Parties et le cas échéant les autres Arbitres de l'existence et du contenu de cette communication.</comment>
+  </data>
+  <data name="ECArt5_L2" xml:space="preserve">
+    <value>In the event of a written communication, a copy shall be sent to the other Parties and, where applicable, to the other members of the Arbitral Tribunal.</value>
+    <comment>En cas de communication écrite, une copie doit être envoyée aux autres Parties et, le cas échéant, aux autres membres du Tribunal arbitral.</comment>
+  </data>
+  <data name="ECArt5_L3" xml:space="preserve">
+    <value>Non-adversarial communications are nevertheless possible in the context of ex parte proceedings to obtain interim or conservatory measures.</value>
+    <comment>Les communications non contradictoires sont néanmoins possibles dans le cadre des procédures ex parte destinées à obtenir des mesures provisoires ou conservatoires.</comment>
+  </data>
+  <data name="ECArt6" xml:space="preserve">
+    <value>ARTICLE 6.	CONFIDENTIALITY</value>
+  </data>
+  <data name="ECArt6_L1" xml:space="preserve">
+    <value>Any information relating to an arbitration is confidential, subject to contrary stipulations by the Parties, legal and regulatory obligations, or in the strict framework of judicial proceedings related to the arbitration.</value>
+    <comment>Toute information relative à un arbitrage est confidentielle, sous réserve des stipulations contraires des Parties, des obligations légales et réglementaires, ou dans le strict cadre d'actions judiciaires liées à l'arbitrage.</comment>
+  </data>
+  <data name="ECArt6_L2" xml:space="preserve">
+    <value>The Arbitrator shall in no way use any information which he has had access to in the course of the proceedings for a foreign purpose, either for personal gain or for the benefit of a third party, or to prejudice anyone.</value>
+    <comment>L'Arbitre ne doit en aucune manière user d'informations auxquelles il a eu accès à l'occasion de la procédure dans un but étranger, soit pour en tirer un avantage personnel ou à l'avantage d'un tiers, soit pour préjudicier à quiconque.</comment>
+  </data>
+  <data name="ECArt6_L3" xml:space="preserve">
+    <value>In particular, unless the arbitrator considers that the arbitration procedure has been fraudulent or in the case of a legal or regulatory obligation, the Arbitrator may not take part directly or indirectly in any arbitration proceedings.</value>
+    <comment>En particulier, sauf s'il considère que la procédure arbitrale a été frauduleuse, ou en cas d'obligation légale ou réglementaire, l'Arbitre ne peut participer, directement ou indirectement, à une quelconque procédure relative à l'arbitrage.</comment>
+  </data>
+  <data name="ECArt6_L4" xml:space="preserve">
+    <value>The Arbitrator is bound by the principle of deliberation secrecy. He shall not disclose to any person any matter concerning the discussions, guidance or decisions of the arbitral tribunal.</value>
+    <comment>L’Arbitre est tenu par le secret du délibéré. Il ne peut révéler à quiconque un élément concernant les discussions, orientations ou décisions de la juridiction arbitrale.</comment>
+  </data>
+  <data name="ECArt6_L5" xml:space="preserve">
+    <value>The Arbitrator or the Party shall not disclose to any third party, except in the execution of its mission or if the third party is involved in the course of the proceedings, the existence or the content of the dispute and of the arbitral proceedings. Informed third parties are bound by the same obligation.</value>
+    <comment>L’Arbitre ou la Partie ne doit révéler à aucun tiers, excepté dans le cadre de l'exécution de sa mission ou si le tiers est associé au déroulement de la procédure, l'existence ou le contenu du litige et de la procédure arbitrale. Les tiers informés sont tenus à la même obligation.</comment>
+  </data>
+  <data name="InfoArbAgreement" xml:space="preserve">
+    <value>If your contract does not contain an arbitration clause, recourse to arbitration remains subject to the agreement of the opposing party. This will be requested by FastArbitre as soon as your file is forwarded. In the event of a refusal by the opposing party, arbitration shall not be possible.</value>
+    <comment>Dans le cas où votre contrat ne comporterait pas de clause compromissoire, le recours à l’arbitrage reste soumis à l’accord de la partie adverse. Celui-ci sera sollicité par FastArbitre dès la transmission de votre dossier. En cas de refus de la partie adverse, l’arbitrage ne pourra avoir lieu.</comment>
+  </data>
+  <data name="ModArbClause" xml:space="preserve">
+    <value>Any dispute relating to this contract or in relation to this contract will be settled by arbitration in accordance with the FastArbitre rules of arbitration of the Digital Institute of Arbitration and Mediation.</value>
+    <comment>Tout litige relatif au présent contrat ou en relation avec celui-ci sera tranché par voie d’arbitrage conformément au règlement FastArbitre de l’Institut digital d’arbitrage et de médiation.</comment>
+  </data>
+  <data name="ModClauseHeading" xml:space="preserve">
+    <value>Model of an arbitration clause to be inserted in your contracts for the resolution of disputes via FastArbitre</value>
+    <comment>Modèle de clause compromissoire à insérer dans vos contrats pour le règlement des litiges via FastArbitre</comment>
+  </data>
+  <data name="AmicablePhase" xml:space="preserve">
+    <value>The Amicable Phase (free)</value>
+  </data>
+  <data name="AmicablePhase_L1" xml:space="preserve">
+    <value>It gives you the opportunity to settle your dispute amicably with your opponent, before the appointment of an arbitrator even, by helping you to organize your arguments and the documents supporting them to make them more accessible to your opponent.</value>
+    <comment>Elle consiste à vous donner la chance de résoudre votre litige à l’amiable avec votre adversaire, avant même la désignation d’un FastArbitre, en vous aidant à organiser vos arguments et pièces pour mieux les faire entendre à votre adversaire.</comment>
+  </data>
+  <data name="AmicablePhase_L2" xml:space="preserve">
+    <value>You register on the platform and can immediately create a case file, come back to it, add to it and enrich it. You can also, whenever you feel ready, send your file to your opponent.</value>
+    <comment>Vous vous inscrivez sur la plateforme et vous pouvez créer immédiatement un dossier, y revenir, le compléter et l’enrichir. Vous pouvez également décider, quand vous le souhaitez, de transmettre votre dossier à l’adversaire.</comment>
+  </data>
+  <data name="AmicablePhase_L3" xml:space="preserve">
+    <value>By registering on FastArbitre, your opponent can read your file and challenge it. Then starts a phase of exchange between you and your opponent that can lead to an amicable agreement.</value>
+    <comment>En s’inscrivant sur FastArbitre, votre adversaire peut en prendre connaissance et le contester. S’ouvre alors une phase d’échange entre vous qui peut aboutir à un accord amiable.</comment>
+  </data>
+  <data name="AmicablePhase_L4" xml:space="preserve">
+    <value>This Amicable Phase is totally free, for you and your opponent.</value>
+    <comment>Cette Phase Amiable est totalement gratuite, pour vous et votre adversaire.</comment>
+  </data>
+  <data name="AmicablePhase_L5" xml:space="preserve">
+    <value>No arbitrator has been appointed and at this stage no fees have been taken.</value>
+    <comment>Aucun arbitre n’a été désigné et à ce stade, aucun frais n’a été prélevé.</comment>
+  </data>
+  <data name="ArbitrationPhase" xml:space="preserve">
+    <value>The Arbitration Phase (fixed fee)</value>
+  </data>
+  <data name="ArbitrationPhase_L1" xml:space="preserve">
+    <value>If you have not resolved your dispute amicably, you can decide to start the arbitration phase. An arbitrator will then be appointed to decide upon your dispute and render an arbitral award.</value>
+    <comment>Si vous n’êtes parvenus à résoudre votre litige à l’amiable, vous pouvez décider d’engager la phase arbitrale. Un arbitre sera alors désigné pour trancher votre litige et rendre une sentence arbitrale.</comment>
+  </data>
+  <data name="ArbitrationPhase_L2" xml:space="preserve">
+    <value>Either you are bound to your opponent by the FastArbitre arbitration clause and your dispute will be automatically accepted by the platform, at the request of either one. To do so, you must have previously designated FastArbitre as an arbitration solution in a contract that binds you with your opponent. Or, you are not bound by an arbitration clause and it is by mutual agreement that you decide to seize FastArbitre to settle your dispute.</value>
+    <comment>Soit vous êtes tenus avec votre adversaire par la clause compromissoire FastArbitre et votre litige sera automatique enclenché, à la demande de l’un ou l’autre. Pour cela, il faudra que vous ayez préalablement désigné FastArbitre comme solution d’arbitrage dans un contrat qui vous lie avec votre adversaire. Soit vous n’êtes pas liés par une clause compromissoire et c’est d’un commun accord que vous déciderez de saisir FastArbitre pour régler votre litige.</comment>
+  </data>
+  <data name="ArbitrationPhase_L3" xml:space="preserve">
+    <value>Upon receipt of payment, the Center shall appoint an arbitrator, who shall be responsible for organizing exchanges between the parties in order to document the dispute.</value>
+    <comment>A réception du paiement, le centre désigne un arbitre, qui sera chargé d’organiser un débat entre les parties, afin de documenter le litige.</comment>
+  </data>
+  <data name="AwardPhase" xml:space="preserve">
+    <value>The Award</value>
+  </data>
+  <data name="AwardPhase_L1" xml:space="preserve">
+    <value>When the arbitrator has all the elements he needs to render his decision, he ends the discussions and renders a pre-award which can then be commented by the parties. At the end of this last phase of discussion, the arbitrator renders his award.</value>
+    <comment>Lorsque l’arbitre dispose de tous les éléments pour prendre sa décision, il clôt les débats et rend une pré-sentence, qui peut encore faire l’objet de commentaires des parties. À l’issue de cette dernière phase de discussion, l’arbitre rend sa sentence.</comment>
+  </data>
+  <data name="AwardPhase_L2" xml:space="preserve">
+    <value>This award settles the dispute definitively. It constitutes a real court decision: it binds the parties. It can be executed by a bailiff as a judgment rendered by a state court.</value>
+    <comment>Cette sentence tranche le litige définitivement. Elle constitue une véritable décision de justice : elle s’impose aux parties. Elle peut être exécutée par un huissier de justice comme un jugement rendu par un tribunal étatique.</comment>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="EMailContent" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="FillOutForm" xml:space="preserve">
+    <value>You can contact us by filling out the following form:</value>
+    <comment>Vous pouvez nous écrire en remplissant le formulaire suivant :</comment>
+  </data>
+  <data name="FoundationsOfOurTech" xml:space="preserve">
+    <value>This method works in three phases:</value>
+  </data>
+  <data name="HowDoesItWork" xml:space="preserve">
+    <value>FastArbitre - How does it work?</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="OurObjective" xml:space="preserve">
+    <value>Our goal is to simplify dispute management.</value>
+  </data>
+  <data name="OurTech" xml:space="preserve">
+    <value>That's why our team of lawyers and developers has designed an original method for you to expose and defend your case in court, as simply and naturally as possible.</value>
+    <comment>C’est pourquoi, notre équipe de juristes et de développeurs a conçu pour vous une méthode originale qui vous permet d’exposer et de défendre votre cas en justice, le plus simplement et le plus naturellement possible.</comment>
+  </data>
+  <data name="AllOnline" xml:space="preserve">
+    <value>100% online and secured</value>
+  </data>
+  <data name="AmicablePhaseSummary1" xml:space="preserve">
+    <value>The procedure begins with an amicable phase during which each party will be able to give its version of the facts and challenge that of the others.</value>
+    <comment>La procédure commence avec une phase amiable durant laquelle chaque partie va pouvoir donner sa version des faits et contester celle des autres.</comment>
+  </data>
+  <data name="AmicablePhaseSummary2" xml:space="preserve">
+    <value>At the end of this phase, which is completely free of charge, the parties can reach an amicable agreement and thus bring closure to their dispute or decide by mutual agreement to proceed to arbitration.</value>
+    <comment>A la fin de cette phase, totalement gratuite, les parties peuvent trouver un accord a l'amiable et ainsi se termine leur litige, ou bien décider d'un commun accord de passer à l'arbitrage.</comment>
+  </data>
+  <data name="AmicablePhaseTitle" xml:space="preserve">
+    <value>Amicable Phase</value>
+  </data>
+  <data name="ArbitrationPhaseSummary1" xml:space="preserve">
+    <value>If the parties have not reached an agreement on a solution to their dispute, they have the opportunity to request an arbitration to settle their dispute.</value>
+    <comment>Si les parties ne se sont pas mis d'accord sur une solution à leur litige, elles ont la possibilité de demander un arbitrage pour trancher celui-ci.</comment>
+  </data>
+  <data name="ArbitrationPhaseSummary2" xml:space="preserve">
+    <value>Therefore, the platform refers the parties to the most competent arbitrator for the dispute and he initiates the arbitration procedure to resolve their dispute.</value>
+    <comment>Dès lors, la plateforme désigne l'arbitre le plus compétent pour votre litige et celui-ci lance la procédure d'arbitrage pour résoudre leur litige.</comment>
+  </data>
+  <data name="ArbitrationPhaseTitle" xml:space="preserve">
+    <value>arbitration phase</value>
+  </data>
+  <data name="ArbitratorName1" xml:space="preserve">
+    <value>Alice Pezard</value>
+  </data>
+  <data name="ArbitratorName2" xml:space="preserve">
+    <value>Jérôme Dupré</value>
+  </data>
+  <data name="ArbitratorName3" xml:space="preserve">
+    <value>Jérôme Giusti</value>
+  </data>
+  <data name="ArbitratorName4" xml:space="preserve">
+    <value>Etienne Deshoulières</value>
+  </data>
+  <data name="Arbitrators" xml:space="preserve">
+    <value>arbitrators</value>
+  </data>
+  <data name="ArbPlatform" xml:space="preserve">
+    <value>Arbitration platform for</value>
+  </data>
+  <data name="Entrepreneurs" xml:space="preserve">
+    <value>entrepreneurs</value>
+  </data>
+  <data name="Experts" xml:space="preserve">
+    <value>Experts at the forefront of their fields</value>
+  </data>
+  <data name="FixedFee" xml:space="preserve">
+    <value>fixed fee</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Learn More</value>
+  </data>
+  <data name="MakeItEasyOnYourself" xml:space="preserve">
+    <value>Make it easy on yourself by including it directly in your contracts</value>
+    <comment>Simplifiez-vous la vie en l'intégrant directement dans vos contrats</comment>
+  </data>
+  <data name="ObtainAward" xml:space="preserve">
+    <value>Obtain an arbitral award</value>
+  </data>
+  <data name="OnlineADR" xml:space="preserve">
+    <value>Online dispute resolution with FastArbitre</value>
+  </data>
+  <data name="Our" xml:space="preserve">
+    <value>Our</value>
+  </data>
+  <data name="OurArbitrationClause" xml:space="preserve">
+    <value>arbitration clause</value>
+  </data>
+  <data name="Ppt1" xml:space="preserve">
+    <value>Arbitrator/Honorary judge of the Court of Cassation (commercial chamber)</value>
+  </data>
+  <data name="Ppt2" xml:space="preserve">
+    <value>Former magistrate/Arbitrator</value>
+  </data>
+  <data name="Ppt3" xml:space="preserve">
+    <value>Arbitrator/Lawyer</value>
+  </data>
+  <data name="Ppt4" xml:space="preserve">
+    <value>Arbitrator/Lawyer</value>
+  </data>
+  <data name="Procedure" xml:space="preserve">
+    <value>Procedure</value>
+  </data>
+  <data name="ResolveDispute" xml:space="preserve">
+    <value>Settle a dispute</value>
+  </data>
+  <data name="SimplifiedProcedure" xml:space="preserve">
+    <value>A simplified and transparent procedure</value>
+  </data>
+  <data name="SimplifiedProcedure1" xml:space="preserve">
+    <value>FastArbitre offers a simplified online procedure that allows</value>
+    <comment>FastArbitre propose une procédure simplifiée en ligne qui permet à</comment>
+  </data>
+  <data name="SimplifiedProcedure10" xml:space="preserve">
+    <value>The arbitral proceedings will result in an award which settles the dispute definitively. This award constitutes a genuine judicial decision. It is compulsory and recognized in 149 countries. It can be enforced as a judgment by a state court.</value>
+    <comment>La procédure arbitrale aboutit à une sentence qui tranche le litige définitivement. Cette sentence constitue une véritable décision de justice. Elle est obligatoire et valable dans 149 pays. Elle peut être exécutée comme un jugement rendu par un tribunal étatique.</comment>
+  </data>
+  <data name="SimplifiedProcedure2" xml:space="preserve">
+    <value>this person is called a "party"</value>
+    <comment>on appelle cette personne 'une partie'</comment>
+  </data>
+  <data name="SimplifiedProcedure3" xml:space="preserve">
+    <value>each person involved in a dispute</value>
+    <comment>chaque personne impliquée dans un litige</comment>
+  </data>
+  <data name="SimplifiedProcedure4" xml:space="preserve">
+    <value>to plead his position, his arguments and exhibits.</value>
+    <comment>de faire valoir sa position, ses arguments et pièces.</comment>
+  </data>
+  <data name="SimplifiedProcedure5" xml:space="preserve">
+    <value>The arbitrator manages the entire procedure with the parties and conducts the adversarial debates via the FastArbitre platform. The procedure is governed by</value>
+    <comment>L’arbitre gère l’ensemble de la procédure avec les parties et mène les débats contradictoires via la plateforme FAST ARBITRE. La procédure est régie par</comment>
+  </data>
+  <data name="SimplifiedProcedure6" xml:space="preserve">
+    <value>the FastArbitre rules of arbitration.</value>
+    <comment>le règlement d’arbitrage de FastArbitre.</comment>
+  </data>
+  <data name="SimplifiedProcedure7" xml:space="preserve">
+    <value>An economical and fast procedure</value>
+    <comment>Une procédure économique et rapide</comment>
+  </data>
+  <data name="SimplifiedProcedure8" xml:space="preserve">
+    <value>The costs and timeframes of the procedure are known in advance. On average, an arbitration costs 3 to 4 times less than a standard procedure and lasts less than two months. This is the most effective solution to resolve certain corporate disputes that need to be resolved quickly.</value>
+    <comment>Les coûts et les délais de la procédure sont connus à l’avance. En moyenne une procédure d’arbitrage coûte 3 à 4 fois moins cher qu’une procédure classique et dure moins de deux mois. C’est la solution la plus efficace pour régler certains litiges d’entreprise qu’il est indispensable de résoudre rapidement.</comment>
+  </data>
+  <data name="SimplifiedProcedure9" xml:space="preserve">
+    <value>An award recognized in 149 countries</value>
+    <comment>Une sentence valable dans 149 pays</comment>
+  </data>
+  <data name="StayFocused" xml:space="preserve">
+    <value>Stay focused on your business</value>
+  </data>
+  <data name="SubmitDispute" xml:space="preserve">
+    <value>Submit a dispute</value>
+  </data>
+  <data name="WhyResortTo" xml:space="preserve">
+    <value>Why resort to</value>
+  </data>
+  <data name="WithinTwoMonths" xml:space="preserve">
+    <value>within less than 2 months</value>
+  </data>
+  <data name="WithoutHiddenFees" xml:space="preserve">
+    <value>750€ before tax without hidden fees</value>
+  </data>
+  <data name="AreNotIncluded" xml:space="preserve">
+    <value>* Not included in the tariffs are the possible expenses for experts, lawyers or bailiffs.</value>
+  </data>
+  <data name="CentersNewsletter" xml:space="preserve">
+    <value>CENTER'S NEWSLETTER</value>
+  </data>
+  <data name="CommercialAgreementsAndContracts" xml:space="preserve">
+    <value>Commercial Agreements and Contracts</value>
+  </data>
+  <data name="CommercialAgreementsAndContractsDes" xml:space="preserve">
+    <value>Disputes concerning trade agreements, such as partnership contracts, framework contracts, cooperation contracts, distribution contracts, suppliers of business a commercial agents' contracts, etc.</value>
+    <comment>Litiges portant sur les accords commerciaux, tels que les contrats de partenariat, contrats-cadres, contrats de coopération, contrats de distribution, contrats d’agents commerciaux ou d’apporteurs d’affaires, etc.</comment>
+  </data>
+  <data name="CommercialAgreementsAndContractsTariff" xml:space="preserve">
+    <value>1250</value>
+  </data>
+  <data name="CommercialAgreementsAndContractsTotal" xml:space="preserve">
+    <value>(2500 € before taxes in total for the proceedings)</value>
+  </data>
+  <data name="CompaniesRegister" xml:space="preserve">
+    <value>Companies Register of Paris No</value>
+  </data>
+  <data name="CompaniesRegisterNo" xml:space="preserve">
+    <value>821 491 628</value>
+  </data>
+  <data name="Concerns" xml:space="preserve">
+    <value>Concerns</value>
+  </data>
+  <data name="CookiesAndIPAddresses" xml:space="preserve">
+    <value>COOKIES AND IP ADRESSES</value>
+  </data>
+  <data name="CorporateOffice" xml:space="preserve">
+    <value>corporate office</value>
+  </data>
+  <data name="CorporateOfficeAdress" xml:space="preserve">
+    <value>58 avenue de Wagram 75017 Paris, France</value>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value>CREDITS</value>
+  </data>
+  <data name="Credits1" xml:space="preserve">
+    <value>The present website was developped by Legal e-Services,</value>
+  </data>
+  <data name="Credits2" xml:space="preserve">
+    <value>www.legal-e-services.com.</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>€</value>
+  </data>
+  <data name="Definitions" xml:space="preserve">
+    <value>DEFINITIONS</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>EDITOR</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="EmailAdress" xml:space="preserve">
+    <value>contact@fast-arbitre.com</value>
+  </data>
+  <data name="FixedTariffs" xml:space="preserve">
+    <value>The FastArbitre arbitration fees are flat-rate and known in advance. They are fixed according to the nature of the dispute, according to the scale below. The tariff includes all the costs of the proceedings until the rendering of the arbitral award *.</value>
+    <comment>Les tarifs des procédures arbitrales de FastArbitre sont forfaitaires et connus d’avance. Ils sont fixés en fonction de la nature du litige, selon le barême ci-dessous. Le tarif inclut l’ensemble des frais de procédure jusqu’au prononcé de la sentence arbitrale*.</comment>
+  </data>
+  <data name="HeadOfPublication" xml:space="preserve">
+    <value>Head of Publication</value>
+  </data>
+  <data name="HeadOfPublicationName" xml:space="preserve">
+    <value>Emmanuel Mouclier</value>
+  </data>
+  <data name="HostingProvider" xml:space="preserve">
+    <value>HOSTING PROVIDER</value>
+  </data>
+  <data name="HostingProviderName" xml:space="preserve">
+    <value>The present website is hosted by Microsoft (Azure)</value>
+  </data>
+  <data name="InformationTechnologiesAndLiberties" xml:space="preserve">
+    <value>INFORMATION TECHNOLOGIES AND LIBERTIES</value>
+  </data>
+  <data name="IntellectualProperty" xml:space="preserve">
+    <value>INTELLECTUAL PROPERTY</value>
+  </data>
+  <data name="IntracommunityVAT" xml:space="preserve">
+    <value>intracommunity VAT No</value>
+  </data>
+  <data name="IntracommunityVATNo" xml:space="preserve">
+    <value>FR67821491628</value>
+  </data>
+  <data name="InvestmentDataDiversion" xml:space="preserve">
+    <value>Investment - Data Diversion</value>
+  </data>
+  <data name="InvestmentDataDiversionDes" xml:space="preserve">
+    <value>Litigation between partners and / or investors. Disputes related to information and data hijacking, breach of trade secrets and intrusion into databases.</value>
+    <comment>Litiges entre associés et/ou investisseurs. Litiges liés aux détournements d'informations et de données, à la violation de secrets d’affaires et à l’intrusion dans des bases de données.</comment>
+  </data>
+  <data name="InvestmentDataDiversionTariff" xml:space="preserve">
+    <value>2250</value>
+  </data>
+  <data name="InvestmentDataDiversionTotal" xml:space="preserve">
+    <value>(4500 € before taxes in total for the proceedings)</value>
+  </data>
+  <data name="IPAndUnfairCompetition" xml:space="preserve">
+    <value>Intellectual Property - Unfair Competition</value>
+  </data>
+  <data name="IPAndUnfairCompetitionDes" xml:space="preserve">
+    <value>Disputes concerning intellectual property rights or acts of unfair competition, such as trademark infringement, domain name squatting, infringement of a trade name, copying of products or problems relating to the assignment and licensing of rights or computer development contracts.</value>
+    <comment>Litiges portant sur un droit de propriété intellectuelle ou des actes de concurrence déloyale, tels que la contrefaçon de marques, le squatting de nom de domaine, l’atteinte à un nom commercial, la copie de produits ou les problèmes concernant les cessions et licences de droits ou des contrats de développements informatiques.</comment>
+  </data>
+  <data name="IPAndUnfairCompetitionTariff" xml:space="preserve">
+    <value>1750</value>
+  </data>
+  <data name="IPAndUnfairCompetitionTotal" xml:space="preserve">
+    <value>(3500 € before taxes in total for the proceedings)</value>
+  </data>
+  <data name="Jobs" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
+  <data name="JobsContactEMail" xml:space="preserve">
+    <value>jobs@fast-arbitre.com</value>
+  </data>
+  <data name="LegalNotice" xml:space="preserve">
+    <value>FastArbitre Legal Notice</value>
+  </data>
+  <data name="NoJobs" xml:space="preserve">
+    <value>No positions are available at this time. If you wish to become an arbitrator, you can send us your CV at</value>
+  </data>
+  <data name="PartnersNewsletters" xml:space="preserve">
+    <value>PARTNER'S NEWSLETTERS</value>
+  </data>
+  <data name="PerParty" xml:space="preserve">
+    <value>Before Taxes, per Party</value>
+  </data>
+  <data name="PrivacyArt1" xml:space="preserve">
+    <value>ARTICLE 1.	DEFINITIONS</value>
+  </data>
+  <data name="PrivacyArt1_1" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="PrivacyArt1_2" xml:space="preserve">
+    <value>Digital Institute of Arbitration and Mediation SAS, acting as head of publication of the Website.</value>
+  </data>
+  <data name="PrivacyArt1_3" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="PrivacyArt1_4" xml:space="preserve">
+    <value>Any person, whether natural or legal, under private law or public law, residing in French territory connecting to the Website.</value>
+  </data>
+  <data name="PrivacyArt1_5" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="PrivacyArt1_6" xml:space="preserve">
+    <value>Website accessible at the URL www.fast-arbitre.com, as well as the sub-sites, mirror sites, portals and variations of URLs relating thereto.</value>
+  </data>
+  <data name="PrivacyArt2" xml:space="preserve">
+    <value>ARTICLE 2. SCOPE OF APPLICATION</value>
+  </data>
+  <data name="PrivacyArt2_1" xml:space="preserve">
+    <value>The present Privacy Policy is applicable to all Users. The simple connection to the Website will entail full acceptance of this privacy policy.</value>
+    <comment>La présente politique de confidentialité est applicable à tout Internaute. La simple connexion au Site emportera acceptation pleine et entière de la présente politique de confidentialité. </comment>
+  </data>
+  <data name="PrivacyArt2_2" xml:space="preserve">
+    <value>This acceptance will be confirmed by clicking on "I understand" in the banner informing the User of the existence of the privacy policy of the Website and its cookies management. The User also recognizes at the same time having taken full knowledge of them and accepting them without restriction.</value>
+    <comment>Cette acceptation sera confirmée par le fait de cliquer sur : « J’ai compris » dans le bandeau informant l’Internaute de l’existence de la politique de confidentialité du Site et la gestion des cookies. L'Internaute reconnaît du même fait en avoir pris pleinement connaissance et les accepter sans restriction.</comment>
+  </data>
+  <data name="PrivacyArt2_3" xml:space="preserve">
+    <value>Clicking the aforementioned button will be deemed to have the same value as a handwritten signature from the part of the User. The User acknowledges the proof of the Center's automatic registration systems and, except if he proves the contrary, waives the right to contest them in the event of a dispute.</value>
+    <comment>Le fait de cliquer le bouton susvisée sera réputé avoir la même valeur qu'une signature manuscrite de la part de l’Internaute. L’Internaute reconnaît la valeur de preuve des systèmes d'enregistrement automatique du Centre et, sauf pour lui d'apporter preuve contraire, il renonce à les contester en cas de litige.</comment>
+  </data>
+  <data name="PrivacyArt2_4" xml:space="preserve">
+    <value>Acceptance of this policy requires the Users to have the necessary legal capacity to do so, or that they have the authorization of a tutor or curator if they do not have this capacity, of their legal representative if they are minors, or that they hold a mandate if they are acting on behalf of a legal person.</value>
+    <comment>L'acceptation de la présente politique suppose de la part des Internautes qu'ils jouissent de la capacité juridique nécessaire pour cela, ou à défaut qu'ils en aient l'autorisation d'un tuteur ou d'un curateur s'ils sont incapables, de leur représentant légal s'ils sont mineurs, ou encore qu'ils soient titulaires d'un mandat s'ils agissent pour le compte d'une personne morale.</comment>
+  </data>
+  <data name="PrivacyArt3" xml:space="preserve">
+    <value>ARTICLE 3. INTELLECTUAL PROPERTY</value>
+  </data>
+  <data name="PrivacyArt3_1" xml:space="preserve">
+    <value>3.1.	Legal Protection of the Contents of the Website</value>
+  </data>
+  <data name="PrivacyArt3_2" xml:space="preserve">
+    <value>The content of the Website may be protected by intellectual property law. Any unauthorized representation, reproduction, translation, adaptation or transformation, carried out illegally and without the consent of the Center or its successors or successors in title, constitutes a violation of the French Code of Intellectual Property and may give rise to legal proceedings for counterfeiting.</value>
+    <comment>Les contenus du Site sont susceptibles d'être protégés par le droit de la propriété intellectuelle. Toute représentation, reproduction, traduction, adaptation ou transformation, intégrale ou partielle, réalisée illégalement et sans le consentement du Centre ou de ses ayants droit ou ayants cause constitue une violation du code de la propriété intellectuelle et sera susceptible de donner lieu à des poursuites judiciaires pour contrefaçon.</comment>
+  </data>
+  <data name="PrivacyArt3_3" xml:space="preserve">
+    <value>3.2.	Contractual Protection of the Contents of the Website</value>
+  </data>
+  <data name="PrivacyArt3_4" xml:space="preserve">
+    <value>The User commits contractually, in respect of the Center, not to use, reproduce or represent, in any way whatsoever, the contents of the Website, whether or not they are protected by an intellectual property right, to an end other than that of their reading by a robot or a browser. This prohibition is not applicable to indexing robots whose sole purpose is to scan the content of the site for indexing purposes.</value>
+    <comment>L'Internaute s'engage contractuellement à l'égard du Centre à ne pas utiliser, reproduire ou représenter, de quelque manière que ce soit, les contenus du site, qu'ils soient ou non protégés par un droit de propriété intellectuelle, à une autre fin que celle de leur lecture par un robot ou un navigateur. Cette interdiction n'est pas applicable aux robots d'indexation ayant pour seul objet de scanner le contenu du site aux fins d'indexation.</comment>
+  </data>
+  <data name="PrivacyArt4" xml:space="preserve">
+    <value>ARTICLE 4. COOKIES AND USER'S IP ADDRESSES</value>
+  </data>
+  <data name="PrivacyArt4_1" xml:space="preserve">
+    <value>4.1.	Cookies</value>
+  </data>
+  <data name="PrivacyArt4_10" xml:space="preserve">
+    <value>4.2.	IP Addresses</value>
+  </data>
+  <data name="PrivacyArt4_11" xml:space="preserve">
+    <value>4.2.1.	Definition and Collection of the IP Addresses</value>
+  </data>
+  <data name="PrivacyArt4_12" xml:space="preserve">
+    <value>The IP address corresponds to a series of digits separated by points allowing the unique identification of a computer on the Internet. The Center reserves the right to collect the public IP address of all Users. The collection of this IP address will be done anonymously. The IP address of Users will be kept for the period required by law.</value>
+    <comment>L'adresse IP correspond à une série de chiffres séparés par des points permettant l'identification unique d'un ordinateur sur internet. Le Centre se réserve le droit de collecter l'adresse IP publique de tous les Internautes. La collecte de cette adresse IP sera effectuée de façon anonyme. L'adresse IP des Internautes sera conservée pendant la durée requise par la loi.</comment>
+  </data>
+  <data name="PrivacyArt4_13" xml:space="preserve">
+    <value>4.2.2.	Communication of the IP Addresses</value>
+  </data>
+  <data name="PrivacyArt4_14" xml:space="preserve">
+    <value>The Center shall communicate all personal data relating to a User to the Police upon judicial request or to any person by judicial decision. The IP address may be reconciled with the actual identity of the User in the event of communication of this information by an Internet service provider.</value>
+    <comment>Le Centre devra communiquer toutes les données personnelles relatives à un Internaute à la Police sur réquisition judiciaire ou à toute personne sur décision judiciaire. L'adresse IP pourra faire l'objet d'un rapprochement avec l'identité effective de l'Internaute en cas de communication de cette information par un fournisseur d'accès à internet.</comment>
+  </data>
+  <data name="PrivacyArt4_2" xml:space="preserve">
+    <value>4.1.1.	Object of the Installation of the Cookies</value>
+  </data>
+  <data name="PrivacyArt4_3" xml:space="preserve">
+    <value>In order to allow all the Users to optimize their navigation on the present Website as well as a better functioning of the different interfaces and applications, the Center may proceed to the implantation of a cookie on the User's computer.</value>
+    <comment>Afin de permettre à tous les Internautes une navigation optimale sur le présent Site ainsi qu'un meilleur fonctionnement des différentes interfaces et applications, Le Centre pourra procéder à l'implantation d'un cookie sur le poste informatique de l'Internaute.</comment>
+  </data>
+  <data name="PrivacyArt4_4" xml:space="preserve">
+    <value>4.1.2.	Objective of the Cookies</value>
+  </data>
+  <data name="PrivacyArt4_5" xml:space="preserve">
+    <value>Cookies allow to store information regarding browsing on the Website (date, page, times), as well as any data entered by the Users during their visit (searches, login, email, password). These cookies are intended to be kept on the User's computer for a variable duration of up to 13 months and can be read and used by the Center during a subsequent visit of the User on this Website.</value>
+    <comment>Les cookies permettent de stocker des informations relatives à la navigation sur le Site (date, page, heures), ainsi qu'aux éventuelles données saisies par les Internautes au cours de leur visite (recherches, login, email, mot de passe). Ces cookies ont vocation à être conservés sur le poste informatique de l'Internaute pour une durée variable allant jusqu'à 13 mois et pourront être lus et utilisés par Le Centre lors d'une visite ultérieure de l'Internaute sur le présent Site.</comment>
+  </data>
+  <data name="PrivacyArt4_6" xml:space="preserve">
+    <value>4.1.3.	User's Possibility to Refuse the Implementation of the Cookies</value>
+  </data>
+  <data name="PrivacyArt4_7" xml:space="preserve">
+    <value>The User has the possibility to block, modify the shelf life, or delete these cookies via the interface of his browser (generally: tools or options / privacy or confidentiality). In such a case, browsing on this Website will not be optimized. If the systematic deactivation of cookies on the browser of the User prevents him from using certain Services, this malfunction cannot under any circumstances constitute a damage for the User who cannot claim any compensation for this fact.</value>
+    <comment>L'Internaute dispose de la possibilité de bloquer, modifier la durée de conservation, ou supprimer ces cookies via l'interface de son navigateur (généralement : outils ou options / vie privée ou confidentialité). Dans un tel cas, la navigation sur le présent Site ne sera pas optimisée. Si la désactivation systématique des cookies sur le navigateur de l'Internaute l'empêche d'utiliser certains Services, ce dysfonctionnement ne saurait en aucun cas constituer un dommage pour l’Internaute qui ne pourra prétendre à aucune indemnité de ce fait.</comment>
+  </data>
+  <data name="PrivacyArt4_8" xml:space="preserve">
+    <value>4.1.4.	Deletion of the Cookies Implanted</value>
+  </data>
+  <data name="PrivacyArt4_9" xml:space="preserve">
+    <value>Users also have the option of removing cookies from their computer by opening their browser's menu (usually tools or options / privacy or confidentiality). Such action causes Users to lose the benefits brought by cookies.</value>
+    <comment>Les Internautes ont aussi la possibilité de supprimer les cookies implantés sur leur ordinateur, en se rendant dans le menu de leur navigateur prévu à cet effet (généralement, outils ou options / vie privée ou confidentialité). Une telle action fait perdre aux Internautes le bénéfice apporté par les cookies.</comment>
+  </data>
+  <data name="PrivacyArt5" xml:space="preserve">
+    <value>ARTICLE 5. INFORMATION TECHNOLOGIES AND LIBERTIES</value>
+  </data>
+  <data name="PrivacyArt5_1" xml:space="preserve">
+    <value>5.1.	CNIL Declaration - Responsible for Processing</value>
+  </data>
+  <data name="PrivacyArt5_10" xml:space="preserve">
+    <value>The contact details of all Users registered on this Website are saved for a reasonable period necessary for the good administration of the Website and for normal use of the data. This data is kept under secure conditions, according to the current means of the technique, in compliance with the provisions of the French Data Protection Act of 6 January 1978.</value>
+    <comment>Les coordonnées de tous les Internautes inscrits sur le présent Site sont sauvegardées pour une durée raisonnable nécessaire à la bonne administration du Site et à une utilisation normale des données. Ces données sont conservées dans des conditions sécurisées, selon les moyens actuels de la technique, dans le respect des dispositions de la Loi Informatique et Libertés du 6 janvier 1978.</comment>
+  </data>
+  <data name="PrivacyArt5_11" xml:space="preserve">
+    <value>In accordance with the latter, Users have the right to object, query, access and rectify the data they have provided. To do so, all they have to do is contact the Center, by writing to the following e-mail address:</value>
+    <comment>Conformément à cette dernière, les Internautes disposent d'un droit d'opposition, d'interrogation, d'accès et de rectification des données qu'ils ont fournies. Pour cela, il leur suffit d'en faire la demande au Centre, en la formulant à l'adresse électronique suivante :</comment>
+  </data>
+  <data name="PrivacyArt5_12" xml:space="preserve">
+    <value>cnil@fast-arbitre.com</value>
+  </data>
+  <data name="PrivacyArt5_13" xml:space="preserve">
+    <value>or by post to the address of the Center's corporate office.</value>
+    <comment>ou encore par courrier postal à l'adresse du siège du Centre.</comment>
+  </data>
+  <data name="PrivacyArt5_2" xml:space="preserve">
+    <value>The Center's file containing the personal data of the Users has been subject to a declaration to the National Commission of Data Processing and Freedoms (CNIL) registered under No 1988225v0.</value>
+    <comment>Le fichier du Centre comportant les données personnelles des Internautes a fait l'objet d'une déclaration auprès de la Commission nationale de l’informatique et des libertés enregistrée sous le n° 1988225v0.</comment>
+  </data>
+  <data name="PrivacyArt5_3" xml:space="preserve">
+    <value>5.2.	Optional Nature of the Provision of Data</value>
+  </data>
+  <data name="PrivacyArt5_4" xml:space="preserve">
+    <value>Users have the right to provide personal information concerning themselves. The provision of personal information is not essential for browsing on the Website.</value>
+    <comment>Les Internautes disposent de la libre faculté de fournir des informations personnelles les concernant. La fourniture d'informations personnelles n'est pas indispensable pour la navigation sur le Site.</comment>
+  </data>
+  <data name="PrivacyArt5_5" xml:space="preserve">
+    <value>5.3.	Necessary Supply of Data for Registration</value>
+  </data>
+  <data name="PrivacyArt5_6" xml:space="preserve">
+    <value>On the other hand, the registration on this Webite presumes the collection by the Center of a certain number of personal information concerning Users. Those not wishing to provide the information necessary for registration will not be able to place an order on this Website.</value>
+    <comment>En revanche, l'inscription sur le présent Site suppose la collecte par Le Centre d'un certain nombre d'informations personnelles concernant les Internautes. Les Internautes ne souhaitant pas fournir les informations nécessaires à l'inscription ne pourront pas passer commande sur le présent Site.</comment>
+  </data>
+  <data name="PrivacyArt5_7" xml:space="preserve">
+    <value>5.4.	Compliance With the Objective of the Collection of Personal Data</value>
+  </data>
+  <data name="PrivacyArt5_8" xml:space="preserve">
+    <value>The personal data collected is subject to computer processing and is reserved exclusively to the Center. The data collected is necessary for the proper administration of the Website, as well as for the Center to comply with its contractual obligations. This data is retained by the Center in this unique quality. The Center agrees not to use it in any other framework or to transmit it to third parties, except by express agreement of the Users or in the events provided for by law. The personal data collected is not transferred abroad.</value>
+    <comment>Les données personnelles collectées font l'objet d'un traitement informatique et sont exclusivement réservées au Centre. Les données récoltées sont nécessaires à la bonne administration du Site, ainsi qu'au respect de ses obligations contractuelles par Le Centre. Ces données sont conservées par Le Centre en cette unique qualité. Le Centre s'engage à ne pas les utiliser dans un autre cadre ni à les transmettre à des tiers, hors accord express des Internautes ou cas prévus par la loi. Les données personnelles récoltées ne font l'objet d'aucun transfert vers l'étranger. </comment>
+  </data>
+  <data name="PrivacyArt5_9" xml:space="preserve">
+    <value>5.5.	Right of Access, Rectification and Opposition</value>
+  </data>
+  <data name="PrivacyArt6" xml:space="preserve">
+    <value>ARTICLE 6. SECURITY</value>
+  </data>
+  <data name="PrivacyArt6_1" xml:space="preserve">
+    <value>Our infrastructure is ISO 27001, HIPAA, FedRAMP, SOC 1 and SOC 2 certified. Based on the Azure cloud from Microsoft, we guarantee a service of quality but above all a security effort of the highest level. From data encryption when passing through SSL to storage and managing backups on multiple servers in daily replication, Microsoft Azure ensures both the confidentiality and the security of your data.</value>
+    <comment>Notre infrastructure est certifiée ISO 27001, HIPAA, FedRAMP, SOC 1 et SOC 2. En reposant sur le cloud Azure de Microsoft, nous garantissons une qualité de service mais surtout un effort de sécurité du plus haut niveau. Du chiffrement des données lorsqu’elles transitent via SSL au stockage et la gestion des sauvegardes sur plusieurs serveurs en réplication quotidienne, Microsoft Azure garantie la préservation autant de la confidentialité que de la sécurité de vos données.</comment>
+  </data>
+  <data name="PrivacyArt6_2" xml:space="preserve">
+    <value>ISO 27001: Corresponds to a set of safety standards applied both to the infrastructure and to the response time in the event of an incident. There are now 114 checks to pass in order to obtain this certification.</value>
+    <comment>ISO 27001 : Correspond à un ensemble de normes de sécurités appliquées tant à l’infrastructure qu’au temps de réponse en cas d’incident. Il y a aujourd’hui 114 contrôles à passer afin d’obtenir cette certification.</comment>
+  </data>
+  <data name="PrivacyArt6_3" xml:space="preserve">
+    <value>HIPAA: A standard created for the medical community, HIPAA ensures the confidentiality of the data, guaranteeing access to the data only to the persons holding rights on this data, but also security in terms of protection of information (physical and technological).</value>
+    <comment>HIPAA : Norme créée pour le milieu médical, HIPAA assure quant à elle la confidentialité des données, garantissant un accès à celle-ci uniquement aux personnes détentrices de droits sur ses données, mais aussi la sécurité tant en termes de protection de l’information (physique et technologique).</comment>
+  </data>
+  <data name="PrivacyArt6_4" xml:space="preserve">
+    <value>FedRAMP (Federal Risk and Authorization Management Program): a cloud-specific state security standard (USA) that guarantees the security of the cloud. It certifies a very high level of security and brings good practices to the cloud world such as real-time monitoring of infrastructures and data.</value>
+    <comment>FedRAMP (Federal Risk and Authorization Management Program) : norme de sécurité étatique (USA) spécifique au Cloud garantissant la sécurité de ceux-ci. Elle certifie d’un niveau de sécurité très élevé et apporte des bonnes pratiques au monde du Cloud tel que le monitoring en temps réel des infrastructures ainsi que des données.</comment>
+  </data>
+  <data name="PrivacyArt6_5" xml:space="preserve">
+    <value>SOC1 and 2: standard guaranteeing the availability of the service over a long period. The different points covered by this standard now make it possible to assert an SLA of 99.9% of our servers.</value>
+    <comment>SOC1 et 2 : norme garantissant la disponibilité du service sur une longue période. Les différents points visés par cette norme permettent aujourd’hui d’affirmer une SLA de 99,9% de nos serveurs.</comment>
+  </data>
+  <data name="PrivacyArt7" xml:space="preserve">
+    <value>ARTICLE 7. CENTER'S NEWSLETTER</value>
+  </data>
+  <data name="PrivacyArt7_1" xml:space="preserve">
+    <value>By ticking the box provided for this purpose or expressly agreeing to this end, Users agree that the Center may send them, at a frequency and in a form that it determines, a newsletter that may contain information regarding its activity.</value>
+    <comment>En cochant la case prévue à cet effet ou en donnant expressément leur accord à cette fin, les Internautes acceptent que le Centre puisse leur faire parvenir, à une fréquence et sous une forme qu'il déterminera, une newsletter (lettre d'information) pouvant comporter des informations relatives à son activité.</comment>
+  </data>
+  <data name="PrivacyArt7_2" xml:space="preserve">
+    <value>When the User ticks the box provided, he / she agrees to receive commercial offers from the Center for products and services similar to those presented on the Website. Subscribers will have the option to unsubscribe from the newsletter by clicking on the link provided for in each newsletter.</value>
+    <comment>Lorsque l'Internaute coche la case prévue à cet effet, il accepte de recevoir des offres commerciales du Centre pour des produits et services analogues à ceux présentés sur le Site. Les Internautes abonnés auront la faculté de se désinscrire de la newsletter en cliquant sur le lien prévu à cet effet, présent dans chacune des newsletters.</comment>
+  </data>
+  <data name="PrivacyArt8" xml:space="preserve">
+    <value>ARTICLE 8.	PARTNER'S NEWSLETTERS</value>
+  </data>
+  <data name="PrivacyArt8_1" xml:space="preserve">
+    <value>The User who has accepted the communication of personal data, and in particular his e-mail address, to third party partners of the Website may receive newsletters issued by these partners, commercial or not, at frequencies and in the forms determined by such partners.</value>
+    <comment>L'Internaute ayant accepté la communication de données personnelles, et notamment de son adresse de courrier électronique, à des tiers partenaires du Site pourra être amené à recevoir des newsletters (lettres d'informations) émises par ces partenaires, à titre commercial ou non, aux fréquences et dans les formes déterminées par lesdits partenaires.</comment>
+  </data>
+  <data name="PrivacyArt8_2" xml:space="preserve">
+    <value>The User has the possibility to unsubscribe at any time by clicking on the link provided for this purpose, present in each of the newsletters issued by the said partners. Failing this, the User has the possibility to unsubscribe by directly contacting the issuer(s) of the said newsletters.</value>
+    <comment>L'Internaute dispose à tout moment de la faculté de se désabonner en cliquant sur le lien prévu à cet effet, présent sur chacune des newsletters émises par lesdits partenaires. A défaut, l’Internaute dispose de la possibilité de se désinscrire en prenant directement contact avec le ou les émetteurs des dites newsletters.</comment>
+  </data>
+  <data name="PrivacyArt8_3" xml:space="preserve">
+    <value>The Center shall under no circumstances be held liable for the content, data or forms of the newsletters sent by such partners, irrespective of the harm that would have been suffered by the User. Any complaint must be directly addressed to the partner having published the newsletter.</value>
+    <comment>Le Centre ne saurait en aucun cas être tenu responsable du contenu, des données ou des formes des newsletters envoyées par lesdits partenaires, quel que soit le préjudice qui aurait été subi par l’Internaute. Toute réclamation doit directement être formulée auprès du partenaire émetteur de la newsletter (lettre d'information).</comment>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>FastArbitre Privacy Policy</value>
+  </data>
+  <data name="ScopeOfApplication" xml:space="preserve">
+    <value>SCOPE OF APPLICATION</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>SECURITY</value>
+  </data>
+  <data name="ServerLocalisation" xml:space="preserve">
+    <value>The server is geographically located at the Microsoft hosting site for Western Europe located in the Netherlands. For more information, please refer to</value>
+  </data>
+  <data name="Siret" xml:space="preserve">
+    <value>SIRET</value>
+  </data>
+  <data name="SiretNo" xml:space="preserve">
+    <value>82149162800011</value>
+  </data>
+  <data name="SmallCommercialDisputes" xml:space="preserve">
+    <value>Small Commercial Disputes</value>
+  </data>
+  <data name="SmallCommercialDisputesDes" xml:space="preserve">
+    <value>Disputes regarding common commercial transactions, such as unpaid invoices, absence or delay in delivery of a product or service, etc.</value>
+    <comment>Litiges portant sur les opérations courantes du commerce, tels que les factures impayées, l’absence ou le retard de livraison d’un produit ou d’une prestation, etc.</comment>
+  </data>
+  <data name="SmallCommercialDisputesTariff" xml:space="preserve">
+    <value>750</value>
+  </data>
+  <data name="SmallCommercialDisputesTotal" xml:space="preserve">
+    <value>(1500 € before taxes in total for the proceedings)</value>
+  </data>
+  <data name="Tariffs" xml:space="preserve">
+    <value>Tariffs of the Arbitration Platform</value>
+  </data>
+  <data name="Telephone" xml:space="preserve">
+    <value>telephone No</value>
+  </data>
+  <data name="TelephoneNo" xml:space="preserve">
+    <value>01 86 95 47 61</value>
+  </data>
+  <data name="YouAreConnectedTo" xml:space="preserve">
+    <value>You are currently connected to the www.fast-arbitre.com website, published by the Digital Institute of Arbitration and Mediation (DAIM) SAS, a company with a share capital of € 1000.</value>
+  </data>
+</root>

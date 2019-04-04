@@ -1,0 +1,337 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Extensions
+@model ClickNClaim.Common.Conflict
+@{
+    ViewBag.Title = "Acceptance";
+    var demandeur = Model.UsersInConflicts.First(c => c.IdUser == Model.IdCreationUser);
+    var defendeur = Model.UsersInConflicts.Where(c => c.IdUser != Model.IdCreationUser && (c.IsLawyer == null || !c.IsLawyer.Value)).First();
+}
+
+<div class="container view-container">
+    <form id="acceptance-form" action="@Url.Action("ValidateAcceptance")" method="post" enctype="multipart/form-data" >
+        <input type="hidden" name="conflictId" value="@Model.Id" />
+        <div class="row last-row">
+            <div class="col s12">
+                <h1 style="text-align:center">
+                    @Arbitre.DeclarationOfAcceptanceAndIndependence
+                    <br />
+                    <i style="font-size:16px">Litige n° @Model.Id</i>
+                    <br />
+                    <i style="font-size:16px">@(demandeur.CompanyName ?? demandeur.User.DisplayName) / @(defendeur.CompanyName ?? defendeur.User.DisplayName)</i>
+                </h1>
+
+
+                <div id="elts">
+                    <div class="row">
+                        <div class="col s3 pos-relative">
+                            <div class="vline"></div>
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p>@Arbitre.ITheUndersigned,</p>
+                                    <b>@User.Identity.FirstName() @User.Identity.LastName()</b>
+                                    <p>@Arbitre.MissionAcceptance, </p>
+                                    <div class="margin-top margin-bottom margin-left">
+                                        <p>
+                                            <input type="checkbox" id="read-rules" name="read-rules" value="true" class="filled-in required" />
+                                            <label class="clause" for="read-rules">
+                                                @Arbitre.ReadAndUnderstood ;
+                                                <label class="error">*</label>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" id="aptitudes" name="aptitudes" value="true" class="filled-in required" />
+                                            <label class="clause" for="aptitudes">
+                                                @Arbitre.Aptitudes ;
+                                                <label class="error">*</label>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" id="disponibility" name="disponibility" value="true" class="filled-in required" />
+                                            <label class="clause" for="disponibility">
+                                                @Arbitre.Availability ;
+                                                <label class="error">*</label>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" id="independency" name="independency" value="true" class="filled-in required" />
+                                            <label class="clause" for="independency">
+                                                @Arbitre.Independence ;
+                                                <label class="error">*</label>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" id="no-conflict-of-interest" name="noconflict" value="true" class="filled-in required" />
+                                            <label class="clause" for="no-conflict-of-interest">
+                                                @Arbitre.Disclosure ;
+                                                <label class="error">*</label>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" id="legitimate" name="legitimate" value="true" class="filled-in required" />
+                                            <label class="clause" for="legitimate">
+                                                @Arbitre.DecideTheDispute
+                                                <label class="error">*</label>
+                                            </label>
+                                        </p>
+                                    </div>
+
+                                    <input type="button" onclick="generateDoc()" class="btn btn-flat blue " value="@Arbitre.GenerateTheDocument" />
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card  disable-content" id="generate">
+                                <div class="card-content">
+                                    <h3>@Arbitre.DownloadAndSign</h3>
+                                    <a href="#" target="_blank" onclick="openUpload()" class="btn btn-flat blue centered" id="fileLink">@Arbitre.DownloadDocument</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card disable-content" id="upload">
+                                <div class="card-content">
+                                    <h3>@Arbitre.UploadSignedDoc</h3>
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>@Arbitre.UploadDoc</span>
+                                            <input id="FileClause" name="FileClause" type="file" accept=".pdf">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" data-validation="required" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card disable-content" id="submission">
+                                <div class="card-content">
+                                    <h3>Validation</h3>
+                                    <input type="submit" class="btn btn-flat blue " value="@Arbitre.ConfirmAndForwardDoc" />
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+@section css{
+    <style type="text/css">
+        label.invalid {
+            color: red;
+            font-size: 0.8rem;
+            left: 0;
+            position: relative;
+            top: -15px;
+            transform: none !important;
+        }
+
+        .error {
+            display: none;
+            color: red;
+        }
+
+            .error.invalid {
+                display: inline-block;
+                top: -3px;
+            }
+
+        .circles {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: solid 2px rgb(243,124,46);
+            display: table;
+            margin: 10px auto;
+            background-color: rgb(243,124,46);
+        }
+
+            .circles div {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 20px;
+                color: white;
+            }
+    </style>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.validator.setDefaults({
+            onkeyup: false,
+            errorClass: 'invalid',
+            validClass: 'valid',
+            submitHandler: function (form) {
+                $(form).find("input[type='submit']").prop('disabled', true);
+                $(form).find("button[type='submit']").addClass("disabled");
+                $(form).find("button[type='submit']").prop('disabled', true);
+                form.submit();
+            },
+            errorPlacement: function (error, element) {
+                //error.insertAfter($(element).siblings('label'));
+                $(element).siblings('label').children('.error').addClass('invalid');
+            }
+        });
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $("#acceptance-form").validate({
+
+            });
+            $(".vline").height($("#elts").height() - $("#elts .row").last().outerHeight());
+            $(window).resize(function () {
+                $(".vline").height($("#elts").height() - $("#elts .row").last().outerHeight());
+            });
+            $("input[type=checkbox]").change(function () {
+                if ($(this).is(":checked")) {
+                    $(this).next("label").removeClass("error");
+                }
+            });
+
+        })
+
+        function generateDoc() {
+            var hasErrors = false;
+            if (!$("#read-rules").is(":checked")) {
+                $("#read-rules+label").addClass("error");
+                hasErrors = true;
+            }
+            else {
+                $("#read-rules+label").removeClass("error");
+            }
+            if (!$("#aptitudes").is(":checked")) {
+                $("#aptitudes+label").addClass("error");
+                hasErrors = true;
+            }
+            else {
+                $("#aptitudes+label").removeClass("error");
+            }
+            if (!$("#disponibility").is(":checked")) {
+                $("#disponibility+label").addClass("error");
+                hasErrors = true;
+            }
+            else {
+                $("#disponibility+label").removeClass("error");
+            }
+            if (!$("#independency").is(":checked")) {
+                $("#independency+label").addClass("error");
+                hasErrors = true;
+            }
+            else {
+                $("#independency+label").removeClass("error");
+            }
+            if (!$("#no-conflict-of-interest").is(":checked")) {
+                $("#no-conflict-of-interest+label").addClass("error");
+                hasErrors = true;
+            }
+            else {
+                $("#no-conflict-of-interest+label").removeClass("error");
+            }
+            if (!$("#legitimate").is(":checked")) {
+                $("#legitimate+label").addClass("error");
+                hasErrors = true;
+            }
+            else {
+                $("#legitimate+label").removeClass("error");
+            }
+
+            if (!hasErrors) {
+                $.ajax({
+                    url: '@Url.Action("GenerateAcceptanceReport", "Arbitre", new { conflictId = Model.Id })',
+                    complete: function (data, status, xhr) {
+                        var link = $("#fileLink");
+                        link.attr("href", data.responseText);
+                        $("#generate").removeClass("disable-content");
+                        smoothScroll("generate");
+                    }
+                })
+            }
+        }
+
+        function smoothScroll(name) {
+            var target = $("#"+name);
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - (($(window).height() - 64)/2)
+                }, 1000);
+                return false;
+            }
+        }
+
+        function openUpload() {
+            $("#upload").removeClass("disable-content");
+            smoothScroll("upload");
+            $("input[type=file]").change(function (data, event) {
+                $("#submission").removeClass("disable-content");
+                smoothScroll("submission");
+            })
+        }
+    </script>
+
+
+}
+
+

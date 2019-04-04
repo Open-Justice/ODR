@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81c70c467af14f2c92cb421e1b3738ae" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="ClickNClaimModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNClaimModel.AspNetUserClaim" Width="1.5" PointX="5.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNClaimModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNClaimModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="ClickNClaimModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNClaimModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNClaimModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ClickNClaimModel.ProofFile" Width="1.5" PointX="12" PointY="10.75" />
+        <EntityTypeShape EntityType="ClickNClaimModel.ConflictType" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Conflict" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="ClickNClaimModel.UsersInConflict" Width="1.5" PointX="7.375" PointY="6.375" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Conflicts_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_UsersInConflict_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Conflicts_ConflictTypes" />
+        <AssociationConnector Association="ClickNClaimModel.FK_ProofFiles_Conflicts" />
+        <AssociationConnector Association="ClickNClaimModel.FK_UsersInConflict_Conflicts" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Resolution" Width="1.5" PointX="11.625" PointY="4.75" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Resolutions_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Resolutions_Conflicts" />
+        <EntityTypeShape EntityType="ClickNClaimModel.ResolutionType" Width="1.5" PointX="13.75" PointY="7.125" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Resolutions_ResolutionType" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Invitation" Width="1.5" PointX="7.5" PointY="14.25" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Invitations_Conflicts" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Event" Width="1.5" PointX="9.75" PointY="8.375" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Events_Events" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Events_Conflicts" />
+        <AssociationConnector Association="ClickNClaimModel.EventFiles" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Comment" Width="1.5" PointX="14.5" PointY="3.75" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Comments_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Comments_Events" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Disagreement" Width="2.375" PointX="2.875" PointY="12.125" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Disagreements_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Disagreements_Events" />
+        <EntityTypeShape EntityType="ClickNClaimModel.ArbiterSkill" Width="1.5" PointX="7.625" PointY="0.5" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Skill" Width="1.5" PointX="11.75" PointY="0.625" />
+        <AssociationConnector Association="ClickNClaimModel.FK_ArbiterSkills_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_ArbiterSkills_Skills" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Conflicts_AspNetUsers1" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Debate" Width="1.5" PointX="10.375" PointY="14" />
+        <EntityTypeShape EntityType="ClickNClaimModel.MailDebate" Width="1.5" PointX="17.625" PointY="7.625" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MailDebates_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MailDebates_Debates" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Debates_Events" />
+        <EntityTypeShape EntityType="ClickNClaimModel.LegalDocument" Width="2" PointX="7.5" PointY="18.125" />
+        <EntityTypeShape EntityType="ClickNClaimModel.MeetingPropositionAnswer" Width="2" PointX="20.125" PointY="6.125" />
+        <EntityTypeShape EntityType="ClickNClaimModel.MeetingProposition" Width="2" PointX="16.875" PointY="11.125" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MeetingPropositionAnswers_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_ConflictLegalDocuments_Conflicts" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MeetingPropositionAnswers_MeetingPropositions" />
+        <EntityTypeShape EntityType="ClickNClaimModel.MeetingDebate" Width="1.5" PointX="7.5" PointY="21.625" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MeetingDebates_Conflicts" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MeetingPropositions_MeetingDebates" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MeetingDebates_Events" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Invitations_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_UsersInConflict_AspNetUsers1" />
+        <EntityTypeShape EntityType="ClickNClaimModel.DefaultEvent" Width="1.5" PointX="3" PointY="16.75" />
+        <AssociationConnector Association="ClickNClaimModel.FK_DefaultEvents_ConflictTypes" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Resolutions_Events" />
+        <AssociationConnector Association="ClickNClaimModel.FK_MailDebates_ProofFiles" />
+        <AssociationConnector Association="ClickNClaimModel.FK_ResolutionType_ConflictTypes" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Company" Width="1.5" PointX="12.375" PointY="15" />
+        <EntityTypeShape EntityType="ClickNClaimModel.ConflictStateHistoric" Width="1.5" PointX="3.375" PointY="21.625" />
+        <AssociationConnector Association="ClickNClaimModel.FK_ConflictStateHistoric_Conflicts" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Email" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ClickNClaimModel.ArbiterInformation" Width="1.5" PointX="0.75" PointY="4.5" />
+        <AssociationConnector Association="ClickNClaimModel.FK_AspNetUsers_ArbiterInformations" />
+        <EntityTypeShape EntityType="ClickNClaimModel.UserCompany" Width="1.5" PointX="14.625" PointY="11" />
+        <AssociationConnector Association="ClickNClaimModel.FK_UserCompanies_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_UserCompanies_Companies" />
+        <AssociationConnector Association="ClickNClaimModel.FK_UsersInConflict_UserCompanies" />
+        <EntityTypeShape EntityType="ClickNClaimModel.Message" Width="1.5" PointX="7.25" PointY="3.25" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Messages_AspNetUsers" />
+        <AssociationConnector Association="ClickNClaimModel.FK_Messages_Conflicts" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

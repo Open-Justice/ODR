@@ -1,0 +1,164 @@
+﻿@using ClickNClaim.WebPortal.Resources
+
+
+@model ClickNClaim.Common.Conflict
+<div id="process-explanation-modal" class="modal">
+    <div class="modal-content">
+        <div id="_1" style="width:100%;height:100%;line-height:100%">
+            <h3>@Shared.Welcome</h3>
+            <p>@Model.CreatedBy.DisplayName @Shared.Welcome1 </p>
+            <p>@Model.CreatedBy.DisplayName @Shared.Welcome2</p>
+            <p>@Shared.Welcome3</p>
+            <div class="row margin-top">
+                <a class="stepper-link col s4" onclick="goTo(2)" id="identification-nav">
+                    <p>@Shared.SummaryOfCase</p>
+                    <div class="line"></div>
+                    <div class="stepper-wrapper">
+                        <div class="stepper-white-ring">
+                            <div class="stepper-content">
+                                <p class="stepper-content-text">1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+                <a class="stepper-link col s4" onclick="goTo(3)" id="declaration-nav">
+                    <p>@Shared.YourChallenge</p>
+                    <div class="line"></div>
+                    <div class="stepper-wrapper">
+                        <div class="stepper-white-ring">
+                            <div class="stepper-content">
+                                <p class="stepper-content-text">2</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+                <a class="stepper-link col s4" onclick="goTo(4)" id="timeline-nav">
+                    <p>@Shared.ArbitrationRequest</p>
+                    <div class="stepper-wrapper">
+                        <div class="stepper-white-ring">
+                            <div class="stepper-content">
+                                <p class="stepper-content-text">3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+        <div id="_2" class="hidden">
+            <div class="stepper-wrapper no-margin left margin-right">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">1</p>
+                    </div>
+                </div>
+            </div> <h3 class="padding-top">@Shared.SummaryOfCase</h3>
+            <div class="row">
+                <div class="center-align">
+                    <img src="~/Images/demande.arbitrage.20.png" class="responsive-img " />
+                </div>
+                <div>
+                    <p>@Shared.SummaryPage1</p>
+                    <p>@Shared.SummaryPage2 @Model.CreatedBy.DisplayName @Shared.SummaryPage3</p>
+                    <p>@Shared.SummaryPage4</p>
+                    <p>@Shared.SummaryPage5</p>
+                    <p>@Shared.SummaryPage6 @Model.CreatedBy.DisplayName" @Shared.SummaryPage7</p>
+                </div>
+
+            </div>
+        </div>
+        <div id="_3" class="hidden">
+            <div class="stepper-wrapper no-margin left margin-right">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">2</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="padding-top">@Shared.YourChallenge</h3>
+            <div class="center-align">
+                <img src="~/Images/declaration.20.png" class="responsive-img " />
+            </div>
+            <p>@Shared.ChallengeInfo1</p>
+            <p>@Shared.ChallengeInfo2</p>
+            <p>@Shared.ChallengeInfo3</p>
+            <p>@Shared.ChallengeInfo4</p>
+            <p>@Shared.ChallengeInfo5</p>
+            <p>@Shared.ChallengeInfo6</p>
+        </div>
+        <div id="_4" class="hidden">
+
+            <div class="stepper-wrapper no-margin left margin-right">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">3</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="padding-top">@Shared.ArbitrationRequest</h3>
+            <div class="center-align">
+                <img src="~/Images/demande.arbitrage.20.png" class="responsive-img " />
+            </div>
+            <p>@Shared.ArbitrationRequest1</p>
+            <p>@Shared.ArbitrationRequest2</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <input type="button" class="btn btn-flat blue modal-close modal-action hidden" id="start-process" value="@Shared.IUnderstand" />
+        <input type="button" id="process_next" class="btn btn-flat blue" onclick="next()" value="@ButtonsAndRecurring.Next" />
+        <input type="button" id="process_previous" onclick="previous()" class="btn btn-flat blue hidden" value="@ButtonsAndRecurring.Previous" />
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var popup_process_id = 1;
+
+    function next() {
+        if (popup_process_id == 1) {
+            $("#process_previous").removeClass('hidden');
+        }
+
+
+        $("#_" + popup_process_id).addClass('hidden');
+        popup_process_id += 1;
+        $("#_" + popup_process_id).removeClass('hidden');
+
+        if (popup_process_id == 4) {
+            $("#process_next").addClass('hidden');
+            $("#start-process").removeClass('hidden');
+        }
+    }
+    function previous() {
+
+        if (popup_process_id == 4) {
+            $("#process_next").removeClass('hidden');
+            $("#start-process").addClass('hidden');
+        }
+
+        $("#_" + popup_process_id).addClass('hidden');
+        popup_process_id -= 1;
+        $("#_" + popup_process_id).removeClass('hidden');
+        if (popup_process_id == 1) {
+            $("#process_previous").addClass('hidden');
+        }
+    }
+
+    function goTo(i) {
+        $("#_" + popup_process_id).addClass('hidden');
+
+        $("#process_previous").removeClass('hidden');
+
+        if (i == 4) {
+            $("#process_next").addClass('hidden');
+            $("#start-process").removeClass('hidden');
+        }
+        popup_process_id = i;
+        $("#_" + popup_process_id).removeClass('hidden');
+
+    }
+
+</script>

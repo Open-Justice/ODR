@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArbitrationClauseExplanation" xml:space="preserve">
+    <value>This arbitration clause obliges the parties to resort to arbitration in the event of a dispute in order to obtain a quick resolution.</value>
+  </data>
+  <data name="DownloadClause" xml:space="preserve">
+    <value>Upload clause</value>
+  </data>
+  <data name="DownloadDocArbClause" xml:space="preserve">
+    <value>Please upload the document containing the arbitration clause.</value>
+  </data>
+  <data name="DoYouHaveArbitrationClause" xml:space="preserve">
+    <value>Do you have an arbitration clause in your contract?</value>
+  </data>
+  <data name="DoYouHaveArbitrationClause2" xml:space="preserve">
+    <value>Do you have an arbitration clause in the contract between you and the other party?</value>
+  </data>
+  <data name="EndFiling" xml:space="preserve">
+    <value>end filing</value>
+  </data>
+  <data name="EndOfFiling" xml:space="preserve">
+    <value>End of filing</value>
+  </data>
+  <data name="ExistenceArbClause" xml:space="preserve">
+    <value>Existence of an arbitration clause</value>
+  </data>
+  <data name="FileNearlyComplete" xml:space="preserve">
+    <value>Your file is almost complete</value>
+  </data>
+  <data name="ModifyClause" xml:space="preserve">
+    <value>Modify the clause</value>
+  </data>
+  <data name="NewClause" xml:space="preserve">
+    <value>New clause:</value>
+  </data>
+  <data name="SeeDownloadedClause" xml:space="preserve">
+    <value>See uploaded clause</value>
+  </data>
+  <data name="WhereToDownloadClause" xml:space="preserve">
+    <value>The arbitration clause is available for download below.</value>
+    <comment>NB: Check if upload instead of download ?</comment>
+  </data>
+  <data name="WillBeSavedNextStep" xml:space="preserve">
+    <value>(The clause will be saved when you will click to the next step)</value>
+  </data>
+  <data name="AboutDisagreement" xml:space="preserve">
+    <value>What is your disagreement about?</value>
+  </data>
+  <data name="AboutDispute" xml:space="preserve">
+    <value>What is your dispute about?</value>
+  </data>
+  <data name="AboutSmthgElse" xml:space="preserve">
+    <value>Does your disagreement concern something else?</value>
+  </data>
+  <data name="Bill" xml:space="preserve">
+    <value>A bill</value>
+  </data>
+  <data name="ChooseFromList" xml:space="preserve">
+    <value>Choose from the list</value>
+  </data>
+  <data name="ConstitutionContract" xml:space="preserve">
+    <value>A contract may be constituted by:</value>
+  </data>
+  <data name="ContractInfo" xml:space="preserve">
+    <value>You said that you have a contract. Please indicate below the details of this contract.</value>
+  </data>
+  <data name="ContractualDispute" xml:space="preserve">
+    <value>Please indicate if the dispute arose from a contractual relationship between the parties.</value>
+  </data>
+  <data name="ContractualDisputeQ" xml:space="preserve">
+    <value>Does your dispute involve a contract?</value>
+  </data>
+  <data name="DateContract" xml:space="preserve">
+    <value>Date of the contract</value>
+  </data>
+  <data name="DisputeConcerns" xml:space="preserve">
+    <value>Your dispute concerns:</value>
+  </data>
+  <data name="DoYouHaveDocs" xml:space="preserve">
+    <value>Do you have any documents or contracts justifying your position?</value>
+  </data>
+  <data name="EmailExchange" xml:space="preserve">
+    <value>An email</value>
+  </data>
+  <data name="FactsExhibits" xml:space="preserve">
+    <value>Facts and Exhibits</value>
+  </data>
+  <data name="IfNoContract" xml:space="preserve">
+    <value>If you do not have a contract, please modify your answer to the question "Does your dispute involve a contract?".</value>
+  </data>
+  <data name="NoContract" xml:space="preserve">
+    <value>Click NO if your dispute does not relate to a contract but to a factual situation where you are opposed to a third party with whom you do not have a direct business relationship (including a competitor).</value>
+    <comment>Vous cliquez NON si votre litige ne porte pas sur un contrat mais sur un fait qui vous oppose à un tiers avec qui nous n’avez pas de relation commerciale directe (un concurrent, notamment).</comment>
+  </data>
+  <data name="OtherResolutionAttempt" xml:space="preserve">
+    <value>Did you attempt something else to resolve the dispute?</value>
+  </data>
+  <data name="PriorResolutionAttempt" xml:space="preserve">
+    <value>Have you tried to settle your dispute?</value>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>A purchase order</value>
+  </data>
+  <data name="Quotation" xml:space="preserve">
+    <value>A quotation</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>See more</value>
+  </data>
+  <data name="SelectCorresponding" xml:space="preserve">
+    <value>In this list, select the items that match your case</value>
+  </data>
+  <data name="SelectFromListCorrespondingElements" xml:space="preserve">
+    <value>From this list, select the elements that correspond to your file</value>
+  </data>
+  <data name="SignedDoc" xml:space="preserve">
+    <value>A signed document (electronically or not)</value>
+  </data>
+  <data name="WhatContract" xml:space="preserve">
+    <value>What contract do you have with your contracting partner?</value>
+  </data>
+  <data name="Chronology" xml:space="preserve">
+    <value>Chronology</value>
+  </data>
+  <data name="ChronologyAddNewEntry" xml:space="preserve">
+    <value>To add a new entry, click "Add Entry" below this box.</value>
+    <comment>Pour ajouter un nouveau fait, cliquez sur le bouton "Ajouter un fait" en dessous de ce cadre.</comment>
+  </data>
+  <data name="ChronologyDetails" xml:space="preserve">
+    <value>You can date and comment each of these entries and upload attachments.</value>
+    <comment>Vous pouvez dater , et commenter chacun de ces faits et télécharger des pièces jointes.</comment>
+  </data>
+  <data name="ChronologyEntries" xml:space="preserve">
+    <value>Do not hesitate to create as many additional entries as you deem necessary:</value>
+    <comment>N’hésitez pas à créer des faits additionnels autant qu’il vous paraît nécessaire:</comment>
+  </data>
+  <data name="ChronologyEx" xml:space="preserve">
+    <value>For example: you first signed a contract with the opposing party (this constitutes an entry), then the opposing party failed to pay (this is another entry); you wrote to ask the opposing party to pay (this is a third entry); he answered challenging your request (this is a fourth entry) and so on...</value>
+    <comment>Par exemple : vous avez d’abord signé un contrat avec votre adversaire (c’est un fait), puis votre adversaire ne vous a pas payé (c’est un autre fait) ; vous lui avez écrit pour lui demander de payer (c’est un troisième fait) ; il vous a écrit pour contester votre demande (c’est un quatrième fait) et ainsi de suite …</comment>
+  </data>
+  <data name="ChronologyHelpArb" xml:space="preserve">
+    <value>This will allow the arbitrator to better understand the situation.</value>
+  </data>
+  <data name="ChronologyInstructions" xml:space="preserve">
+    <value>Be sure to give a chronology of the facts in the most accurate and comprehensive manner.</value>
+    <comment>Veillez à  établir la chronologie des faits de la manière la plus précise et exhaustive.</comment>
+  </data>
+  <data name="ChronologyMoreEntries" xml:space="preserve">
+    <value>These may include e-mails, minutes of meetings; any element that may reinforce your case.</value>
+  </data>
+  <data name="DateEvent" xml:space="preserve">
+    <value>Indicate the date of the event</value>
+  </data>
+  <data name="DoYouHaveExhibits" xml:space="preserve">
+    <value>Do you have exhibits, documents or contracts justifying this?</value>
+    <comment>Avez-vous des pièces, documents ou contrats justifiant votre position ?</comment>
+  </data>
+  <data name="FactualEntries" xml:space="preserve">
+    <value>Please give as much information as possible about the facts that led to your problem. Do not hesitate to create as many entries as you think necessary. This may include sending an e-mail whose content pleads in your favor, a document that has been sent to you or that you sent, or anything else that would lead the arbitrator to a better understanding of the situation.</value>
+    <comment>Merci de renseigner le plus précisément possible les faits qui ont entrainés votre problème. N'hésitez pas à créer autant de fait qu'il vous semble nécessaire. Cela peut être l'envoi d'un email dont le contenu plaide en votre faveur, un document qui vous a été transmis ou que vous avez transmis, ou tout autre chose qui ammèneront l'arbitre à mieux cerné la situation.</comment>
+  </data>
+  <data name="AddAnOpposingParty" xml:space="preserve">
+    <value>Add an opposing party</value>
+  </data>
+  <data name="AmiableStage" xml:space="preserve">
+    <value>AMIABLE STAGE BETWEEN THE PARTIES</value>
+  </data>
+  <data name="AmiableStageDescription_L1" xml:space="preserve">
+    <value>You can now send your case to the opposing party filled out when the file was created.</value>
+    <comment>Vous pouvez maintenant transmettre ce dossier à la partie adverse que vous avez renseignée à la création du dossier.</comment>
+  </data>
+  <data name="AmiableStageDescription_L2" xml:space="preserve">
+    <value>The opposing party will read the file, provide his/her answers and version of the dispute.</value>
+    <comment>La partie adverse prendra connaissance du dossier et donnera sa réponse et sa version du litige qui vous oppose.</comment>
+  </data>
+  <data name="AmiableStageDescription_L3" xml:space="preserve">
+    <value>At this stage, this informal procedure between the parties can lead to an amicable solution.</value>
+    <comment>A ce stade, cette démarche informelle entre les parties peut déboucher sur une solution amiable.</comment>
+  </data>
+  <data name="AmiableStageDescription_L4" xml:space="preserve">
+    <value>Otherwise, either party may request arbitration proceedings on the Fast-Arbitre.com platform.</value>
+    <comment>Dans le cas contraire, chacune des parties peut demander de recourir à un arbitrage sur la plateforme Fast-Arbitre.com.</comment>
+  </data>
+  <data name="AreYouRepresentedByALawyer" xml:space="preserve">
+    <value>Are your represented by a lawyer?</value>
+  </data>
+  <data name="CaseNo" xml:space="preserve">
+    <value>Case No</value>
+  </data>
+  <data name="ChallengeStatement" xml:space="preserve">
+    <value>Challenge his statement</value>
+  </data>
+  <data name="ChallengeStatementInstructions" xml:space="preserve">
+    <value>You now have the opportunity to challenge the statement above. You do not need to take the entries in order or cite all the documents you may have to prove your case. Describe as simply as possible what points you challenge of the above, during the next phase you will have the possibility to be more specific by taking the entries one by one and by uploading all the documents your deem relevant to your case.</value>
+    <comment>Vous avez maintenant l'occasion de contester la déclaration ci-dessus. Vous n'avez pas besoin de reprendre les faits dans l'ordre ou de nous citer tous les documents que vous possédez pour prouver vos dires. Décrivez le plus simplement possible ce que vous contestez de la déclaration ci-dessus, vous aurez l'occasion à l'étape suivante d'être beaucoup plus précis en citant les faits un à un et en joignant tous les documents qui vous paraîtront plaider en votre faveur.</comment>
+  </data>
+  <data name="CounselWillFillOutFile" xml:space="preserve">
+    <value>He will take care of the constitution of your file. During the rest of the proceedings you will have a read-only access.</value>
+    <comment>Il prendra en charge la constitution de votre dossier. Vous aurez un rôle d’observateur de l’ensemble du dossier.</comment>
+  </data>
+  <data name="CounselWillReceiveInvitation" xml:space="preserve">
+    <value>Your lawyer will receive an invitation by email to connect to the FastArbitre platform.</value>
+    <comment>Votre conseil recevra une invitation par email pour se connecter à la plateforme FAST ARBITRE.</comment>
+  </data>
+  <data name="CyEntrepreneur" xml:space="preserve">
+    <value>Company/Entrepreneur</value>
+  </data>
+  <data name="CyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="CyOrCounsel" xml:space="preserve">
+    <value>Please specify whether your are the company involved in the dispute or its legal counsel.</value>
+    <comment>Précisez si vous êtes l’entreprise concernée par le litige ou son conseil juridique.</comment>
+  </data>
+  <data name="DisputeBetweenIndividuals" xml:space="preserve">
+    <value>Dispute between individuals</value>
+  </data>
+  <data name="DisputeForCy" xml:space="preserve">
+    <value>Dispute for </value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailWarning" xml:space="preserve">
+    <value>Each email must be unique and correspond to the opposing party.</value>
+  </data>
+  <data name="Function" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="HowToGoBackToFile" xml:space="preserve">
+    <value>You have completed your case file. You can return to it, modify it and enrich it at will (access via the MY FILES option on your online profile).</value>
+    <comment>Vous avez complété votre dossier de litige. Vous pouvez revenir sur celui-ci, le modifier et l’enrichir à volonté (accès par l’option MES DOSSIERS dans votre espace personnel).</comment>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="IfLawyerReadOnly" xml:space="preserve">
+    <value>If a lawyer represents you during these proceedings, please click on yes then fill out his / her contact details in the fields which will appear below. Your lawyer will automatically receive an email enabling him to log on to FastArbitre and fill out your file. You will no longer be able to fill out your file (only your lawyer can), but you will still be able to see its progress and the elements that your lawyer and the other party will transmit.</value>
+    <comment>Si un avocat vous représente pour ce litige, merci de cliquer sur oui puis de renseigner ses coordonnées dans les champs qui apparaitront ci-dessous. Votre avocat recevra automatiquement un email lui permettant de se connecter sur FastArbitre et de remplir votre dossier. Vous ne pourrez plus remplir votre dossier (seul votre avocat pourra), mais vous conserverez la possibilité de voir son avancement ainsi que les éléments que votre avocat, mais aussi que la partie adverse transmettront.</comment>
+  </data>
+  <data name="IfRepresented" xml:space="preserve">
+    <value>If you are represented by a lawyer in this file, click YES.</value>
+    <comment>Si vous êtes représenté(e) par un avocat dans ce dossier, cliquez la réponse OUI.</comment>
+  </data>
+  <data name="InfoRegardingCyOrYourself" xml:space="preserve">
+    <value>Please fill out the necessary information regarding your company and yourself.</value>
+    <comment>Communiquez les informations concernant votre entreprise et vous même. </comment>
+  </data>
+  <data name="Lawyer" xml:space="preserve">
+    <value>Lawyer</value>
+  </data>
+  <data name="LawyerContactDetails" xml:space="preserve">
+    <value>Fill out your lawyer's contact details in the corresponding fields.</value>
+    <comment>Renseignez alors les coordonnées de votre conseil dans les champs correspondants du formulaire.</comment>
+  </data>
+  <data name="LawyersName" xml:space="preserve">
+    <value>Lawyer's name</value>
+  </data>
+  <data name="LawyersSurname" xml:space="preserve">
+    <value>Lawyer's surname</value>
+  </data>
+  <data name="ModifyMyStatement" xml:space="preserve">
+    <value>Modify my statement</value>
+  </data>
+  <data name="MyDispute" xml:space="preserve">
+    <value>My Dispute</value>
+  </data>
+  <data name="MyDisputes" xml:space="preserve">
+    <value>My Disputes</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NoDate" xml:space="preserve">
+    <value>"No date saved"</value>
+  </data>
+  <data name="OpeningDate" xml:space="preserve">
+    <value>Opening date</value>
+  </data>
+  <data name="PartiesConcerned" xml:space="preserve">
+    <value>Parties concerned</value>
+  </data>
+  <data name="PartyWarning" xml:space="preserve">
+    <value>You have indicated that you are represented by a lawyer. He will be responsible for filling out the remainder of your file. When this page is confirmed, only your lawyer will be able to complete your file. Do not be afraid, you will in any case have the possibility to take knowledge of the progress of your file directly and all the elements that your lawyer or the opposing party will transmit.</value>
+    <comment>Vous nous indiquez être représenté par un avocat. Celui-ci aura la charge de remplir la suite de votre dossier. A la validation de cette page, seul votre avocat sera amené à remplir votre dossier. N'ayez crainte, vous aurez dans tous les cas la possibilité de suivre en direct l'avancement de votre dossier ainsi que tous les éléments que votre avocat ou la partie adverse transmettront.</comment>
+  </data>
+  <data name="PositionInCy" xml:space="preserve">
+    <value>Position in the company</value>
+  </data>
+  <data name="SocialReason" xml:space="preserve">
+    <value>Social reason of the company</value>
+  </data>
+  <data name="StatementBy" xml:space="preserve">
+    <value>Statement by</value>
+  </data>
+  <data name="StatementInstructions_L1" xml:space="preserve">
+    <value>The purpose of this statement is to allow you to describe the dispute. On this page are empty fields to describe synthetically the dispute, focusing on specific facts, in a concise and clear language. Please indicate in particular the nature of your link or relationship with the opposing party (customer, recipient, supplier, etc.).</value>
+    <comment>Cette déclaration a pour objet de vous permettre de décrire le litige. Sur cette page, vous disposez d’un champ libre pour décrire de manière synthétique le litige qui vous concerne, en vous concentrant sur des faits précis, dans un langage concis et clair. Vous indiquez notamment votre lien ou relation avec votre adversaire (client, prestataire, fournisseur, etc ..).</comment>
+  </data>
+  <data name="StatementInstructions_L2" xml:space="preserve">
+    <value>Do not describe everything, just the basics. During the next phase, you will be able to substantiate your position by detailing the relevant facts and documents.</value>
+    <comment>Ne décrivez pas tout, juste l’essentiel. Vous pourrez à l’étape suivante, étayer votre position en détaillant les faits  pièces correspondants.</comment>
+  </data>
+  <data name="StatementInstructions_L3" xml:space="preserve">
+    <value>When you have finished filling out your statement, proceed to the next phase.</value>
+    <comment>Quand vous avez fini votre déclaration, passez à l’étape suivante.</comment>
+  </data>
+  <data name="SummaryOfMyCase" xml:space="preserve">
+    <value>Summary of my case</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="ToGetHelp" xml:space="preserve">
+    <value>To get help, click the Help button at the bottom right of your screen. You will find this button at each step of your statement.</value>
+    <comment>Pour obtenir de l'aide sur l'écran où vous vous trouvez, cliquez sur le bouton Aide en bas à droite de votre écran. Vous retrouverez ce bouton à chaque étape de votre déclaration.</comment>
+  </data>
+  <data name="WaitingFor" xml:space="preserve">
+    <value>Waiting for</value>
+  </data>
+  <data name="WhatAreTheFacts" xml:space="preserve">
+    <value>What are the facts of the case according to you?</value>
+  </data>
+  <data name="WhatIsTheNameOfTheLawyer" xml:space="preserve">
+    <value>What is the name of the lawyer who represents you?</value>
+  </data>
+  <data name="WhatIsYourName" xml:space="preserve">
+    <value>What is your name?</value>
+  </data>
+  <data name="WhoDoYouRepresent" xml:space="preserve">
+    <value>Who do your represent?</value>
+  </data>
+  <data name="WhoIsOpposingParty" xml:space="preserve">
+    <value>Who is the opposing party?</value>
+  </data>
+  <data name="YouAreAboutToFillOutStatement" xml:space="preserve">
+    <value>You are about to fill out a statement.</value>
+  </data>
+  <data name="YourId" xml:space="preserve">
+    <value>Your identity</value>
+  </data>
+  <data name="YourRole" xml:space="preserve">
+    <value>Your role</value>
+  </data>
+  <data name="YouWillHaveAccess" xml:space="preserve">
+    <value>You will have full access to all the information of the case, the exchanges with the opposing party and the IDAM Arbitration Institute.</value>
+    <comment>Vous disposerez d’un accès total en consultation à l’ensemble des informations, les échanges  avec la partie adverse et l’Institut d’Arbitrage IDAM.</comment>
+  </data>
+  <data name="ArbitralPhase" xml:space="preserve">
+    <value>ARBITRAL PHASE BETWEEN THE PARTIES</value>
+  </data>
+  <data name="ArbitralPhaseDes_L1" xml:space="preserve">
+    <value>FastArbitre appoints an impartial arbitrator with a recognized expertise on the legal issues raised.</value>
+    <comment>FastArbitre nomme un arbitre impartial et bénéficiant d’une expertise reconnue sur les questions juridiques soulevées.</comment>
+  </data>
+  <data name="ArbitralPhaseDes_L2" xml:space="preserve">
+    <value>The designated arbitrator helps each party to complete their file in order to have all the elements necessary for him to render an informed decision.</value>
+    <comment>L’arbitre désigné aide chaque partie à compléter son dossier, afin de disposer de tous les éléments pour prendre une décision éclairée.</comment>
+  </data>
+  <data name="ArbitralPhaseDes_L3" xml:space="preserve">
+    <value>The arbitrator settles the dispute by taking an award that is binding for the parties and which can be enforced just as a judgment emanating from a state court.</value>
+    <comment>L’arbitre tranche le litige en rendant une sentence obligatoire pour les parties, qui peut être exécutée comme le jugement d’un tribunal étatique.</comment>
+  </data>
+  <data name="Claims" xml:space="preserve">
+    <value>Claims</value>
+  </data>
+  <data name="ClaimsInstructions_L1" xml:space="preserve">
+    <value>You will now fill out your claims.</value>
+    <comment>Vous allez maintenant renseigner vos demandes.</comment>
+  </data>
+  <data name="ClaimsInstructions_L2" xml:space="preserve">
+    <value>Please indicate what you would claim before the arbitrator.</value>
+    <comment>Il s’agit que vous énumériez ce que vous pourriez demander à l’arbitre, dans le cadre de votre litige.</comment>
+  </data>
+  <data name="ClaimsInstructions_L3" xml:space="preserve">
+    <value>To help you, we have categorized some common claims. For example, you can claim a sum of money, the return of goods or the performance of a service. However, we may not have thought of everything. In this case, the section "Other" will allow you to customize your claims.</value>
+    <comment>Pour vous aider, nous avons catégorisé certaines demandes usuelles. Par exemple, vous pouvez demander une somme d’argent, la restitution d’un bien ou l’exécution d’une prestation. Toutefois, il se peut que nous n’ayons pas tout prévu. Dans ce cas, la rubrique « Autre », vous permettra de personnaliser une demande.</comment>
+  </data>
+  <data name="ClaimsInstructions_L4" xml:space="preserve">
+    <value>Please try to make your claims as specific as possible and to be as comprehensive as possible. For example, when claiming a sum of money, indicate the amount and think of how to justify that amount. Generally, you will need to provide a document supporting your claim.</value>
+    <comment>Essayez d’être le plus précis possible dans vos demandes et de penser à tout. Quand vous réclamez une somme d’argent, par exemple, chiffrez-la et demandez-vous comment la justifier. Il faut généralement fournir une pièce pour ce faire.</comment>
+  </data>
+  <data name="ClaimsInstructions_L5" xml:space="preserve">
+    <value>When you feel that you have thought of everything, move on to the next phase.</value>
+    <comment>Quand vous estimez que vous avez pensé à tout, passez à l’étape suivante.</comment>
+  </data>
+  <data name="CounterClaimsInstructions_L1" xml:space="preserve">
+    <value>You will now formulate counterclaims in response to your adversary's claims.</value>
+    <comment>Vous allez maintenant renseigner vos demandes, en réponse aux demandes de votre adversaire.</comment>
+  </data>
+  <data name="CounterClaimsInstructions_L2" xml:space="preserve">
+    <value>You may yourself wish to make claims against your adversary or ask that his claims be totally or partially rejected.</value>
+    <comment>Vous pouvez vous-même vouloir lui réclamer en justice quelque chose ou demander que ses demandes soient totalement ou partiellement rejetées.</comment>
+  </data>
+  <data name="CounterClaimsInstructions_L3" xml:space="preserve">
+    <value>You therefore need to list what you would ask from the arbitrator within the frame of your dispute.</value>
+    <comment>Il s’agit donc que vous énumériez ce que vous pourriez demander à l’arbitre, dans le cadre de votre litige.</comment>
+  </data>
+  <data name="ConfirmationProcessExplanation" xml:space="preserve">
+    <value>By forwarding your file, we will first make sure that we are able to resolve your situation.
+                 We commit to responding within 24 hours. You will receive an e-mail confirming that your request was taken into account and that your request was forwarded to the third parties involved in the dispute. A registered letter with acknowledgment of receipt will also be sent to you.</value>
+    <comment>En transmettant votre dossier, nous allons tout d'abord nous assurer que nous sommes capable de résoudre votre situation.
+                Nous nous engageons à vous répondre dans les 24h. Vous recevrez un e-mail afin de vous confirmer la prise en compte de votre demande et
+                la transmission de votre déclaration aux tiers participant au conflit. Une lettre recommandé avec accusé de reception vous sera transmise en parallèle.</comment>
+  </data>
+  <data name="DoYouAlsoHaveClaim" xml:space="preserve">
+    <value>Do you also have a claim to make?</value>
+    <comment>Avez-vous aussi une demande à faire ?</comment>
+  </data>
+  <data name="FinalizeMyFile" xml:space="preserve">
+    <value>Finalize my file and forward it to the other parties</value>
+  </data>
+  <data name="IndicateAdversaries" xml:space="preserve">
+    <value>Now indicate with whom you dispute is!</value>
+    <comment>Renseigner maintenant les personnes avec qui vous êtes en conflit!</comment>
+  </data>
+  <data name="ThanksForSubmission" xml:space="preserve">
+    <value>You are about to submit your request for dispute resolution through the FastArbitre platform and we thank you for that.</value>
+  </data>
+  <data name="AddAnotherParty" xml:space="preserve">
+    <value>Add another party</value>
+  </data>
+  <data name="ArbitrationClause" xml:space="preserve">
+    <value>Arbitration clause</value>
+  </data>
+  <data name="ChallengeApplication" xml:space="preserve">
+    <value>Challenge application</value>
+    <comment>Contestation de la demande</comment>
+  </data>
+  <data name="ExplainDisagreement" xml:space="preserve">
+    <value>Explain the reason you disagree with this application</value>
+    <comment>Détaillez la raison de votre désaccord sur cette demande</comment>
+  </data>
+  <data name="ExplainInYourOwnWordsDispute" xml:space="preserve">
+    <value>Please explain in your own words the context and the reasons for your dispute</value>
+    <comment>Expliquez-nous avec vos mots le contexte ainsi que la raison de votre conflit</comment>
+  </data>
+  <data name="ExplanationOfYourConflict" xml:space="preserve">
+    <value>Explanation of your conflict</value>
+  </data>
+  <data name="GiveEmailOfAdversary" xml:space="preserve">
+    <value>Please give the email address of the people with whom your dispute is (1 per line)</value>
+  </data>
+  <data name="MyDisputeIsWith" xml:space="preserve">
+    <value>My dispute is with</value>
+  </data>
+  <data name="YourFileWillBeTransferredToFA" xml:space="preserve">
+    <value>Your file will be forwarded to FastArbitre. You can now continue your statement
+                     by describing the important events that led to your dispute, or come back to it later.</value>
+    <comment>Votre dossier va être transmis à FastArbitre. Vous pouvez dès maintenant continuer votre déclaration
+                    en renseignant les évènements important qui ont mené à ce conflit, ou revenir plus tard.</comment>
+  </data>
+  <data name="AddComment" xml:space="preserve">
+    <value>Add a free comment</value>
+  </data>
+  <data name="AddFact" xml:space="preserve">
+    <value>Add a fact</value>
+  </data>
+  <data name="DisputeTimeline" xml:space="preserve">
+    <value>Timeline of the dispute</value>
+  </data>
+  <data name="DoYouHaveContractAndArbClause" xml:space="preserve">
+    <value>Do you have a contract with the previously identified individuals containing an arbitration clause?</value>
+    <comment>Avez-vous un contrat avec les personnes identifiés précédemment avec une clause compromisoire d'arbitrage ?</comment>
+  </data>
+  <data name="FactsInstructions_L1" xml:space="preserve">
+    <value>Give the most relevant facts and their date to allow the arbitrator to fully understand what exactly happened and when.</value>
+    <comment>Ici, vous mentionnez les faits les plus pertinents et leur date pour permettre à l’arbitre de bien comprendre ce qui s’est passé exactement et à quel moment.</comment>
+  </data>
+  <data name="FactsInstructions_L2" xml:space="preserve">
+    <value>The objective is to illustrate the description of the problem you want to solve and support your position.</value>
+    <comment>L’objectif est d’illustrer et argumenter votre description du problème que vous voulez résoudre.</comment>
+  </data>
+  <data name="FactTitle" xml:space="preserve">
+    <value>Title of the Entry</value>
+  </data>
+  <data name="IfYesUploadDoc" xml:space="preserve">
+    <value>If an arbitration clause exists in your contract, please upload the document containing it</value>
+    <comment>Si une clause compromisoire existe dans votre contrat, merci d'uploader le document y faisant référence</comment>
+  </data>
+  <data name="NoFactsExist" xml:space="preserve">
+    <value>There are currently no entries for this conflict. Click Add Entry to begin describing your dispute, stage by stage.</value>
+    <comment>Aucun événement n'existe pour l'instant pour ce conflit. Cliquez sur Ajouter un événement pour commencer à décrire votre litige, événement par événement</comment>
+  </data>
+  <data name="TimelineInfoInstructions_L1" xml:space="preserve">
+    <value>You have just given your arguments, together with the facts and documents of the dispute.</value>
+    <comment>Vous venez de renseigner votre argumentation, avec les faits et pièces du litige.</comment>
+  </data>
+  <data name="TimelineInfoInstructions_L2" xml:space="preserve">
+    <value>To better visualize them, we have automatically presented them below in the form of a timeline.</value>
+    <comment>Pour mieux les visualiser, nous les représentons ci-dessous sous la forme d’un arbre.</comment>
+  </data>
+  <data name="TimelineInfoInstructions_L3" xml:space="preserve">
+    <value>Please read them carefully to make sure they are accurate enough.</value>
+    <comment>Merci de les relire attentivement pour vous assurer qu’ils sont suffisamment précis.</comment>
+  </data>
+  <data name="TimelineInfoInstructions_L4" xml:space="preserve">
+    <value>If you wish, you can add to them with a new fact or a free comment.</value>
+    <comment>Vous pouvez les compléter par un nouveau fait ou ajouter un commentaire libre, si vous le souhaitez.</comment>
+  </data>
+  <data name="TimelineInfoInstructions_L5" xml:space="preserve">
+    <value>If you are satisfied with it, go to the next step.</value>
+    <comment>Si vous en êtes satisfait, passez à l’étape suivante.</comment>
+  </data>
+  <data name="UploadClause" xml:space="preserve">
+    <value>Upload clause</value>
+  </data>
+  <data name="AddDates" xml:space="preserve">
+    <value>add dates</value>
+  </data>
+  <data name="AnExhibit" xml:space="preserve">
+    <value>A document regarding the event described</value>
+  </data>
+  <data name="DisagreementOnFact" xml:space="preserve">
+    <value>Disagreement over the entry</value>
+  </data>
+  <data name="DisagreementOver" xml:space="preserve">
+    <value>Disagreement(s) over:</value>
+  </data>
+  <data name="HasWritten" xml:space="preserve">
+    <value>has written:</value>
+  </data>
+  <data name="IDisagreeWith" xml:space="preserve">
+    <value>I disagree with</value>
+  </data>
+  <data name="LinkToVideoConf" xml:space="preserve">
+    <value>Link to the video conference:</value>
+  </data>
+  <data name="SpecifyDate" xml:space="preserve">
+    <value>Please indicate the date at which you believe the event took place:</value>
+  </data>
+  <data name="SpecifyDisagreement" xml:space="preserve">
+    <value>Please specify the reason for your disagreement on this entry:</value>
+  </data>
+  <data name="SpecifyExhibit" xml:space="preserve">
+    <value>Please indicate on which exhibit your disagreement is over:</value>
+  </data>
+  <data name="TheDate" xml:space="preserve">
+    <value>The date of the event described</value>
+  </data>
+  <data name="TheExhibits" xml:space="preserve">
+    <value>The exhibit(s):</value>
+  </data>
+  <data name="TheFactAndDescription" xml:space="preserve">
+    <value>The entry and its description</value>
+  </data>
+  <data name="TheFactItself" xml:space="preserve">
+    <value>The event described itself</value>
+  </data>
+  <data name="VideoConfDate" xml:space="preserve">
+    <value>Video conference planned for the</value>
+  </data>
+</root>

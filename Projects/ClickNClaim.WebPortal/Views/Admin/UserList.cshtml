@@ -1,0 +1,145 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Models
+@using ClickNClaim.Common
+@using ClickNClaim.WebPortal.Helpers
+@model ClickNClaim.WebPortal.Models.AdminModels.UserListModel
+@{
+    ViewBag.Title = "CaseList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container ">
+    <h1 class="center-align">@Admin.ListOfUsers</h1>
+
+    <form action="@Url.Action("UserList", "Admin")" method="post">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s3">
+                        <div class="input-field">
+                            <input type="text" id="text" name="text" value="@Model.text" />
+                            <label for="text">@Admin.SearchText</label>
+                        </div>
+                    </div>
+                    <div class="col s3">
+                        <div class="input-field">
+                            <select name="role">
+                                <option value="" disabled @(String.IsNullOrWhiteSpace(Model.role) ? "selected" : "")>@Admin.SearchByRole</option>
+                                <option value="">@Admin.All</option>
+                                @foreach (var item in Model.Roles)
+                                {
+                                    <option id="@item.Id" @(Model.role == item.Name ? "selected" : "") value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col s3">
+                        <input type="submit" value="@Admin.Search" class="btn btn-flat blue" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="card">
+        <div class="card-content">
+
+            @Html.Partial("_UserList", Model.Users)
+
+            <ul class="pagination">
+                <li @(Model.Page == 0 ? Html.Raw("class='disabled'") : Html.Raw("")) class="disabled"><a href="@Url.Action("UserList", new { nbPage = Model.Page - 1, role = Model.role, text = Model.text })"><i class="material-icons">chevron_left</i></a></li>
+
+                @for (int i = 0; i < Model.TotalPages; i++)
+                {
+                    <li @( Model.Page == i ? Html.Raw("class=\"active\"") : Html.Raw(""))><a class="pagination-page" href="@Url.Action("UserList", new { nbPage = i, role = Model.role, text = Model.text })">@(i + 1)</a></li>
+                }
+                <li @(Model.Page == Model.TotalPages ? Html.Raw("class=\"disabled\"") : Html.Raw(""))><a href="@Url.Action("UserList", new { nbPage = Model.Page + 1, role = Model.role, text = Model.text })"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="modal" id="UpdateRoleModal">
+    <form action="@Url.Action("UpdateRoles","Admin")" method="post">
+        <input type="hidden" id="username" name="username" />
+        <input type="hidden" id="text" name="text" value="@Model.text" />
+        <input type="hidden" id="role" name="role" value="@Model.role" />
+        <input type="hidden" id="nbPage" name="nbPage" value="@Model.Page" />
+        <div class="modal-content">
+            <h4>@Admin.ModifyUsersRole</h4>
+            <div id="roleList">
+                @foreach (var item in Model.Roles)
+                {
+                    <p>
+                        <input type="checkbox" name="roles" id="role_@item.Id" value="@item.Id" />
+                        <label for="role_@item.Id">@item.Name</label>
+                    </p>
+
+                }
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue" value="@Admin.Send" /></a>
+            <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue" value="@Admin.Cancel" /></a>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+@section css{
+    <style type="text/css">
+        .card {
+            overflow: visible;
+        }
+    </style>
+
+}
+
+@section scripts{
+    <script type="text/javascript">
+
+        var rolesId = '@(String.Join(",", Model.Roles.Select(c=> c.Id)))'.split(',');
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $('select').material_select();
+            $('.modal-trigger').leanModal();
+        })
+
+        function openModal(modalName, id, roles) {
+            $("#username").val(id);
+
+            for (var i = 0; i < rolesId.length; i++) {
+                if (roles.indexOf(rolesId[i]) >= 0) {
+                    $("#role_" + rolesId[i]).prop("checked", true);
+                }
+                else {
+                    $("#role_" + rolesId[i]).prop("checked", false);
+                }
+            }
+
+            //var r = roles.split(',');
+            //for (var i = 0; i < r.length; i++) {
+            //    $("#role_" + r[i]).attr("checked", "checked");
+            //}
+
+            $(modalName).openModal();
+        }
+    </script>
+}
+
+
+
+
+

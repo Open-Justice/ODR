@@ -1,0 +1,46 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "About";
+}
+
+<div class="container margin-top margin-bottom">
+        <h1 style="text-align:center">@Home.AboutFastArbitre</h1>
+
+        <p>@Home.FastArbitreAimsAt</p>
+
+        <h2>@Home.WhatIsArb</h2>
+
+        <p>@Home.ArbIs <a href="https://fr.wikipedia.org/wiki/Mode_alternatif_de_r%C3%A9solution_des_conflits" target="_blank">@Home.ADR</a>.  @Home.ArbExplanation</p>
+        <p>@Home.ArbIsRecognized (<a href="https://www.legifrance.gouv.fr/affichCode.do;jsessionid=450D1CD054D2BB41DB2B2F4516E28969.tpdila13v_1?idSectionTA=LEGISCTA000023450936&cidTexte=LEGITEXT000006070716&dateTexte=20160518" target="_blank">@Home.Art1442</a>) @Home.AndInt <a href="http://www.uncitral.org/uncitral/fr/uncitral_texts/arbitration/NYConvention.html" target="_blank">@Home.NYConv</a>).</p>
+
+        <h2 id="online">@Home.FAYourOnlineArbTrib</h2>
+        <p>@Home.FAOfferedByIDAM</p>
+        <p>@Home.InnovativeSolution (<a href="@Url.Action("Tarifs","Home")" target="_blank">@Home.FixedFees</a>).</p>
+        <p>@Home.AllOnlineAndConfidential</p>
+
+        <h2>@Home.OurVision</h2>
+        <p>@Home.Comparison</p>
+        <p>@Home.Comparison2</p>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}
+
+@section css{
+    <style>
+        p{
+            text-align:justify;
+        }
+
+        h2{
+            padding-top:1rem;
+            margin-bottom:0.5rem;
+            color:rgb(243,124,46);
+        }
+    </style>
+}

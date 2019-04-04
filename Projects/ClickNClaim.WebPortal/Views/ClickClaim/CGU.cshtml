@@ -1,0 +1,182 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = ClickClaim.GCU;
+}
+
+<div class="container margin-top">
+    <h1 style="text-align:center">
+        @ClickClaim.TermsOfService
+        <br />
+        <i style="font-size:16px">@ClickClaim.ApplicableFrom</i>
+    </h1>
+
+    <div class="row">
+        <div class="col s3 ">
+            <div style="width:100%;height:1px;"></div>
+            <div style="position:fixed">
+                <ul class="menu-links section table-of-contents">
+                    <li><a href="#definitions">@ClickClaim.Definitions</a></li>
+                    <li><a href="#application">@ClickClaim.Scope</a></li>
+                    <li><a href="#objet">@ClickClaim.Purpose</a></li>
+                    <li><a href="#commande">@ClickClaim.ManagementArbitration</a></li>
+                    <li><a href="#prix">@ClickClaim.PricePayment</a></li>
+                    <li><a href="#perso">@ClickClaim.OnlineWorkspace</a></li>
+                    <li><a href="#responsabilite">@ClickClaim.CentersLiability</a></li>
+                    <li><a href="#dispositions">@ClickClaim.GeneralProvisions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col s9">
+            <div id="definitions" class="section scrollspy">
+                <h2>@ClickClaim.Art1</h2>
+                <p>« <b>@ClickClaim.Arbitrator</b> » : @ClickClaim.ArbitratorDef </p>
+                <p>« <b>@ClickClaim.Center</b> » : @ClickClaim.CenterDef </p>
+                <p>« <b>@ClickClaim.Defendant</b> » : @ClickClaim.DefendantDef  </p>
+                <p>« <b>@ClickClaim.Claimant</b> » : @ClickClaim.ClaimantDef </p>
+                <p>« <b>@ClickClaim.RequestForArbitration</b> » : @ClickClaim.RequestForArbitrationDef</p>
+                <p>« <b>@ClickClaim.Jurisdiction</b> » : @ClickClaim.JurisdictionDef </p>
+                <p>« <b>@ClickClaim.WebUser</b> » : @ClickClaim.WebUserDef </p>
+                <p>« <b>@ClickClaim.Dispute</b> » : @ClickClaim.DisputeDef </p>
+                <p>« <b>@ClickClaim.Party</b> » : @ClickClaim.PartyDef </p>
+                <p>« <b>@ClickClaim.Platform</b> » : @ClickClaim.PlatformDef </p>
+                <p>« <b>@ClickClaim.ArbitrationRules</b> » : @ClickClaim.ArbitrationRulesDef  </p>
+                <p>« <b>@ClickClaim.Award</b> » : @ClickClaim.AwardDef </p>
+                <p>« <b>@ClickClaim.Costs</b> » : @ClickClaim.CostsDef  </p>
+                <p>« <b>@ClickClaim.User</b> » : @ClickClaim.UserDef </p>
+            </div>
+
+            <div id="application" class="section scrollspy">
+                <h2>@ClickClaim.Art2</h2>
+                @ClickClaim.Art2Provisions
+            </div>
+
+            <div id="objet" class="section scrollspy">
+                <h2>@ClickClaim.Art3</h2>
+                @ClickClaim.Art3Provisions
+            </div>
+
+            <div id="commande" class="section scrollspy">
+                <h2>@ClickClaim.Art4</h2>
+                <p>@ClickClaim.Art4Provisions</p>
+            </div>
+            <div id="prix" class="section scrollspy">
+                <h2>@ClickClaim.Art5</h2>
+
+                <p><b>@ClickClaim.Art5_1</b></p>
+                <p>@ClickClaim.Art5_1Provisions</p>
+
+                <p><b>@ClickClaim.Art5_2</b></p>
+                <p>@ClickClaim.Art5_2Provisions_L1</p>
+                <p>@ClickClaim.Art5_2Provisions_L2</p>
+
+                <p><b>@ClickClaim.Art5_3</b></p>
+                <p>@ClickClaim.Art5_3Provisions_L1</p>
+                <p>@ClickClaim.Art5_3Provisions_L2</p>
+
+                <p><b>@ClickClaim.Art5_4</b></p>
+                <p>@ClickClaim.Art5_4Provisions_L1</p>
+                <p>@ClickClaim.Art5_4Provisions_L2</p>
+
+                <p><b>@ClickClaim.Art5_5</b></p>
+                <p>@ClickClaim.Art5_5Provisions_L1</p>
+                <p>@ClickClaim.Art5_5Provisions_L2</p>
+                <p>@ClickClaim.Art5_5Provisions_L3</p>
+            </div>
+
+            <div id="perso" class="section scrollspy">
+                <h2>@ClickClaim.Art6</h2>
+
+                <p><b>@ClickClaim.Art6_1</b></p>
+                <p>@ClickClaim.Art6_1Provisions_L1</p>
+                <p>@ClickClaim.Art6_1Provisions_L2</p>
+                <p>@ClickClaim.Art6_1Provisions_L3
+
+                <p><b>@ClickClaim.Art6_2</b></p>
+                <p>@ClickClaim.Art6_2Provisions_L1</p>
+                <p>@ClickClaim.Art6_2Provisions_L2</p>
+                <p>@ClickClaim.Art6_2Provisions_L3</p>
+
+                <p><b>@ClickClaim.Art6_3</b></p>
+                <p>@ClickClaim.Art6_3Provisions_L1</p>
+                <p>@ClickClaim.Art6_3Provisions_L2</p>
+
+            </div>
+
+            <div id="responsabilite" class="section scrollspy">
+                <h2>@ClickClaim.Art7</h2>
+
+                <p><b>@ClickClaim.Art7_1</b></p>
+
+                <p style="text-decoration:underline">@ClickClaim.Art7_1_1</p>
+                <p>@ClickClaim.Art7_1_1Provisions_L1</p>
+                <p>@ClickClaim.Art7_1_1Provisions_L2</p>
+
+                <p style="text-decoration:underline">@ClickClaim.Art7_1_2</p>
+                <p>@ClickClaim.Art7_1_2Provisions_L1</p>
+                <p>@ClickClaim.Art7_1_2Provisions_L2</p>
+
+
+                <p><b>@ClickClaim.Art7_2</b></p>
+                <p>@ClickClaim.Art7_2Provisions</p>
+
+                <p style="text-decoration:underline">@ClickClaim.Art7_2_1</p>
+                <p>@ClickClaim.Art7_2_1Provisions</p>
+
+                <p style="text-decoration:underline">@ClickClaim.Art7_2_2</p>
+                <p>@ClickClaim.Art7_2_2Provisions</p>
+
+                <p><b>@ClickClaim.Art7_3</b></p>
+                <p>@ClickClaim.Art7_3Provisions_L1</p>
+                <p>@ClickClaim.Art7_3Provisions_L2</p>
+
+                <p><b>@ClickClaim.Art7_4</b></p>
+                <p>@ClickClaim.Art7_4Provisions</p>
+            </div>
+
+            <div id="dispositions" class="section scrollspy">
+                <h2>@ClickClaim.Art8</h2>
+
+                <p><b>@ClickClaim.Art8_1</b></p>
+                <p>@ClickClaim.Art8_1Provisions</p>
+
+                <p><b>@ClickClaim.Art8_2</b></p>
+                <p>@ClickClaim.Art8_2Provisions</p>
+
+                <p><b>@ClickClaim.Art8_3</b></p>
+                <p>@ClickClaim.Art8_3Provisions</p>
+
+                <p><b>@ClickClaim.Art8_4</b></p>
+                <p>@ClickClaim.Art8_4Provisions</p>
+
+                <p><b>@ClickClaim.Art8_5</b></p>
+                <p>@ClickClaim.Art8_5Provisions</p>
+
+                <p><b>@ClickClaim.Art8_6</b></p>
+                <p>@ClickClaim.Art8_6Provisions</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $('.scrollspy').scrollSpy();
+        });
+    </script>
+}
+
+@section css{
+    <style>
+        .section {
+            padding-bottom: 0rem;
+            padding-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+}

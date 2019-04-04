@@ -1,0 +1,285 @@
+﻿@using ClickNClaim.WebPortal.Resources
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Shared.Brand</title>
+    <link href="~/Content/main.css" type="text/css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @RenderSection("css", required: false)
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #mc-embedded-subscribe {
+            margin: 0;
+        }
+        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+
+</head>
+<body>
+    <div class="left-menu-panel" style="overflow-y:auto">
+        <ul>
+            @if (User.Identity.IsAuthenticated)
+            {
+            <li>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {  @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="main-link">@Shared.LogOut</a>
+                    }
+            </li>
+            <li>
+                <a href="@Url.Action("Profil", "Account")" class="main-link">@Shared.MyProfile</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Profil", "Account")" class="main-link">@Shared.MyCases</a>
+            </li>
+            }
+            else
+            {
+            <li>@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "main-link" })</li>
+            <li>@Html.ActionLink("S'inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "main-link" })</li>
+            }
+            <li><hr /></li>
+
+            <li><a href="@Url.Action("About", "Home")" class="main-link">@Shared.About</a></li>
+            <li><a href="@Url.Action("HowItWorks", "Home")" class="main-link">@Shared.HowDoesItWork</a></li>
+            @*<li><a href="#" class="main-link">Guide utilisateur</a></li>*@
+            @*<li><a href="http://blog.fast-arbitre.com" class="main-link">Blog</a></li>*@
+            <li><hr /></li>
+            <li>
+                <a href="#" class="main-link">
+                    @Shared.Arbitration
+                </a>
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Pricing", "Home")">@Shared.Rates</a>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Nos arbitres", "Index", "Home", "https", null, "arbitre", null,null)
+                      
+                    </li>
+                    <li>
+                        <a href="@Url.Action("CharteEthique", "Home")">@Shared.CodeOfEthics</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ReglementArbitrage", "ClickClaim")">@Shared.RulesOfArbitration</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ClauseCompromissoire", "Home")">@Shared.ArbitrationClause</a>
+                    </li>
+
+
+                </ul>
+                <hr />
+            </li>
+            <li>
+                <a href="@Url.Action("Jobs", "Home")" class="main-link">@Shared.Jobs</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Contact", "Home")" class="main-link">@Shared.ContactUs</a>
+            </li>
+        </ul>
+    </div>
+    <div id="wrapper">
+        <div id="header">
+            <header>
+                <div class="navbar-container ">
+                    <nav class="navbar blue navbar-fixed-top z-depth-1" role="navigation">
+                        <div class="container-low-pad">
+                            <i class="fa fa-bars fa-2x" style="float:left;padding:0 10px;padding-top:17px;cursor:pointer" onclick="Layout.toggleMainMenu()"></i>
+                            <div class="navbar-header">
+
+                                <a class="navbar-brand waves-effect waves-light" style="height:64px;" href="@Url.Content("~/")"><h5 style="margin-top:17px"> <span style="color:black;font-weight:bold">@Shared.Fast</span><span style="color:white">@Shared.Arbitre</span></h5>@*<p style="margin:0;margin-top:-35px;margin-left:20px">Test by Orange</p>*@</a>
+                            </div>
+
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li id="process-nav"><a href="@Url.Action("HowItWorks", "Home")" class="waves-effect waves-light">@Shared.HowDoesItWork</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li id="process-nav"><a href="@Url.Action("Pricing", "Home")" class="waves-effect waves-light">@Shared.Rates</a></li>
+                                </ul>
+                                @*<ul class="nav navbar-nav">
+                                    <li id="process-nav"><a href="http://blog.fast-arbitre.com" class="waves-effect waves-light">Blog</a></li>
+                                </ul>*@
+                                @if (User.IsInRole("CentreAdministration") || User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                                {
+                                    <ul class="nav navbar-nav">
+                                        <li id="process-nav"><a href="@Url.Content("~/Arbitre/Centre")" class="waves-effect waves-light">@Shared.ArbitrationCenter</a></li>
+                                    </ul>
+                                }
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <ul class="nav navbar-nav">
+                                        <li id="process-nav"><a href="@Url.Action("CaseList", "Admin")" class="waves-effect waves-light">@Shared.Administration</a></li>
+                                    </ul>
+                                }
+
+                                <ul id="nav-mobile" class="right ">
+                                    <li>@Html.Partial("_LoginPartial")</li>
+                                </ul>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <ul class="nav navbar-nav stand-strong right">
+                                        <li id="process-nav "><a href="@Url.Action("Profil", "Account")" class="waves-effect waves-light">@Shared.MyProfile</a></li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+        </div>
+        <div class="body-content" onclick="Layout.toggleMainMenuIfOpen()">
+          
+            <div id="main-content">
+
+                @RenderBody()
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <footer class="page-footer">
+                <div class="container-low-pad  no-pad-top no-pad-bot">
+                    <div class="row no-margin">
+                        <div class="col l4 s6">
+                            @*<h5 class="white-text">A propos de Fast<span>Arbitre</span></h5>*@
+                            <div class="footer-container">
+                                <ul class="footer-links">
+                                    <li><a class="grey-text text-lighten-3" href="@Url.Action("About", "Home")">@Shared.About</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="@Url.Action("ReglementArbitrage", "ClickClaim")">@Shared.RulesOfArbitration</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="@Url.Action("CharteEthique", "Home")">@Shared.CodeOfEthics</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="@Url.Action("MentionsLegales", "Home")">@Shared.LegalNotices</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="@Url.Action("CGU", "ClickClaim")">@Shared.TermsOfService</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="@Url.Action("Privacy", "Home")">@Shared.PrivacyPolicy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col l4 s6">
+                            <!-- Begin MailChimp Signup Form -->
+                            <div id="mc_embed_signup">
+                                <form action="//fast-arbitre.us14.list-manage.com/subscribe/post?u=a387dbd8e568c7315460b71b3&amp;id=e50ea46f10" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                    <div id="mc_embed_signup_scroll">
+                                        <h2>@Shared.SubscribeToNewsletter</h2>
+                                        @*<div class="indicates-required"><span class="asterisk">*</span> informations requises</div>*@
+                                        <div class="mc-field-group">
+                                            <label for="mce-EMAIL">
+                                                @Shared.Email  <span class="asterisk">*</span>
+                                            </label>
+                                            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                                        </div>
+                                        @*<div id="mce-responses" class="clear">
+                                            <div class="response" id="mce-error-response" style="display:none"></div>
+                                            <div class="response" id="mce-success-response" style="display:none"></div>
+                                        </div>*@    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a387dbd8e568c7315460b71b3_e50ea46f10" tabindex="-1" value=""></div>
+                                        <div class="clear text-right"><input type="submit" value="Abonnez-vous" name="subscribe" id="mc-embedded-subscribe" class="btn-subscribe"></div>
+                                    </div>
+                                </form>
+                            </div>
+                               <!--End mc_embed_signup-->
+                        </div>
+                        <div class="col l4  s12">
+                            <div class="footer-container">
+                                <h4>Suivez-nous sur les réseaux sociaux</h4>
+                                <div class="row social-links">
+                                    <div class="col s3"><a href="https://www.facebook.com/FastArbitre" target="_blank"><i class="fa fa-facebook fa-3x "></i></a></div>
+                                    <div class="col s3"><a href="https://twitter.com/FastArbitre" target="_blank"><i class="fa fa-twitter fa-3x "></i></a></div>
+                                    <div class="col s3"><a href="" target="_blank"> <i class="fa fa-linkedin fa-3x "></i></a></div>
+                                    <div class="col s3"><a href="" target="_blank"> <i class="fa fa-youtube-play fa-3x "></i></a></div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container-low-pad no-pad-top no-pad-bot">
+                        @Shared.Copyright
+                        <p class="grey-text text-lighten-4 right">@Shared.TechPltf</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div id="main-modal">
+        <div id="confirmBox" class="modal">
+            <div class="modal-content">
+                <h4 data-bind="text:confirmHeader"></h4>
+                <p data-bind="text:confirmText">@ButtonsAndRecurring.Undefined</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" data-bind="click:confirmYes" class="modal-action modal-close  btn btn-flat blue">@ButtonsAndRecurring.Yes</a>
+                <a href="#!" data-bind="click:confirmNo" class="modal-action modal-close btn btn-flat blue">@ButtonsAndRecurring.No</a>
+            </div>
+        </div>
+
+        <div id="infoBox" class="modal">
+            <div class="modal-content">
+                <h4 data-bind="text:$root.infoHeader"></h4>
+                <p data-bind="text:$root.infoText">@ButtonsAndRecurring.Undefined</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close btn btn-flat blue">@ButtonsAndRecurring.Ok</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/moment.js" type="text/javascript"></script>
+    <script src="~/Scripts/viewModels/Layout.js" type="text/javascript"></script>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ko")
+    @Scripts.Render("~/bundles/materialize")
+    <script src="@Url.Content("~/Scripts/js.cookie.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.cookiecuttr.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jQuery.succinct.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var rootDir = '@Url.Content("~/")';
+        $(document).ready(function () {
+            $.cookieCuttr({
+                cookieAnalytics: false,
+                cookiePolicyLink: '@Url.Action("Privacy", "Home")',
+                cookieAcceptButtonText : "J'ai compris",
+                cookieMessage: 'Nous utilisons des cookies sur ce site, vous pouvez <a href="{{cookiePolicyLink}}" title="à propos de nos cookies">tout savoir sur ceux-ci</a>.'
+            });
+            ko.applyBindings(new layoutInit(), $("#main-modal")[0]);
+            $(".clamp").succinct();
+            $(".body-content").css("padding-bottom", $("#footer").outerHeight());
+            var info = '@ViewBag.Error';
+            if (info != '') {
+                Layout.showInfo({ infoHeader: 'Information importante', infoText: info });
+            }
+            //ko.applyBindings(null, $(".loader")[0]);
+        });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83688327-1', 'auto');
+  ga('send', 'pageview');
+
+    </script>
+   
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

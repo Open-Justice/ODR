@@ -1,0 +1,143 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.Common.Conflict
+
+@using ClickNClaim.WebPortal.Extensions
+@using ClickNClaim.WebPortal.Helpers
+@using ClickNClaim.Common.Enums
+@using ClickNClaim.Common
+
+<div class="card">
+    <div style="height:120px; white-space:nowrap">
+        <a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.ArbitrationStarted)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.ArbitrationStarted)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.ArbitrationStarted)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.FreeHandsArbitration)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">1</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.ArbitrationStarted) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.ArbitrationStarted).CreateDate.ToShortDateString() : "" )</p>
+        </a>
+        <a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.FreeHandsArbitration)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.FreeHandsArbitration)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.FreeHandsArbitration)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.ExchangeClosure)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">2</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.FreeHandsArbitration) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.FreeHandsArbitration).CreateDate.ToShortDateString() : "")</p>
+        </a>
+        @*<a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.ExchangeClosure)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.ExchangeClosure)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.ExchangeClosure)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.Deliberation)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">3</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.ExchangeClosure) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.ExchangeClosure).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>*@
+        @*<a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.Deliberation)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.Deliberation)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.Deliberation)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.PreConcluded)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">4</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.Deliberation) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.Deliberation).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>*@
+        <a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.PreConcluded)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.PreConcluded)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.PreConcluded)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.PreConclusionDebate)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">3</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.PreConcluded) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.PreConcluded).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>
+        @*<a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.PreConclusionDebate)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.PreConclusionDebate)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.PreConclusionDebate)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.EndOfDebates)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">6</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.PreConclusionDebate) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.PreConclusionDebate).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>
+        <a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.EndOfDebates)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.EndOfDebates)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.EndOfDebates)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.FinalDeliberation)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">7</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.EndOfDebates) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.EndOfDebates).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>
+        <a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.FinalDeliberation)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.FinalDeliberation)" >
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.FinalDeliberation)</p>
+            <div class="line" data-bind="css:{'line-active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.Concluded)' == 'True'}"></div>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">8</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.FinalDeliberation) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.FinalDeliberation).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>*@
+        <a class="stepper-link" data-bind="css:{'active' : '@(Model.State >= (int)ClickNClaim.Common.ConflictState.Concluded)' == 'True'}, id : 'step_' + @((int)ClickNClaim.Common.ConflictState.Concluded)">
+            <p>@MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.Concluded)</p>
+            <div class="stepper-wrapper">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content">
+                        <p class="stepper-content-text">4</p>
+                    </div>
+                </div>
+            </div>
+            <p class="date-step">@(Model.ConflictStateHistorics.Any(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.Concluded) ? Model.ConflictStateHistorics.First(c => c.ConflictStateId == (int)ClickNClaim.Common.ConflictState.Concluded).CreateDate.ToShortDateString() : "" )</p>
+
+        </a>
+    </div>
+    <p>@MetadataHelper.GetEnumDescription((ClickNClaim.Common.ConflictState)Model.State)</p>
+    @if (User.Identity.GetId() == Model.IdArbiterAssigned)
+    {
+    <input type="button" class="btn btn-flat blue" value="@Shared.OpenFreeExchangePhase" data-bind='click:function(data,event){$root.updateState(@((int)ConflictState.FreeHandsArbitration), "@(MetadataHelper.GetEnumDisplayNAme(ClickNClaim.Common.ConflictState.FreeHandsArbitration))", true)},visible:data.State() == @((int)ConflictState.ArbitrationStarted)' />
+
+        if (!Model.Events.Any(c => c.Debates.Any(d => !d.Closed)))
+        {
+            <a data-bind="visible:data.State() == @((int)ConflictState.FreeHandsArbitration) || data.State() == @((int)ConflictState.ExchangeClosure)" class="btn btn-flat blue" href="@Url.Action("PreSentence", "Viewer", new { conflictId = Model.Id})">@Shared.PreAward</a>
+            <a data-bind="visible:data.State() == @((int)ConflictState.PreConcluded) || data.State() == @((int)ConflictState.FinalDeliberation)" class="btn btn-flat blue" href="@Url.Action("Sentence", "Viewer", new { conflictId = Model.Id})">@Shared.Award</a>
+        }
+        else
+        {
+            <p>@Shared.Still <span>@Model.Events.Count(c => c.Debates.Any(d => !d.Closed))</span> @(Model.Events.Count(c => c.Debates.Any(d => !d.Closed)) > 1 ? "débats" : "débat") @Shared.Open</p>
+            <a  data-bind="visible:data.State() == @((int)ConflictState.FreeHandsArbitration) || data.State() == @((int)ConflictState.ExchangeClosure) " class="btn btn-flat blue disable-content" href="@Url.Action("PreSentence", "Viewer", new { conflictId = Model.Id})">@Shared.PreAward</a>
+            <a data-bind="visible:data.State() == @((int)ConflictState.PreConcluded) || data.State() == @((int)ConflictState.FinalDeliberation)" class="btn btn-flat blue disable-content" href="@Url.Action("Sentence", "Viewer", new { conflictId = Model.Id})">@Shared.Award</a>
+        }
+    }
+</div>

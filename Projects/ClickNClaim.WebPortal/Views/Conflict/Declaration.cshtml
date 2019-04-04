@@ -1,0 +1,107 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.WebPortal.Models.DeclarationModel
+@using ClickNClaim.WebPortal.Extensions
+@{
+    ViewBag.Title = "Declaration";
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+
+<form id="decla-form" action="@Url.Action("SaveDeclaration", "Conflict")" method="post" enctype="multipart/form-data" >
+    <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+    <div class="container">
+        <div class="row">
+            <input type="hidden" name="conflict.Id" data-bind="value:conflict.Id" />
+            <div class="col-md-8">
+                <div class="stepper-wrapper left  stepper-link-page-title">
+                    <div class="stepper-white-ring">
+                        <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                            <p class="stepper-content-text">2</p>
+                        </div>
+                    </div>
+                </div><h1 style="color:rgb(243,124,46)">@Conflict.MyDispute</h1>
+                <div class="card">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="tip">
+                                <div class="sized-tip">
+                                    <i class="fa fa-info-circle text-white fa-3x"></i>
+                                    <p>
+                                        @Conflict.YouAreAboutToFillOutStatement<br />
+                                        @Conflict.StatementInstructions_L1<br />
+                                        @Conflict.StatementInstructions_L2<br />
+                                        @Conflict.StatementInstructions_L3
+                                    </p>
+                                </div>
+                                <p><span>&hellip;</span> <a href="#" class="tip-accordion-action" style="float:right">@ButtonsAndRecurring.SeeMore</a></p>
+                            </div>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="description" data-validation="required" name="UserInConflict.UserDescriptionOfTheConflict" data-bind="value:description" class="materialize-textarea"></textarea>
+                            <label for="description">@Conflict.WhatAreTheFacts</label>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <input type="submit" class="btn btn-flat right blue" value="@ButtonsAndRecurring.NextStep" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fixed-resume">
+                    @Html.Partial("_ConflictResume")
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</form>
+
+
+
+@section css{
+    <link href="~/Content/css/declaration.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .dropdown-menu li {
+            padding: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+            .dropdown-menu li:hover {
+                background-color: #EEE;
+            }
+
+        button .caret {
+            float: right;
+            margin-top: 15px;
+            border-top-color: white !important;
+        }
+
+        .dropdown-toggle {
+            text-align: left;
+        }
+
+        .input-like {
+            padding: 0;
+            min-height: unset;
+        }
+    </style>
+}
+
+
+@section scripts{
+    <script src="~/Scripts/viewModels/declarationViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            loadComponents();
+            @*var info = '@ViewBag.Error';
+            if (info != '') {
+                Layout.showInfo({ infoHeader: 'Information importante', infoText: info });
+            }*@
+        })
+    </script>
+}

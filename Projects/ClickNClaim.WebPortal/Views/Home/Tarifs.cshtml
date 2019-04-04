@@ -1,0 +1,166 @@
+﻿@using ClickNClaim.WebPortal.Resources
+
+
+<div style="margin-top:40px">
+
+    <h1 style="text-align:center">@Home.Tariffs</h1>
+    <div class="container margin-bottom-small">
+        <p style="font-size:1.5em">@Home.FixedTariffs</p>
+    </div>
+    <div class="pricing pricing--pema">
+        <div class="pricing__item grow">
+
+            <div class="pricing-title">
+                <h3 class="pricing__title">@Home.SmallCommercialDisputes</h3>
+                @* <p class="pricing__sentence">catégorie I</p>*@
+            </div>
+            <div class="pricing__item__container">
+                <div class="pricing__price">
+                    <span class="pricing__currency">@Home.Currency</span>@Home.SmallCommercialDisputesTariff<span class="pricing__period blue-text">@Home.PerParty</span>
+
+                </div>
+                <span class="pricing__period" style="font-size:0.8em;">@Home.SmallCommercialDisputesTotal</span>
+                <hr />
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature blue-text">@Home.Concerns : </li>
+                    <li class="pricing__feature">@Home.SmallCommercialDisputesDes</li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+            {
+                    <a class="btn btn-flat blue" href="@Url.Action("Create", "Conflict", new { email=User.Identity.Name })">@ButtonsAndRecurring.CreateFile</a>
+                }
+                else
+                {
+                    <a class="btn btn-flat blue" href="@Url.Action("Register", "Account")">@ButtonsAndRecurring.SignIn</a>
+                }
+            </div>
+        </div>
+        <div class="pricing__item grow">
+            <div class="pricing-title">
+                <h3 class="pricing__title">@Home.CommercialAgreementsAndContracts</h3>
+                @*  <p class="pricing__sentence">catégorie II</p>*@
+            </div>
+            <div class="pricing__item__container">
+                <div class="pricing__price">
+                    <span class="pricing__currency">@Home.Currency</span>@Home.CommercialAgreementsAndContractsTariff<span class="pricing__period blue-text">@Home.PerParty</span>
+
+                </div>
+                <span class="pricing__period" style="font-size:0.8em;">@Home.CommercialAgreementsAndContractsTotal</span>
+                <hr />
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature blue-text">@Home.Concerns : </li>
+                    <li class="pricing__feature">@Home.CommercialAgreementsAndContractsDes</li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+            {
+                    <a class="btn btn-flat blue" href="@Url.Action("Create", "Conflict", new { email=User.Identity.Name })">@ButtonsAndRecurring.CreateFile</a>
+                }
+                else
+                {
+                    <a class="btn btn-flat blue" href="@Url.Action("Register", "Account")">@ButtonsAndRecurring.SignIn</a>
+                }
+            </div>
+        </div>
+        <div class="pricing__item grow">
+            <div class="pricing-title">
+                <h3 class="pricing__title">@Home.IPAndUnfairCompetition</h3>
+                @*<p class="pricing__sentence">catégorie III</p>*@
+            </div>
+            <div class="pricing__item__container">
+                <div class="pricing__price">
+                    <span class="pricing__currency">@Home.Currency</span>@Home.IPAndUnfairCompetitionTariff<span class="pricing__period blue-text">@Home.PerParty</span>
+
+                </div>
+                <span class="pricing__period" style="font-size:0.8em;">@Home.IPAndUnfairCompetitionTotal</span>
+                <hr />
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature blue-text">@Home.Concerns : </li>
+                    <li class="pricing__feature">@Home.IPAndUnfairCompetitionDes</li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+            {
+                    <a class="btn btn-flat blue" href="@Url.Action("Create", "Conflict", new { email=User.Identity.Name })">@ButtonsAndRecurring.CreateFile</a>
+                }
+                else
+                {
+                    <a class="btn btn-flat blue" href="@Url.Action("Register", "Account")">@ButtonsAndRecurring.SignIn</a>
+                }
+            </div>
+        </div>
+        <div class="pricing__item grow">
+            <div class="pricing-title">
+                <h3 class="pricing__title">@Home.InvestmentDataDiversion</h3>
+                @*<p class="pricing__sentence">catégorie IV</p>*@
+            </div>
+            <div class="pricing__item__container">
+                <div class="pricing__price">
+                    <span class="pricing__currency">@Home.Currency</span>@Home.InvestmentDataDiversionTariff<span class="pricing__period blue-text">@Home.PerParty</span>
+
+                </div>
+                <span class="pricing__period" style="font-size:0.8em;">@Home.InvestmentDataDiversionTotal</span>
+                <hr />
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature blue-text">@Home.Concerns : </li>
+                    <li class="pricing__feature">@Home.InvestmentDataDiversionDes</li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+            {
+                    <a class="btn btn-flat blue" href="@Url.Action("Create", "Conflict", new { email=User.Identity.Name })">@ButtonsAndRecurring.CreateFile</a>
+                }
+                else
+                {
+                    <a class="btn btn-flat blue" href="@Url.Action("Register", "Account")">@ButtonsAndRecurring.SignIn</a>
+                }
+            </div>
+        </div>
+        @*<div class="pricing__item grow">
+            <div class="pricing-title">
+                <h3 class="pricing__title">Litiges liées aux données et aux informations</h3>
+              
+            </div>
+            <div class="pricing__item__container">
+                <div class="pricing__price">
+                    <span class="pricing__currency">€</span>2250<span class="pricing__period blue-text">HT / partie</span>
+
+                </div>
+                <span class="pricing__period" style="font-size:0.8em;">(soit 4500 € HT la procédure)</span>
+                <hr />
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature blue-text">Concerne : </li>
+                    <li class="pricing__feature">Les problématiques de sécurité, détournement d’informations et de données.</li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+            {
+                    <a class="btn btn-flat blue" href="@Url.Action("Create", "Conflict", new { email=User.Identity.Name })">Créer un dossier</a>
+                }
+                else
+                {
+                    <a class="btn btn-flat blue" href="@Url.Action("Register", "Account")">Se connecter</a>
+                }
+            </div>
+        </div>*@
+    </div>
+    <div class="container margin-bottom" style="font-size:1.1em">
+        <p>
+            @Home.AreNotIncluded
+        </p>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $(".pricing__item").click(function (data,event) {
+                start(data,event);
+            })
+        });
+
+        var start = function (data, event) {
+            window.location = $(data.target).closest(".pricing__item").find("a")[0].href;
+        }
+    </script>
+}
+
+@section css{
+    <link href="~/Content/css/pricing.css" rel="stylesheet" type="text/css" />
+}

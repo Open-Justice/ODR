@@ -1,0 +1,97 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = Account.LoggingIn;
+}
+
+
+<div class="container root-container">
+    <div class="row">
+        <div class="col s12 l8 offset-l2 ml12 offset-ml0 m12 ">
+            <div class="card">
+
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Pas encore de compte ? Inscrivez-vous!</h2>
+                            <a href="@Url.Action("Register", "Account", new { returnUrl = Request.QueryString["returnUrl"] })"  class="btn btn-default margin-top margin-bottom">S'inscrire</a>
+                        <hr />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col l6 m6 s12">
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                                <h2>@Account.SigningIn</h2>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="input-field">
+                                            @Html.LabelFor(m => m.Email)
+                                            @Html.TextBoxFor(m => m.Email)
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="input-field">
+                                            @Html.LabelFor(m => m.Password)
+                                            @Html.PasswordFor(m => m.Password)
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col s12">
+                                        <p>
+                                            <input type="hidden" id="RememberMe" name="RememberMe" value="false" />
+                                            <input type="checkbox" class="filled-in" name="RememberMe" id="filled-in-box" />
+                                            <label for="filled-in-box">@Account.RememberMe</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12">
+                                        <input type="submit" value="@Account.SigningIn" class="btn btn-default right" />
+                                    </div>
+                                </div>
+                                <div class="row last-row">
+                                    <div class="col s12">
+                                        @Html.ActionLink(Account.ForgotPassword, "ForgotPassword", "", new { @class = "blue-text" })
+                                    </div>
+                                </div>
+                            }
+                        </section>
+                    </div>
+                   
+                    <div class="col l6 m6 s12">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                       @* @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })*@
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .root-container {
+            margin-top: 40px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/viewModels/Account/loginViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings({ data: '' }, $("#wrapper")[0]);
+         
+        })
+
+    </script>
+}

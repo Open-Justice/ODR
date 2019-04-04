@@ -1,0 +1,38 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "MentionsLegales";
+}
+
+<div class="container margin-top margin-bottom text-justified">
+
+    <h1 style="text-align:center">@Home.LegalNotice</h1>
+
+    <h2>@Home.Editor</h2>
+    <p>@Home.YouAreConnectedTo</p>
+    <p class="no-margin">@Home.CompaniesRegister :<i> @Home.CompaniesRegisterNo</i></p> 
+    <p class="no-margin">@Home.Siret : <i>@Home.SiretNo</i></p> 
+    <p class="no-margin">@Home.CorporateOffice : <i></i>@Home.CorporateOfficeAdress</p> 
+    <p class="no-margin">@Home.Telephone : <i>@Home.TelephoneNo</i></p> 
+    <p class="no-margin">@Home.Email : <i><a href="mailto:contact@fast-arbitre.com">@Home.EmailAdress</a></i></p> 
+    <p class="no-margin">@Home.IntracommunityVAT : <i>@Home.IntracommunityVATNo</i></p>
+    @*<p><b>Directeur de la publication</b> : Emmanuel Mouclier</p>*@
+
+    <h2>@Home.HostingProvider</h2>
+    <p>
+        @Home.HostingProviderName</p>
+    <p>
+        @Home.ServerLocalisation : http://www.windowsazure.com/fr-fr/support/trust-center/privacy/
+    </p>
+    
+    <h2>@Home.Credits</h2>
+    <p>@Home.Credits1 <a href="http://www.legal-e-services.com" target="_blank"> @Home.Credits2</a>
+</p>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}

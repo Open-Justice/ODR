@@ -1,0 +1,24 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using Microsoft.AspNet.Identity
+@using ClickNClaim.WebPortal.Extensions
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav stand-strong navbar-right">
+            @*<li>
+                <a href="@Url.Action("Profil","Account")"> <p>Bonjour @User.Identity.FirstName() @User.Identity.LastName() ! </p></a>
+            </li>*@
+            <li><a class="btn-subscribe" href="javascript:document.getElementById('logoutForm').submit()">@Shared.LogOut</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav  stand-strong navbar-right">
+        <li>@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink",  @class= "btn-subscribe-alt" })</li>
+        <li>@Html.ActionLink("S'inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn-subscribe " })</li>
+    </ul>
+}

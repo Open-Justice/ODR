@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D6F3030-D12C-45C0-925A-44870E4ABCE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClickNClaim.Common</RootNamespace>
+    <AssemblyName>ClickNClaim.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\Solutions\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArbiterInformation.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArbiterSkill.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Attributes\EnumDisplayNameAttribute.cs" />
+    <Compile Include="ClassExtensions\ArbiterInformationExtensions.cs" />
+    <Compile Include="ClassExtensions\CompanyExtensions.cs" />
+    <Compile Include="ClassExtensions\ConflictExtensions.cs" />
+    <Compile Include="ClassExtensions\EventExtensions.cs" />
+    <Compile Include="ClassExtensions\ProofFileExtensions.cs" />
+    <Compile Include="ClassExtensions\ResolutionExtensions.cs" />
+    <Compile Include="ClassExtensions\ResolutionTypeExtensions.cs" />
+    <Compile Include="ClassExtensions\UserExtensions.cs" />
+    <Compile Include="ClickNClaimModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Conflict.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConflictResume.cs" />
+    <Compile Include="ConflictStateHistoric.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConflictType.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContractDTO.cs" />
+    <Compile Include="Debate.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultEvent.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Disagreement.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Email.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\ConflictStateEnum.cs" />
+    <Compile Include="Enums\DebateTypeEnum.cs" />
+    <Compile Include="Enums\EventTypeEnum.cs" />
+    <Compile Include="Enums\FileTypeEnum.cs" />
+    <Compile Include="Enums\GenderEnum.cs" />
+    <Compile Include="Enums\LegalDocumentTypeEnum.cs" />
+    <Compile Include="Enums\PaymentStateEnum.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FileStreamed.cs" />
+    <Compile Include="GetConflictsWithNotUsedInvitations_Result.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invitation.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LegalDocument.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MailDebate.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingDebate.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingProposition.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingPropositionAnswer.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProofFile.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolution.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResolutionType.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserColors.cs" />
+    <Compile Include="UserCompany.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersInConflict.cs">
+      <DependentUpon>ClickNClaimModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClickNClaimModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ClickNClaimModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

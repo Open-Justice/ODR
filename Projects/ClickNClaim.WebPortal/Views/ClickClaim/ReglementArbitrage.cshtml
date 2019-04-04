@@ -1,0 +1,465 @@
+﻿@using ClickNClaim.WebPortal.Resources
+
+@{
+    ViewBag.Title = "ReglementArbitrage";
+}
+
+<div class="container margin-top margin-bottom">
+
+    <h1 style="text-align:center;">@Rules.RulesTitle</h1>
+
+    <div class="row">
+        <div class="col s3">
+            <div style="width:100%;height:1px;"></div>
+            <div style="position:fixed;width:17%;" class="hidden-sm hidden-xs ">
+                <ul class="menu-links section table-of-contents">
+                    <li>
+                        <a href="#definitions">@Rules.BDef</a>
+                    </li>
+                    <li><a href="#application">@Rules.BScope</a></li>
+                    <li><a href="#constitutionDossier">@Rules.BCaseEstablishment</a></li>
+                    <li><a href="#saisine">@Rules.BSeizingTrib</a></li>
+                    <li><a href="#constitution">@Rules.BAppointment</a></li>
+                    <li><a href="#procedure">@Rules.BArbProceedings</a></li>
+                    <li><a href="#sentence">@Rules.BAward</a></li>
+
+                    <li><a href="#rectification">@Rules.BCorrection</a></li>
+                    <li><a href="#assistance">@Rules.BRepresentation</a></li>
+                    <li><a href="#delais">@Rules.BTimeLimits</a></li>
+                    <li><a href="#confidentialite">@Rules.BConfidentiality</a></li>
+                    <li><a href="#identifications">@Rules.BNotifications</a></li>
+                    <li><a href="#dispositions">@Rules.BFinalProvisions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col s9 text-justified">
+
+            <div id="definitions" class="section scrollspy">
+                <h2>@Rules.Art1</h2>
+
+                <p>« <b>@Rules.Arbitrator</b> » : @Rules.ArbitratorDef</p>
+
+                <p>« <b>@Rules.Center</b> » : @Rules.CenterDef</p>
+
+                <p>« <b>@Rules.Defendant</b> » : @Rules.DefendantDef</p>
+
+                <p>« <b>@Rules.Claimant</b> » : @Rules.ClaimantDef</p>
+
+                <p>« <b>@Rules.ArbRequest</b> » : @Rules.ArbRequestDef</p>
+
+                <p>« <b>@Rules.Jurisdiction</b> » : @Rules.JurisdictionDef</p>
+
+                <p>« <b>@Rules.Dispute</b> » : @Rules.DisputeDef</p>
+
+                <p>« <b>@Rules.Party</b> » : @Rules.PartyDef</p>
+
+                <p>« <b>@Rules.Platform</b> » : @Rules.PlatformDef</p>
+
+                <p>« <b>@Rules.ArbRules</b> » : @Rules.ArbRulesDef</p>
+
+                <p>« <b>@Rules.Award</b> » : @Rules.AwardDef</p>
+
+                <p>« <b>@Rules.Costs</b> » : @Rules.CostsDef</p>
+
+                <p>« <b>@Rules.User</b> » : @Rules.UserDef</p>
+            </div>
+            <div id="application" class="section scrollspy">
+                <h2>@Rules.Art2</h2>
+
+                <p><b>@Rules.Art2_1</b></p>
+
+                <p>@Rules.Art2_1Provisions_L1</p>
+
+                <p>@Rules.Art2_1Provisions_L2</p>
+
+                <p>@Rules.Art2_1Provisions_L3</p>
+
+
+                <p><b>@Rules.Art2_2</b></p>
+
+                <p>@Rules.Art2_2Provisions_L1</p>
+
+                <p>@Rules.Art2_2Provisions_L2</p>
+
+                <p>@Rules.Art2_2Provisions_L3</p>
+
+                <p>@Rules.Art2_2Provisions_L4</p>
+
+
+                <p><b>@Rules.Art2_3</b></p>
+
+                <p>@Rules.Art2_3Provisions_L1</p>
+
+                <p>@Rules.Art2_3Provisions_L2</p>
+
+                <p>@Rules.Art2_3Provisions_L3</p>
+            </div>
+            <div id="constitutionDossier" class="section scrollspy">
+                <h2>@Rules.Art3</h2>
+
+                <p><b>@Rules.Art3_1</b></p>
+
+                <p style="text-decoration:underline"> @Rules.Art3_1_1</p>
+
+                <p>@Rules.Art3_1_1Provisions</p>
+
+                <p style="text-decoration:underline"> @Rules.Art3_1_2</p>
+
+                <p>@Rules.Art3_1_2Provisions</p>
+
+
+                <p><b>@Rules.Art3_2</b></p>
+
+                <p style="text-decoration:underline">@Rules.Art3_2_1</p>
+
+                <p>@Rules.Art3_2_1Provisions</p>
+
+                <p style="text-decoration:underline">@Rules.Art3_2_2</p>
+
+                <p>@Rules.Art3_2_2Provisions</p>
+
+            </div>
+            <div id="saisine" class="section scrollspy">
+                <h2>@Rules.Art4</h2>
+                <p><b>@Rules.Art4_1</b></p>
+                <p>@Rules.Art4_1Provisions_L1</p>
+                <p>@Rules.Art4_1Provisions_L2</p>
+                <p>@Rules.Art4_1Provisions_L3</p>
+
+                <p><b>@Rules.Art4_2</b></p>
+                <p>@Rules.Art4_2Provisions_L1</p>
+                <p>@Rules.Art4_2Provisions_L2</p>
+
+                <p><b>@Rules.Art4_3</b></p>
+                <p style="text-decoration:underline">@Rules.Art4_3_1</p>
+                <p>@Rules.Art4_3_1Provisions</p>
+                <p style="text-decoration:underline">@Rules.Art4_3_2</p>
+                <p>@Rules.Art4_3_2Provisions_L1</p>
+                <p>@Rules.Art4_3_2Provisions_L2</p>
+
+                <p style="text-decoration:underline">@Rules.Art4_3_3</p>
+                <p>@Rules.Art4_3_3Provisions</p>
+
+                <p style="text-decoration:underline">@Rules.Art4_3_4</p>
+                <p>@Rules.Art4_3_4Provisions</p>
+                </div>
+            <div id="constitution" class="section scrollspy">
+                <h2>@Rules.Art5</h2>
+                <p><b>@Rules.Art5_1</b></p>
+                <p>@Rules.Art5_1Provisions</p>
+                <p><b>@Rules.Art5_2</b></p>
+                <p>@Rules.Art5_2Provisions_L1</p>
+                <p>@Rules.Art5_2Provisions_L2</p>
+                <p>@Rules.Art5_2Provisions_L3</p>
+                <p>@Rules.Art5_2Provisions_L4</p>
+                <p>@Rules.Art5_2Provisions_L5</p>
+                </div>
+            <div id="procedure" class="section scrollspy">
+                <h2>@Rules.Art6</h2>
+
+                <p><b>@Rules.Art6_1</b></p>
+
+                <p>@Rules.Art6_1Provisions_L1</p>
+
+                <p>@Rules.Art6_1Provisions_L2</p>
+
+                <p>@Rules.Art6_1Provisions_L3</p>
+
+                <p>@Rules.Art6_1Provisions_L4</p>
+
+                <p>@Rules.Art6_1Provisions_L5</p>
+
+                <p><b>@Rules.Art6_2</b></p>
+
+                <p>@Rules.Art6_2Provisions</p>
+
+                <p style="text-decoration:underline">@Rules.Art6_2_1</p>
+
+                <p>@Rules.Art6_2_1Provisions_L1</p>
+                <p>@Rules.Art6_2_1Provisions_L2</p>
+
+                <p style="text-decoration:underline">@Rules.Art6_2_2</p>
+
+                <p>@Rules.Art6_2_2Provisions_L1</p>
+                <p>@Rules.Art6_2_2Provisions_L2</p>
+
+                <p style="text-decoration:underline">@Rules.Art6_2_3</p>
+                <p>@Rules.Art6_2_3Provisions_L1</p>
+                <p>@Rules.Art6_2_3Provisions_L2</p>
+
+                <p><b>@Rules.Art6_3</b></p>
+
+
+                <p style="text-decoration:underline">@Rules.Art6_3_1</p>
+
+                <p>@Rules.Art6_3_1Provisions_L1</p>
+
+                <p>@Rules.Art6_3_1Provisions_L2</p>
+
+                <p>@Rules.Art6_3_1Provisions_L3</p>
+
+
+                <p style="text-decoration:underline">@Rules.Art6_3_2</p>
+
+                <p>@Rules.Art6_3_2Provisions_L1</p>
+
+                <p>@Rules.Art6_3_2Provisions_L2</p>
+
+
+                <p style="text-decoration:underline">@Rules.Art6_3_3</p>
+
+                <i>@Rules.Art6_3_3_1</i>
+
+                <p>@Rules.Art6_3_3_1Provisions_L1</p>
+
+                <p>@Rules.Art6_3_3_1Provisions_L2</p>
+
+                <p>@Rules.Art6_3_3_1Provisions_L3</p>
+
+                <i>@Rules.Art6_3_3_2</i>
+
+                <p>@Rules.Art6_3_3_2Provisions_L1</p>
+
+                <p>@Rules.Art6_3_3_2Provisions_L2</p>
+
+                <p>@Rules.Art6_3_3_2Provisions_L3</p>
+
+
+                <i>@Rules.Art6_3_3_3</i>
+
+                <p>@Rules.Art6_3_3_3Provisions_L1</p>
+                <p>@Rules.Art6_3_3_3Provisions_L2</p>
+
+                <p style="text-decoration:underline">@Rules.Art6_3_4</p>
+
+                <p>@Rules.Art6_3_4Provisions_L1</p>
+
+                <p>@Rules.Art6_3_4Provisions_L2</p>
+
+
+                <p style="text-decoration:underline">@Rules.Art6_3_5</p>
+
+                <i>@Rules.Art6_3_5_1</i>
+
+                <p>@Rules.Art6_3_5_1Provisions_L1</p>
+
+                <p>@Rules.Art6_3_5_1Provisions_L2</p>
+
+
+                <i>@Rules.Art6_3_5_2</i>
+
+                <p>@Rules.Art6_3_5_2Provisions</p>
+
+
+                <i>@Rules.Art6_3_5_3</i>
+
+                <p>@Rules.Art6_3_5_3Provisions_L1</p>
+
+                <p>@Rules.Art6_3_5_3Provisions_L2</p>
+
+
+                <i>@Rules.Art6_3_5_4</i>
+
+                <p>@Rules.Art6_3_5_4Provisions_L1</p>
+
+                <p>@Rules.Art6_3_5_4Provisions_L2</p>
+
+
+                <i>@Rules.Art6_3_5_5</i>
+
+                <p>@Rules.Art6_3_5_5Provisions_L1</p>
+
+                <p>@Rules.Art6_3_5_5Provisions_L2</p>
+
+                <ol>
+                    <li>@Rules.Art6_3_5_5Provisions_L3</li>
+                    <li>@Rules.Art6_3_5_5Provisions_L4</li>
+                    <li>@Rules.Art6_3_5_5Provisions_L5</li>
+                    <li>@Rules.Art6_3_5_5Provisions_L6</li>
+                </ol>
+
+
+                <p>@Rules.Art6_3_5_5Provisions_L7</p>
+
+
+                <i>@Rules.Art6_3_5_6</i>
+
+                <p>@Rules.Art6_3_5_6Provisions_L1</p>
+
+                <p>@Rules.Art6_3_5_6Provisions_L2</p>
+                <ol>
+                    <li>@Rules.Art6_3_5_6Provisions_L3</li>
+                    <li>
+                        @Rules.Art6_3_5_6Provisions_L4
+                        <ol style="list-style-type:lower-alpha">
+                            <li>@Rules.Art6_3_5_6Provisions_L5</li>
+                            <li>@Rules.Art6_3_5_6Provisions_L6</li>
+                            <li>@Rules.Art6_3_5_6Provisions_L7</li>
+                            <li>@Rules.Art6_3_5_6Provisions_L8</li>
+                        </ol>
+                    </li>
+                </ol>
+
+
+                <p><b>@Rules.Art6_4</b></p>
+
+                <p>@Rules.Art6_4Provisions_L1</p>
+
+                <p>@Rules.Art6_4Provisions_L2</p>
+
+                <p>@Rules.Art6_4Provisions_L3</p>
+            </div>
+            <div id="sentence" class="section scrollspy">
+
+
+                <h2>@Rules.Art7</h2>
+
+                <p><b>@Rules.Art7_1</b></p>
+
+                <p>@Rules.Art7_1Provisions_L1</p>
+
+                <p>@Rules.Art7_1Provisions_L2</p>
+                <p>@Rules.Art7_1Provisions_L3</p>
+                <p>@Rules.Art7_1Provisions_L4</p>
+
+                <p><b>@Rules.Art7_2</b></p>
+
+                <p>@Rules.Art7_2Provisions</p>
+
+
+                <p>
+                    <b>
+                        @Rules.Art7_3
+                    </b>
+                </p>
+
+                <p>@Rules.Art7_3Provisions_L1
+
+                <p>@Rules.Art7_3Provisions_L2</p>
+
+
+                <p>
+                    <b>
+                        @Rules.Art7_4
+                    </b>
+                </p>
+
+                <p>@Rules.Art7_4Provisions</p>
+            </div>
+            <div id="rectification" class="section scrollspy">
+                <h2>@Rules.Art8</h2>
+
+                <p>@Rules.Art8Provisions_L1</p>
+
+                <p>@Rules.Art8Provisions_L2</p>
+
+                <p>@Rules.Art8Provisions_L3</p>
+
+                <p>@Rules.Art8Provisions_L4</p>
+
+                <p>@Rules.Art8Provisions_L5</p>
+            </div>
+
+            <div id="assistance" class="section scrollspy">
+                <h2>@Rules.Art9</h2>
+
+                <p><b>@Rules.Art9_1</b></p>
+
+                <p>@Rules.Art9_1Provisions</p>
+
+
+                <p><b>@Rules.Art9_2</b></p>
+
+                <p>@Rules.Art9_2Provisions</p>
+            </div>
+
+            <div id="delais" class="section scrollspy">
+                <h2>@Rules.Art10</h2>
+
+                <p>@Rules.Art10Provisions_L1</p>
+
+                <p>@Rules.Art10Provisions_L2</p>
+            </div>
+
+            <div id="confidentialite" class="section scrollspy">
+                <h2>@Rules.Art11</h2>
+
+                <p>@Rules.Art11Provisions_L1</p>
+
+                <p>@Rules.Art11Provisions_L2</p>
+
+                <p>@Rules.Art11Provisions_L3</p>
+            </div>
+            <div id="identifications" class="section scrollspy">
+                <h2>@Rules.Art12</h2>
+
+                <p><b>@Rules.Art12_1</b></p>
+
+                <p>@Rules.Art12_1Provisions</p>
+
+
+                <p><b>@Rules.Art12_2</b></p>
+
+                <p>@Rules.Art12_2Provisions_L1</p>
+
+                <p>@Rules.Art12_2Provisions_L2</p>
+            </div>
+
+            <div id="dispositions" class="section scrollspy">
+                <h2>@Rules.Art13</h2>
+
+                <p><b>@Rules.Art13_1</b></p>
+
+                <p>@Rules.Art13_1Provisions</p>
+
+
+                <p><b>@Rules.Art13_2</b></p>
+
+                <p>@Rules.Art13_2Provisions</p>
+
+
+                <p><b>@Rules.Art13_3</b></p>
+
+                <p>@Rules.Art13_3Provisions</p>
+
+
+                <p><b>@Rules.Art13_4</b></p>
+
+                <p>@Rules.Art13_4Provisions</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $('.scrollspy').scrollSpy();
+        })
+    </script>
+}
+
+
+@section css{
+    <style>
+        .section {
+            padding-bottom: 0rem;
+            padding-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            margin-bottom: 0.5rem;
+            color: rgb(243,124,46);
+        }
+    </style>
+}
+
+
+
+
+

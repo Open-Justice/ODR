@@ -1,0 +1,16 @@
+﻿.recap-card p, .recap-card .row {
+    margin-bottom:0;
+}
+
+.recap-card{
+    margin-bottom:10px;
+    position:relative;
+    height:40px;
+    margin-right:10px;
+}
+
+.recap-card-icon{
+    position:absolute;
+    top:5px;
+    right:5px;
+}

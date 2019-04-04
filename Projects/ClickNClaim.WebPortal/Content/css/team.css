@@ -1,0 +1,19 @@
+﻿.image-presentation{
+    text-align:center;
+  
+    background-color:#ddd;
+}
+
+.image-presentation img{
+    margin:auto;
+}
+
+.team .row{
+    background-color:#eee;
+    margin-bottom:0;
+    position:relative;
+}
+
+.team .row .col{
+      height:300px;
+}

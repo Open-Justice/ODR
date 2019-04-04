@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="AntiBotCaptcha" xml:space="preserve">
+    <value>To ensure that your are indeed a person, and to finish validating your account, please type the following captcha:</value>
+  </data>
+  <data name="AssociateYour" xml:space="preserve">
+    <value>Associate your @ViewBag.LoginProvider account.</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Association Form</value>
+  </data>
+  <data name="AwaitingYourParticipation" xml:space="preserve">
+    <value>Awaiting your participation</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="Case" xml:space="preserve">
+    <value>Case</value>
+  </data>
+  <data name="CaseNo" xml:space="preserve">
+    <value>Case No</value>
+  </data>
+  <data name="Cases" xml:space="preserve">
+    <value>Cases</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Password reset</value>
+  </data>
+  <data name="ChangePasswordEmail" xml:space="preserve">
+    <value>Please enter the email used to log in so as to receive a link to change your password.</value>
+    <comment>Veuillez renseigner votre email de connexion pour recevoir un lien vers la procédure de modification de votre mot de passe.</comment>
+  </data>
+  <data name="ChangePic" xml:space="preserve">
+    <value>Change my profile picture</value>
+  </data>
+  <data name="ClickHereToConnect" xml:space="preserve">
+    <value>click here to connect</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ConfirmationEmail" xml:space="preserve">
+    <value>Please confirm your email address</value>
+  </data>
+  <data name="CreateFolder" xml:space="preserve">
+    <value>Create a folder</value>
+  </data>
+  <data name="CreateMyAccount" xml:space="preserve">
+    <value>Create my account</value>
+  </data>
+  <data name="DeletionOfCase" xml:space="preserve">
+    <value>Deletion of the case</value>
+  </data>
+  <data name="DOB" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailConfirmation" xml:space="preserve">
+    <value>Email confirmation</value>
+  </data>
+  <data name="EmailWillBeSentToResetPassword" xml:space="preserve">
+    <value>You will receive an email containing a link to reset your password.</value>
+    <comment>Vous allez recevoir un email avec un lien pour réinitialiser votre mot de passe.</comment>
+  </data>
+  <data name="EnterCaptcha" xml:space="preserve">
+    <value>Enter the captcha</value>
+  </data>
+  <data name="EnterVerificationCode" xml:space="preserve">
+    <value>Enter verification code</value>
+  </data>
+  <data name="ExtAuthenticationServices" xml:space="preserve">
+    <value>There are no external authentication services configured See &lt;a href="http://go.microsoft.com/fwlink/?LinkId=403804"&gt;this article&lt;/a&gt;
+                for details on setting up this ASP.NET application to support logging in via external services</value>
+  </data>
+  <data name="FastArbitreThankYou" xml:space="preserve">
+    <value>The FastArbitre team thanks you for your trust.</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot your password ?</value>
+  </data>
+  <data name="LoggingIn" xml:space="preserve">
+    <value>Logging in</value>
+  </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Login Failure</value>
+  </data>
+  <data name="LoginUsingAccount" xml:space="preserve">
+    <value>Log in using your @p.Caption account</value>
+  </data>
+  <data name="LoginVia" xml:space="preserve">
+    <value>Logging in via</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="MyCaseFiles" xml:space="preserve">
+    <value>My case files</value>
+  </data>
+  <data name="MyInvites" xml:space="preserve">
+    <value>My invites</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="NotifEmailWillBeSentForConf" xml:space="preserve">
+    <value>Thank your for having registered with FastArbitre. To ascertain that this registration is not fraudulent, an email has been sent to confirm your address and to ensure that you are a human being.</value>
+    <comment>Merci de vous être enregistré sur FastArbitre. Afin de s'assurer que cette création de compte n'est pas frauduleuse, 
+                un email vous a été envoyé afin de valider votre adresse et s'assurer que vous êtes bien un être humain.</comment>
+  </data>
+  <data name="OneLastStep" xml:space="preserve">
+    <value>One last step and your account will be created</value>
+  </data>
+  <data name="PasswordHasBeenReset" xml:space="preserve">
+    <value>Your password has been reset !</value>
+  </data>
+  <data name="PasswordHasBeenUpdatedPlease" xml:space="preserve">
+    <value>Your password has been updated. Please</value>
+    <comment>Votre mot de passe vient d'être mis à jour. Merci de</comment>
+  </data>
+  <data name="PleaseClickOnLinkInEmail" xml:space="preserve">
+    <value>Please click on the link it contains and proceed to the last step to confirm the creation of your account.</value>
+  </data>
+  <data name="ProvidePassword" xml:space="preserve">
+    <value>Please provide a password so that we may create your account. You will then automatically be redirected to your dispute.</value>
+    <comment>Merci de bien vouloir renseigner un mot de passe afin que nous puissions vous créer un compte. Vous serez ensuite directement redirigé vers votre contestation</comment>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Registering" xml:space="preserve">
+    <value>Registering</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ResetingPassword" xml:space="preserve">
+    <value>Reseting your password</value>
+  </data>
+  <data name="ResetMyPassword" xml:space="preserve">
+    <value>Reset my password</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendVerificationCode" xml:space="preserve">
+    <value>Send verification code</value>
+  </data>
+  <data name="SigningIn" xml:space="preserve">
+    <value>Signing in</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SuccessfulAuthenticationEnterUser" xml:space="preserve">
+    <value>You have authenticated yourself with &lt;strong&gt;@ViewBag.LoginProvider&lt;/strong&gt;.
+        Please enter a user name for the website below and click the Register button to finish
+        logging in.</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="ThanksForConfirmingEmail" xml:space="preserve">
+    <value>Thank you for having confirmed your email. Please @Html.ActionLink("click here to log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</value>
+    <comment>Merci d'avoir confirmé votre email. Merci @Html.ActionLink("de cliquer ici pour vous connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</comment>
+  </data>
+  <data name="UnknownOpposingParty" xml:space="preserve">
+    <value>Opposing party still unknown</value>
+  </data>
+  <data name="UnknownTaxNumber" xml:space="preserve">
+    <value>Unknown corporate id number</value>
+  </data>
+  <data name="UnknownTaxNumberSolutionProposal" xml:space="preserve">
+    <value>We are sorry but our corporate id number search service provider does not seem to be able to find any company with the tax number provided. You can keep this number if you are sure that it is correct, or you can try again.</value>
+    <comment>Désolé mais notre partenaire de recherche de société par SIREN ne semble pas trouver d\'entreprise au numéro que vous nous avez indiqué. Vous pouvez au choix laisser le numéro rentré si vous êtes sûr d\'avoir renseigné le bon numéro SIREN, sinon réessayez.</comment>
+  </data>
+  <data name="UnsuccessfulLogin" xml:space="preserve">
+    <value>Unsuccessful login with this service</value>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="ViaSocialNetwork" xml:space="preserve">
+    <value>Via the social networks</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="WarningCaseDeletion" xml:space="preserve">
+    <value>You are about to delete this case. If there are other parties, they will receive a notification indicating that you are leaving the case. Are you sure?</value>
+    <comment>Vous êtes sur le point de supprimer ce dossier. Si d'autres parties sont au dossier, ils recevront une notification pour leur indiquer que vous quittez celui-ci. Êtes-vous sûr ?</comment>
+  </data>
+</root>

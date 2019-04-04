@@ -1,0 +1,96 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Models
+@model ClickNClaim.WebPortal.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="container root-container">
+    <div class="row">
+        <div class="col l8 offset-l2 m12 s12 ">
+            @if (!String.IsNullOrWhiteSpace(Request.QueryString.Get("i")))
+            {
+                <div class="card">
+                    <i class="medium material-icons info-glyph">info_outline</i>
+                    <span> @Account.ProvidePassword</span>
+                </div>
+            }
+
+            <div class="card">
+                <div class="row">
+                    <div class="col s6">
+                        @using (Html.BeginForm("Register", "Account", !String.IsNullOrWhiteSpace(Request.QueryString.Get("i")) ? new { i = Request.QueryString.Get("i") } : null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <input type="hidden" name="returnUrl" value="@Request.QueryString["returnUrl"]" />
+                            <h2>@Account.CreateMyAccount</h2>
+                            <hr />
+                            <div class="row">
+                                <div class="col s12">
+
+                                    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                                    <div class="input-field">
+                                        @Html.LabelFor(m => m.Email)
+                                        @Html.TextBoxFor(m => m.Email)
+                                    </div>
+
+                                    <div class="input-field">
+                                        @Html.LabelFor(m => m.FirstName)
+                                        @Html.TextBoxFor(m => m.FirstName)
+                                    </div>
+
+                                    <div class="input-field">
+                                        @Html.LabelFor(m => m.LastName)
+                                        @Html.TextBoxFor(m => m.LastName)
+                                    </div>
+
+                                    <div class="input-field">
+                                        @Html.LabelFor(m => m.Password)
+                                        @Html.PasswordFor(m => m.Password)
+                                    </div>
+
+                                    <div class="input-field">
+                                        @Html.LabelFor(m => m.ConfirmPassword)
+                                        @Html.PasswordFor(m => m.ConfirmPassword)
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row last-row">
+                                <div class="col s12">
+                                    <input type="submit" class="btn btn-default right" value="@Account.Registering" />
+                                </div>
+                            </div>
+
+
+
+                        }
+                    </div>
+                    <div class="col s6">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .root-container {
+            margin-top: 40px;
+        }
+    </style>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings({ data: '' }, $("#wrapper")[0]);
+        })
+
+    </script>
+}

@@ -1,0 +1,27 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Extensions
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section CSS{
+    @RenderSection("CSS", required: false)
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <a href="@Url.Action("CaseList", "Admin")" class="main-link">@Shared.FileAdministration</a>
+            <a href="@Url.Action("UserList", "Admin")" class="main-link margin-left">@Shared.UserAdministration</a>
+        </div>
+    </div>
+</div>
+<div>
+    @RenderBody()
+</div>
+
+@section Scripts{
+    @RenderSection("Scripts", required:false)
+  
+}

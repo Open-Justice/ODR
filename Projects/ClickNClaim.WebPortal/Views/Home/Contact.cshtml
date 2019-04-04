@@ -1,0 +1,39 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="container margin-top">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <h2>@Home.ContactUs</h2>
+                    <p>@Home.FillOutForm</p>
+                    <form action="@Url.Action("ContactUs","Home")" method="post">
+                        <div class="input-field">
+                            <input type="text" required name="Title" id="Title" />
+                            <label for="Title">@Home.Object </label>
+                        </div>
+                        <div class="input-field">
+                            <textarea rows="5" class="materialize-textarea" required id="body" name="Body"></textarea>
+                            <label for="body">@Home.EMailContent</label>
+                        </div>
+                        <input type="submit" class="btn btn-flat blue" value="@ButtonsAndRecurring.Send" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}

@@ -1,0 +1,95 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Business
+@model ClickNClaim.WebPortal.Models.MerciModel
+@{
+    ViewBag.Title = "Merci";
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+<div class="container ">
+    <div class="row">
+   
+        <div class="col s8">
+            <div class="stepper-wrapper left stepper-link-page-title no-margin " style="margin-right:10px !important">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                        <p class="stepper-content-text">5</p>
+                    </div>
+                </div>
+            </div> 
+            <h5  style="color:rgb(243,124,46)">Fin de déclaration</h5>
+            <div class="card">
+                <div class="card-content">
+                    <form id="accept-arbitrage" action="@Url.Action("SendToOpponents", "Conflict")" method="post" enctype="multipart/form-data">
+                       <input type="hidden" name="conflictId" id="conflictId" value="@Model.Conflict.Id" />
+                        <div class="row">
+                            <div class="col s12">
+                                <h5 class="h5-smaller">@Conflict.AmiableStage</h5>
+                                <ol>
+                                    <li>
+                                        @Conflict.HowToGoBackToFile
+                                    </li>
+                                    <li>@Conflict.AmiableStageDescription_L1</li>
+                                    <li>@Conflict.AmiableStageDescription_L2</li>
+                                    <li>@Conflict.AmiableStageDescription_L3</li>
+                                    <li>@Conflict.AmiableStageDescription_L4</li>
+                                </ol>
+                                <h5 class="h5-smaller">@Conflict.ArbitralPhase</h5>
+                                <ol>
+                                    <li>@Conflict.ArbitralPhaseDes_L1</li>
+                                    <li>@Conflict.ArbitralPhaseDes_L2</li>
+                                    <li>@Conflict.ArbitralPhaseDes_L3</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col l12 hide-on-med-and-down">
+                                <a href="@Url.Action("Profil", "Account")" class="btn btn-flat blue left">@ButtonsAndRecurring.Save</a>
+                                <input type="submit" class="btn btn-flat blue right" value="@ButtonsAndRecurring.SendToOpposingParty" />
+                            </div>
+                            <div class="hide-on-large-only">
+                                <a href="@Url.Action("Profil", "Account")" class="btn btn-flat blue  full-width margin-bottom-small">@ButtonsAndRecurring.Save</a>
+                                <input type="submit" class="btn btn-flat blue full-width" value="@ButtonsAndRecurring.SendToOpposingParty" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="fixed-resume">
+                @Html.Partial("_ConflictResume")
+                </div>
+            </div>
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .error {
+            display: none;
+            color: red;
+        }
+
+            .error.invalid {
+                display: inline-block;
+                top: -3px;
+            }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Scripts/viewModels/merciViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            $("#end-nav").addClass('active');
+            $("#end-nav").prev().css('display', 'inline-block');
+        })
+    </script>
+}
+
+
+
+
+

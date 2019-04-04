@@ -1,0 +1,116 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model List<ClickNClaim.Common.Conflict>
+@using ClickNClaim.WebPortal.Extensions
+@{
+    ViewBag.Title = "ManageConflicts";
+}
+
+<div class="container view-container">
+    <h2>@Conflict.MyDisputes</h2>
+
+    @foreach (var item in Model.OrderByDescending(c => c.Id))
+    {
+        <div class="card hoverable">
+            <div class="card-title">
+                @if (!String.IsNullOrWhiteSpace(item.UsersInConflicts.Where(c => c.IdUser == User.Identity.GetId()).First().CompanyName))
+                {
+                    <p> @Conflict.CaseNo @item.Id : @Conflict.DisputeForCy @item.UsersInConflicts.ElementAt(0).CompanyName</p>
+                }
+                else
+                {
+                    <p>@Conflict.CaseNo @item.Id : @Conflict.DisputeBetweenIndividuals</p>
+                }
+            </div>
+            <div class="row">
+                <div class="col s9">
+                    <p><b>@Conflict.OpeningDate</b> : @(item.CreateDate != null ? item.CreateDate.Value.ToShortDateString() : "Conflict.NoDate" )</p>
+                    <div>
+                        <div class="card-title">
+                            <p style="display:inline-block;float:left;margin-top:10px;">@Conflict.PartiesConcerned</p>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                @foreach (var uic in item.UsersInConflicts)
+                                {
+                                    <div style="display:inline-block; margin-right:10px;border:solid 1px rgba(160,160,160,0.4); padding:10px;">
+                                        <p>@uic.User.DisplayName</p>
+                                        <i>@uic.User.Email</i>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    @if (item.Invitations != null && item.Invitations.Count > 0 && item.Invitations.Any(c => c.IsUsed == false))
+                    {
+                        <div>
+                            <div class="card-title">
+                                <p>@Conflict.WaitingFor :</p>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <table>
+                                        <tbody>
+                                            @foreach (var invit in item.Invitations)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <p>@invit.Email</p>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="card-content col s3">
+                    <a href="@Url.Action("Conflict", "Viewer", new { conflictId = item.Id })">   <input type="button" class="btn btn-flat btn-menu blue" value="@Conflict.SummaryOfMyCase" />  </a>
+                    @if (!ClickNClaim.Business.BLLConflicts.IsRepresented(item.Id, User.Identity.GetId()))
+                    {
+                        if (!item.HasArbitralClause && item.State < (int)ClickNClaim.Common.ConflictState.ArbitrationReady)
+                        {
+                            if (item.UsersInConflicts.Where(c => c.IdUser == User.Identity.GetId()).First().ReadyForArbitration != null && item.UsersInConflicts.Where(c => c.IdUser == User.Identity.GetId()).First().ReadyForArbitration.Value)
+                            {
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ConflictType", "Conflict", new { conflictId = item.Id })">   <input type="button" class="btn btn-flat btn-menu blue" value="@Conflict.ModifyMyStatement" />  </a>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+
+</div>
+
+@section css{
+    <style type="text/css">
+        td {
+            margin: 0;
+            padding: 0;
+        }
+
+            td p {
+                margin: 0;
+                padding: 0;
+            }
+    </style>
+}
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/viewModels/manageConflictsViewModel.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+        })
+    </script>
+}
+

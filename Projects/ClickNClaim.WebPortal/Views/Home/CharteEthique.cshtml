@@ -1,0 +1,151 @@
+﻿@using ClickNClaim.WebPortal.Resources
+<div class="container margin-top text-justified margin-bottom">
+
+    <h1 style="text-align:center">@Home.EthicalCharter</h1>
+
+    <h2>@Home.ECArt1</h2>
+    <p>
+        @Home.ECArt1_L1
+    </p>
+    <p>
+        @Home.ECArt1_L2
+    </p>
+    <ul>
+        <li>@Home.ECArt1_L3</li>
+        <li>@Home.ECArt1_L4</li>
+        <li>@Home.ECArt1_L5</li>
+        <li>@Home.ECArt1_L6</li>
+        <li>@Home.ECArt1_L7</li>
+    </ul>
+    <p>
+        @Home.ECArt1_L8
+    </p>
+    <ul>
+        <li>@Home.ECArt1_L9</li>
+        <li>@Home.ECArt1_L10</li>
+        <li>@Home.ECArt1_L11</li>
+        <li>@Home.ECArt1_L12</li>
+        <li>@Home.ECArt1_L13</li>
+        <li>@Home.ECArt1_L14</li>
+    </ul>
+    <p>
+        @Home.ECArt1_L15
+    </p>
+    <p>
+        @Home.ECArt1_L16
+    </p>
+    <p>
+        @Home.ECArt1_L17
+    </p>
+    <p>
+        @Home.ECArt1_L18
+    </p>
+    <p>
+        @Home.ECArt1_L19
+    </p>
+
+    <h2>
+        @Home.ECArt2
+    </h2>
+    <p>
+        @Home.ECArt2_L1
+    </p>
+    <p>
+        @Home.ECArt2_L2
+    </p>
+    <p>
+        @Home.ECArt2_L3
+    </p>
+    <p>
+        @Home.ECArt2_L4
+    </p>
+    <h2>
+        @Home.ECArt3
+    </h2>
+    <p>
+        @Home.ECArt3_L1
+    </p>
+    <p>
+        @Home.ECArt3_L2
+    </p>
+    <p>
+        @Home.ECArt3_L3
+    </p>
+
+    <h2>
+        @Home.ECArt4
+    </h2>
+    <p>
+        @Home.ECArt4_L1
+    </p>
+    <p>
+        @Home.ECArt4_L2
+    </p>
+    <p>
+        @Home.ECArt4_L3
+    </p>
+    <p>
+        @Home.ECArt4_L4
+    </p>
+    <p>
+        @Home.ECArt4_L5
+    </p>
+
+    <h2>
+        @Home.ECArt5
+    </h2>
+    <p>
+        @Home.ECArt5_L1
+    </p>
+    <p>
+        @Home.ECArt5_L2
+    </p>
+    <p>
+        @Home.ECArt5_L3
+    </p>
+    <h2>
+        @Home.ECArt6
+    </h2>
+    <p>
+        @Home.ECArt6_L1
+    </p>
+    <p>
+        @Home.ECArt6_L2
+    </p>
+    <p>
+        @Home.ECArt6_L3
+    </p>
+    <p>
+        @Home.ECArt6_L4
+    </p>
+    <p>
+        @Home.ECArt6_L5
+    </p>
+
+
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}
+
+@section css{
+    <style type="text/css">
+        h2 {
+            margin-top: 20px !important;
+            color:rgb(243,124,46);
+        }
+
+        .body-content ul {
+            padding-left: 40px;
+        }
+
+          .body-content  ul, .body-content ul li {
+                list-style-type: circle;
+            }
+    </style>
+}

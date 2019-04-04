@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Aptitudes" xml:space="preserve">
+    <value>I declare possessing the necessary skills for the mission of arbitrator in accordance with the provisions of these Arbitration Rules</value>
+    <comment>Je déclare avoir les aptitudes requises pour exercer la mission d’arbitre conformément à toutes les dispositions de ce Règlement</comment>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>I declare being available to complete the mission that I am entrusted with</value>
+    <comment>Je déclare avoir la disponibilité requise pour mener à bien la mission qui m’est confiée</comment>
+  </data>
+  <data name="ConfirmAndForwardDoc" xml:space="preserve">
+    <value>Confirm and forward the document</value>
+    <comment>Valider et transmettre le document</comment>
+  </data>
+  <data name="DecideTheDispute" xml:space="preserve">
+    <value>I declare that nothing impedes my deciding as arbitrator the Dispute opposing the Parties</value>
+    <comment>Je déclare que rien ne s’oppose à ce que je tranche le Litige opposant les Parties en qualité d’arbitre</comment>
+  </data>
+  <data name="DeclarationOfAcceptanceAndIndependence" xml:space="preserve">
+    <value>Declaration of acceptance and independence</value>
+  </data>
+  <data name="Disclosure" xml:space="preserve">
+    <value>To my knowledge, there are no facts or circumstances past or present that require disclosure because they may question my independence in the eyes of any of the parties</value>
+    <comment>A ma connaissance, il n’existe aucun fait ou circonstance passé ou présent qui nécessite d’être révélé parce qu’il pourrait être de nature à mettre en cause mon indépendance dans l’esprit de l’une quelconque des parties</comment>
+  </data>
+  <data name="DownloadAndSign" xml:space="preserve">
+    <value>Download then sign electronically the document</value>
+    <comment>Téléchargez puis signez electroniquement le document</comment>
+  </data>
+  <data name="DownloadDocument" xml:space="preserve">
+    <value>Download the document</value>
+  </data>
+  <data name="GenerateTheDocument" xml:space="preserve">
+    <value>Generate the document</value>
+  </data>
+  <data name="Independence" xml:space="preserve">
+    <value>I am independent from both parties and intend to remain so</value>
+    <comment>Je suis indépendant de chacune des parties en cause et entend le rester</comment>
+  </data>
+  <data name="ITheUndersigned" xml:space="preserve">
+    <value>I the undersigned</value>
+  </data>
+  <data name="MissionAcceptance" xml:space="preserve">
+    <value>declare personally accepting the mission as arbitrator in accordance with IDAM's Arbitration Rules for the present case. Consequently</value>
+    <comment>déclare personnellement accepter la mission d’arbitre selon le Règlement d’arbitrage de l’Idam dans la présente affaire. En conséquence</comment>
+  </data>
+  <data name="ReadAndUnderstood" xml:space="preserve">
+    <value>I declare having read and understood the requirements of IDAM's Arbitration Rules and Ethical Charter</value>
+    <comment>Je déclare avoir pris connaissance des exigences du Règlement d’arbitrage de l’Idam et de la Charte éthique</comment>
+  </data>
+  <data name="UploadDoc" xml:space="preserve">
+    <value>UPLOAD DOCUMENT</value>
+  </data>
+  <data name="UploadSignedDoc" xml:space="preserve">
+    <value>Upload the electronically signed document</value>
+  </data>
+  <data name="AddNewQualifications" xml:space="preserve">
+    <value>Add new qualifications</value>
+  </data>
+  <data name="ArbitrationCenter" xml:space="preserve">
+    <value>Arbitration center</value>
+  </data>
+  <data name="AssignedDisputesWaitingArbConf" xml:space="preserve">
+    <value>Assigned disputes awaiting confirmation by arbitrator</value>
+    <comment>Conflits assignés, en attente de validation de l'arbitre</comment>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="CloseDebate" xml:space="preserve">
+    <value>Close the debate</value>
+  </data>
+  <data name="CloseProceeding" xml:space="preserve">
+    <value>Close proceedings</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DisputesReadyForArbitration" xml:space="preserve">
+    <value>Disputes ready for arbitration</value>
+  </data>
+  <data name="DisputesUnderArbitration" xml:space="preserve">
+    <value>Disputes under arbitration</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration of the exchanges between the parties (in days)</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="LinkedInProfile" xml:space="preserve">
+    <value>LinkedIn profile</value>
+  </data>
+  <data name="ListOfArbitrators" xml:space="preserve">
+    <value>List of arbitrators</value>
+  </data>
+  <data name="MyCases" xml:space="preserve">
+    <value>My cases</value>
+  </data>
+  <data name="NoQualificationsFilledOut" xml:space="preserve">
+    <value>No qualifications filled out</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Presentation</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualification</value>
+  </data>
+  <data name="Qualifications" xml:space="preserve">
+    <value>Qualifications</value>
+  </data>
+  <data name="RefuseCase" xml:space="preserve">
+    <value>Refuse this case</value>
+  </data>
+  <data name="ReOpenDebate" xml:space="preserve">
+    <value>Re-open exchanges between the parties</value>
+  </data>
+  <data name="ReOpenHowLong" xml:space="preserve">
+    <value>For how long do you wish to re-open exchanges between the parties?</value>
+  </data>
+  <data name="ReturnToDispute" xml:space="preserve">
+    <value>Return to dispute</value>
+  </data>
+  <data name="WarningAboutToRefuseCase" xml:space="preserve">
+    <value>You are about to refuse this case. Please indicate below the reasons why you are refusing this case. These will be sent by email to the parties.</value>
+    <comment>Vous êtes sur le point de refuser ce conflit. Merci de noter dans le commentaire ci-dessous la ou les raisons qui vous poussent à refuser ce cas.
+                Celui-ci sera transmis par email aux parties prenantes du conflit.</comment>
+  </data>
+  <data name="WarningAboutToRefuseCase2" xml:space="preserve">
+    <value>You are about to refuse this case. Please indicate below the reasons why you are refusing this case. These will be sent by email to the Centre.</value>
+  </data>
+  <data name="DebateClosed" xml:space="preserve">
+    <value>Exchanges between the parties closed</value>
+  </data>
+  <data name="EndOfDebate" xml:space="preserve">
+    <value>Closure of the exchanges between the parties</value>
+  </data>
+  <data name="EndOfDebateAtLatest" xml:space="preserve">
+    <value>End of the exchanges between the parties at the latest in</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="ProceduralOrder" xml:space="preserve">
+    <value>Procedural order</value>
+  </data>
+  <data name="RespondDebate" xml:space="preserve">
+    <value>Respond to this exchange</value>
+  </data>
+  <data name="TerminationOfProceedings" xml:space="preserve">
+    <value>Termination of proceedings</value>
+  </data>
+  <data name="ToBecomeArbitrator" xml:space="preserve">
+    <value>Procedure to become a FastArbitre arbitrator</value>
+  </data>
+  <data name="TypeResponseHere" xml:space="preserve">
+    <value>Type your response here</value>
+  </data>
+  <data name="WarningEndOfDebate" xml:space="preserve">
+    <value>Closing the exchanges between the parties implies that the participants have met your expectations and that you can now decide on this point. You are about to end this debate. Nobody will be able to come back to it. Are your sure?</value>
+    <comment>Cloturer le débat implique que les participants ont répondu à vos attentes et que vous pouvez statuer à présent sur ce point. Vous êtes sur le point de cloturer ce débat. Plus personne ne pourra intervenir dessus. Êtes-vous sur ?</comment>
+  </data>
+  <data name="WriteAnsHere" xml:space="preserve">
+    <value>Write your answer here</value>
+  </data>
+  <data name="WrittenBy" xml:space="preserve">
+    <value>Written by</value>
+  </data>
+</root>

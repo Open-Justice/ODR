@@ -1,0 +1,155 @@
+﻿@using ClickNClaim.WebPortal.Resources
+
+<div class="container margin-top">
+    <h1 style="text-align:center">@Home.HowDoesItWork</h1>
+
+    <div id="elts">
+        <div class="row">
+            <div class="col s12 text-justified">
+                <h3>@Home.OurObjective</h3>
+                <h3>@Home.OurTech</h3>
+                <h3>@Home.FoundationsOfOurTech</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <table>
+                    <tr>
+                        <td style="width:50%">
+                            <img src="~/Images/Déclaration.png" class="responsive-img materialboxed" />
+                        </td>
+                        <td  style="vertical-align:top;width:50%">
+                            <div style="margin-top:70px" class="text-justified">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="circles">
+                                                <div>
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><h2>@Home.AmicablePhase</h2></td>
+                                    </tr>
+                                </table>
+                                <div class="div-inlined">
+
+                                </div>
+
+                                <p>@Home.AmicablePhase_L1</p>
+                                <p>@Home.AmicablePhase_L2</p>
+                                <p>@Home.AmicablePhase_L3</p>
+                                <p>@Home.AmicablePhase_L4</p>
+                                <p>@Home.AmicablePhase_L5</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col s12">
+                <table>
+                    <tr>
+                        <td  style="vertical-align:top;width:50%">
+                            <div style="margin-top:70px" class="text-justified">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="circles">
+                                                <div>
+                                                    <span>2</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><h2>@Home.ArbitrationPhase</h2></td>
+                                    </tr>
+                                </table>
+                                <p>@Home.ArbitrationPhase_L1</p>
+                                <p>@Home.ArbitrationPhase_L2</p>
+                                <p>@Home.ArbitrationPhase_L3</p>
+                            </div>
+                        </td>
+                        <td  style="width:50%"><img src="~/Images/Arbitrage.png" class="responsive-img materialboxed" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col s12 margin-bottom text-justified">
+                <table>
+                    <tr>
+                        
+                        <td style="width:50%;" ><img src="~/Images/sentence.png" class="responsive-img materialboxed" /></td>
+                        <td style="vertical-align:top;">
+                            <table style="margin-top:70px">
+                                <tr>
+                                    <td width="100">
+                                        <div class="circles">
+                                            <div>
+                                                <span>3</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-left"><h2>@Home.AwardPhase</h2></td>
+                                </tr>
+                            </table>
+
+                            <p>@Home.AwardPhase_L1</p>
+                            <p>@Home.AwardPhase_L2</p>
+
+                        </td>
+                    </tr>
+                </table>
+              
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            //$(".vline").height($("#elts").height() - $("#elts .row").last().outerHeight());
+            //$(window).resize(function () {
+            //    $(".vline").height($("#elts").height() - $("#elts .row").last().outerHeight());
+            //});
+            $('.materialboxed').materialbox();
+        });
+    </script>
+}
+
+@section css{
+    <style>
+        .circles {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: table;
+            background-color: rgb(243,124,46);
+        }
+
+            .circles + h2 {
+                display: inline-block;
+            }
+
+            .circles div {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 20px;
+                color: white;
+            }
+
+        .margin-top-subheaders {
+            margin-top: 15px;
+        }
+
+        h2 {
+            color: rgb(243,124,46);
+        }
+    </style>
+
+}

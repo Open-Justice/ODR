@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Arbitrator" xml:space="preserve">
+    <value>Arbitrator</value>
+  </data>
+  <data name="ArbRequest" xml:space="preserve">
+    <value>Request for arbitration</value>
+  </data>
+  <data name="ArbRules" xml:space="preserve">
+    <value>Arbitration rules</value>
+  </data>
+  <data name="Art1" xml:space="preserve">
+    <value>ARTICLE 1.	DEFINITIONS</value>
+  </data>
+  <data name="Award" xml:space="preserve">
+    <value>Award</value>
+  </data>
+  <data name="BAppointment" xml:space="preserve">
+    <value>APPOINTMENT OF THE ARBITRAL TRIBUNAL</value>
+  </data>
+  <data name="BArbProceedings" xml:space="preserve">
+    <value>ARBITRAL PROCEEDINGS</value>
+  </data>
+  <data name="BAward" xml:space="preserve">
+    <value>AWARD</value>
+  </data>
+  <data name="BCaseEstablishment" xml:space="preserve">
+    <value>CASE ESTABLISHMENT</value>
+  </data>
+  <data name="BConfidentiality" xml:space="preserve">
+    <value>CONFIDENTIALITY</value>
+  </data>
+  <data name="BCorrection" xml:space="preserve">
+    <value>CORRECTION AND INTERPRETATION OF THE AWARD, OMISSION TO RULE</value>
+  </data>
+  <data name="BDef" xml:space="preserve">
+    <value>DEFINITIONS</value>
+  </data>
+  <data name="BFinalProvisions" xml:space="preserve">
+    <value>FINAL PROVISIONS</value>
+  </data>
+  <data name="BNotifications" xml:space="preserve">
+    <value>IDENTIFICATIONS, NOTIFICATION AND COMMUNICATIONS</value>
+  </data>
+  <data name="BRepresentation" xml:space="preserve">
+    <value>REPRESENTATION AND ASSISTANCE</value>
+  </data>
+  <data name="BScope" xml:space="preserve">
+    <value>SCOPE OF APPLICATION</value>
+  </data>
+  <data name="BSeizingTrib" xml:space="preserve">
+    <value>SEIZING THE ARBITRAL TRIBUNAL</value>
+  </data>
+  <data name="BTimeLimits" xml:space="preserve">
+    <value>TIME LIMITS</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Claimant" xml:space="preserve">
+    <value>Claimant</value>
+  </data>
+  <data name="Costs" xml:space="preserve">
+    <value>Costs</value>
+  </data>
+  <data name="Defendant" xml:space="preserve">
+    <value>Defendant</value>
+  </data>
+  <data name="Dispute" xml:space="preserve">
+    <value>Dispute</value>
+  </data>
+  <data name="Jurisdiction" xml:space="preserve">
+    <value>Jurisdiction</value>
+  </data>
+  <data name="Party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Platform</value>
+  </data>
+  <data name="RulesTitle" xml:space="preserve">
+    <value>FastArbitre's Arbitration Rules</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ArbitratorDef" xml:space="preserve">
+    <value>any physical person nominated by the Center to resolve a Dispute in accordance with the present Arbitration Rules.</value>
+    <comment>toute personne physique désignée par le Centre pour résoudre un Litige conformément au présent Règlement.</comment>
+  </data>
+  <data name="ArbRequestDef" xml:space="preserve">
+    <value>request sent to the Center by means of the Platform by a Party or its legal representative so as to resolve the Dispute in accordance with the present Arbitration Rules.</value>
+    <comment>demande adressée au Centre par l’intermédiaire de la Plateforme par une Partie ou son représentant légal en vue de résoudre le Litige conformément au présent Règlement.</comment>
+  </data>
+  <data name="ArbRulesDef" xml:space="preserve">
+    <value>present arbitration agreement setting out the applicable rules for the resolution of the Dispute.</value>
+    <comment>présente convention d’arbitrage déterminant les règles applicables à la résolution du Litige.</comment>
+  </data>
+  <data name="Art2" xml:space="preserve">
+    <value>ARTICLE 2.	SCOPE OF APPLICATION</value>
+  </data>
+  <data name="Art2_1" xml:space="preserve">
+    <value>2.1.	Adhesion to the Arbitration Rules</value>
+  </data>
+  <data name="Art2_1Provisions_L1" xml:space="preserve">
+    <value>The Arbitration Rules and its Costs are applicable to all the Users.</value>
+    <comment>Le Règlement et son Tarif sont applicables à tous les Utilisateurs.</comment>
+  </data>
+  <data name="Art2_1Provisions_L2" xml:space="preserve">
+    <value>The Parties agree to the Rules and its Costs when they submit their Dispute to the Center or the Rules, in writing by way of an arbitration clause or an arbitration agreement. Agreeing to the Rules implies that the Parties are capable of doing so, capacity that they declare being in possession of relatively to the object of the Dispute.</value>
+    <comment>Les Parties adhèrent au Règlement et au Tarif lorsqu'elles soumettent leur Litige au Centre ou au Règlement, par un accord formalisé dans une convention d'arbitrage, qu'elle prenne la forme d'une clause compromissoire ou d'un compromis d'arbitrage. L'acceptation du Règlement suppose de la part des Parties qu'elles puissent compromettre, ce qu’elles déclarent pouvoir faire relativement à la chose objet du Litige.</comment>
+  </data>
+  <data name="Art2_1Provisions_L3" xml:space="preserve">
+    <value>The Arbitrators, by accepting their mission, agree to the Rules and its Costs.</value>
+    <comment>Les Arbitres, en acceptant leur mission, adhèrent au Règlement et à son Tarif.</comment>
+  </data>
+  <data name="AwardDef" xml:space="preserve">
+    <value>decision rendered by the Arbitrator so as to resolve the Dispute.</value>
+    <comment>jugement arbitral rendu par l’Arbitre pour résoudre le Litige.</comment>
+  </data>
+  <data name="CenterDef" xml:space="preserve">
+    <value>Digital Institute of Arbitration and Mediation (Institut digital d’arbitrage et de médiation) acting as the administrator of the arbitration under article 1450 of the French Code of Civil Procedure.</value>
+    <comment>Institut digital d’arbitrage et de médiation agissant en qualité d’organisateur de l’arbitrage au sens de l’article 1450 du Code de procédure civile.</comment>
+  </data>
+  <data name="ClaimantDef" xml:space="preserve">
+    <value>Party having first brought its case to the Platform.</value>
+    <comment>Partie ayant la première constitué son dossier sur la Plateforme.</comment>
+  </data>
+  <data name="CostsDef" xml:space="preserve">
+    <value>contractual provisions determining the amount of costs and fees for the resolution of the Dispute via the Platform.</value>
+    <comment>stipulations contractuelles déterminant le montant des frais et honoraires de la résolution du Litige sur la Plateforme.</comment>
+  </data>
+  <data name="DefendantDef" xml:space="preserve">
+    <value>Party disputing the case brought by the Claimant.</value>
+    <comment>Partie contestant le dossier constitué par le Demandeur.</comment>
+  </data>
+  <data name="DisputeDef" xml:space="preserve">
+    <value>dispute between the Parties brought to arbitration before the Center.</value>
+    <comment>différend entre les Parties soumis à l’arbitrage du Centre.</comment>
+  </data>
+  <data name="JurisdictionDef" xml:space="preserve">
+    <value>legal field within which the Center organizes the resolution of the Dispute.</value>
+    <comment>litiges entre professionnels agissant à des fins entrant dans le cadre de leur activité commerciale, industrielle, artisanale, libérale ou agricole.</comment>
+  </data>
+  <data name="PartyDef" xml:space="preserve">
+    <value>Claimant or Defendant.</value>
+    <comment>Demandeur ou Défendeur.</comment>
+  </data>
+  <data name="PlatformDef" xml:space="preserve">
+    <value>virtual space of Dispute resolution made available to Users by the Center and accessible at www.fast-arbitre.com, and sub-sites, mirror sites, portals and related URL variations.</value>
+    <comment>espace virtuel de résolution du Litige mis à disposition des Utilisateurs par le Centre et accessible à l’adresse www.fast-arbitre.com, ainsi que les sous-sites, sites miroirs, portails et variations d’URL y afférant.</comment>
+  </data>
+  <data name="UserDef" xml:space="preserve">
+    <value>any person logging in to the Platform for the resolution of a Dispute.</value>
+    <comment>toute personne se connectant à la Plateforme à l’occasion de la résolution d’un Litige.</comment>
+  </data>
+  <data name="Art2_2" xml:space="preserve">
+    <value>2.2.	Agreement to Submit to the Rules</value>
+  </data>
+  <data name="Art2_2Provisions_L1" xml:space="preserve">
+    <value>Party's agreement to submit to the Rules will be confirmed by ticking the box corresponding to the following sentence : "I recognize having read and accepting the general conditions of service, the arbitration rules and the applicable costs". The Users also recognize having taken full knowledge of the aforementionned and accepting them without restriction.</value>
+    <comment>L’adhésion au Règlement sera confirmée par le fait de cocher la case correspondant à la phrase suivante : « Je reconnais avoir lu et accepté les conditions générales de service, le règlement d’arbitrage et le tarif applicable ». Les Utilisateurs reconnaissent du même fait en avoir pris pleinement connaissance et les accepter sans restriction.</comment>
+  </data>
+  <data name="Art2_2Provisions_L2" xml:space="preserve">
+    <value>Ticking the aforementionned box shall be deemed to have the same force as the Users' handwritten signature, Users recognize the legal value of the Platform's records and waive their right to challenge them in the event of a dispute.</value>
+    <comment>Le fait de cocher la case susvisée sera réputé avoir la même valeur qu'une signature manuscrite de la part des Utilisateurs, qui reconnaissent la valeur juridique des enregistrements de la Plateforme et renoncent à les contester en cas de Litige.</comment>
+  </data>
+  <data name="Art2_2Provisions_L3" xml:space="preserve">
+    <value>The User's agreement to submit the Dispute to the Rules will be reiterated by his entering the confidential codes on the Platform sent to him by the Center by registered letter with acknowledgement of receipt so as to participate in the arbitral proceedings.</value>
+    <comment>La volonté de l’Utilisateur de soumettre le Litige au Règlement sera réitérée par le fait de renseigner sur la Plateforme les codes confidentiels lui étant adressés par le Centre par lettre recommandée avec accusé de réception aux fins de participer à la procédure d’arbitrage.</comment>
+  </data>
+  <data name="Art2_2Provisions_L4" xml:space="preserve">
+    <value>The Arbitration Rules applicable to the Dispute are those published on the Website on the day of the Request for Arbitration.</value>
+    <comment>Le Règlement applicable au Litige est celui publié sur le Site au jour de la Demande d’Arbitrage.</comment>
+  </data>
+  <data name="Art2_3" xml:space="preserve">
+    <value>2.3.	Consequences of the Agreement to Submit the Dispute to the Rules</value>
+  </data>
+  <data name="Art2_3Provisions_L1" xml:space="preserve">
+    <value>Agreement to submit the Dispute to the Rules implies agreeing to submit the Dispute to the technical proceedings entailed by the use of the Platform and acceptance of the pricing conditions contained by the Costs.</value>
+    <comment>L’adhésion au Règlement emporte soumission du Litige aux procédures techniques qu’implique sa résolution sur la Plateforme et acceptation des conditions tarifaires contenues dans le Tarif.</comment>
+  </data>
+  <data name="Art2_3Provisions_L2" xml:space="preserve">
+    <value>The present Rules and their Costs are applicable to the resolution of the Dispute, excluding any other provisions, except if the Parties have agreed to it expressly in writing.</value>
+    <comment>Le présent Règlement et son Tarif sont applicables à la résolution du Litige, à l’exclusion de toutes autres stipulations, sauf accord exprès des Parties constaté par écrit.</comment>
+  </data>
+  <data name="Art2_3Provisions_L3" xml:space="preserve">
+    <value>Agreeing to the present Rules and/or the voluntary participation to the arbitral proceedings on the Platform cover any possible invalidity of the arbitration clause convened upon by the Parties on a matter where arbitration is not authorized.</value>
+    <comment>L’acceptation du présent Règlement et/ou la participation volontaire à une procédure d’arbitrage sur la Plateforme couvre toute éventuelle nullité qui s'attacherait à une clause compromissoire convenue entre les Parties dans une matière où celle-ci ne serait pas autorisée.</comment>
+  </data>
+  <data name="Art3" xml:space="preserve">
+    <value>ARTICLE 3.	CASE ESTABLISHMENT</value>
+  </data>
+  <data name="Art3_1" xml:space="preserve">
+    <value>3.1.	Constitution of the File by the Claimant</value>
+  </data>
+  <data name="Art3_1_1" xml:space="preserve">
+    <value>3.1.1.	Claimant's Filing of Claims</value>
+    <comment>Formulation des prétentions par le Demandeur</comment>
+  </data>
+  <data name="Art3_1_1Provisions" xml:space="preserve">
+    <value>The Claimant logs in and formulates his claims in accordance with the technical configuration of the Platform on the day of his declaration.</value>
+    <comment>Le Demandeur s’identifie et formule ses prétentions conformément à la configuration technique de la Plateforme au jour de sa déclaration.</comment>
+  </data>
+  <data name="Art3_1_2" xml:space="preserve">
+    <value>3.1.2.	Validation of the File by the Claimant</value>
+  </data>
+  <data name="Art3_1_2Provisions" xml:space="preserve">
+    <value>The Claimant is then asked to validate his file. His declarations are then not modifiable till the arbitral proceedings. A notification is then sent to the Defendant by email so that he may take note of the claims made by the Claimant and challenge them.</value>
+    <comment>Le Demandeur est alors invité à valider son dossier. Ses déclarations sont alors figées jusqu’à la procédure arbitrale. Une notification est alors adressée au Défendeur par email, afin qu’il prenne connaissance des prétentions du Demandeur et les conteste.</comment>
+  </data>
+  <data name="Art3_2" xml:space="preserve">
+    <value>3.2. Constitution of the File by the Defendant</value>
+  </data>
+  <data name="Art3_2_1" xml:space="preserve">
+    <value>3.2.1.	Challenge of the Claimant's Claims</value>
+  </data>
+  <data name="Art3_2_1Provisions" xml:space="preserve">
+    <value>The Defendant challenges the Claimant's claims in accordance with the technical configuration of the Platform on the day of his declaration.</value>
+    <comment>Le Défendeur conteste les prétentions du Demandeur conformément à la configuration technique de la Plateforme au jour de sa déclaration.</comment>
+  </data>
+  <data name="Art3_2_2" xml:space="preserve">
+    <value>3.2.2.	Validation of the File of the Defendant</value>
+  </data>
+  <data name="Art3_2_2Provisions" xml:space="preserve">
+    <value>The Defendant is then asked to validate his file. His declarations are then not modifiable till the arbitral proceedings. A notification is then sent to the Claimant by email so that he may take note of the challenges made by the Defendant.</value>
+    <comment>Le Défendeur est alors invité à valider son dossier. Ses déclarations sont alors figées jusqu’à la procédure arbitrale. Une notification est alors adressée au Demandeur par email, afin qu’il prenne connaissance des contestations du Défendeur.</comment>
+  </data>
+  <data name="Art4" xml:space="preserve">
+    <value>ARTICLE 4.	SEIZING THE ARBITRAL TRIBUNAL</value>
+  </data>
+  <data name="Art4_1" xml:space="preserve">
+    <value>4.1.	Request for Arbitration</value>
+  </data>
+  <data name="Art4_1Provisions_L1" xml:space="preserve">
+    <value>After the Defendant has validated his file, each Party can file a Request for Arbitration via the Platform.</value>
+    <comment>Après validation de son dossier par le Défendeur, chaque Partie peut formuler une Demande d’Arbitrage sur la Plateforme.</comment>
+  </data>
+  <data name="Art4_1Provisions_L2" xml:space="preserve">
+    <value>In the event of an arbitration clause designating expressly the Center or the Arbitration Rules, the Request for Arbitration is filed by one of the Parties. Therefore, upon reception of the Request made by one of the Parties regarding the Dispute, the Center is immediatly seized. </value>
+    <comment>En présence d’une clause compromissoire comportant une désignation expresse du Centre ou du Règlement, la Demande d’Arbitrage est formulée par l’une ou l’autre des Parties. Le Centre est alors immédiatement saisi du Litige dès réception de la demande d’une Partie.</comment>
+  </data>
+  <data name="Art4_1Provisions_L3" xml:space="preserve">
+    <value>In the absence of an arbitration clause expressly designating the Center or the Arbitration Rules, the Request for Arbitration is filed jointly by both Parties. In this event, to seize the Center, one Party has to submit the Dispute to the Center and the other Party has to agree to the submission of the Dispute.</value>
+    <comment>En l’absence d’une clause compromissoire comportant une désignation expresse du Centre ou du Règlement, la Demande d’Arbitrage est formulée conjointement par les deux Parties. Le Centre n’est alors saisi que lorsqu’une Partie a demandé à soumettre le Litige à l’arbitrage du Centre et que l’autre Partie a accepté cette demande.</comment>
+  </data>
+  <data name="Art4_2" xml:space="preserve">
+    <value>4.2.	Debit Authorization of the Arbitration Fees and Costs</value>
+    <comment>Autorisation de prélèvement des frais et honoraires d’arbitrage</comment>
+  </data>
+  <data name="Art4_2Provisions_L1" xml:space="preserve">
+    <value>As soon as the Center is seized, it asks both Parties to provide a debit authorization on their credit card or bank account for half of the fees and costs of the arbitration.</value>
+    <comment>Dès que le Centre est saisi, celui-ci invite chaque Partie à lui adresser une autorisation de prélever sur sa carte bancaire ou son compte bancaire la moitié des frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art4_2Provisions_L2" xml:space="preserve">
+    <value>If one of the Parties does not provide the debit authorization, the other Party may choose to allow the Center to debit on his credit card or bank account all of the arbitration fees and costs.</value>
+    <comment>Si l’une des Parties ne concède pas l’autorisation de prélèvement, l’autre Partie peut décider d’autoriser le Centre à prélever sur sa carte ou son compte bancaire l’intégralité des frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art4_3" xml:space="preserve">
+    <value>4.3.	Confirmation of the Request for Arbitration by the Center</value>
+  </data>
+  <data name="Art4_3_1" xml:space="preserve">
+    <value>4.3.1.	Jurisdiction</value>
+  </data>
+  <data name="Art4_3_1Provisions" xml:space="preserve">
+    <value>The Center determines freely if the Dispute, as defined by the Request for Arbitration, falls under its Jurisdiction. It accepts or refuses the Request for Arbitration by an unreasonned decision that cannot ne appealed. In the event of a refusal of the Request for Arbitration by the Center, it will inform the Parties who will then be free to bring their Dispute before another arbitration center or a state court.</value>
+    <comment>Le Centre apprécie librement si le Litige, tel que défini dans la Demande d’Arbitrage, entre dans ses Domaines de Compétence. Il accepte ou refuse la Demande d’Arbitrage par décision non motivée et non susceptible de recours. En cas de refus de la Demande d’Arbitrage par le Centre, celui-ci en informe les Parties, qui sont alors libres de soumettre le Litige à une autre institution d’arbitrage ou de saisir les juridictions étatiques.</comment>
+  </data>
+  <data name="Art4_3_2" xml:space="preserve">
+    <value>4.3.2.	Debit of the Arbitration Costs and Fees</value>
+  </data>
+  <data name="Art4_3_2Provisions_L1" xml:space="preserve">
+    <value>If the Center accepts the Request for Arbitration, it proceeds to the debiting of the costs and fees of the arbitration.</value>
+    <comment>Si le Centre accepte la Demande d’Arbitrage, celui-ci procède au prélèvement des frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art4_3_2Provisions_L2" xml:space="preserve">
+    <value>Where necessary, with regard to the nature and the complexity of the case submitted by the Parties, the Center will inform them that the resolution of the Dispute will require the payment of additional costs and fees compared to those mentionned in Costs. The Center will then ask each Party to pay half of the costs and fees of the arbitration. If one of the Parties does not proceed to the payment, the other Party may choose to pay all of the arbitration fees and costs.</value>
+    <comment>Le cas échéant, eu égard à la nature et à la complexité des dossiers soumis par les Parties, le Centre les informe que la résolution du Litige entraînera le paiement de frais et honoraires supplémentaires par rapport à ceux mentionnés dans le Tarif. Le Centre invite alors chaque Partie à procéder au paiement de la moitié des frais et honoraires d’arbitrage. Si l’une des Parties ne procède par au paiement, l’autre Partie peut décider de procéder au paiement l’intégralité des frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art4_3_3" xml:space="preserve">
+    <value>4.3.3.	Notification of the Parties of the Constitution of the Arbitral Tribunal</value>
+  </data>
+  <data name="Art4_3_3Provisions" xml:space="preserve">
+    <value>When all the costs and fees have been payed to the Center, it will inform the Parties of the constitution of the arbitral tribunal by registered letter with  acknowledgement of receipt. This notification will contain access codes allowing the Parties to login onto the Platform so as to participate in the arbitral proceedings.</value>
+    <comment>Lorsque l’intégralité des frais et honoraires est encaissée par le Centre, celui-ci informe les Parties de la constitution du tribunal arbitral par lettre recommandée avec accusé de réception. Cette notification contient des codes d’accès permettant aux Parties se connecter à la Plateforme pour participer à la procédure d’arbitrage.</comment>
+  </data>
+  <data name="Art4_3_4" xml:space="preserve">
+    <value>4.3.4.	Reimbursement of the Sums Payed</value>
+  </data>
+  <data name="Art4_3_4Provisions" xml:space="preserve">
+    <value>Should the costs and fees have not been paid in their entirety to the Center within a month starting from the Request for Arbitration, the latter will be deemend null and void and the sums possibly paid by the Parties will be reimbursed.</value>
+    <comment>A défaut d’encaissement par le Centre de l’intégralité des frais et honoraires d’arbitrage dans le délai d’un mois à compter de la Demande d’Arbitrage, celle-ci est caduque et les sommes éventuellement versées par les Parties leur sont remboursées.</comment>
+  </data>
+  <data name="Art5" xml:space="preserve">
+    <value>ARTICLE 5.	CONSTITUTION OF THE ARBITRAL TRIBUNAL</value>
+  </data>
+  <data name="Art5_1" xml:space="preserve">
+    <value>5.1.	Appointement of the Arbitrator by the Center</value>
+  </data>
+  <data name="Art5_1Provisions" xml:space="preserve">
+    <value>The arbitral tribunal is composed of a sole Arbitrator appointed by the Center as soon as the fees and costs of the arbitration have been paid in their entirety.</value>
+    <comment>Le tribunal arbitral est composé d'un Arbitre désigné par le Centre dès encaissement de l’intégralité des frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art5_2" xml:space="preserve">
+    <value>5.2.	Arbitrator's Acceptance of the Mission</value>
+  </data>
+  <data name="Art5_2Provisions_L1" xml:space="preserve">
+    <value>As soon as he is appointed the Arbitrator must accept or refuse the mission he is entrusted with by the Center.</value>
+    <comment>Dès qu’il est désigné, l’Arbitre doit accepter ou refuser la mission qui lui est confiée par le Centre.</comment>
+  </data>
+  <data name="Art5_2Provisions_L2" xml:space="preserve">
+    <value>If the Arbitrator accepts his mission, he commits to fulfilling it to its end. The Arbitrator's acceptance of his mission must contain a declaration that indicates the possible circumstances that would be of such a nature that they would affect his independence and/or his impartiality. If such circumstances are revealed by the Arbitrator, he will then be confirmed or dismissed by a decision taken by the Center after having heard the Parties on this issue.</value>
+    <comment>Si l’Arbitre accepte sa mission, l’Arbitre s’engage à accomplir celle-ci jusqu'à son terme. L’acceptation de sa mission par l’Arbitre doit contenir une déclaration qui mentionnera les éventuelles circonstances qui seraient de nature à affecter son indépendance et/ou son impartialité. Si de telles circonstances sont révélées par l’Arbitre, celui-ci est alors confirmé ou révoqué sur décision du Centre, prise après avoir recueilli l'avis des Parties.</comment>
+  </data>
+  <data name="Art5_2Provisions_L3" xml:space="preserve">
+    <value>If the Arbitrator refuses his mission or is dismissed, the Center will immediately appoint a new Arbitrator.</value>
+    <comment>Si l’Arbitre refuse sa mission ou s’il est révoqué, le Centre désigne immédiatement un nouvel Arbitre.</comment>
+  </data>
+  <data name="Art5_2Provisions_L4" xml:space="preserve">
+    <value>The arbitral tribunal is constituted as soon as the Arbitrator accepts his mission.</value>
+    <comment>Le tribunal arbitral est constitué dès acceptation de sa mission par l’Arbitre.</comment>
+  </data>
+  <data name="Art5_2Provisions_L5" xml:space="preserve">
+    <value>The Center immediately informs the Parties of the Arbitrator's acceptance of his mission.</value>
+    <comment>Le Centre informe immédiatement les Parties de l’acceptation de sa mission par l’Arbitre.</comment>
+  </data>
+  <data name="Art6" xml:space="preserve">
+    <value>ARTICLE 6.	ARBITRAL PROCEEDINGS</value>
+  </data>
+  <data name="Art6_1" xml:space="preserve">
+    <value>6.1.	General Rules of Procedure</value>
+  </data>
+  <data name="Art6_1Provisions_L1" xml:space="preserve">
+    <value>The Arbitrator is to organize the arbitral proceedings via the Platform in application with the present Rules and the technical procedures of the Platform, in the way he deems appropriate, depending on the nature of the case and taking into account the dispositions possibly set out by the Parties. The Arbitrator commits to upholding, in his management of the proceedings, the leading principles for the conduct of proceedings as set out by articles 4 to 10, 11 paragraph 1, 12 paragraphs 2 and 3, 13 to 21, 23 and 23-1 of the French Code of Civil Procedure.</value>
+    <comment>Il appartient à l’Arbitre d'organiser la procédure arbitrale sur la Plateforme conformément au présent Règlement et aux procédures techniques de la Plateforme, sous la forme qu'il estime appropriée, en fonction de la nature de l'affaire et en tenant compte des dispositions éventuellement prévues par les Parties. L’Arbitre s’engage à respecter, dans la conduite de la procédure, les principes directeurs du procès énoncés aux articles 4 à 10, 11, alinéa 1er, 12, alinéas 2 et 3, 13 à 21, 23 et 23-1 du Code de procédure civile</comment>
+  </data>
+  <data name="Art6_1Provisions_L2" xml:space="preserve">
+    <value>The Arbitrator will resort to procedural orders to solve any procedural issues or incidents, and to decide upon any request for joinder or consolidation. These procedural orders cannot be appealed.</value>
+    <comment>L’Arbitre règle par ordonnance de procédure tout problème de procédure, tout incident de procédure, ainsi que toute demande d’intervention ou de jonction. Ces ordonnances de procédure ne sont pas susceptibles de recours.</comment>
+  </data>
+  <data name="Art6_1Provisions_L3" xml:space="preserve">
+    <value>All the documents and comments exchanged via the Platform may be accessed by the Parties and the Arbitrator. All of them have the possibility to comment these documents via the Platform oraly or in writing.</value>
+    <comment>Tous les documents et commentaires échangés sur la Plateforme sont accessibles aux Parties et à l’Arbitre. Chacun d’eux a la possibilité de commenter ces documents sur la Plateforme oralement ou par écrit.</comment>
+  </data>
+  <data name="Art6_1Provisions_L4" xml:space="preserve">
+    <value>If the Parties have reached a settlement after the file has been transmitted to the arbitral tribunal they may ask the tribunal to record their settlement in the form of an Award by consent of the Parties.</value>
+    <comment>Les Parties parvenues à un accord au cours de l'instance arbitrale peuvent demander au tribunal arbitral de le constater dans une Sentence d’accord-partie.</comment>
+  </data>
+  <data name="Art6_1Provisions_L5" xml:space="preserve">
+    <value>The Party who knowingly and without a legitimate cause, does not invoque in due course an irregularity before the arbitral tribunal, shall be deemed to have waived its right to invoque it.</value>
+    <comment>La Partie qui, en connaissance de cause et sans motif légitime, s'abstient d'invoquer en temps utile une irrégularité devant le tribunal arbitral, est réputée avoir renoncé à s'en prévaloir.</comment>
+  </data>
+  <data name="Art6_2" xml:space="preserve">
+    <value>6.2.	Unfolding of the Main Proceedings</value>
+  </data>
+  <data name="Art6_2Provisions" xml:space="preserve">
+    <value>Unless the Center has fixed a procedural timetable derogating with the provisions hereafter, the main proceedings will unfold as follows:</value>
+    <comment>A moins que le Centre n’ait fixé un calendrier de procédure dérogeant aux dispositions ci-après, la procédure principale se déroule comme suit :</comment>
+  </data>
+  <data name="Art6_2_1" xml:space="preserve">
+    <value>6.2.1.	Establishing the Facts of the Case</value>
+  </data>
+  <data name="Art6_2_1Provisions_L1" xml:space="preserve">
+    <value>Starting from the constitution of the arbitral tribunal, the Arbitrator has 14 (fourteen) days to request from the Parties all that he requires to ready the case so that he may decide upon it. Each Party must answer within the delay set out.</value>
+    <comment>L’Arbitre dispose d’un délai de 14 jours à compter de la constitution du tribunal arbitral pour formuler des demandes aux Parties aux fins de mettre l’affaire en état d’être jugée. Chaque Partie doit alors répondre aux demandes de l’Arbitre dans le délai imparti.</comment>
+  </data>
+  <data name="Art6_2_1Provisions_L2" xml:space="preserve">
+    <value>The Parties then have 7 (seven) days to complete their file, supporting freely their respective claims and challenges made during the constitution of their file.</value>
+    <comment>Les Parties disposent alors d’un délai de 7 jours pour compléter leur dossier, en étayant librement leurs prétentions et contestations respectives émises lors de la constitution de leur dossier.</comment>
+  </data>
+  <data name="Art6_2_2" xml:space="preserve">
+    <value>6.2.2.	Draft Award</value>
+  </data>
+  <data name="Art6_2_2Provisions_L1" xml:space="preserve">
+    <value>The Arbitrator then has 7 (seven) days to render a draft Award in light of the case made by each Party.</value>
+    <comment>L’Arbitre dispose alors d’un délai de 7 (sept) jours pour rendre un projet de Sentence au vu des dossiers présentés par les Parties.</comment>
+  </data>
+  <data name="Art6_2_2Provisions_L2" xml:space="preserve">
+    <value>The Parties then have 7 (seven) days starting from the date of the draft Award's upload by the Arbitrator to further support their respective claims and challenges.</value>
+    <comment>Les Parties disposent alors d’un délai de 7 (sept) jours à compter de la mise en ligne du projet de Sentence par l’Arbitre pour étayer à nouveau leurs prétentions et contestations respectives.</comment>
+  </data>
+  <data name="Art6_2_3" xml:space="preserve">
+    <value>6.2.3.	Award</value>
+  </data>
+  <data name="Art6_2_3Provisions_L1" xml:space="preserve">
+    <value>If the Parties fail to react within the timeframe allotted, the draft Award will be considered as final.</value>
+    <comment>A défaut de réaction des Parties dans le délai précité, le projet de Sentence vaut Sentence définitive.</comment>
+  </data>
+  <data name="Art6_2_3Provisions_L2" xml:space="preserve">
+    <value>If the Parties have reacted, the Arbitrator has 7 (seven) days after the end of the time allotted to the Parties to react to decide upon the case in light of the most recent claims and challenges made by the Parties.</value>
+    <comment>Dans le cas contraire, l’Arbitre dispose d’un délai de 7 (sept) jours au terme du délai précité pour statuer au vu des dernières prétentions et contestations respectives des Parties.</comment>
+  </data>
+  <data name="Art6_3" xml:space="preserve">
+    <value>6.3.	Incidental Proceedings</value>
+  </data>
+  <data name="Art6_3_1" xml:space="preserve">
+    <value>6.3.1.	General Rules</value>
+  </data>
+  <data name="Art6_3_1Provisions_L1" xml:space="preserve">
+    <value>The Parties or the Arbitrator can initiate the following incidental proceedings.</value>
+    <comment>Les Parties ou l’Arbitre peuvent introduire les procédures incidentes ci-après mentionnées.</comment>
+  </data>
+  <data name="Art6_3_1Provisions_L2" xml:space="preserve">
+    <value>If the incidental proceedings are initiated by a Party, they unfold in the same manner as the main proceedings.</value>
+    <comment>Lorsque les procédures incidentes sont introduites par une Partie, celles-ci se déroulent comme la procédure principale.</comment>
+  </data>
+  <data name="Art6_3_1Provisions_L3" xml:space="preserve">
+    <value>If the incidental proceedings are initiated by the Arbitrator, he immediately takes a draft procedural order.</value>
+    <comment>Lorsque les procédures incidentes sont introduites par l’Arbitre, celui-ci rend immédiatement un projet d’ordonnance de procédure.</comment>
+  </data>
+  <data name="Art6_3_2" xml:space="preserve">
+    <value>6.3.2.	Challenge of the Arbitral Tribunal's Jurisdiction</value>
+  </data>
+  <data name="Art6_3_2Provisions_L1" xml:space="preserve">
+    <value>The Arbitrator will decide upon potential challenges regarding the inexistence, invalidity or inapplicability of the arbitration agreement.</value>
+    <comment>L’Arbitre statue sur les éventuelles contestations relatives à l’inexistence, l’invalidité ou l’inapplicabilité de la convention d’arbitrage.</comment>
+  </data>
+  <data name="Art6_3_2Provisions_L2" xml:space="preserve">
+    <value>To be admissible, challenges of the tribunal's jurisdiction must be made before presenting any defence on the merits or plea of non-admissibility.</value>
+    <comment>Les exceptions d’incompétence doivent, à peine d'irrecevabilité, être soulevées avant toute défense au fond ou fin de non-recevoir.</comment>
+  </data>
+  <data name="Art6_3_3" xml:space="preserve">
+    <value>6.3.3.	Suspension and abatement of Proceedings</value>
+  </data>
+  <data name="Art6_3_3_1" xml:space="preserve">
+    <value>6.3.3.1.	General Rules</value>
+  </data>
+  <data name="Art6_3_3_1Provisions_L1" xml:space="preserve">
+    <value>An abatement or stay of the proceedings shall not put an end to the arbitral tribunal's mandate.</value>
+    <comment>L’interruption ou la suspension de l'instance ne dessaisit pas le tribunal arbitral.</comment>
+  </data>
+  <data name="Art6_3_3_1Provisions_L2" xml:space="preserve">
+    <value>The arbitral tribunal may ask the Parties to report any steps taken towards resuming the proceedings or putting an end to the cause of the abatement or stay. In the event that the Parties fail to act, the tribunal may terminate the proceedings.</value>
+    <comment>Le tribunal arbitral peut inviter les Parties à lui faire part de leurs initiatives en vue de reprendre l'instance ou de mettre un  terme aux causes d'interruption ou de suspension. En cas de carence des Parties, il peut mettre fin à l'instance.</comment>
+  </data>
+  <data name="Art6_3_3_1Provisions_L3" xml:space="preserve">
+    <value>Proceedings resume their course at the stage that they were before the abatement or stay when the cause for this abatement or stay has ceased to exist.</value>
+    <comment>L’instance reprend son cours en l'état où elle se trouvait au moment où elle a été interrompue ou suspendue lorsque les causes de son interruption ou de sa suspension cessent d'exister.</comment>
+  </data>
+  <data name="Art6_3_3_2" xml:space="preserve">
+    <value>6.3.3.2.	Decision Deferring</value>
+  </data>
+  <data name="Art6_3_3_2Provisions_L1" xml:space="preserve">
+    <value>The arbitral tribunal may, if need be, defer its decision. This will suspend the course of the proceedings for the time or till the occurrence of the event it refers to.</value>
+    <comment>Le tribunal arbitral peut, s'il y a lieu, surseoir à statuer. Cette décision suspend le cours de l'instance pour le temps ou  jusqu'à la survenance de l'événement qu'elle détermine.</comment>
+  </data>
+  <data name="Art6_3_3_2Provisions_L2" xml:space="preserve">
+    <value>The period of time for the arbitration starts to run again when the arbitral tribunal is informed of the occurrence of the said event by the most diligent Party.</value>
+    <comment>Le délai d'arbitrage recommence à courir lorsque le tribunal arbitral est informé de la survenance dudit événement par la Partie la plus diligente.</comment>
+  </data>
+  <data name="Art6_3_3_2Provisions_L3" xml:space="preserve">
+    <value>The arbitral tribunal may, in light of the circumstances, revoque its decision to defer or shorten the time limit allotted.</value>
+    <comment>Le tribunal arbitral peut, suivant les circonstances, révoquer le sursis ou en abréger le délai.</comment>
+  </data>
+  <data name="Art6_3_3_3" xml:space="preserve">
+    <value>6.3.3.3.	Death, Impediment, Abstention, Resignation, Challenge, Removal</value>
+  </data>
+  <data name="Art6_3_3_3Provisions_L1" xml:space="preserve">
+    <value>In the event of the death, impediment, abstention, resignation, challenge or removal of the Arbitrator, proceedings are stayed till the Arbitrator nominated as a replacement accepts his mission.</value>
+    <comment>L'instance arbitrale est également suspendue en cas de décès, d'empêchement, d'abstention, de démission, de récusation ou de révocation d'un Arbitre jusqu'à l'acceptation de sa mission par l'Arbitre désigné en remplacement.</comment>
+  </data>
+  <data name="Art6_3_3_3Provisions_L2" xml:space="preserve">
+    <value>This new Arbitrator is nominated by the Center. However, if a difficulty arises, the Center may seize the competent judicial authority by way of a petition so that he may proceed to replacing the Arbitrator by an order against which no recourse is available.</value>
+    <comment>Ce nouvel Arbitre est désigné par le Centre. Toutefois, en cas de difficulté, le Centre peut saisir le juge d’appui sur requête afin qu’il soit procédé au remplacement de l’Arbitre par ordonnance non susceptible de recours.</comment>
+  </data>
+  <data name="Art6_3_4" xml:space="preserve">
+    <value>6.3.4.	Conservatory and Interim Measures</value>
+  </data>
+  <data name="Art6_3_4Provisions_L1" xml:space="preserve">
+    <value>The arbitral tribunal may order upon the Parties any conservatory or provisional measures that it deems appropriate, set conditions for such measures and, if necessary, attach penalties to such order. However, only courts may order conservatory attachments and judicial security. </value>
+    <comment>Le tribunal arbitral peut ordonner aux Parties, dans les conditions qu'il détermine et au besoin à peine d'astreinte, toute mesure conservatoire ou provisoire qu'il juge opportune. Toutefois, la juridiction de l'Etat est seule compétente pour ordonner des saisies conservatoires et sûretés judiciaires.</comment>
+  </data>
+  <data name="Art6_3_4Provisions_L2" xml:space="preserve">
+    <value>The arbitral tribunal has the power to amend or add to any provisional or conservatory measure that it has granted.</value>
+  </data>
+  <data name="Art6_3_5" xml:space="preserve">
+    <value>6.3.5.	Investigative Measures</value>
+  </data>
+  <data name="Art6_3_5_1" xml:space="preserve">
+    <value>6.3.5.1.	General Rules</value>
+  </data>
+  <data name="Art6_3_5_1Provisions_L1" xml:space="preserve">
+    <value>The Arbitrator need not apply the provisions of the French Code of civil procedure on investigative measures.</value>
+    <comment>L’Arbitre est dispensé du respect des règles du Code de procédure civile régissant l’instruction. Il dispose des pouvoirs les plus larges pour instruire l’affaire. Il organise librement l’instruction, conformément au présent Règlement.</comment>
+  </data>
+  <data name="Art6_3_5_1Provisions_L2" xml:space="preserve">
+    <value>The Arbitrator may, in particular, order any investigative measure at the request of a Party or ex officio, without first informing the Parties, provided that the facts on which his final decision is based may have been debatted upon on the Platform before a final decision is taken.</value>
+    <comment>L’Arbitre peut notamment ordonner toute mesure d'instruction, sur demande d’une Partie ou d’office, sans en informer préalablement les Parties, dès lors que les éléments de faits sur lesquels s’appuie sa décision peuvent faire l’objet d’un débat contradictoire sur la Plateforme avant le prononcé d’une décision définitive.</comment>
+  </data>
+  <data name="Art6_3_5_2" xml:space="preserve">
+    <value>6.3.5.2.	Findings of Fact</value>
+  </data>
+  <data name="Art6_3_5_2Provisions" xml:space="preserve">
+    <value>The Arbitrator may take any steps concerning findings of fact, in particular on the Internet.</value>
+    <comment>L’Arbitre peut procéder lui-même à des constatations matérielles, notamment sur internet.</comment>
+  </data>
+  <data name="Art6_3_5_3" xml:space="preserve">
+    <value>6.3.5.3.	Testimonies</value>
+  </data>
+  <data name="Art6_3_5_3Provisions_L1" xml:space="preserve">
+    <value>The Arbitrator may hear the Parties by means of a communication process allowing for an adversarial debate. He determines the issues under discussion, as well as the time allotted to the Parties to respond to them.</value>
+    <comment>L’Arbitre peut entendre les Parties au moyen d’un procédé de communication permettant d’organiser un débat contradictoire. Il détermine les questions objets du débat, ainsi que le temps imparti aux Parties pour y répondre.</comment>
+  </data>
+  <data name="Art6_3_5_3Provisions_L2" xml:space="preserve">
+    <value>The Arbitrator may hear witnesses, experts or any other person whose hearing is requested by a Party or decided by him.</value>
+    <comment>L’Arbitre peut entendre des témoins, des experts ou toute autre personne dont l'audition serait sollicitée par une Partie ou décidée par lui.</comment>
+  </data>
+  <data name="Art6_3_5_4" xml:space="preserve">
+    <value>6.3.5.4.	Claim of Forgery and Verification of Handwriting</value>
+  </data>
+  <data name="Art6_3_5_4Provisions_L1" xml:space="preserve">
+    <value>The copies of the exhibits produced by a Party are deemed to be sincere, unless the other Party initiates an incidental claim of forgery or verification of handwriting.</value>
+    <comment>Les copies des pièces communiquées par une Partie sur la Plateforme sont réputées sincères, à moins que l’autre Partie ne provoque un incident de vérification d'écriture ou de faux.</comment>
+  </data>
+  <data name="Art6_3_5_4Provisions_L2" xml:space="preserve">
+    <value>The Arbitrator shall have the power to decide upon the incidental claims of forgery or verifications of handwriting. He may order any measure that may verify the sincerity of the contested exhibit.</value>
+    <comment>L'Arbitre tranche les incidents de vérification d'écriture ou de faux. Il peut ordonner toute mesure de nature à vérifier la sincérité de la pièce contestée.</comment>
+  </data>
+  <data name="Art6_3_5_5" xml:space="preserve">
+    <value>6.3.5.5.	Expert Reports</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L1" xml:space="preserve">
+    <value>If he considers it necessary, the Arbitrator may appoint one or more experts.</value>
+    <comment>S'il l'estime utile, l’Arbitre peut nommer un ou plusieurs experts.</comment>
+  </data>
+  <data name="Art6_3_5_5Provisions_L2" xml:space="preserve">
+    <value>The final expert report will be drawn up as follows:</value>
+    <comment>L’établissement du rapport définitif d’expertise se déroule comme suit :</comment>
+  </data>
+  <data name="Art6_3_5_5Provisions_L3" xml:space="preserve">
+    <value>The procedural order nominating the expert precisely determines his mission and the time allotted to complete his mission.</value>
+    <comment>L’ordonnance désignant l’expert détermine précisément la mission de celui-ci et le délai lui étant imparti pour réaliser sa mission.</comment>
+  </data>
+  <data name="Art6_3_5_5Provisions_L4" xml:space="preserve">
+    <value>The expert must produce a draft expert report within the time allotted by the Arbitrator.</value>
+    <comment>L’expert dispose du délai imparti par l’Arbitre pour rendre un projet de rapport d’expertise.</comment>
+  </data>
+  <data name="Art6_3_5_5Provisions_L5" xml:space="preserve">
+    <value>The Parties have 7 (seven) clear days to make any comment on the draft expert report.</value>
+    <comment>Les Parties disposent d’un délai de 7 (sept) jours francs pour présenter d’éventuels commentaires concernant le projet de rapport d’expertise.</comment>
+  </data>
+  <data name="Art6_3_5_5Provisions_L6" xml:space="preserve">
+    <value>In the absence of any objection within this period, the draft shall constitute the final expert report. If not, the expert may amend his report in light of the comments submitted by the Parties.</value>
+    <comment>A défaut de contestation dans ce délai, le projet vaut rapport d’expertise définitif. Dans le cas contraire, l’expert modifie éventuellement son rapport au vu des commentaires présentés par les Parties.</comment>
+  </data>
+  <data name="Art6_3_5_5Provisions_L7" xml:space="preserve">
+    <value>Any difficulty in the unfolding of the expert's mission, not settled by the expert and the Parties, shall be referred to the Arbitrator.</value>
+    <comment>Toute difficulté dans le déroulement de l'expertise, non réglée par l'expert et les Parties, sera soumise à l’Arbitre.</comment>
+  </data>
+  <data name="Art6_3_5_6" xml:space="preserve">
+    <value>6.3.5.6.	Production and Communication of Exhibits</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L1" xml:space="preserve">
+    <value>If a Party possesses evidence relevant to the outcome of the Dispute, the arbitral tribunal may notify the Party through the Platform for the disclosure or production of such evidence. In the event of an inaction by the Party, the Arbitrator may order the communication or production, by means of a reasoned procedural order, in accordance with the procedures he determines and, if necessary, attach penalties to such order.</value>
+    <comment>Si une Partie détient un élément de preuve utile à la solution du Litige, le tribunal arbitral peut lui adresser une notification par l’intermédiaire de la Plateforme afin qu’il communique ou produise cet élément de preuve. En cas d’inaction de la Partie, l’Arbitre peut lui enjoindre de le communiquer ou le produire, au moyen d’une ordonnance de procédure motivée, selon les modalités qu'il détermine, et au besoin à peine d'astreinte.</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L2" xml:space="preserve">
+    <value>When a Party or the Arbitrator wishes that an investigative measure be taken against a third party, the procedure set out by the present article shall be followed.</value>
+    <comment>Lorsqu'une partie ou l'arbitre souhaite qu'une mesure d'instruction soit prise à l'encontre d'un tiers, il est procédé comme indiqué au présent article.</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L3" xml:space="preserve">
+    <value>If the contemplated investigative measure requires that the third party be called to the proceedings regarding the investigative measure, the procedure provided for at article 1469 of the French Code of Civil Procedure shall be followed.</value>
+    <comment>Si la mesure d'instruction envisagée nécessite que le tiers soit appelé à l'instance concernant la mesure d'instruction, il est procédé comme indiqué à l'article 1469 du code de procédure civile.</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L4" xml:space="preserve">
+    <value>If the investigative measure does not require that the thrid party be called to the proceedings regarding the investigative measure, the procedure shall be as follows:</value>
+    <comment>Si la mesure d'instruction ne nécessite pas que le tiers soit appelé à l'instance concernant la mesure d'instruction, il est procédé comme suit :</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L5" xml:space="preserve">
+    <value>The Arbitrator initiates a debate via the Platform, in order to gather each Party's arguments in fact and in law regarding the measure of instruction contemplated.</value>
+    <comment>L'arbitre provoque un débat sur la Plateforme, afin de recueillir les arguments en fait et en droit de chaque partie concernant la mesure d'instruction envisagée.</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L6" xml:space="preserve">
+    <value>The Arbitrator shall forward these arguments to the lawyer of his choice, whom the parties mandate for the purpose of filing a joint petition on their behalf before the president of the competent court hearing the application for interim measures.</value>
+    <comment>L'arbitre transmet ces arguments à l’avocat de son choix, que les parties mandatent d'ores et déjà aux fins de déposer en leur nom et pour leur compte une requête conjointe devant le président du tribunal compétent statuant en référé.</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L7" xml:space="preserve">
+    <value>The judge hearing the case shall rule on the merits of the request of investigative measures in light of the factual and legal arguments of each Party set out in their joint petition. The Parties agree to bind the judge deciding upon his jurisdiction to hear the request for investigative measures and the admissibility of the request for the production of an exhibit in accordance with article 57-1 of the French Code of Civil Procedure.</value>
+    <comment>Le juge saisi statue sur le bien-fondé de la demande de mesure d'instruction au regard des arguments en fait et en droit de chaque partie présentés dans la requête conjointe. Les parties s'accordent pour lier le juge saisi quant à sa compétence pour connaître de la demande de mesure d'instruction et à la recevabilité de la demande de production de pièce, conformément à l'article 57-1 du code de procédure civile.</comment>
+  </data>
+  <data name="Art6_3_5_6Provisions_L8" xml:space="preserve">
+    <value>The parties hereafter waive any right to appeal against the decision to intervene ordering or refusing the contemplated investigative measure.</value>
+    <comment>Les parties renoncent d'ores et déjà à un éventuel appel contre la décision à intervenir ordonnant ou refusant la mesure d'instruction envisagée.</comment>
+  </data>
+  <data name="Art10" xml:space="preserve">
+    <value>ARTICLE 10.	TIME LIMITS</value>
+  </data>
+  <data name="Art10Provisions_L1" xml:space="preserve">
+    <value>The Award is rendered by the Arbitrator as soon as possible depending on the characteristics of the Dispute. In any case, the Award must be rendered within a maximum period of six months starting from the constitution of the arbitral tribunal. This period may be extended by the Center.</value>
+    <comment>La Sentence est rendue par l’Arbitre dans le délai le plus bref, selon les caractéristiques du Litige. En toute hypothèse, elle doit l'être dans un délai maximum de six mois à compter de la constitution du tribunal arbitral. Ce délai peut être prorogé par le Centre.</comment>
+  </data>
+  <data name="Art10Provisions_L2" xml:space="preserve">
+    <value>Each Party and the Arbitrator shall have the right at any time to submit to the Center a reasoned request for the extension or reduction of the procedural time-limits. The Center accepts or rejects this request by a non-reasonned and non-appealable decision.</value>
+    <comment>Chaque Partie et l’Arbitre disposent à tout moment de la faculté de présenter au Centre une demande motivée de prorogation ou de diminution des délais de procédure. Le Centre accepte ou refuse cette demande par décision non motivée et non susceptible de recours.</comment>
+  </data>
+  <data name="Art11" xml:space="preserve">
+    <value>ARTICLE 11.	CONFIDENTIALITY</value>
+  </data>
+  <data name="Art11Provisions_L1" xml:space="preserve">
+    <value>The arbitration and exchanges of information via the Platform are confidential. The obligation of confidentiality weighs on any User, each guaranteeing, if necessary, the observation of this obligation by its personnel and its representatives.</value>
+    <comment>L'arbitrage et les échanges d'informations sur la Plateforme sont confidentiels. L’obligation de confidentialité pèse sur tout Utilisateur, chacun se portant fort, le cas échéant, du respect de cette obligation par son personnel et ses représentants.</comment>
+  </data>
+  <data name="Art11Provisions_L2" xml:space="preserve">
+    <value>The obligation of confidentiality does not preclude the production of information exchanged on the Platform before the state courts. Nor does it hinder the rereading of the Award by a committee of the Center for the harmonization of Awards. Members of this committee are bound by confidentiality.</value>
+    <comment>L’obligation de confidentialité ne fait pas obstacle à la production des informations échangées sur la Plateforme devant les tribunaux étatiques. Elle ne fait pas non plus obstacle à la relecture de la Sentence par un comité du Centre chargé de l’harmonisation des Sentences. Les membres de ce comité sont tenus à la confidentialité.</comment>
+  </data>
+  <data name="Art11Provisions_L3" xml:space="preserve">
+    <value>The Award may be published after it has been anonymized.</value>
+    <comment>La Sentence pourra être publiée après avoir été anonymisée.</comment>
+  </data>
+  <data name="Art12" xml:space="preserve">
+    <value>ARTICLE 12.	IDENTIFICATION, NOTIFICATIONS AND COMMUNICATIONS</value>
+  </data>
+  <data name="Art12_1" xml:space="preserve">
+    <value>12.1.	Identification</value>
+  </data>
+  <data name="Art12_1Provisions" xml:space="preserve">
+    <value>Each Party shall provide any identification document requested by the Center or the Arbitrator.</value>
+    <comment>Chaque Partie est tenue de produire tout document d’identification sollicité par le Centre ou l’Arbitre.</comment>
+  </data>
+  <data name="Art12_2" xml:space="preserve">
+    <value>12.2.	Notifications and communications</value>
+  </data>
+  <data name="Art12_2Provisions_L1" xml:space="preserve">
+    <value>Unless otherwise provided by the Rules, notifications and communications between Users shall be made through the Platform, with each event occurring on the Platform being notified to the Parties and the Arbitrator by e-mail.</value>
+    <comment>A moins que le présent Règlement n’en dispose autrement, les notifications et communications entre les Utilisateurs sont effectuées par l’intermédiaire de la Plateforme, chaque événement survenant sur celle-ci étant notifié aux Parties et à l’Arbitre par email. </comment>
+  </data>
+  <data name="Art12_2Provisions_L2" xml:space="preserve">
+    <value>Where the Rules impose a notification by registered letter, it shall be sent to the address appearing on the public register Infogreffe and corresponding to the Siret number of the addressee on the date of the notification.</value>
+    <comment>Lorsque le présent Règlement impose une notification par lettre recommandée, celle-ci est  effectuée à l’adresse figurant sur le registre public Infogreffe correspondante au numéro de Siret du destinataire au jour de la notification.</comment>
+  </data>
+  <data name="Art13" xml:space="preserve">
+    <value>ARTICLE 13. FINAL PROVISIONS</value>
+  </data>
+  <data name="Art13_1" xml:space="preserve">
+    <value>13.1.	Place of Arbitration</value>
+  </data>
+  <data name="Art13_1Provisions" xml:space="preserve">
+    <value>The place of Arbitration is that of the Center's corporate office.</value>
+    <comment>Le lieu de l'Arbitrage est celui du siège social du Centre.</comment>
+  </data>
+  <data name="Art13_2" xml:space="preserve">
+    <value>13.2.	Law Applicable to the Arbitration</value>
+  </data>
+  <data name="Art13_2Provisions" xml:space="preserve">
+    <value>The arbitration's rules of procedure are subject to French law.</value>
+    <comment>Les règles de procédure de l'arbitrage sont soumises au droit français.</comment>
+  </data>
+  <data name="Art13_3" xml:space="preserve">
+    <value>13.3.	Language of the Arbitration</value>
+  </data>
+  <data name="Art13_3Provisions" xml:space="preserve">
+    <value>The language of the Arbitration is English.</value>
+    <comment>La langue de l’arbitrage est le français</comment>
+  </data>
+  <data name="Art13_4" xml:space="preserve">
+    <value>13.4.	Interpretation of the Arbitration Rules</value>
+  </data>
+  <data name="Art13_4Provisions" xml:space="preserve">
+    <value>Any interpretation of the present Arbitration Rules is of the Center's responsibility.</value>
+    <comment>Toute interprétation du présent Règlement est du ressort du Centre.</comment>
+  </data>
+  <data name="Art6_4" xml:space="preserve">
+    <value>6.4.	Challenge of Arbitrator</value>
+  </data>
+  <data name="Art6_4Provisions_L1" xml:space="preserve">
+    <value>The Party who intends to challenge an Arbitrator shall immediately and within seven (7) days of the occurrence of the cause for the challenge or of its disclosure, send a reasoned request to the Center. After establishing the facts in an adversarial manner, the Center decides on this request by a decision which is not justified and non-appealable.</value>
+    <comment>La Partie qui entend récuser un Arbitre doit  immédiatement, et au  plus tard dans les sept (7) jours de la survenance de la cause de la récusation ou de sa révélation, adresser au Centre une demande motivée. Après avoir procédé à une instruction contradictoire, le Centre se prononce sur  cette demande par décision non motivée et non susceptible de recours.</comment>
+  </data>
+  <data name="Art6_4Provisions_L2" xml:space="preserve">
+    <value>The arbitral proceedings shall be stayed during the challenge proceedings.</value>
+    <comment>L’instance arbitrale est suspendue pendant la procédure de récusation.</comment>
+  </data>
+  <data name="Art6_4Provisions_L3" xml:space="preserve">
+    <value>Once the Award has been submitted to the Center, the challenge of the Arbitrator is not admissible.</value>
+    <comment>Une fois la Sentence remise au Centre, aucune demande de récusation n'est recevable.</comment>
+  </data>
+  <data name="Art7" xml:space="preserve">
+    <value>ARTICLE 7.	ARBITRAL AWARD</value>
+  </data>
+  <data name="Art7_1" xml:space="preserve">
+    <value>7.1.	Contents of the Award</value>
+  </data>
+  <data name="Art7_1Provisions_L1" xml:space="preserve">
+    <value>The Award settles the Dispute submitted by the Parties to the Arbitrator via the Platform. The Awards must be reasoned and succinctly set forth the Parties' respective claims and arguments.</value>
+    <comment>La Sentence tranche le Litige soumis par les Parties à l’Arbitre sur la Plateforme. Les Sentences sont obligatoirement motivées et contiennent un exposé succinct des prétentions respectives des Parties et leurs moyens.</comment>
+  </data>
+  <data name="Art7_1Provisions_L2" xml:space="preserve">
+    <value>The Arbitrator liquidates in the Award the costs and fees of incidental proceedings. Where appropriate, the Center shall ask the Parties to settle the amount of such additional costs and fees.</value>
+    <comment>L’Arbitre liquide dans la Sentence les frais et honoraires d’arbitrage relatifs aux procédures incidentes. Le cas échéant, le Centre invite les Parties à régler le montant de ces frais et honoraires d'arbitrage supplémentaires.</comment>
+  </data>
+  <data name="Art7_1Provisions_L3" xml:space="preserve">
+    <value>The Arbitrator may condemn one of the Parties to reimburse the other Party, in whole or in part, the arbitration costs and fees.</value>
+    <comment>L’Arbitre peut condamner l’une des Parties à rembourser à l’autre Partie, totalement ou partiellement, les frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art7_1Provisions_L4" xml:space="preserve">
+    <value>Furthermore, the Arbitrator may condemn one of the Parties to pay to the other Party the sum he determines in respect of the expenses incurred by this last and not included in the costs and fees of the arbitration.</value>
+    <comment>L’Arbitre peut en outre condamner l’une des Parties à verser à l’autre Partie la somme qu'il détermine au titre des frais exposés par elle et non compris dans les frais et honoraires d’arbitrage.</comment>
+  </data>
+  <data name="Art7_2" xml:space="preserve">
+    <value>7.2.	Original Award in Electronic Format</value>
+  </data>
+  <data name="Art7_2Provisions" xml:space="preserve">
+    <value>The Award is established by the Arbitrator in electronic format. It is dated and signed electronically by the Arbitrator. It is submitted by the Arbitrator to the Center and saved by the Center. The Center shall notify to the Parties the Award, signed electronically by the Arbitrator.</value>
+    <comment>La Sentence est établie par l’Arbitre au format électronique. Elle est datée et signée électroniquement par l’Arbitre. Elle est remise par l’Arbitre au Centre et conservée par ce dernier. Le Centre notifie aux Parties la Sentence signée électroniquement par l’Arbitre.</comment>
+  </data>
+  <data name="Art7_3" xml:space="preserve">
+    <value>7.3.	Execution of the Award</value>
+  </data>
+  <data name="Art7_3Provisions_L1" xml:space="preserve">
+    <value>Provisional execution shall be attached to the Award unless the Arbitrator has provided otherwise.</value>
+    <comment>La Sentence est assortie de l’exécution provisoire, à moins que l’Arbitre n’en décide autrement.</comment>
+  </data>
+  <data name="Art7_3Provisions_L2" xml:space="preserve">
+    <value>By agreeing to submit their Dispute to arbitration by the Center, the Parties commit to enforce the Award upon notification and waive any right to recourse to which they may validly waive, with the exception of an action to set aside.</value>
+    <comment>En acceptant de soumettre leur Litige à l'arbitrage du Centre, les Parties s'engagent à exécuter la Sentence dès notification et renoncent à tous les recours auxquels elles peuvent valablement renoncer, à l'exception du recours en annulation.</comment>
+  </data>
+  <data name="Art7_4" xml:space="preserve">
+    <value>7.4.	Exequatur</value>
+  </data>
+  <data name="Art7_4Provisions" xml:space="preserve">
+    <value>At the request of a Party, the Center may mandate a lawyer, in the name and on behalf of this Party, to apply for exequatur and to entrust a bailiff with the enforcement of the Award.</value>
+    <comment>Sur la demande d’une Partie, le Centre peut mandater un avocat, au nom et pour le compte de celle-ci, aux fins de déposer une demande d’exequatur et de confier à un huissier de justice l’exécution de la Sentence.</comment>
+  </data>
+  <data name="Art8" xml:space="preserve">
+    <value>ARTICLE 8.	RECTIFICATIONS, FAILURE TO RULE AND INTERPRETATION</value>
+  </data>
+  <data name="Art8Provisions_L1" xml:space="preserve">
+    <value>The arbitral tribunal may, at the request of one of the Parties, rectify clerical errors which would affect the Award.</value>
+    <comment>Le tribunal arbitral peut, à la demande d'une Partie, rectifier les erreurs matérielles qui affecteraient la Sentence.</comment>
+  </data>
+  <data name="Art8Provisions_L2" xml:space="preserve">
+    <value>At the request of one of the Parties, the arbitral tribunal may supplement its Award if it has failed to rule on a claim it was mandated to decide upon or if he is required to interpret the Award.</value>
+    <comment>À la demande d'une Partie, le tribunal arbitral peut compléter sa Sentence s'il a omis de statuer sur un chef de demande dont il était saisi ou s'il lui est demandé d'interpréter la Sentence.</comment>
+  </data>
+  <data name="Art8Provisions_L3" xml:space="preserve">
+    <value>Requests for corrections of clerical errors and due to failures to rule or for the interpretation of the Award shall be sent by registered letter with acknowledgment of receipt to the Center, which shall refer the matter to the arbitral tribunal. The requests shall, however, be admissible only if the arbitral tribunal can be constituted again and if they are made less than three (3) months after the Award has been notified.</value>
+    <comment>Les demandes de rectification d'erreurs matérielles et d'omissions de statuer ou d'interprétation sont adressées par lettre recommandée avec demande d'avis de réception au Centre qui en saisit le tribunal arbitral. Elles ne sont cependant recevables que si le tribunal arbitral peut à nouveau être constitué et si elles sont formées moins de trois (3) mois après que la Sentence a été notifiée.</comment>
+  </data>
+  <data name="Art8Provisions_L4" xml:space="preserve">
+    <value>If the arbitral tribunal cannot be constituted, this power shall vest in the court that has jurisdiction.</value>
+    <comment>Si le tribunal arbitral ne peut être constitué, ce pouvoir appartient à la juridiction étatique compétente.</comment>
+  </data>
+  <data name="Art8Provisions_L5" xml:space="preserve">
+    <value>The arbitral tribunal shall render its decision as soon as possible by reasoned decision.</value>
+    <comment>Le tribunal arbitral statue dans les plus brefs délais par décision motivée.</comment>
+  </data>
+  <data name="Art9" xml:space="preserve">
+    <value>ARTICLE 9.	ASSISTANCE AND REPRESENTATION OF THE  PARTIES</value>
+  </data>
+  <data name="Art9_1" xml:space="preserve">
+    <value>9.1.	Assistance</value>
+  </data>
+  <data name="Art9_1Provisions" xml:space="preserve">
+    <value>Each Party may be assisted by a lawyer.</value>
+    <comment>Chaque Partie peut se faire assister par un avocat.</comment>
+  </data>
+  <data name="Art9_2" xml:space="preserve">
+    <value>9.2.	Representation</value>
+  </data>
+  <data name="Art9_2Provisions" xml:space="preserve">
+    <value>Each Party may be represented during the arbitral proceedings by a lawyer mandated specifically to that effect.</value>
+    <comment>Chaque Partie peut se faire représenter à l'instance arbitrale par un avocat disposant d'un un pouvoir spécial.</comment>
+  </data>
+</root>

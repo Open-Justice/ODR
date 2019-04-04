@@ -1,0 +1,2778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClickNClaimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArbiterInformations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Presentation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="150" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="ArbiterSkills">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdArbiter" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IdSkill" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="250" />
+          <Property Name="BusinessFunction" Type="nvarchar" MaxLength="350" />
+          <Property Name="IsLegalRepresentative" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="350" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="350" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="550" />
+          <Property Name="TelMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdArbitrationInformations" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="258" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="550" Nullable="false" />
+          <Property Name="Siret" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fonction" Type="nvarchar" MaxLength="550" />
+          <Property Name="TelCompany" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="550" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="550" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="550" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="City" Type="nvarchar" MaxLength="550" />
+          <Property Name="RCS" Type="nvarchar" MaxLength="50" />
+          <Property Name="Forme" Type="nvarchar" MaxLength="250" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Capital" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ConflictLegalDocuments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="950" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="Conflicts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConflictType" Type="int" />
+          <Property Name="IdCreationUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="HasArbitralClause" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="HasArbiterAccepted" Type="bit" />
+          <Property Name="ArbiterRecognizeNoConflictOfInterest" Type="bit" />
+          <Property Name="ArbiterRecognizeLegitimate" Type="bit" />
+          <Property Name="IdArbiterAssigned" Type="nvarchar" MaxLength="128" />
+          <Property Name="ArbiterPreConclusion" Type="nvarchar(max)" />
+          <Property Name="ArbiterConclusion" Type="nvarchar(max)" />
+          <Property Name="AskedForArbitration" Type="bit" />
+          <Property Name="PaymentState" Type="int" />
+        </EntityType>
+        <EntityType Name="ConflictStateHistoric">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConflictStateId" Type="int" Nullable="false" />
+          <Property Name="ConflictStateName" Type="nvarchar" MaxLength="550" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CountDown" Type="int" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConflictTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="IsMapped" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info" Type="nvarchar" MaxLength="1850" />
+        </EntityType>
+        <EntityType Name="Debates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="850" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2250" />
+          <Property Name="Closed" Type="bit" Nullable="false" />
+          <Property Name="CountDown" Type="int" />
+        </EntityType>
+        <EntityType Name="DefaultEvents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConflictType" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="850" Nullable="false" />
+          <Property Name="Info" Type="nvarchar" MaxLength="1850" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="SubAccordTitle" Type="nvarchar" MaxLength="2850" />
+          <Property Name="SubAccordInfo" Type="nvarchar" MaxLength="1550" />
+          <Property Name="SubAccordPlaceholder" Type="nvarchar" MaxLength="2850" />
+          <Property Name="SubPbTitle" Type="nvarchar" MaxLength="550" />
+          <Property Name="SubPbInfo" Type="nvarchar" MaxLength="1850" />
+          <Property Name="SubPbPlaceholder" Type="nvarchar" MaxLength="2850" />
+          <Property Name="Placeholder" Type="nvarchar" MaxLength="1550" />
+        </EntityType>
+        <EntityType Name="Disagreements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DisagreementOnDescription" Type="bit" Nullable="false" />
+          <Property Name="DisagreementOnDate" Type="bit" Nullable="false" />
+          <Property Name="DisagreementOnPiece" Type="bit" Nullable="false" />
+          <Property Name="ConcurrentDate" Type="date" />
+          <Property Name="ConcurrentDescription" Type="nvarchar" MaxLength="3000" />
+          <Property Name="ConcurrentPieces" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
+          <Property Name="IsResolved" Type="bit" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="to" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="subject" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="body" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventFiles">
+          <Key>
+            <PropertyRef Name="IdEvent" />
+            <PropertyRef Name="IdFile" />
+          </Key>
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+          <Property Name="IdFile" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="550" Nullable="false" />
+          <Property Name="DateBegin" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="3500" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IdDefaultEvent" Type="int" />
+          <Property Name="SubName" Type="nvarchar" MaxLength="550" />
+        </EntityType>
+        <EntityType Name="Invitations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="258" Nullable="false" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="UsedDate" Type="date" />
+          <Property Name="IsLawyer" Type="bit" Nullable="false" />
+          <Property Name="IdLawyer" Type="nvarchar" MaxLength="128" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="550" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="550" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="550" />
+        </EntityType>
+        <EntityType Name="MailDebates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDebate" Type="int" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="IdFile" Type="int" />
+        </EntityType>
+        <EntityType Name="MeetingDebates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Link" Type="nvarchar" MaxLength="850" />
+          <Property Name="Title" Type="nvarchar" MaxLength="650" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2650" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="EstimateDuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MeetingPropositionAnswers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMeetingProposition" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Response" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MeetingPropositions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMeetingDebate" Type="int" Nullable="false" />
+          <Property Name="DateTimeProposition" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="IdCreatedBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProofFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="1250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="3500" />
+          <Property Name="UploadDate" Type="date" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="FileType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resolutions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdResolutionType" Type="int" Nullable="false" />
+          <Property Name="ResolutionValue" Type="nvarchar" MaxLength="2550" />
+          <Property Name="ResolutionComment" Type="nvarchar" MaxLength="2550" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="IdEvent" Type="int" />
+        </EntityType>
+        <EntityType Name="ResolutionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdConflictType" Type="int" Nullable="false" />
+          <Property Name="Suggestion" Type="nvarchar" MaxLength="1800" />
+        </EntityType>
+        <EntityType Name="Skills">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="850" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserCompanies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IdCompany" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsersInConflict">
+          <Key>
+            <PropertyRef Name="IdConflict" />
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdConflict" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserDescriptionOfTheConflict" Type="nvarchar" MaxLength="3500" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="550" />
+          <Property Name="UserFunction" Type="nvarchar" MaxLength="550" />
+          <Property Name="IsLegalRepresentative" Type="bit" />
+          <Property Name="ReadyForArbitration" Type="bit" />
+          <Property Name="IsPhysical" Type="bit" Nullable="false" />
+          <Property Name="IsRepresented" Type="bit" Nullable="false" />
+          <Property Name="IsLawyer" Type="bit" />
+          <Property Name="IdLawyer" Type="nvarchar" MaxLength="128" />
+          <Property Name="HasAcceptedArbitration" Type="bit" />
+          <Property Name="Disable" Type="bit" Nullable="false" />
+          <Property Name="Completed" Type="bit" Nullable="false" />
+          <Property Name="IdUserCompany" Type="int" />
+          <Property Name="Siret" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ArbiterSkills_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ArbiterSkills" Type="Self.ArbiterSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArbiterSkills">
+              <PropertyRef Name="IdArbiter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArbiterSkills_Skills">
+          <End Role="Skills" Type="Self.Skills" Multiplicity="1" />
+          <End Role="ArbiterSkills" Type="Self.ArbiterSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skills">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArbiterSkills">
+              <PropertyRef Name="IdSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_ArbiterInformations">
+          <End Role="ArbiterInformations" Type="Self.ArbiterInformations" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArbiterInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="IdArbitrationInformations" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConflictLegalDocuments_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="ConflictLegalDocuments" Type="Self.ConflictLegalDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConflictLegalDocuments">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conflicts_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conflicts">
+              <PropertyRef Name="IdCreationUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conflicts_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conflicts">
+              <PropertyRef Name="IdArbiterAssigned" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conflicts_ConflictTypes">
+          <End Role="ConflictTypes" Type="Self.ConflictTypes" Multiplicity="0..1" />
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConflictTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conflicts">
+              <PropertyRef Name="IdConflictType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConflictStateHistoric_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="ConflictStateHistoric" Type="Self.ConflictStateHistoric" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConflictStateHistoric">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Debates_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Debates" Type="Self.Debates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Debates">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DefaultEvents_ConflictTypes">
+          <End Role="ConflictTypes" Type="Self.ConflictTypes" Multiplicity="1" />
+          <End Role="DefaultEvents" Type="Self.DefaultEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConflictTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DefaultEvents">
+              <PropertyRef Name="IdConflictType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disagreements_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Disagreements" Type="Self.Disagreements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disagreements">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disagreements_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Disagreements" Type="Self.Disagreements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disagreements">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventFiles_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="EventFiles" Type="Self.EventFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventFiles">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventFiles_Files">
+          <End Role="ProofFiles" Type="Self.ProofFiles" Multiplicity="1" />
+          <End Role="EventFiles" Type="Self.EventFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProofFiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventFiles">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Events">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invitations_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Invitations" Type="Self.Invitations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invitations">
+              <PropertyRef Name="IdLawyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invitations_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="Invitations" Type="Self.Invitations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invitations">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailDebates_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="MailDebates" Type="Self.MailDebates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MailDebates">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailDebates_Debates">
+          <End Role="Debates" Type="Self.Debates" Multiplicity="1" />
+          <End Role="MailDebates" Type="Self.MailDebates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MailDebates">
+              <PropertyRef Name="IdDebate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailDebates_ProofFiles">
+          <End Role="ProofFiles" Type="Self.ProofFiles" Multiplicity="0..1" />
+          <End Role="MailDebates" Type="Self.MailDebates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProofFiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MailDebates">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingDebates_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="MeetingDebates" Type="Self.MeetingDebates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingDebates">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingDebates_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="MeetingDebates" Type="Self.MeetingDebates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingDebates">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingPropositionAnswers_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="MeetingPropositionAnswers" Type="Self.MeetingPropositionAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingPropositionAnswers">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingPropositionAnswers_MeetingPropositions">
+          <End Role="MeetingPropositions" Type="Self.MeetingPropositions" Multiplicity="1" />
+          <End Role="MeetingPropositionAnswers" Type="Self.MeetingPropositionAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingPropositions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingPropositionAnswers">
+              <PropertyRef Name="IdMeetingProposition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingPropositions_MeetingDebates">
+          <End Role="MeetingDebates" Type="Self.MeetingDebates" Multiplicity="1" />
+          <End Role="MeetingPropositions" Type="Self.MeetingPropositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingDebates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingPropositions">
+              <PropertyRef Name="IdMeetingDebate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="IdCreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProofFiles_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="ProofFiles" Type="Self.ProofFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProofFiles">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolutions_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Resolutions" Type="Self.Resolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolutions">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolutions_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="Resolutions" Type="Self.Resolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolutions">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolutions_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="0..1" />
+          <End Role="Resolutions" Type="Self.Resolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolutions">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolutions_ResolutionType">
+          <End Role="ResolutionType" Type="Self.ResolutionType" Multiplicity="1" />
+          <End Role="Resolutions" Type="Self.Resolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResolutionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolutions">
+              <PropertyRef Name="IdResolutionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResolutionType_ConflictTypes">
+          <End Role="ConflictTypes" Type="Self.ConflictTypes" Multiplicity="1" />
+          <End Role="ResolutionType" Type="Self.ResolutionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConflictTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResolutionType">
+              <PropertyRef Name="IdConflictType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="UserCompanies" Type="Self.UserCompanies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCompanies">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="UserCompanies" Type="Self.UserCompanies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCompanies">
+              <PropertyRef Name="IdCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="UsersInConflict" Type="Self.UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="UsersInConflict" Type="Self.UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdLawyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_Conflicts">
+          <End Role="Conflicts" Type="Self.Conflicts" Multiplicity="1" />
+          <End Role="UsersInConflict" Type="Self.UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflicts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_UserCompanies">
+          <End Role="UserCompanies" Type="Self.UserCompanies" Multiplicity="0..1" />
+          <End Role="UsersInConflict" Type="Self.UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCompanies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdUserCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetConflictsWithNotUsedInvitations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ClickNClaimModelStoreContainer">
+          <EntitySet Name="ArbiterInformations" EntityType="Self.ArbiterInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArbiterSkills" EntityType="Self.ArbiterSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConflictLegalDocuments" EntityType="Self.ConflictLegalDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conflicts" EntityType="Self.Conflicts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConflictStateHistoric" EntityType="Self.ConflictStateHistoric" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConflictTypes" EntityType="Self.ConflictTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Debates" EntityType="Self.Debates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DefaultEvents" EntityType="Self.DefaultEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disagreements" EntityType="Self.Disagreements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emails" EntityType="Self.Emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventFiles" EntityType="Self.EventFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invitations" EntityType="Self.Invitations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailDebates" EntityType="Self.MailDebates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingDebates" EntityType="Self.MeetingDebates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingPropositionAnswers" EntityType="Self.MeetingPropositionAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingPropositions" EntityType="Self.MeetingPropositions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProofFiles" EntityType="Self.ProofFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resolutions" EntityType="Self.Resolutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResolutionType" EntityType="Self.ResolutionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCompanies" EntityType="Self.UserCompanies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersInConflict" EntityType="Self.UsersInConflict" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ArbiterSkills_AspNetUsers" Association="Self.FK_ArbiterSkills_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ArbiterSkills" EntitySet="ArbiterSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArbiterSkills_Skills" Association="Self.FK_ArbiterSkills_Skills">
+            <End Role="Skills" EntitySet="Skills" />
+            <End Role="ArbiterSkills" EntitySet="ArbiterSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_ArbiterInformations" Association="Self.FK_AspNetUsers_ArbiterInformations">
+            <End Role="ArbiterInformations" EntitySet="ArbiterInformations" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_AspNetUsers" Association="Self.FK_Comments_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Events" Association="Self.FK_Comments_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConflictLegalDocuments_Conflicts" Association="Self.FK_ConflictLegalDocuments_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="ConflictLegalDocuments" EntitySet="ConflictLegalDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conflicts_AspNetUsers" Association="Self.FK_Conflicts_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Conflicts" EntitySet="Conflicts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conflicts_AspNetUsers1" Association="Self.FK_Conflicts_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Conflicts" EntitySet="Conflicts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conflicts_ConflictTypes" Association="Self.FK_Conflicts_ConflictTypes">
+            <End Role="ConflictTypes" EntitySet="ConflictTypes" />
+            <End Role="Conflicts" EntitySet="Conflicts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConflictStateHistoric_Conflicts" Association="Self.FK_ConflictStateHistoric_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="ConflictStateHistoric" EntitySet="ConflictStateHistoric" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Debates_Events" Association="Self.FK_Debates_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Debates" EntitySet="Debates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DefaultEvents_ConflictTypes" Association="Self.FK_DefaultEvents_ConflictTypes">
+            <End Role="ConflictTypes" EntitySet="ConflictTypes" />
+            <End Role="DefaultEvents" EntitySet="DefaultEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disagreements_AspNetUsers" Association="Self.FK_Disagreements_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Disagreements" EntitySet="Disagreements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disagreements_Events" Association="Self.FK_Disagreements_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Disagreements" EntitySet="Disagreements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventFiles_Events" Association="Self.FK_EventFiles_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventFiles" EntitySet="EventFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventFiles_Files" Association="Self.FK_EventFiles_Files">
+            <End Role="ProofFiles" EntitySet="ProofFiles" />
+            <End Role="EventFiles" EntitySet="EventFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Conflicts" Association="Self.FK_Events_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Events" Association="Self.FK_Events_Events">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invitations_AspNetUsers" Association="Self.FK_Invitations_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Invitations" EntitySet="Invitations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invitations_Conflicts" Association="Self.FK_Invitations_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="Invitations" EntitySet="Invitations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailDebates_AspNetUsers" Association="Self.FK_MailDebates_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MailDebates" EntitySet="MailDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailDebates_Debates" Association="Self.FK_MailDebates_Debates">
+            <End Role="Debates" EntitySet="Debates" />
+            <End Role="MailDebates" EntitySet="MailDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailDebates_ProofFiles" Association="Self.FK_MailDebates_ProofFiles">
+            <End Role="ProofFiles" EntitySet="ProofFiles" />
+            <End Role="MailDebates" EntitySet="MailDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingDebates_Conflicts" Association="Self.FK_MeetingDebates_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="MeetingDebates" EntitySet="MeetingDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingDebates_Events" Association="Self.FK_MeetingDebates_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="MeetingDebates" EntitySet="MeetingDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingPropositionAnswers_AspNetUsers" Association="Self.FK_MeetingPropositionAnswers_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MeetingPropositionAnswers" EntitySet="MeetingPropositionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingPropositionAnswers_MeetingPropositions" Association="Self.FK_MeetingPropositionAnswers_MeetingPropositions">
+            <End Role="MeetingPropositions" EntitySet="MeetingPropositions" />
+            <End Role="MeetingPropositionAnswers" EntitySet="MeetingPropositionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingPropositions_MeetingDebates" Association="Self.FK_MeetingPropositions_MeetingDebates">
+            <End Role="MeetingDebates" EntitySet="MeetingDebates" />
+            <End Role="MeetingPropositions" EntitySet="MeetingPropositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_AspNetUsers" Association="Self.FK_Messages_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Conflicts" Association="Self.FK_Messages_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProofFiles_Conflicts" Association="Self.FK_ProofFiles_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="ProofFiles" EntitySet="ProofFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolutions_AspNetUsers" Association="Self.FK_Resolutions_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Resolutions" EntitySet="Resolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolutions_Conflicts" Association="Self.FK_Resolutions_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="Resolutions" EntitySet="Resolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolutions_Events" Association="Self.FK_Resolutions_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Resolutions" EntitySet="Resolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolutions_ResolutionType" Association="Self.FK_Resolutions_ResolutionType">
+            <End Role="ResolutionType" EntitySet="ResolutionType" />
+            <End Role="Resolutions" EntitySet="Resolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResolutionType_ConflictTypes" Association="Self.FK_ResolutionType_ConflictTypes">
+            <End Role="ConflictTypes" EntitySet="ConflictTypes" />
+            <End Role="ResolutionType" EntitySet="ResolutionType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_AspNetUsers" Association="Self.FK_UserCompanies_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_Companies" Association="Self.FK_UserCompanies_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_AspNetUsers" Association="Self.FK_UsersInConflict_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflict" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_AspNetUsers1" Association="Self.FK_UsersInConflict_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflict" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_Conflicts" Association="Self.FK_UsersInConflict_Conflicts">
+            <End Role="Conflicts" EntitySet="Conflicts" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflict" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_UserCompanies" Association="Self.FK_UsersInConflict_UserCompanies">
+            <End Role="UserCompanies" EntitySet="UserCompanies" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflict" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClickNClaimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Roles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessFunction" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="IsLegalRepresentative" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FirstName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Conflicts" Relationship="ClickNClaimModel.FK_Conflicts_AspNetUsers" FromRole="AspNetUser" ToRole="Conflict" />
+          <NavigationProperty Name="UsersInConflicts" Relationship="ClickNClaimModel.FK_UsersInConflict_AspNetUsers" FromRole="AspNetUser" ToRole="UsersInConflict" />
+          <NavigationProperty Name="Resolutions" Relationship="ClickNClaimModel.FK_Resolutions_AspNetUsers" FromRole="AspNetUser" ToRole="Resolution" />
+          <NavigationProperty Name="Events" Relationship="ClickNClaimModel.FK_Events_Events" FromRole="AspNetUser" ToRole="Event" />
+          <NavigationProperty Name="Comments" Relationship="ClickNClaimModel.FK_Comments_AspNetUsers" FromRole="AspNetUser" ToRole="Comment" />
+          <NavigationProperty Name="Disagreements" Relationship="ClickNClaimModel.FK_Disagreements_AspNetUsers" FromRole="AspNetUser" ToRole="Disagreement" />
+          <NavigationProperty Name="ArbiterSkills" Relationship="ClickNClaimModel.FK_ArbiterSkills_AspNetUsers" FromRole="AspNetUser" ToRole="ArbiterSkill" />
+          <NavigationProperty Name="ConflictsAssigned" Relationship="ClickNClaimModel.FK_Conflicts_AspNetUsers1" FromRole="AspNetUser" ToRole="Conflict" />
+          <Property Name="PhotoPath" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MailDebates" Relationship="ClickNClaimModel.FK_MailDebates_AspNetUsers" FromRole="AspNetUser" ToRole="MailDebate" />
+          <NavigationProperty Name="MeetingPropositionAnswers" Relationship="ClickNClaimModel.FK_MeetingPropositionAnswers_AspNetUsers" FromRole="AspNetUser" ToRole="MeetingPropositionAnswer" />
+          <NavigationProperty Name="Invitations" Relationship="ClickNClaimModel.FK_Invitations_AspNetUsers" FromRole="AspNetUser" ToRole="Invitation" />
+          <NavigationProperty Name="ConflictOfLawyer" Relationship="ClickNClaimModel.FK_UsersInConflict_AspNetUsers1" FromRole="AspNetUser" ToRole="UsersInConflict" />
+          <Property Name="TelMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdArbitrationInformations" Type="Int32" />
+          <NavigationProperty Name="ArbiterInformation" Relationship="ClickNClaimModel.FK_AspNetUsers_ArbiterInformations" FromRole="AspNetUser" ToRole="ArbiterInformation" />
+          <NavigationProperty Name="UserCompanies" Relationship="ClickNClaimModel.FK_UserCompanies_AspNetUsers" FromRole="AspNetUser" ToRole="UserCompany" />
+          <NavigationProperty Name="Messages" Relationship="ClickNClaimModel.FK_Messages_AspNetUsers" FromRole="AspNetUser" ToRole="Message" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ClickNClaimEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="ProofFiles" EntityType="ClickNClaimModel.ProofFile" />
+          <EntitySet Name="ConflictTypes" EntityType="ClickNClaimModel.ConflictType" />
+          <EntitySet Name="Conflicts" EntityType="ClickNClaimModel.Conflict" />
+          <EntitySet Name="UsersInConflicts" EntityType="ClickNClaimModel.UsersInConflict" />
+          <AssociationSet Name="FK_Conflicts_AspNetUsers" Association="ClickNClaimModel.FK_Conflicts_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Conflict" EntitySet="Conflicts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_AspNetUsers" Association="ClickNClaimModel.FK_UsersInConflict_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflicts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conflicts_ConflictTypes" Association="ClickNClaimModel.FK_Conflicts_ConflictTypes">
+            <End Role="ConflictType" EntitySet="ConflictTypes" />
+            <End Role="Conflict" EntitySet="Conflicts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProofFiles_Conflicts" Association="ClickNClaimModel.FK_ProofFiles_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="ProofFile" EntitySet="ProofFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_Conflicts" Association="ClickNClaimModel.FK_UsersInConflict_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflicts" />
+          </AssociationSet>
+          <EntitySet Name="Resolutions" EntityType="ClickNClaimModel.Resolution" />
+          <AssociationSet Name="FK_Resolutions_AspNetUsers" Association="ClickNClaimModel.FK_Resolutions_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Resolution" EntitySet="Resolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolutions_Conflicts" Association="ClickNClaimModel.FK_Resolutions_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="Resolution" EntitySet="Resolutions" />
+          </AssociationSet>
+          <EntitySet Name="ResolutionTypes" EntityType="ClickNClaimModel.ResolutionType" />
+          <AssociationSet Name="FK_Resolutions_ResolutionType" Association="ClickNClaimModel.FK_Resolutions_ResolutionType">
+            <End Role="ResolutionType" EntitySet="ResolutionTypes" />
+            <End Role="Resolution" EntitySet="Resolutions" />
+          </AssociationSet>
+          <EntitySet Name="Invitations" EntityType="ClickNClaimModel.Invitation" />
+          <AssociationSet Name="FK_Invitations_Conflicts" Association="ClickNClaimModel.FK_Invitations_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="Invitation" EntitySet="Invitations" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="ClickNClaimModel.Event" />
+          <AssociationSet Name="FK_Events_Events" Association="ClickNClaimModel.FK_Events_Events">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Conflicts" Association="ClickNClaimModel.FK_Events_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="EventFiles" Association="ClickNClaimModel.EventFiles">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="ProofFile" EntitySet="ProofFiles" />
+          </AssociationSet>
+          <EntitySet Name="Comments" EntityType="ClickNClaimModel.Comment" />
+          <AssociationSet Name="FK_Comments_AspNetUsers" Association="ClickNClaimModel.FK_Comments_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Events" Association="ClickNClaimModel.FK_Comments_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <EntitySet Name="Disagreements" EntityType="ClickNClaimModel.Disagreement" />
+          <AssociationSet Name="FK_Disagreements_AspNetUsers" Association="ClickNClaimModel.FK_Disagreements_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Disagreement" EntitySet="Disagreements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Disagreements_Events" Association="ClickNClaimModel.FK_Disagreements_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Disagreement" EntitySet="Disagreements" />
+          </AssociationSet>
+          <EntitySet Name="ArbiterSkills" EntityType="ClickNClaimModel.ArbiterSkill" />
+          <EntitySet Name="Skills" EntityType="ClickNClaimModel.Skill" />
+          <AssociationSet Name="FK_ArbiterSkills_AspNetUsers" Association="ClickNClaimModel.FK_ArbiterSkills_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ArbiterSkill" EntitySet="ArbiterSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArbiterSkills_Skills" Association="ClickNClaimModel.FK_ArbiterSkills_Skills">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="ArbiterSkill" EntitySet="ArbiterSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conflicts_AspNetUsers1" Association="ClickNClaimModel.FK_Conflicts_AspNetUsers1">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Conflict" EntitySet="Conflicts" />
+          </AssociationSet>
+          <EntitySet Name="Debates" EntityType="ClickNClaimModel.Debate" />
+          <EntitySet Name="MailDebates" EntityType="ClickNClaimModel.MailDebate" />
+          <AssociationSet Name="FK_MailDebates_AspNetUsers" Association="ClickNClaimModel.FK_MailDebates_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="MailDebate" EntitySet="MailDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailDebates_Debates" Association="ClickNClaimModel.FK_MailDebates_Debates">
+            <End Role="Debate" EntitySet="Debates" />
+            <End Role="MailDebate" EntitySet="MailDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Debates_Events" Association="ClickNClaimModel.FK_Debates_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Debate" EntitySet="Debates" />
+          </AssociationSet>
+          <EntitySet Name="LegalDocuments" EntityType="ClickNClaimModel.LegalDocument" />
+          <EntitySet Name="MeetingPropositionAnswers" EntityType="ClickNClaimModel.MeetingPropositionAnswer" />
+          <EntitySet Name="MeetingPropositions" EntityType="ClickNClaimModel.MeetingProposition" />
+          <AssociationSet Name="FK_MeetingPropositionAnswers_AspNetUsers" Association="ClickNClaimModel.FK_MeetingPropositionAnswers_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="MeetingPropositionAnswer" EntitySet="MeetingPropositionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConflictLegalDocuments_Conflicts" Association="ClickNClaimModel.FK_ConflictLegalDocuments_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="ConflictLegalDocument" EntitySet="LegalDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingPropositionAnswers_MeetingPropositions" Association="ClickNClaimModel.FK_MeetingPropositionAnswers_MeetingPropositions">
+            <End Role="MeetingProposition" EntitySet="MeetingPropositions" />
+            <End Role="MeetingPropositionAnswer" EntitySet="MeetingPropositionAnswers" />
+          </AssociationSet>
+          <EntitySet Name="MeetingDebates" EntityType="ClickNClaimModel.MeetingDebate" />
+          <AssociationSet Name="FK_MeetingDebates_Conflicts" Association="ClickNClaimModel.FK_MeetingDebates_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="MeetingDebate" EntitySet="MeetingDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingPropositions_MeetingDebates" Association="ClickNClaimModel.FK_MeetingPropositions_MeetingDebates">
+            <End Role="MeetingDebate" EntitySet="MeetingDebates" />
+            <End Role="MeetingProposition" EntitySet="MeetingPropositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingDebates_Events" Association="ClickNClaimModel.FK_MeetingDebates_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="MeetingDebate" EntitySet="MeetingDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invitations_AspNetUsers" Association="ClickNClaimModel.FK_Invitations_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Invitation" EntitySet="Invitations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_AspNetUsers1" Association="ClickNClaimModel.FK_UsersInConflict_AspNetUsers1">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflicts" />
+          </AssociationSet>
+          <EntitySet Name="DefaultEvents" EntityType="ClickNClaimModel.DefaultEvent" />
+          <AssociationSet Name="FK_DefaultEvents_ConflictTypes" Association="ClickNClaimModel.FK_DefaultEvents_ConflictTypes">
+            <End Role="ConflictType" EntitySet="ConflictTypes" />
+            <End Role="DefaultEvent" EntitySet="DefaultEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolutions_Events" Association="ClickNClaimModel.FK_Resolutions_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Resolution" EntitySet="Resolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailDebates_ProofFiles" Association="ClickNClaimModel.FK_MailDebates_ProofFiles">
+            <End Role="ProofFile" EntitySet="ProofFiles" />
+            <End Role="MailDebate" EntitySet="MailDebates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResolutionType_ConflictTypes" Association="ClickNClaimModel.FK_ResolutionType_ConflictTypes">
+            <End Role="ConflictType" EntitySet="ConflictTypes" />
+            <End Role="ResolutionType" EntitySet="ResolutionTypes" />
+          </AssociationSet>
+          <EntitySet Name="Companies" EntityType="ClickNClaimModel.Company" />
+          <EntitySet Name="ConflictStateHistorics" EntityType="ClickNClaimModel.ConflictStateHistoric" />
+          <AssociationSet Name="FK_ConflictStateHistoric_Conflicts" Association="ClickNClaimModel.FK_ConflictStateHistoric_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="ConflictStateHistoric" EntitySet="ConflictStateHistorics" />
+          </AssociationSet>
+          <EntitySet Name="Emails" EntityType="ClickNClaimModel.Email" />
+          <EntitySet Name="ArbiterInformations" EntityType="ClickNClaimModel.ArbiterInformation" />
+          <AssociationSet Name="FK_AspNetUsers_ArbiterInformations" Association="ClickNClaimModel.FK_AspNetUsers_ArbiterInformations">
+            <End Role="ArbiterInformation" EntitySet="ArbiterInformations" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="UserCompanies" EntityType="ClickNClaimModel.UserCompany" />
+          <AssociationSet Name="FK_UserCompanies_AspNetUsers" Association="ClickNClaimModel.FK_UserCompanies_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UserCompany" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompanies_Companies" Association="ClickNClaimModel.FK_UserCompanies_Companies">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="UserCompany" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInConflict_UserCompanies" Association="ClickNClaimModel.FK_UsersInConflict_UserCompanies">
+            <End Role="UserCompany" EntitySet="UserCompanies" />
+            <End Role="UsersInConflict" EntitySet="UsersInConflicts" />
+          </AssociationSet>
+          <EntitySet Name="Messages" EntityType="ClickNClaimModel.Message" />
+          <AssociationSet Name="FK_Messages_AspNetUsers" Association="ClickNClaimModel.FK_Messages_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Conflicts" Association="ClickNClaimModel.FK_Messages_Conflicts">
+            <End Role="Conflict" EntitySet="Conflicts" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <FunctionImport Name="GetConflictsWithNotUsedInvitations" EntitySet="Conflicts" ReturnType="Collection(ClickNClaimModel.Conflict)" />
+          </EntityContainer>
+        <EntityType Name="ProofFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="1250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="3500" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_ProofFiles_Conflicts" FromRole="ProofFile" ToRole="Conflict" />
+          <NavigationProperty Name="Events" Relationship="ClickNClaimModel.EventFiles" FromRole="ProofFile" ToRole="Event" />
+          <Property Name="FileType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MailDebates" Relationship="ClickNClaimModel.FK_MailDebates_ProofFiles" FromRole="ProofFile" ToRole="MailDebate" />
+        </EntityType>
+        <EntityType Name="ConflictType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="IsMapped" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Conflicts" Relationship="ClickNClaimModel.FK_Conflicts_ConflictTypes" FromRole="ConflictType" ToRole="Conflict" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Info" Type="String" MaxLength="1850" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DefaultEvents" Relationship="ClickNClaimModel.FK_DefaultEvents_ConflictTypes" FromRole="ConflictType" ToRole="DefaultEvent" />
+          <NavigationProperty Name="ResolutionTypes" Relationship="ClickNClaimModel.FK_ResolutionType_ConflictTypes" FromRole="ConflictType" ToRole="ResolutionType" />
+        </EntityType>
+        <EntityType Name="Conflict">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConflictType" Type="Int32" />
+          <Property Name="IdCreationUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="true" />
+          <NavigationProperty Name="CreatedBy" Relationship="ClickNClaimModel.FK_Conflicts_AspNetUsers" FromRole="Conflict" ToRole="AspNetUser" />
+          <NavigationProperty Name="ConflictType" Relationship="ClickNClaimModel.FK_Conflicts_ConflictTypes" FromRole="Conflict" ToRole="ConflictType" />
+          <NavigationProperty Name="ProofFiles" Relationship="ClickNClaimModel.FK_ProofFiles_Conflicts" FromRole="Conflict" ToRole="ProofFile" />
+          <NavigationProperty Name="UsersInConflicts" Relationship="ClickNClaimModel.FK_UsersInConflict_Conflicts" FromRole="Conflict" ToRole="UsersInConflict" />
+          <NavigationProperty Name="Resolutions" Relationship="ClickNClaimModel.FK_Resolutions_Conflicts" FromRole="Conflict" ToRole="Resolution" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="HasArbitralClause" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Invitations" Relationship="ClickNClaimModel.FK_Invitations_Conflicts" FromRole="Conflict" ToRole="Invitation" />
+          <NavigationProperty Name="Events" Relationship="ClickNClaimModel.FK_Events_Conflicts" FromRole="Conflict" ToRole="Event" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="IdArbiterAssigned" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arbiter" Relationship="ClickNClaimModel.FK_Conflicts_AspNetUsers1" FromRole="Conflict" ToRole="AspNetUser" />
+          <Property Name="HasArbiterAccepted" Type="Boolean" />
+          <Property Name="ArbiterRecognizeNoConflictOfInterest" Type="Boolean" />
+          <Property Name="ArbiterRecognizeLegitimate" Type="Boolean" />
+          <NavigationProperty Name="ConflictLegalDocuments" Relationship="ClickNClaimModel.FK_ConflictLegalDocuments_Conflicts" FromRole="Conflict" ToRole="ConflictLegalDocument" />
+          <NavigationProperty Name="MeetingDebates" Relationship="ClickNClaimModel.FK_MeetingDebates_Conflicts" FromRole="Conflict" ToRole="MeetingDebate" />
+          <Property Name="ArbiterPreConclusion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArbiterConclusion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AskedForArbitration" Type="Boolean" />
+          <NavigationProperty Name="ConflictStateHistorics" Relationship="ClickNClaimModel.FK_ConflictStateHistoric_Conflicts" FromRole="Conflict" ToRole="ConflictStateHistoric" />
+          <Property Name="PaymentState" Type="Int32" />
+          <NavigationProperty Name="Messages" Relationship="ClickNClaimModel.FK_Messages_Conflicts" FromRole="Conflict" ToRole="Message" />
+          </EntityType>
+        <EntityType Name="UsersInConflict">
+          <Key>
+            <PropertyRef Name="IdConflict" />
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserDescriptionOfTheConflict" Type="String" MaxLength="3500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="ClickNClaimModel.FK_UsersInConflict_AspNetUsers" FromRole="UsersInConflict" ToRole="AspNetUser" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_UsersInConflict_Conflicts" FromRole="UsersInConflict" ToRole="Conflict" />
+          <Property Name="CompanyName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="UserFunction" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="IsLegalRepresentative" Type="Boolean" />
+          <Property Name="ReadyForArbitration" Type="Boolean" />
+          <Property Name="IsPhysical" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="IsRepresented" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="IsLawyer" Type="Boolean" />
+          <Property Name="IdLawyer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Lawyer" Relationship="ClickNClaimModel.FK_UsersInConflict_AspNetUsers1" FromRole="UsersInConflict" ToRole="AspNetUser" />
+          <Property Name="HasAcceptedArbitration" Type="Boolean" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <Property Name="Completed" Type="Boolean" Nullable="false" />
+          <Property Name="IdUserCompany" Type="Int32" />
+          <NavigationProperty Name="UserCompany" Relationship="ClickNClaimModel.FK_UsersInConflict_UserCompanies" FromRole="UsersInConflict" ToRole="UserCompany" />
+          <Property Name="Siret" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Conflicts_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conflict">
+              <PropertyRef Name="IdCreationUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.UsersInConflict" Role="UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conflicts_ConflictTypes">
+          <End Type="ClickNClaimModel.ConflictType" Role="ConflictType" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConflictType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conflict">
+              <PropertyRef Name="IdConflictType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProofFiles_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.ProofFile" Role="ProofFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProofFile">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.UsersInConflict" Role="UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Resolution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResolutionValue" Type="String" MaxLength="2550" FixedLength="false" Unicode="true" />
+          <Property Name="ResolutionComment" Type="String" MaxLength="2550" FixedLength="false" Unicode="true" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ClickNClaimModel.FK_Resolutions_AspNetUsers" FromRole="Resolution" ToRole="AspNetUser" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_Resolutions_Conflicts" FromRole="Resolution" ToRole="Conflict" />
+          <Property Name="IdResolutionType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ResolutionType" Relationship="ClickNClaimModel.FK_Resolutions_ResolutionType" FromRole="Resolution" ToRole="ResolutionType" />
+          <Property Name="IdEvent" Type="Int32" />
+          <NavigationProperty Name="Event" Relationship="ClickNClaimModel.FK_Resolutions_Events" FromRole="Resolution" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_Resolutions_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Resolution" Role="Resolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolution">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolutions_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Resolution" Role="Resolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolution">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ResolutionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resolutions" Relationship="ClickNClaimModel.FK_Resolutions_ResolutionType" FromRole="ResolutionType" ToRole="Resolution" />
+          <Property Name="IdConflictType" Type="Int32" Nullable="false" />
+          <Property Name="Suggestion" Type="String" MaxLength="1800" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ConflictType" Relationship="ClickNClaimModel.FK_ResolutionType_ConflictTypes" FromRole="ResolutionType" ToRole="ConflictType" />
+        </EntityType>
+        <Association Name="FK_Resolutions_ResolutionType">
+          <End Type="ClickNClaimModel.ResolutionType" Role="ResolutionType" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Resolution" Role="Resolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResolutionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolution">
+              <PropertyRef Name="IdResolutionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Invitation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="258" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="UsedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_Invitations_Conflicts" FromRole="Invitation" ToRole="Conflict" />
+          <Property Name="IdLawyer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsLawyer" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Lawyer" Relationship="ClickNClaimModel.FK_Invitations_AspNetUsers" FromRole="Invitation" ToRole="AspNetUser" />
+          <Property Name="FirstName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Invitations_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Invitation" Role="Invitation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invitation">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="DateBegin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3500" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CreatedBy" Relationship="ClickNClaimModel.FK_Events_Events" FromRole="Event" ToRole="AspNetUser" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_Events_Conflicts" FromRole="Event" ToRole="Conflict" />
+          <NavigationProperty Name="ProofFiles" Relationship="ClickNClaimModel.EventFiles" FromRole="Event" ToRole="ProofFile" />
+          <NavigationProperty Name="Comments" Relationship="ClickNClaimModel.FK_Comments_Events" FromRole="Event" ToRole="Comment" />
+          <NavigationProperty Name="Disagreements" Relationship="ClickNClaimModel.FK_Disagreements_Events" FromRole="Event" ToRole="Disagreement" />
+          <NavigationProperty Name="Debates" Relationship="ClickNClaimModel.FK_Debates_Events" FromRole="Event" ToRole="Debate" />
+          <NavigationProperty Name="MeetingDebates" Relationship="ClickNClaimModel.FK_MeetingDebates_Events" FromRole="Event" ToRole="MeetingDebate" />
+          <Property Name="IdDefaultEvent" Type="Int32" />
+          <NavigationProperty Name="Resolutions" Relationship="ClickNClaimModel.FK_Resolutions_Events" FromRole="Event" ToRole="Resolution" />
+          <Property Name="SubName" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Events_Events">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventFiles">
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="*" />
+          <End Type="ClickNClaimModel.ProofFile" Role="ProofFile" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdEvent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CreatedBy" Relationship="ClickNClaimModel.FK_Comments_AspNetUsers" FromRole="Comment" ToRole="AspNetUser" />
+          <NavigationProperty Name="Event" Relationship="ClickNClaimModel.FK_Comments_Events" FromRole="Comment" ToRole="Event" />
+          <Property Name="UserEmail" Type="String" MaxLength="258" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Comments_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Events">
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Disagreement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEvent" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DisagreementOnDescription" Type="Boolean" Nullable="false" />
+          <Property Name="DisagreementOnDate" Type="Boolean" Nullable="false" />
+          <Property Name="DisagreementOnPiece" Type="Boolean" Nullable="false" />
+          <Property Name="ConcurrentDate" Type="DateTime" Precision="0" />
+          <Property Name="ConcurrentDescription" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrentPieces" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="IsResolved" Type="Boolean" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="CreatedBy" Relationship="ClickNClaimModel.FK_Disagreements_AspNetUsers" FromRole="Disagreement" ToRole="AspNetUser" />
+          <NavigationProperty Name="Event" Relationship="ClickNClaimModel.FK_Disagreements_Events" FromRole="Disagreement" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_Disagreements_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Disagreement" Role="Disagreement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disagreement">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Disagreements_Events">
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Disagreement" Role="Disagreement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disagreement">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ArbiterSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdArbiter" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdSkill" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arbiter" Relationship="ClickNClaimModel.FK_ArbiterSkills_AspNetUsers" FromRole="ArbiterSkill" ToRole="AspNetUser" />
+          <NavigationProperty Name="Skill" Relationship="ClickNClaimModel.FK_ArbiterSkills_Skills" FromRole="ArbiterSkill" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="850" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ArbiterSkills" Relationship="ClickNClaimModel.FK_ArbiterSkills_Skills" FromRole="Skill" ToRole="ArbiterSkill" />
+        </EntityType>
+        <Association Name="FK_ArbiterSkills_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.ArbiterSkill" Role="ArbiterSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArbiterSkill">
+              <PropertyRef Name="IdArbiter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArbiterSkills_Skills">
+          <End Type="ClickNClaimModel.Skill" Role="Skill" Multiplicity="1" />
+          <End Type="ClickNClaimModel.ArbiterSkill" Role="ArbiterSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArbiterSkill">
+              <PropertyRef Name="IdSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conflicts_AspNetUsers1">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conflict">
+              <PropertyRef Name="IdArbiterAssigned" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Debate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MailDebates" Relationship="ClickNClaimModel.FK_MailDebates_Debates" FromRole="Debate" ToRole="MailDebate" />
+          <Property Name="Disabled" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="IdEvent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ClickNClaimModel.FK_Debates_Events" FromRole="Debate" ToRole="Event" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="850" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="2250" FixedLength="false" Unicode="true" />
+          <Property Name="Closed" Type="Boolean" Nullable="false" />
+          <Property Name="CountDown" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MailDebate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDebate" Type="Int32" Nullable="false" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="ClickNClaimModel.FK_MailDebates_AspNetUsers" FromRole="MailDebate" ToRole="AspNetUser" />
+          <NavigationProperty Name="Debate" Relationship="ClickNClaimModel.FK_MailDebates_Debates" FromRole="MailDebate" ToRole="Debate" />
+          <Property Name="IdFile" Type="Int32" />
+          <NavigationProperty Name="ProofFile" Relationship="ClickNClaimModel.FK_MailDebates_ProofFiles" FromRole="MailDebate" ToRole="ProofFile" />
+        </EntityType>
+        <Association Name="FK_MailDebates_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MailDebate" Role="MailDebate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MailDebate">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailDebates_Debates">
+          <End Type="ClickNClaimModel.Debate" Role="Debate" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MailDebate" Role="MailDebate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MailDebate">
+              <PropertyRef Name="IdDebate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Debates_Events">
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Debate" Role="Debate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Debate">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LegalDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <Property Name="Filename" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="950" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_ConflictLegalDocuments_Conflicts" FromRole="ConflictLegalDocument" ToRole="Conflict" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MeetingPropositionAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMeetingProposition" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="ClickNClaimModel.FK_MeetingPropositionAnswers_AspNetUsers" FromRole="MeetingPropositionAnswer" ToRole="AspNetUser" />
+          <NavigationProperty Name="MeetingProposition" Relationship="ClickNClaimModel.FK_MeetingPropositionAnswers_MeetingPropositions" FromRole="MeetingPropositionAnswer" ToRole="MeetingProposition" />
+        </EntityType>
+        <EntityType Name="MeetingProposition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMeetingDebate" Type="Int32" Nullable="false" />
+          <Property Name="DateTimeProposition" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="MeetingPropositionAnswers" Relationship="ClickNClaimModel.FK_MeetingPropositionAnswers_MeetingPropositions" FromRole="MeetingProposition" ToRole="MeetingPropositionAnswer" />
+          <NavigationProperty Name="MeetingDebate" Relationship="ClickNClaimModel.FK_MeetingPropositions_MeetingDebates" FromRole="MeetingProposition" ToRole="MeetingDebate" />
+        </EntityType>
+        <Association Name="FK_MeetingPropositionAnswers_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MeetingPropositionAnswer" Role="MeetingPropositionAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingPropositionAnswer">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConflictLegalDocuments_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.LegalDocument" Role="ConflictLegalDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConflictLegalDocument">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingPropositionAnswers_MeetingPropositions">
+          <End Type="ClickNClaimModel.MeetingProposition" Role="MeetingProposition" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MeetingPropositionAnswer" Role="MeetingPropositionAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingProposition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingPropositionAnswer">
+              <PropertyRef Name="IdMeetingProposition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MeetingDebate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Link" Type="String" MaxLength="850" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="2650" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EstimateDuration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_MeetingDebates_Conflicts" FromRole="MeetingDebate" ToRole="Conflict" />
+          <NavigationProperty Name="MeetingPropositions" Relationship="ClickNClaimModel.FK_MeetingPropositions_MeetingDebates" FromRole="MeetingDebate" ToRole="MeetingProposition" />
+          <Property Name="IdEvent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ClickNClaimModel.FK_MeetingDebates_Events" FromRole="MeetingDebate" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_MeetingDebates_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MeetingDebate" Role="MeetingDebate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingDebate">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingPropositions_MeetingDebates">
+          <End Type="ClickNClaimModel.MeetingDebate" Role="MeetingDebate" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MeetingProposition" Role="MeetingProposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingDebate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingProposition">
+              <PropertyRef Name="IdMeetingDebate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingDebates_Events">
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="ClickNClaimModel.MeetingDebate" Role="MeetingDebate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingDebate">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invitations_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.Invitation" Role="Invitation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invitation">
+              <PropertyRef Name="IdLawyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_AspNetUsers1">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.UsersInConflict" Role="UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdLawyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DefaultEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConflictType" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="850" FixedLength="false" Unicode="true" />
+          <Property Name="Info" Type="String" MaxLength="1850" FixedLength="false" Unicode="true" />
+          <Property Name="Placeholder" Type="String" MaxLength="1550" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConflictType" Relationship="ClickNClaimModel.FK_DefaultEvents_ConflictTypes" FromRole="DefaultEvent" ToRole="ConflictType" />
+          <Property Name="SubAccordTitle" Type="String" MaxLength="2850" FixedLength="false" Unicode="true" />
+          <Property Name="SubAccordInfo" Type="String" MaxLength="1550" FixedLength="false" Unicode="true" />
+          <Property Name="SubAccordPlaceholder" Type="String" MaxLength="2850" FixedLength="false" Unicode="true" />
+          <Property Name="SubPbTitle" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="SubPbInfo" Type="String" MaxLength="1850" FixedLength="false" Unicode="true" />
+          <Property Name="SubPbPlaceholder" Type="String" MaxLength="2850" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_DefaultEvents_ConflictTypes">
+          <End Type="ClickNClaimModel.ConflictType" Role="ConflictType" Multiplicity="1" />
+          <End Type="ClickNClaimModel.DefaultEvent" Role="DefaultEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConflictType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DefaultEvent">
+              <PropertyRef Name="IdConflictType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolutions_Events">
+          <End Type="ClickNClaimModel.Event" Role="Event" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.Resolution" Role="Resolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Resolution">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailDebates_ProofFiles">
+          <End Type="ClickNClaimModel.ProofFile" Role="ProofFile" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.MailDebate" Role="MailDebate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProofFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MailDebate">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResolutionType_ConflictTypes">
+          <End Type="ClickNClaimModel.ConflictType" Role="ConflictType" Multiplicity="1" />
+          <End Type="ClickNClaimModel.ResolutionType" Role="ResolutionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConflictType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResolutionType">
+              <PropertyRef Name="IdConflictType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Siret" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fonction" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="TelCompany" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="Address3" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="RCS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserCompanies" Relationship="ClickNClaimModel.FK_UserCompanies_Companies" FromRole="Company" ToRole="UserCompany" />
+          <Property Name="Forme" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Capital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConflictStateHistoric">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConflictStateId" Type="Int32" Nullable="false" />
+          <Property Name="ConflictStateName" Type="String" Nullable="false" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CountDown" Type="Int32" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_ConflictStateHistoric_Conflicts" FromRole="ConflictStateHistoric" ToRole="Conflict" />
+        </EntityType>
+        <Association Name="FK_ConflictStateHistoric_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.ConflictStateHistoric" Role="ConflictStateHistoric" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConflictStateHistoric">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="to" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ArbiterInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Presentation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="ClickNClaimModel.FK_AspNetUsers_ArbiterInformations" FromRole="ArbiterInformation" ToRole="AspNetUser" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Nationality" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LinkedIn" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_ArbiterInformations">
+          <End Type="ClickNClaimModel.ArbiterInformation" Role="ArbiterInformation" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArbiterInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="IdArbitrationInformations" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="ClickNClaimModel.FK_UserCompanies_AspNetUsers" FromRole="UserCompany" ToRole="AspNetUser" />
+          <NavigationProperty Name="Company" Relationship="ClickNClaimModel.FK_UserCompanies_Companies" FromRole="UserCompany" ToRole="Company" />
+          <NavigationProperty Name="UsersInConflicts" Relationship="ClickNClaimModel.FK_UsersInConflict_UserCompanies" FromRole="UserCompany" ToRole="UsersInConflict" />
+        </EntityType>
+        <Association Name="FK_UserCompanies_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.UserCompany" Role="UserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCompany">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompanies_Companies">
+          <End Type="ClickNClaimModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="ClickNClaimModel.UserCompany" Role="UserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCompany">
+              <PropertyRef Name="IdCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInConflict_UserCompanies">
+          <End Type="ClickNClaimModel.UserCompany" Role="UserCompany" Multiplicity="0..1" />
+          <End Type="ClickNClaimModel.UsersInConflict" Role="UsersInConflict" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCompany">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInConflict">
+              <PropertyRef Name="IdUserCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConflict" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdCreatedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="ClickNClaimModel.FK_Messages_AspNetUsers" FromRole="Message" ToRole="AspNetUser" />
+          <NavigationProperty Name="Conflict" Relationship="ClickNClaimModel.FK_Messages_Conflicts" FromRole="Message" ToRole="Conflict" />
+        </EntityType>
+        <Association Name="FK_Messages_AspNetUsers">
+          <End Type="ClickNClaimModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="IdCreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Conflicts">
+          <End Type="ClickNClaimModel.Conflict" Role="Conflict" Multiplicity="1" />
+          <End Type="ClickNClaimModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conflict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="IdConflict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetConflictsWithNotUsedInvitations_Result">
+          <Property Type="Int32" Name="ContractId" Nullable="false" />
+          <Property Type="Guid" Name="InvitationId" Nullable="true" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClickNClaimModelStoreContainer" CdmEntityContainer="ClickNClaimEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ClickNClaimModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="ClickNClaimModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="ClickNClaimModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ClickNClaimModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="IdArbitrationInformations" ColumnName="IdArbitrationInformations" />
+                <ScalarProperty Name="TelMobile" ColumnName="TelMobile" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLegalRepresentative" ColumnName="IsLegalRepresentative" />
+                <ScalarProperty Name="BusinessFunction" ColumnName="BusinessFunction" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ClickNClaimModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="ProofFiles">
+            <EntityTypeMapping TypeName="ClickNClaimModel.ProofFile">
+              <MappingFragment StoreEntitySet="ProofFiles">
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConflictTypes">
+            <EntityTypeMapping TypeName="ClickNClaimModel.ConflictType">
+              <MappingFragment StoreEntitySet="ConflictTypes">
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IsMapped" ColumnName="IsMapped" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conflicts">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Conflict">
+              <MappingFragment StoreEntitySet="Conflicts">
+                <ScalarProperty Name="PaymentState" ColumnName="PaymentState" />
+                <ScalarProperty Name="AskedForArbitration" ColumnName="AskedForArbitration" />
+                <ScalarProperty Name="ArbiterConclusion" ColumnName="ArbiterConclusion" />
+                <ScalarProperty Name="ArbiterPreConclusion" ColumnName="ArbiterPreConclusion" />
+                <ScalarProperty Name="ArbiterRecognizeLegitimate" ColumnName="ArbiterRecognizeLegitimate" />
+                <ScalarProperty Name="ArbiterRecognizeNoConflictOfInterest" ColumnName="ArbiterRecognizeNoConflictOfInterest" />
+                <ScalarProperty Name="HasArbiterAccepted" ColumnName="HasArbiterAccepted" />
+                <ScalarProperty Name="IdArbiterAssigned" ColumnName="IdArbiterAssigned" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="HasArbitralClause" ColumnName="HasArbitralClause" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="IdCreationUser" ColumnName="IdCreationUser" />
+                <ScalarProperty Name="IdConflictType" ColumnName="IdConflictType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersInConflicts">
+            <EntityTypeMapping TypeName="ClickNClaimModel.UsersInConflict">
+              <MappingFragment StoreEntitySet="UsersInConflict">
+                <ScalarProperty Name="Siret" ColumnName="Siret" />
+                <ScalarProperty Name="IdUserCompany" ColumnName="IdUserCompany" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Disable" ColumnName="Disable" />
+                <ScalarProperty Name="HasAcceptedArbitration" ColumnName="HasAcceptedArbitration" />
+                <ScalarProperty Name="IdLawyer" ColumnName="IdLawyer" />
+                <ScalarProperty Name="IsLawyer" ColumnName="IsLawyer" />
+                <ScalarProperty Name="IsRepresented" ColumnName="IsRepresented" />
+                <ScalarProperty Name="IsPhysical" ColumnName="IsPhysical" />
+                <ScalarProperty Name="ReadyForArbitration" ColumnName="ReadyForArbitration" />
+                <ScalarProperty Name="IsLegalRepresentative" ColumnName="IsLegalRepresentative" />
+                <ScalarProperty Name="UserFunction" ColumnName="UserFunction" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="UserDescriptionOfTheConflict" ColumnName="UserDescriptionOfTheConflict" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resolutions">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Resolution">
+              <MappingFragment StoreEntitySet="Resolutions">
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="IdResolutionType" ColumnName="IdResolutionType" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="ResolutionComment" ColumnName="ResolutionComment" />
+                <ScalarProperty Name="ResolutionValue" ColumnName="ResolutionValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResolutionTypes">
+            <EntityTypeMapping TypeName="ClickNClaimModel.ResolutionType">
+              <MappingFragment StoreEntitySet="ResolutionType">
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="IdConflictType" ColumnName="IdConflictType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invitations">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Invitation">
+              <MappingFragment StoreEntitySet="Invitations">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IsLawyer" ColumnName="IsLawyer" />
+                <ScalarProperty Name="IdLawyer" ColumnName="IdLawyer" />
+                <ScalarProperty Name="UsedDate" ColumnName="UsedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="SubName" ColumnName="SubName" />
+                <ScalarProperty Name="IdDefaultEvent" ColumnName="IdDefaultEvent" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="EventFiles" TypeName="ClickNClaimModel.EventFiles" StoreEntitySet="EventFiles">
+            <EndProperty Name="ProofFile">
+              <ScalarProperty Name="Id" ColumnName="IdFile" />
+            </EndProperty>
+            <EndProperty Name="Event">
+              <ScalarProperty Name="Id" ColumnName="IdEvent" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disagreements">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Disagreement">
+              <MappingFragment StoreEntitySet="Disagreements">
+                <ScalarProperty Name="IsResolved" ColumnName="IsResolved" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ConcurrentPieces" ColumnName="ConcurrentPieces" />
+                <ScalarProperty Name="ConcurrentDescription" ColumnName="ConcurrentDescription" />
+                <ScalarProperty Name="ConcurrentDate" ColumnName="ConcurrentDate" />
+                <ScalarProperty Name="DisagreementOnPiece" ColumnName="DisagreementOnPiece" />
+                <ScalarProperty Name="DisagreementOnDate" ColumnName="DisagreementOnDate" />
+                <ScalarProperty Name="DisagreementOnDescription" ColumnName="DisagreementOnDescription" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArbiterSkills">
+            <EntityTypeMapping TypeName="ClickNClaimModel.ArbiterSkill">
+              <MappingFragment StoreEntitySet="ArbiterSkills">
+                <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+                <ScalarProperty Name="IdArbiter" ColumnName="IdArbiter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Skill">
+              <MappingFragment StoreEntitySet="Skills">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Debates">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Debate">
+              <MappingFragment StoreEntitySet="Debates">
+                <ScalarProperty Name="CountDown" ColumnName="CountDown" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailDebates">
+            <EntityTypeMapping TypeName="ClickNClaimModel.MailDebate">
+              <MappingFragment StoreEntitySet="MailDebates">
+                <ScalarProperty Name="IdFile" ColumnName="IdFile" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="IdDebate" ColumnName="IdDebate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LegalDocuments">
+            <EntityTypeMapping TypeName="ClickNClaimModel.LegalDocument">
+              <MappingFragment StoreEntitySet="ConflictLegalDocuments">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingPropositionAnswers">
+            <EntityTypeMapping TypeName="ClickNClaimModel.MeetingPropositionAnswer">
+              <MappingFragment StoreEntitySet="MeetingPropositionAnswers">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdMeetingProposition" ColumnName="IdMeetingProposition" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingPropositions">
+            <EntityTypeMapping TypeName="ClickNClaimModel.MeetingProposition">
+              <MappingFragment StoreEntitySet="MeetingPropositions">
+                <ScalarProperty Name="DateTimeProposition" ColumnName="DateTimeProposition" />
+                <ScalarProperty Name="IdMeetingDebate" ColumnName="IdMeetingDebate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingDebates">
+            <EntityTypeMapping TypeName="ClickNClaimModel.MeetingDebate">
+              <MappingFragment StoreEntitySet="MeetingDebates">
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="EstimateDuration" ColumnName="EstimateDuration" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefaultEvents">
+            <EntityTypeMapping TypeName="ClickNClaimModel.DefaultEvent">
+              <MappingFragment StoreEntitySet="DefaultEvents">
+                <ScalarProperty Name="SubPbPlaceholder" ColumnName="SubPbPlaceholder" />
+                <ScalarProperty Name="SubPbInfo" ColumnName="SubPbInfo" />
+                <ScalarProperty Name="SubPbTitle" ColumnName="SubPbTitle" />
+                <ScalarProperty Name="SubAccordPlaceholder" ColumnName="SubAccordPlaceholder" />
+                <ScalarProperty Name="SubAccordInfo" ColumnName="SubAccordInfo" />
+                <ScalarProperty Name="SubAccordTitle" ColumnName="SubAccordTitle" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Placeholder" ColumnName="Placeholder" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdConflictType" ColumnName="IdConflictType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="Capital" ColumnName="Capital" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Forme" ColumnName="Forme" />
+                <ScalarProperty Name="RCS" ColumnName="RCS" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="TelCompany" ColumnName="TelCompany" />
+                <ScalarProperty Name="Fonction" ColumnName="Fonction" />
+                <ScalarProperty Name="Siret" ColumnName="Siret" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConflictStateHistorics">
+            <EntityTypeMapping TypeName="ClickNClaimModel.ConflictStateHistoric">
+              <MappingFragment StoreEntitySet="ConflictStateHistoric">
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="CountDown" ColumnName="CountDown" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConflictStateName" ColumnName="ConflictStateName" />
+                <ScalarProperty Name="ConflictStateId" ColumnName="ConflictStateId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emails">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Email">
+              <MappingFragment StoreEntitySet="Emails">
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArbiterInformations">
+            <EntityTypeMapping TypeName="ClickNClaimModel.ArbiterInformation">
+              <MappingFragment StoreEntitySet="ArbiterInformations">
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Presentation" ColumnName="Presentation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCompanies">
+            <EntityTypeMapping TypeName="ClickNClaimModel.UserCompany">
+              <MappingFragment StoreEntitySet="UserCompanies">
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="ClickNClaimModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IdCreatedBy" ColumnName="IdCreatedBy" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="IdConflict" ColumnName="IdConflict" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetConflictsWithNotUsedInvitations" FunctionName="ClickNClaimModel.Store.GetConflictsWithNotUsedInvitations">
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

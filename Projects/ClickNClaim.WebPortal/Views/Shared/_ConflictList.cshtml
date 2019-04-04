@@ -1,0 +1,120 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.WebPortal.Models.ConflictListModel
+@using ClickNClaim.WebPortal.Extensions
+@using ClickNClaim.WebPortal.Helpers
+    @using ClickNClaim.Common
+
+    <table class="striped highlight">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>@ButtonsAndRecurring.Date</td>
+                <td>@ButtonsAndRecurring.Surname</td>
+                @if (Model.ShouldShowArbiter)
+            {
+                    <td>@Shared.Arbitrator</td>
+                }
+                <td>Type</td>
+                @if (Model.ShouldShowState)
+            {
+                    <td>@Shared.Situation</td>
+                }
+                <td>@Shared.Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ClickNClaim.Common.Conflict item in Model.Conflicts)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @(item.CreateDate != null ? item.CreateDate.Value.ToShortDateString() : Shared.NoDate)
+                    </td>
+                    <td>
+                        @{
+                            var demandeur = new UsersInConflict();
+                            demandeur = item.UsersInConflicts.Where(
+                                c => c.IdUser == item.IdCreationUser).First();
+
+                            if (demandeur.IsLawyer != null && demandeur.IsLawyer.Value)
+                            {
+                                demandeur = item.UsersInConflicts.FirstOrDefault(c => c.IdLawyer == item.UsersInConflicts.First().IdUser);
+                                if (demandeur == null)
+                                {
+                                    demandeur = item.UsersInConflicts.Where(c => c.IdUser == item.IdCreationUser).First();
+                                }
+                            }
+
+                            var Opponent = item.UsersInConflicts.Where(c => (c.IsLawyer == null || !c.IsLawyer.Value) && c.IdUser != demandeur.IdUser).FirstOrDefault();
+                            if (Opponent == null)
+                            {
+                                var invit = item.Invitations.FirstOrDefault();
+                                if (invit != null)
+                                {
+                                    Opponent = new UsersInConflict()
+                                    {
+                                        User
+                                     = new AspNetUser()
+                                     {
+                                         FirstName = invit.FirstName,
+                                         LastName = invit.LastName
+                                     },
+                                        CompanyName = invit.CompanyName
+                                    };
+                                }
+                            }
+                            <p>@(demandeur.CompanyName ?? demandeur.User.DisplayName) / @(Opponent == null ? Shared.NoOpposingParty : (Opponent.CompanyName ?? Opponent.User.DisplayName))</p>
+                        }
+                    </td>
+                    @if (Model.ShouldShowArbiter && !String.IsNullOrWhiteSpace(item.IdArbiterAssigned))
+                {
+                        <td>
+                            <a href="@Url.Action("Detail", "Arbitre", new { id= item.Arbiter.Id, name = @item.Arbiter.DisplayName})">
+                                <p>@item.Arbiter.DisplayName</p>
+                            </a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <p>@Shared.NoArbitrator</p>
+                        </td>
+                    }
+                    <td>
+                        @(item.ConflictType != null ? item.ConflictType.Name : Shared.NoType)
+                    </td>
+                    @if (Model.ShouldShowState)
+                {
+                        <td>
+                            @MetadataHelper.GetEnumDisplayNAme((ClickNClaim.Common.ConflictState)item.State)
+                        </td>
+                    }
+                    <td>
+                        @if (item.State == (int)ConflictState.ArbitrationReady)
+                        {
+                            <input type="button" class="btn btn-flat red margin-bottom-small" onclick="openModal('#refuse-modal',@item.Id)" value="@ButtonsAndRecurring.RefuseCaps" />
+                            <input type="button" class="btn btn-flat blue margin-bottom-small" onclick="openModal('#arbiter-selection', @item.Id)" value="@ButtonsAndRecurring.AssignCaps" />
+                        }
+                        @if (Model.IsForArbiter)
+                        {
+                            if (item.State == (int)ConflictState.ArbiterAssigned && (item.HasArbiterAccepted == null || !item.HasArbiterAccepted.Value) && item.IdArbiterAssigned == User.Identity.GetId())
+                            {
+                                <a href="@Url.Action("AcceptCase", "Arbitre", new { conflictId = item.Id })">
+                                    <input type="button" class="btn btn-flat blue  margin-bottom-small" value="@Shared.AcceptCase" />
+                                </a>
+                                <input type="button" class="btn btn-flat red margin-bottom-small" onclick="openModal('#refuse-case-modal', @item.Id)" value="@ButtonsAndRecurring.Refuse" />
+                            }
+                        }
+                        @if (Model.ShouldShowState && User.IsInRole("Admin"))
+                        {
+                            <input type="button" class="btn btn-flat red margin-bottom-small" onclick="openModalForSituation('#change-situation-modal', @item.Id, @item.State)" value="@Shared.ChangeSituation" />
+
+                        }
+                        <a href="@Url.Action("Conflict", "Viewer",new { conflictId = item.Id })"> <input type="button" class="btn btn-flat blue margin-bottom-small" value="@ButtonsAndRecurring.SeeCaps" /></a>
+                    </td>
+                </tr>
+                            }
+        </tbody>
+    </table>

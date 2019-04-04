@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Arbitrator" xml:space="preserve">
+    <value>Arbitre</value>
+  </data>
+  <data name="ArbRequest" xml:space="preserve">
+    <value>Demande d’Arbitrage</value>
+  </data>
+  <data name="ArbRules" xml:space="preserve">
+    <value>Règlement</value>
+  </data>
+  <data name="Art1" xml:space="preserve">
+    <value>ARTICLE 1.	DEFINITIONS</value>
+  </data>
+  <data name="Award" xml:space="preserve">
+    <value>Sentence</value>
+  </data>
+  <data name="BAppointment" xml:space="preserve">
+    <value>CONSTITUTION DU TRIBUNAL ARBITRAL</value>
+  </data>
+  <data name="BArbProceedings" xml:space="preserve">
+    <value>PROCEDURE D’ARBITRAGE</value>
+  </data>
+  <data name="BAward" xml:space="preserve">
+    <value>SENTENCE ARBITRALE</value>
+  </data>
+  <data name="BCaseEstablishment" xml:space="preserve">
+    <value>CONSTITUTION DU DOSSIER</value>
+  </data>
+  <data name="BConfidentiality" xml:space="preserve">
+    <value>CONFIDENTIALITÉ</value>
+  </data>
+  <data name="BCorrection" xml:space="preserve">
+    <value>RECTIFICATION, OMISSION  DE  STATUER ET INTERPRÉTATION</value>
+  </data>
+  <data name="BDef" xml:space="preserve">
+    <value>DEFINITIONS</value>
+  </data>
+  <data name="BFinalProvisions" xml:space="preserve">
+    <value>DISPOSITIONS FINALES</value>
+  </data>
+  <data name="BNotifications" xml:space="preserve">
+    <value>IDENTIFICATIONS, NOTIFICATIONS ET COMMUNICATIONS</value>
+  </data>
+  <data name="BRepresentation" xml:space="preserve">
+    <value>ASSISTANCE ET REPRÉSENTATION DES PARTIES</value>
+  </data>
+  <data name="BScope" xml:space="preserve">
+    <value>CHAMP D'APPLICATION</value>
+  </data>
+  <data name="BSeizingTrib" xml:space="preserve">
+    <value>SAISINE DU TRIBUNAL ARBITRAL</value>
+  </data>
+  <data name="BTimeLimits" xml:space="preserve">
+    <value>DÉLAIS</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Centre</value>
+  </data>
+  <data name="Claimant" xml:space="preserve">
+    <value>Demandeur</value>
+  </data>
+  <data name="Costs" xml:space="preserve">
+    <value>Tarif</value>
+  </data>
+  <data name="Defendant" xml:space="preserve">
+    <value>Défendeur</value>
+  </data>
+  <data name="Dispute" xml:space="preserve">
+    <value>Litige</value>
+  </data>
+  <data name="Jurisdiction" xml:space="preserve">
+    <value>Domaines de Compétence</value>
+  </data>
+  <data name="Party" xml:space="preserve">
+    <value>Partie</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Plateforme</value>
+  </data>
+  <data name="RulesTitle" xml:space="preserve">
+    <value>Règlement d'arbitrage FastArbitre</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="ArbitratorDef" xml:space="preserve">
+    <value>toute personne physique désignée par le Centre pour résoudre un Litige conformément au présent Règlement.</value>
+  </data>
+  <data name="ArbRequestDef" xml:space="preserve">
+    <value>demande adressée au Centre par l’intermédiaire de la Plateforme par une Partie ou son représentant légal en vue de résoudre le Litige conformément au présent Règlement.</value>
+  </data>
+  <data name="ArbRulesDef" xml:space="preserve">
+    <value>présente convention d’arbitrage déterminant les règles applicables à la résolution du Litige.</value>
+  </data>
+  <data name="Art2" xml:space="preserve">
+    <value>ARTICLE 2.	CHAMP D’APPLICATION</value>
+  </data>
+  <data name="Art2_1" xml:space="preserve">
+    <value>2.1.	Adhésion au Règlement</value>
+  </data>
+  <data name="Art2_1Provisions_L1" xml:space="preserve">
+    <value>Le Règlement et son Tarif sont applicables à tous les Utilisateurs.</value>
+  </data>
+  <data name="Art2_1Provisions_L2" xml:space="preserve">
+    <value>Les Parties adhèrent au Règlement et au Tarif lorsqu'elles soumettent leur Litige au Centre ou au Règlement, par un accord formalisé dans une convention d'arbitrage, qu'elle prenne la forme d'une clause compromissoire ou d'un compromis d'arbitrage. L'acceptation du Règlement suppose de la part des Parties qu'elles puissent compromettre, ce qu’elles déclarent pouvoir faire relativement à la chose objet du Litige.</value>
+  </data>
+  <data name="Art2_1Provisions_L3" xml:space="preserve">
+    <value>Les Arbitres, en acceptant leur mission, adhèrent au Règlement et à son Tarif.</value>
+  </data>
+  <data name="AwardDef" xml:space="preserve">
+    <value>jugement arbitral rendu par l’Arbitre pour résoudre le Litige.</value>
+  </data>
+  <data name="CenterDef" xml:space="preserve">
+    <value>Institut digital d’arbitrage et de médiation agissant en qualité d’organisateur de l’arbitrage au sens de l’article 1450 du Code de procédure civile.</value>
+  </data>
+  <data name="ClaimantDef" xml:space="preserve">
+    <value>Partie ayant la première constitué son dossier sur la Plateforme.</value>
+  </data>
+  <data name="CostsDef" xml:space="preserve">
+    <value>stipulations contractuelles déterminant le montant des frais et honoraires de la résolution du Litige sur la Plateforme.</value>
+  </data>
+  <data name="DefendantDef" xml:space="preserve">
+    <value>Partie contestant le dossier constitué par le Demandeur.</value>
+  </data>
+  <data name="DisputeDef" xml:space="preserve">
+    <value>différend entre les Parties soumis à l’arbitrage du Centre.</value>
+  </data>
+  <data name="JurisdictionDef" xml:space="preserve">
+    <value>litiges entre professionnels agissant à des fins entrant dans le cadre de leur activité commerciale, industrielle, artisanale, libérale ou agricole.</value>
+  </data>
+  <data name="PartyDef" xml:space="preserve">
+    <value>Demandeur ou Défendeur.</value>
+  </data>
+  <data name="PlatformDef" xml:space="preserve">
+    <value>espace virtuel de résolution du Litige mis à disposition des Utilisateurs par le Centre et accessible à l’adresse www.fast-arbitre.com, ainsi que les sous-sites, sites miroirs, portails et variations d’URL y afférant.</value>
+  </data>
+  <data name="UserDef" xml:space="preserve">
+    <value>toute personne se connectant à la Plateforme à l’occasion de la résolution d’un Litige.</value>
+  </data>
+  <data name="Art2_2" xml:space="preserve">
+    <value>2.2.	Modalité d’adhésion au Règlement</value>
+  </data>
+  <data name="Art2_2Provisions_L1" xml:space="preserve">
+    <value>L’adhésion au Règlement sera confirmée par le fait de cocher la case correspondant à la phrase suivante : « Je reconnais avoir lu et accepté les conditions générales de service, le règlement d’arbitrage et le tarif applicable ». Les Utilisateurs reconnaissent du même fait en avoir pris pleinement connaissance et les accepter sans restriction.</value>
+  </data>
+  <data name="Art2_2Provisions_L2" xml:space="preserve">
+    <value>Le fait de cocher la case susvisée sera réputé avoir la même valeur qu'une signature manuscrite de la part des Utilisateurs, qui reconnaissent la valeur juridique des enregistrements de la Plateforme et renoncent à les contester en cas de Litige.</value>
+  </data>
+  <data name="Art2_2Provisions_L3" xml:space="preserve">
+    <value>La volonté de l’Utilisateur de soumettre le Litige au Règlement sera réitérée par le fait de renseigner sur la Plateforme les codes confidentiels lui étant adressés par le Centre par lettre recommandée avec accusé de réception aux fins de participer à la procédure d’arbitrage.</value>
+  </data>
+  <data name="Art2_2Provisions_L4" xml:space="preserve">
+    <value>Le Règlement applicable au Litige est celui publié sur le Site au jour de la Demande d’Arbitrage.</value>
+  </data>
+  <data name="Art2_3" xml:space="preserve">
+    <value>2.3.	Conséquences de l’adhésion au Règlement</value>
+  </data>
+  <data name="Art2_3Provisions_L1" xml:space="preserve">
+    <value>L’adhésion au Règlement emporte soumission du Litige aux procédures techniques qu’implique sa résolution sur la Plateforme et acceptation des conditions tarifaires contenues dans le Tarif.</value>
+  </data>
+  <data name="Art2_3Provisions_L2" xml:space="preserve">
+    <value>Le présent Règlement et son Tarif sont applicables à la résolution du Litige, à l’exclusion de toutes autres stipulations, sauf accord exprès des Parties constaté par écrit.</value>
+  </data>
+  <data name="Art2_3Provisions_L3" xml:space="preserve">
+    <value>L’acceptation du présent Règlement et/ou la participation volontaire à une procédure d’arbitrage sur la Plateforme couvre toute éventuelle nullité qui s'attacherait à une clause compromissoire convenue entre les Parties dans une matière où celle-ci ne serait pas autorisée.</value>
+  </data>
+  <data name="Art3" xml:space="preserve">
+    <value>ARTICLE 3.	CONSTITUTION DU DOSSIER</value>
+  </data>
+  <data name="Art3_1" xml:space="preserve">
+    <value>3.1.	Constitution du dossier par le Demandeur</value>
+  </data>
+  <data name="Art3_1_1" xml:space="preserve">
+    <value>3.1.1.	Formulation des prétentions par le Demandeur</value>
+  </data>
+  <data name="Art3_1_1Provisions" xml:space="preserve">
+    <value>Le Demandeur s’identifie et formule ses prétentions conformément à la configuration technique de la Plateforme au jour de sa déclaration.</value>
+  </data>
+  <data name="Art3_1_2" xml:space="preserve">
+    <value>3.1.2.	Validation du dossier par le Demandeur</value>
+  </data>
+  <data name="Art3_1_2Provisions" xml:space="preserve">
+    <value>Le Demandeur est alors invité à valider son dossier. Ses déclarations sont alors figées jusqu’à la procédure arbitrale. Une notification est alors adressée au Défendeur par email, afin qu’il prenne connaissance des prétentions du Demandeur et les conteste.</value>
+  </data>
+  <data name="Art3_2" xml:space="preserve">
+    <value>3.2. Constitution du dossier par le Défendeur</value>
+  </data>
+  <data name="Art3_2_1" xml:space="preserve">
+    <value>3.2.1.	Contestation des prétentions du Demandeur</value>
+  </data>
+  <data name="Art3_2_1Provisions" xml:space="preserve">
+    <value>Le Défendeur conteste les prétentions du Demandeur conformément à la configuration technique de la Plateforme au jour de sa déclaration.</value>
+  </data>
+  <data name="Art3_2_2" xml:space="preserve">
+    <value>3.2.2.	Validation du dossier par le Défendeur</value>
+  </data>
+  <data name="Art3_2_2Provisions" xml:space="preserve">
+    <value>Le Défendeur est alors invité à valider son dossier. Ses déclarations sont alors figées jusqu’à la procédure arbitrale. Une notification est alors adressée au Demandeur par email, afin qu’il prenne connaissance des contestations du Défendeur.</value>
+  </data>
+  <data name="Art4" xml:space="preserve">
+    <value>ARTICLE 4.	SAISINE DU TRIBUNAL ARBITRAL</value>
+  </data>
+  <data name="Art4_1" xml:space="preserve">
+    <value>4.1.	Demande d’Arbitrage</value>
+  </data>
+  <data name="Art4_1Provisions_L1" xml:space="preserve">
+    <value>Après validation de son dossier par le Défendeur, chaque Partie peut formuler une Demande d’Arbitrage sur la Plateforme.</value>
+  </data>
+  <data name="Art4_1Provisions_L2" xml:space="preserve">
+    <value>En présence d’une clause compromissoire comportant une désignation expresse du Centre ou du Règlement, la Demande d’Arbitrage est formulée par l’une ou l’autre des Parties. Le Centre est alors immédiatement saisi du Litige dès réception de la demande d’une Partie.</value>
+  </data>
+  <data name="Art4_1Provisions_L3" xml:space="preserve">
+    <value>En l’absence d’une clause compromissoire comportant une désignation expresse du Centre ou du Règlement, la Demande d’Arbitrage est formulée conjointement par les deux Parties. Le Centre n’est alors saisi que lorsqu’une Partie a demandé à soumettre le Litige à l’arbitrage du Centre et que l’autre Partie a accepté cette demande.</value>
+  </data>
+  <data name="Art4_2" xml:space="preserve">
+    <value>4.2.	Autorisation de prélèvement des frais et honoraires d’arbitrage</value>
+  </data>
+  <data name="Art4_2Provisions_L1" xml:space="preserve">
+    <value>Dès que le Centre est saisi, celui-ci invite chaque Partie à lui adresser une autorisation de prélever sur sa carte bancaire ou son compte bancaire la moitié des frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art4_2Provisions_L2" xml:space="preserve">
+    <value>Si l’une des Parties ne concède pas l’autorisation de prélèvement, l’autre Partie peut décider d’autoriser le Centre à prélever sur sa carte ou son compte bancaire l’intégralité des frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art4_3" xml:space="preserve">
+    <value>4.3.	Validation de la Demande d’Arbitrage par le Centre</value>
+  </data>
+  <data name="Art4_3_1" xml:space="preserve">
+    <value>4.3.1.	Domaine de compétence</value>
+  </data>
+  <data name="Art4_3_1Provisions" xml:space="preserve">
+    <value>Le Centre apprécie librement si le Litige, tel que défini dans la Demande d’Arbitrage, entre dans ses Domaines de Compétence. Il accepte ou refuse la Demande d’Arbitrage par décision non motivée et non susceptible de recours. En cas de refus de la Demande d’Arbitrage par le Centre, celui-ci en informe les Parties, qui sont alors libres de soumettre le Litige à une autre institution d’arbitrage ou de saisir les juridictions étatiques.</value>
+  </data>
+  <data name="Art4_3_2" xml:space="preserve">
+    <value>4.3.2.	Prélèvement des frais et honoraires d’arbitrage</value>
+  </data>
+  <data name="Art4_3_2Provisions_L1" xml:space="preserve">
+    <value>Si le Centre accepte la Demande d’Arbitrage, celui-ci procède au prélèvement des frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art4_3_2Provisions_L2" xml:space="preserve">
+    <value>Le cas échéant, eu égard à la nature et à la complexité des dossiers soumis par les Parties, le Centre les informe que la résolution du Litige entraînera le paiement de frais et honoraires supplémentaires par rapport à ceux mentionnés dans le Tarif. Le Centre invite alors chaque Partie à procéder au paiement de la moitié des frais et honoraires d’arbitrage. Si l’une des Parties ne procède par au paiement, l’autre Partie peut décider de procéder au paiement l’intégralité des frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art4_3_3" xml:space="preserve">
+    <value>4.3.3.	Information des Parties de la constitution du tribunal arbitral</value>
+  </data>
+  <data name="Art4_3_3Provisions" xml:space="preserve">
+    <value>Lorsque l’intégralité des frais et honoraires est encaissée par le Centre, celui-ci informe les Parties de la constitution du tribunal arbitral par lettre recommandée avec accusé de réception. Cette notification contient des codes d’accès permettant aux Parties se connecter à la Plateforme pour participer à la procédure d’arbitrage.</value>
+  </data>
+  <data name="Art4_3_4" xml:space="preserve">
+    <value>4.3.4.	Remboursement des sommes versées</value>
+  </data>
+  <data name="Art4_3_4Provisions" xml:space="preserve">
+    <value>A défaut d’encaissement par le Centre de l’intégralité des frais et honoraires d’arbitrage dans le délai d’un mois à compter de la Demande d’Arbitrage, celle-ci est caduque et les sommes éventuellement versées par les Parties leur sont remboursées.</value>
+  </data>
+  <data name="Art5" xml:space="preserve">
+    <value>ARTICLE 5.	CONSTITUTION DU TRIBUNAL ARBITRAL</value>
+  </data>
+  <data name="Art5_1" xml:space="preserve">
+    <value>5.1.	Désignation de l’Arbitre par le Centre</value>
+  </data>
+  <data name="Art5_1Provisions" xml:space="preserve">
+    <value>Le tribunal arbitral est composé d'un Arbitre désigné par le Centre dès encaissement de l’intégralité des frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art5_2" xml:space="preserve">
+    <value>5.2.	Acceptation de la mission par l’Arbitre</value>
+  </data>
+  <data name="Art5_2Provisions_L1" xml:space="preserve">
+    <value>Dès qu’il est désigné, l’Arbitre doit accepter ou refuser la mission qui lui est confiée par le Centre.</value>
+  </data>
+  <data name="Art5_2Provisions_L2" xml:space="preserve">
+    <value>Si l’Arbitre accepte sa mission, l’Arbitre s’engage à accomplir celle-ci jusqu'à son terme. L’acceptation de sa mission par l’Arbitre doit contenir une déclaration qui mentionnera les éventuelles circonstances qui seraient de nature à affecter son indépendance et/ou son impartialité. Si de telles circonstances sont révélées par l’Arbitre, celui-ci est alors confirmé ou révoqué sur décision du Centre, prise après avoir recueilli l'avis des Parties.</value>
+  </data>
+  <data name="Art5_2Provisions_L3" xml:space="preserve">
+    <value>Si l’Arbitre refuse sa mission ou s’il est révoqué, le Centre désigne immédiatement un nouvel Arbitre.</value>
+  </data>
+  <data name="Art5_2Provisions_L4" xml:space="preserve">
+    <value>Le tribunal arbitral est constitué dès acceptation de sa mission par l’Arbitre.</value>
+  </data>
+  <data name="Art5_2Provisions_L5" xml:space="preserve">
+    <value>Le Centre informe immédiatement les Parties de l’acceptation de sa mission par l’Arbitre.</value>
+  </data>
+  <data name="Art6" xml:space="preserve">
+    <value>ARTICLE 6.	PROCÉDURE ARBITRALE</value>
+  </data>
+  <data name="Art6_1" xml:space="preserve">
+    <value>6.1.	Règles générales</value>
+  </data>
+  <data name="Art6_1Provisions_L1" xml:space="preserve">
+    <value>Il appartient à l’Arbitre d'organiser la procédure arbitrale sur la Plateforme conformément au présent Règlement et aux procédures techniques de la Plateforme, sous la forme qu'il estime appropriée, en fonction de la nature de l'affaire et en tenant compte des dispositions éventuellement prévues par les Parties. L’Arbitre s’engage à respecter, dans la conduite de la procédure, les principes directeurs du procès énoncés aux articles 4 à 10, 11, alinéa 1er, 12, alinéas 2 et 3, 13 à 21, 23 et 23-1 du Code de procédure civile</value>
+  </data>
+  <data name="Art6_1Provisions_L2" xml:space="preserve">
+    <value>L’Arbitre règle par ordonnance de procédure tout problème de procédure, tout incident de procédure, ainsi que toute demande d’intervention ou de jonction. Ces ordonnances de procédure ne sont pas susceptibles de recours.</value>
+  </data>
+  <data name="Art6_1Provisions_L3" xml:space="preserve">
+    <value>Tous les documents et commentaires échangés sur la Plateforme sont accessibles aux Parties et à l’Arbitre. Chacun d’eux a la possibilité de commenter ces documents sur la Plateforme oralement ou par écrit.</value>
+  </data>
+  <data name="Art6_1Provisions_L4" xml:space="preserve">
+    <value>Les Parties parvenues à un accord au cours de l'instance arbitrale peuvent demander au tribunal arbitral de le constater dans une Sentence d’accord-partie.</value>
+  </data>
+  <data name="Art6_1Provisions_L5" xml:space="preserve">
+    <value>La Partie qui, en connaissance de cause et sans motif légitime, s'abstient d'invoquer en temps utile une irrégularité devant le tribunal arbitral, est réputée avoir renoncé à s'en prévaloir.</value>
+  </data>
+  <data name="Art6_2" xml:space="preserve">
+    <value>6.2.	Déroulement de la procédure principale</value>
+  </data>
+  <data name="Art6_2Provisions" xml:space="preserve">
+    <value>A moins que le Centre n’ait fixé un calendrier de procédure dérogeant aux dispositions ci-après, la procédure principale se déroule comme suit :</value>
+  </data>
+  <data name="Art6_2_1" xml:space="preserve">
+    <value>6.2.1.	Mise en état</value>
+  </data>
+  <data name="Art6_2_1Provisions_L1" xml:space="preserve">
+    <value>L’Arbitre dispose d’un délai de 14 (quatorze) jours à compter de la constitution du tribunal arbitral pour formuler des demandes aux Parties aux fins de mettre l’affaire en état d’être jugée. Chaque Partie doit alors répondre aux demandes de l’Arbitre dans le délai imparti.</value>
+  </data>
+  <data name="Art6_2_1Provisions_L2" xml:space="preserve">
+    <value>Les Parties disposent alors d’un délai de 7 (sept) jours pour compléter leur dossier, en étayant librement leurs prétentions et contestations respectives émises lors de la constitution de leur dossier.</value>
+  </data>
+  <data name="Art6_2_2" xml:space="preserve">
+    <value>6.2.2.	Projet de Sentence</value>
+  </data>
+  <data name="Art6_2_2Provisions_L1" xml:space="preserve">
+    <value>L’Arbitre dispose alors d’un délai de 7 (sept) jours pour rendre un projet de Sentence au vu des dossiers présentés par les Parties.</value>
+  </data>
+  <data name="Art6_2_2Provisions_L2" xml:space="preserve">
+    <value>Les Parties disposent alors d’un délai de 7 (sept) jours à compter de la mise en ligne du projet de Sentence par l’Arbitre pour étayer à nouveau leurs prétentions et contestations respectives.</value>
+  </data>
+  <data name="Art6_2_3" xml:space="preserve">
+    <value>6.2.3.	Sentence</value>
+  </data>
+  <data name="Art6_2_3Provisions_L1" xml:space="preserve">
+    <value>A défaut de réaction des Parties dans le délai précité, le projet de Sentence vaut Sentence définitive.</value>
+  </data>
+  <data name="Art6_2_3Provisions_L2" xml:space="preserve">
+    <value>Dans le cas contraire, l’Arbitre dispose d’un délai de 7 (sept) jours au terme du délai précité pour statuer au vu des dernières prétentions et contestations respectives des Parties.</value>
+  </data>
+  <data name="Art6_3" xml:space="preserve">
+    <value>6.3.	Procédures incidentes</value>
+  </data>
+  <data name="Art6_3_1" xml:space="preserve">
+    <value>6.3.1.	Règles générales</value>
+  </data>
+  <data name="Art6_3_1Provisions_L1" xml:space="preserve">
+    <value>Les Parties ou l’Arbitre peuvent introduire les procédures incidentes ci-après mentionnées.</value>
+  </data>
+  <data name="Art6_3_1Provisions_L2" xml:space="preserve">
+    <value>Lorsque les procédures incidentes sont introduites par une Partie, celles-ci se déroulent comme la procédure principale.</value>
+  </data>
+  <data name="Art6_3_1Provisions_L3" xml:space="preserve">
+    <value>Lorsque les procédures incidentes sont introduites par l’Arbitre, celui-ci rend immédiatement un projet d’ordonnance de procédure.</value>
+  </data>
+  <data name="Art6_3_2" xml:space="preserve">
+    <value>6.3.2.	Contestation de la compétence du tribunal arbitral</value>
+  </data>
+  <data name="Art6_3_2Provisions_L1" xml:space="preserve">
+    <value>L’Arbitre statue sur les éventuelles contestations relatives à l’inexistence, l’invalidité ou l’inapplicabilité de la convention d’arbitrage.</value>
+  </data>
+  <data name="Art6_3_2Provisions_L2" xml:space="preserve">
+    <value>Les exceptions d’incompétence doivent, à peine d'irrecevabilité, être soulevées avant toute défense au fond ou fin de non-recevoir.</value>
+  </data>
+  <data name="Art6_3_3" xml:space="preserve">
+    <value>6.3.3.	Suspension et interruption de procédure</value>
+  </data>
+  <data name="Art6_3_3_1" xml:space="preserve">
+    <value>6.3.3.1.	Règles générales</value>
+  </data>
+  <data name="Art6_3_3_1Provisions_L1" xml:space="preserve">
+    <value>L’interruption ou la suspension de l'instance ne dessaisit pas le tribunal arbitral.</value>
+  </data>
+  <data name="Art6_3_3_1Provisions_L2" xml:space="preserve">
+    <value>Le tribunal arbitral peut inviter les Parties à lui faire part de leurs initiatives en vue de reprendre l'instance ou de mettre un  terme aux causes d'interruption ou de suspension. En cas de carence des Parties, il peut mettre fin à l'instance.</value>
+  </data>
+  <data name="Art6_3_3_1Provisions_L3" xml:space="preserve">
+    <value>L’instance reprend son cours en l'état où elle se trouvait au moment où elle a été interrompue ou suspendue lorsque les causes de son interruption ou de sa suspension cessent d'exister.</value>
+  </data>
+  <data name="Art6_3_3_2" xml:space="preserve">
+    <value>6.3.3.2.	Sursis à statuer</value>
+  </data>
+  <data name="Art6_3_3_2Provisions_L1" xml:space="preserve">
+    <value>Le tribunal arbitral peut, s'il y a lieu, surseoir à statuer. Cette décision suspend le cours de l'instance pour le temps ou  jusqu'à la survenance de l'événement qu'elle détermine.</value>
+  </data>
+  <data name="Art6_3_3_2Provisions_L2" xml:space="preserve">
+    <value>Le délai d'arbitrage recommence à courir lorsque le tribunal arbitral est informé de la survenance dudit événement par la Partie la plus diligente.</value>
+  </data>
+  <data name="Art6_3_3_2Provisions_L3" xml:space="preserve">
+    <value>Le tribunal arbitral peut, suivant les circonstances, révoquer le sursis ou en abréger le délai.</value>
+  </data>
+  <data name="Art6_3_3_3" xml:space="preserve">
+    <value>6.3.3.3.	Décès, empêchement, abstention, démission, récusation, révocation</value>
+  </data>
+  <data name="Art6_3_3_3Provisions_L1" xml:space="preserve">
+    <value>L'instance arbitrale est également suspendue en cas de décès, d'empêchement, d'abstention, de démission, de récusation ou de révocation de l'Arbitre jusqu'à l'acceptation de sa mission par l'Arbitre désigné en remplacement.</value>
+  </data>
+  <data name="Art6_3_3_3Provisions_L2" xml:space="preserve">
+    <value>Ce nouvel Arbitre est désigné par le Centre. Toutefois, en cas de difficulté, le Centre peut saisir le juge d’appui sur requête afin qu’il soit procédé au remplacement de l’Arbitre par ordonnance non susceptible de recours.</value>
+  </data>
+  <data name="Art6_3_4" xml:space="preserve">
+    <value>6.3.4.	Mesures conservatoires et provisoires</value>
+  </data>
+  <data name="Art6_3_4Provisions_L1" xml:space="preserve">
+    <value>Le tribunal arbitral peut ordonner aux Parties, dans les conditions qu'il détermine et au besoin à peine d'astreinte, toute mesure conservatoire ou provisoire qu'il juge opportune. Toutefois, la juridiction de l'Etat est seule compétente pour ordonner des saisies conservatoires et sûretés judiciaires.</value>
+  </data>
+  <data name="Art6_3_4Provisions_L2" xml:space="preserve">
+    <value>Le tribunal arbitral peut modifier ou compléter la mesure provisoire ou conservatoire qu'il a ordonnée.</value>
+  </data>
+  <data name="Art6_3_5" xml:space="preserve">
+    <value>6.3.5.	Mesures d’instruction</value>
+  </data>
+  <data name="Art6_3_5_1" xml:space="preserve">
+    <value>6.3.5.1.	Règles générales</value>
+  </data>
+  <data name="Art6_3_5_1Provisions_L1" xml:space="preserve">
+    <value>L’Arbitre est dispensé du respect des règles du Code de procédure civile régissant l’instruction. Il dispose des pouvoirs les plus larges pour instruire l’affaire. Il organise librement l’instruction, conformément au présent Règlement.</value>
+  </data>
+  <data name="Art6_3_5_1Provisions_L2" xml:space="preserve">
+    <value>L’Arbitre peut notamment ordonner toute mesure d'instruction, sur demande d’une Partie ou d’office, sans en informer préalablement les Parties, dès lors que les éléments de faits sur lesquels s’appuie sa décision peuvent faire l’objet d’un débat contradictoire sur la Plateforme avant le prononcé d’une décision définitive.</value>
+  </data>
+  <data name="Art6_3_5_2" xml:space="preserve">
+    <value>6.3.5.2.	Constatations matérielles</value>
+  </data>
+  <data name="Art6_3_5_2Provisions" xml:space="preserve">
+    <value>L’Arbitre peut procéder lui-même à des constatations matérielles, notamment sur internet.</value>
+  </data>
+  <data name="Art6_3_5_3" xml:space="preserve">
+    <value>6.3.5.3.	Auditions</value>
+  </data>
+  <data name="Art6_3_5_3Provisions_L1" xml:space="preserve">
+    <value>L’Arbitre peut entendre les Parties au moyen d’un procédé de communication permettant d’organiser un débat contradictoire. Il détermine les questions objets du débat, ainsi que le temps imparti aux Parties pour y répondre.</value>
+  </data>
+  <data name="Art6_3_5_3Provisions_L2" xml:space="preserve">
+    <value>L’Arbitre peut entendre des témoins, des experts ou toute autre personne dont l'audition serait sollicitée par une Partie ou décidée par lui.</value>
+  </data>
+  <data name="Art6_3_5_4" xml:space="preserve">
+    <value>6.3.5.4.	Inscription de faux et vérification d'écritures</value>
+  </data>
+  <data name="Art6_3_5_4Provisions_L1" xml:space="preserve">
+    <value>Les copies des pièces communiquées par une Partie sur la Plateforme sont réputées sincères, à moins que l’autre Partie ne provoque un incident de vérification d'écriture ou de faux.</value>
+  </data>
+  <data name="Art6_3_5_4Provisions_L2" xml:space="preserve">
+    <value>L'Arbitre tranche les incidents de vérification d'écriture ou de faux. Il peut ordonner toute mesure de nature à vérifier la sincérité de la pièce contestée.</value>
+  </data>
+  <data name="Art6_3_5_5" xml:space="preserve">
+    <value>6.3.5.5.	Expertises</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L1" xml:space="preserve">
+    <value>S'il l'estime utile, l’Arbitre peut nommer un ou plusieurs experts.</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L2" xml:space="preserve">
+    <value>L’établissement du rapport définitif d’expertise se déroule comme suit :</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L3" xml:space="preserve">
+    <value>L’ordonnance désignant l’expert détermine précisément la mission de celui-ci et le délai lui étant imparti pour réaliser sa mission.</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L4" xml:space="preserve">
+    <value>L’expert dispose du délai imparti par l’Arbitre pour rendre un projet de rapport d’expertise.</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L5" xml:space="preserve">
+    <value>Les Parties disposent d’un délai de 7 (sept) jours francs pour présenter d’éventuels commentaires concernant le projet de rapport d’expertise.</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L6" xml:space="preserve">
+    <value>A défaut de contestation dans ce délai, le projet vaut rapport d’expertise définitif. Dans le cas contraire, l’expert modifie éventuellement son rapport au vu des commentaires présentés par les Parties.</value>
+  </data>
+  <data name="Art6_3_5_5Provisions_L7" xml:space="preserve">
+    <value>Toute difficulté dans le déroulement de l'expertise, non réglée par l'expert et les Parties, sera soumise à l’Arbitre.</value>
+  </data>
+  <data name="Art6_3_5_6" xml:space="preserve">
+    <value>6.3.5.6.	Production et communication de pièces</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L1" xml:space="preserve">
+    <value>Si une Partie détient un élément de preuve utile à la solution du Litige, le tribunal arbitral peut lui adresser une notification par l’intermédiaire de la Plateforme afin qu’il communique ou produise cet élément de preuve. En cas d’inaction de la Partie, l’Arbitre peut lui enjoindre de le communiquer ou le produire, au moyen d’une ordonnance de procédure motivée, selon les modalités qu'il détermine, et au besoin à peine d'astreinte.</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L2" xml:space="preserve">
+    <value>Lorsqu'une partie ou l'arbitre souhaite qu'une mesure d'instruction soit prise à l'encontre d'un tiers, il est procédé comme indiqué au présent article.</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L3" xml:space="preserve">
+    <value>Si la mesure d'instruction envisagée nécessite que le tiers soit appelé à l'instance concernant la mesure d'instruction, il est procédé comme indiqué à l'article 1469 du code de procédure civile.</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L4" xml:space="preserve">
+    <value>Si la mesure d'instruction ne nécessite pas que le tiers soit appelé à l'instance concernant la mesure d'instruction, il est procédé comme suit :</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L5" xml:space="preserve">
+    <value>L'arbitre provoque un débat sur la Plateforme, afin de recueillir les arguments en fait et en droit de chaque partie concernant la mesure d'instruction envisagée.</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L6" xml:space="preserve">
+    <value>L'arbitre transmet ces arguments à l’avocat de son choix, que les parties mandatent d'ores et déjà aux fins de déposer en leur nom et pour leur compte une requête conjointe devant le président du tribunal compétent statuant en référé.</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L7" xml:space="preserve">
+    <value>Le juge saisi statue sur le bien-fondé de la demande de mesure d'instruction au regard des arguments en fait et en droit de chaque partie présentés dans la requête conjointe. Les parties s'accordent pour lier le juge saisi quant à sa compétence pour connaître de la demande de mesure d'instruction et à la recevabilité de la demande de production de pièce, conformément à l'article 57-1 du code de procédure civile.</value>
+  </data>
+  <data name="Art6_3_5_6Provisions_L8" xml:space="preserve">
+    <value>Les parties renoncent d'ores et déjà à un éventuel appel contre la décision à intervenir ordonnant ou refusant la mesure d'instruction envisagée.</value>
+  </data>
+  <data name="Art10" xml:space="preserve">
+    <value>ARTICLE 10.	DÉLAIS</value>
+  </data>
+  <data name="Art10Provisions_L1" xml:space="preserve">
+    <value>La Sentence est rendue par l’Arbitre dans le délai le plus bref, selon les caractéristiques du Litige. En toute hypothèse, elle doit l'être dans un délai maximum de six mois à compter de la constitution du tribunal arbitral. Ce délai peut être prorogé par le Centre.</value>
+  </data>
+  <data name="Art10Provisions_L2" xml:space="preserve">
+    <value>Chaque Partie et l’Arbitre disposent à tout moment de la faculté de présenter au Centre une demande motivée de prorogation ou de diminution des délais de procédure. Le Centre accepte ou refuse cette demande par décision non motivée et non susceptible de recours.</value>
+  </data>
+  <data name="Art11" xml:space="preserve">
+    <value>ARTICLE 11.	CONFIDENTIALITÉ</value>
+  </data>
+  <data name="Art11Provisions_L1" xml:space="preserve">
+    <value>L'arbitrage et les échanges d'informations sur la Plateforme sont confidentiels. L’obligation de confidentialité pèse sur tout Utilisateur, chacun se portant fort, le cas échéant, du respect de cette obligation par son personnel et ses représentants.</value>
+  </data>
+  <data name="Art11Provisions_L2" xml:space="preserve">
+    <value>L’obligation de confidentialité ne fait pas obstacle à la production des informations échangées sur la Plateforme devant les tribunaux étatiques. Elle ne fait pas non plus obstacle à la relecture de la Sentence par un comité du Centre chargé de l’harmonisation des Sentences. Les membres de ce comité sont tenus à la confidentialité.</value>
+  </data>
+  <data name="Art11Provisions_L3" xml:space="preserve">
+    <value>La Sentence pourra être publiée après avoir été anonymisée.</value>
+  </data>
+  <data name="Art12" xml:space="preserve">
+    <value>ARTICLE 12.	IDENTIFICATIONS, NOTIFICATIONS ET COMMUNICATIONS</value>
+  </data>
+  <data name="Art12_1" xml:space="preserve">
+    <value>12.1.	Identifications</value>
+  </data>
+  <data name="Art12_1Provisions" xml:space="preserve">
+    <value>Chaque Partie est tenue de produire tout document d’identification sollicité par le Centre ou l’Arbitre.</value>
+  </data>
+  <data name="Art12_2" xml:space="preserve">
+    <value>12.2.	Notifications et communications</value>
+  </data>
+  <data name="Art12_2Provisions_L1" xml:space="preserve">
+    <value>A moins que le présent Règlement n’en dispose autrement, les notifications et communications entre les Utilisateurs sont effectuées par l’intermédiaire de la Plateforme, chaque événement survenant sur celle-ci étant notifié aux Parties et à l’Arbitre par email.</value>
+  </data>
+  <data name="Art12_2Provisions_L2" xml:space="preserve">
+    <value>Lorsque le présent Règlement impose une notification par lettre recommandée, celle-ci est  effectuée à l’adresse figurant sur le registre public Infogreffe correspondante au numéro de Siret du destinataire au jour de la notification.</value>
+  </data>
+  <data name="Art13" xml:space="preserve">
+    <value>ARTICLE 13. DISPOSITIONS FINALES</value>
+  </data>
+  <data name="Art13_1" xml:space="preserve">
+    <value>13.1.	Lieu de l’arbitrage</value>
+  </data>
+  <data name="Art13_1Provisions" xml:space="preserve">
+    <value>Le lieu de l'Arbitrage est celui du siège social du Centre.</value>
+  </data>
+  <data name="Art13_2" xml:space="preserve">
+    <value>13.2.	Règles de droit applicables à l'arbitrage</value>
+  </data>
+  <data name="Art13_2Provisions" xml:space="preserve">
+    <value>Les règles de procédure de l'arbitrage sont soumises au droit français.</value>
+  </data>
+  <data name="Art13_3" xml:space="preserve">
+    <value>13.3.	Langue de l’arbitrage</value>
+  </data>
+  <data name="Art13_3Provisions" xml:space="preserve">
+    <value>La langue de l’arbitrage est le français</value>
+  </data>
+  <data name="Art13_4" xml:space="preserve">
+    <value>13.4.	Interprétation du Règlement</value>
+  </data>
+  <data name="Art13_4Provisions" xml:space="preserve">
+    <value>Toute interprétation du présent Règlement est du ressort du Centre.</value>
+  </data>
+  <data name="Art6_4" xml:space="preserve">
+    <value>6.4.	Procédure de récusation de l’Arbitre</value>
+  </data>
+  <data name="Art6_4Provisions_L1" xml:space="preserve">
+    <value>La Partie qui entend récuser un Arbitre doit  immédiatement, et au  plus tard dans les sept (7) jours de la survenance de la cause de la récusation ou de sa révélation, adresser au Centre une demande motivée. Après avoir procédé à une instruction contradictoire, le Centre se prononce sur  cette demande par décision non motivée et non susceptible de recours.</value>
+  </data>
+  <data name="Art6_4Provisions_L2" xml:space="preserve">
+    <value>L’instance arbitrale est suspendue pendant la procédure de récusation.</value>
+  </data>
+  <data name="Art6_4Provisions_L3" xml:space="preserve">
+    <value>Une fois la Sentence remise au Centre, aucune demande de récusation n'est recevable.</value>
+  </data>
+  <data name="Art7" xml:space="preserve">
+    <value>ARTICLE 7.	SENTENCE ARBITRALE</value>
+  </data>
+  <data name="Art7_1" xml:space="preserve">
+    <value>7.1.	Contenu de la Sentence</value>
+  </data>
+  <data name="Art7_1Provisions_L1" xml:space="preserve">
+    <value>La Sentence tranche le Litige soumis par les Parties à l’Arbitre sur la Plateforme. Les Sentences sont obligatoirement motivées et contiennent un exposé succinct des prétentions respectives des Parties et leurs moyens.</value>
+  </data>
+  <data name="Art7_1Provisions_L2" xml:space="preserve">
+    <value>L’Arbitre liquide dans la Sentence les frais et honoraires d’arbitrage relatifs aux procédures incidentes. Le cas échéant, le Centre invite les Parties à régler le montant de ces frais et honoraires d'arbitrage supplémentaires.</value>
+  </data>
+  <data name="Art7_1Provisions_L3" xml:space="preserve">
+    <value>L’Arbitre peut condamner l’une des Parties à rembourser à l’autre Partie, totalement ou partiellement, les frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art7_1Provisions_L4" xml:space="preserve">
+    <value>L’Arbitre peut en outre condamner l’une des Parties à verser à l’autre Partie la somme qu'il détermine au titre des frais exposés par elle et non compris dans les frais et honoraires d’arbitrage.</value>
+  </data>
+  <data name="Art7_2" xml:space="preserve">
+    <value>7.2.	Sentence originale établie au format électronique</value>
+  </data>
+  <data name="Art7_2Provisions" xml:space="preserve">
+    <value>La Sentence est établie par l’Arbitre au format électronique. Elle est datée et signée électroniquement par l’Arbitre. Elle est remise par l’Arbitre au Centre et conservée par ce dernier. Le Centre notifie aux Parties la Sentence signée électroniquement par l’Arbitre.</value>
+  </data>
+  <data name="Art7_3" xml:space="preserve">
+    <value>7.3.	Exécution de la Sentence</value>
+  </data>
+  <data name="Art7_3Provisions_L1" xml:space="preserve">
+    <value>La Sentence est assortie de l’exécution provisoire, à moins que l’Arbitre n’en décide autrement.</value>
+  </data>
+  <data name="Art7_3Provisions_L2" xml:space="preserve">
+    <value>En acceptant de soumettre leur Litige à l'arbitrage du Centre, les Parties s'engagent à exécuter la Sentence dès notification et renoncent à tous les recours auxquels elles peuvent valablement renoncer, à l'exception du recours en annulation.</value>
+  </data>
+  <data name="Art7_4" xml:space="preserve">
+    <value>7.4.	Exequatur</value>
+  </data>
+  <data name="Art7_4Provisions" xml:space="preserve">
+    <value>Sur la demande d’une Partie, le Centre peut mandater un avocat, au nom et pour le compte de celle-ci, aux fins de déposer une demande d’exequatur et de confier à un huissier de justice l’exécution de la Sentence.</value>
+  </data>
+  <data name="Art8" xml:space="preserve">
+    <value>ARTICLE 8.	RECTIFICATION, OMISSION  DE  STATUER ET INTERPRÉTATION</value>
+  </data>
+  <data name="Art8Provisions_L1" xml:space="preserve">
+    <value>Le tribunal arbitral peut, à la demande d'une Partie, rectifier les erreurs matérielles qui affecteraient la Sentence.</value>
+  </data>
+  <data name="Art8Provisions_L2" xml:space="preserve">
+    <value>À la demande d'une Partie, le tribunal arbitral peut compléter sa Sentence s'il a omis de statuer sur un chef de demande dont il était saisi ou s'il lui est demandé d'interpréter la Sentence.</value>
+  </data>
+  <data name="Art8Provisions_L3" xml:space="preserve">
+    <value>Les demandes de rectification d'erreurs matérielles et d'omissions de statuer ou d'interprétation sont adressées par lettre recommandée avec demande d'avis de réception au Centre qui en saisit le tribunal arbitral. Elles ne sont cependant recevables que si le tribunal arbitral peut à nouveau être constitué et si elles sont formées moins de trois (3) mois après que la Sentence a été notifiée.</value>
+  </data>
+  <data name="Art8Provisions_L4" xml:space="preserve">
+    <value>Si le tribunal arbitral ne peut être constitué, ce pouvoir appartient à la juridiction étatique compétente.</value>
+  </data>
+  <data name="Art8Provisions_L5" xml:space="preserve">
+    <value>Le tribunal arbitral statue dans les plus brefs délais par décision motivée.</value>
+  </data>
+  <data name="Art9" xml:space="preserve">
+    <value>ARTICLE 9.	ASSISTANCE ET REPRÉSENTATION DES PARTIES</value>
+  </data>
+  <data name="Art9_1" xml:space="preserve">
+    <value>9.1.	Assistance</value>
+  </data>
+  <data name="Art9_1Provisions" xml:space="preserve">
+    <value>Chaque Partie peut se faire assister par un avocat.</value>
+  </data>
+  <data name="Art9_2" xml:space="preserve">
+    <value>9.2.	Représentation</value>
+  </data>
+  <data name="Art9_2Provisions" xml:space="preserve">
+    <value>Chaque Partie peut se faire représenter à l'instance arbitrale par un avocat disposant d'un un pouvoir spécial.</value>
+  </data>
+</root>

@@ -1,0 +1,45 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Extensions
+@using ClickNClaim.WebPortal.Helpers
+@using ClickNClaim.Common
+@model List<ClickNClaim.Common.AspNetUser>
+<table class="striped highlight">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>@ButtonsAndRecurring.Surname</td>
+            <td>@Shared.Email</td>
+            <td>@Shared.Roles</td>
+            <td>@ButtonsAndRecurring.Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AspNetUser item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                   @item.DisplayName
+                </td>
+                <td>
+                   @item.Email
+                </td>
+                <td>
+                    @(String.Join(",", item.Roles.Select(c => c.Name)))
+                </td>
+                <td>
+                   <input type="button" class="btn btn-flat blue " onclick="openModal('#UpdateRoleModal', '@item.Id', '@(String.Join(",", item.Roles.Select(c=> c.Id)))' )" value="@Shared.ModifyRole" />
+                   
+                    @if (User.IsInRole("SuperAdmin"))
+                    {
+                     <a href="@Url.Action("Impersonate", "Admin", new { email = item.Email })">@Shared.Impersonate</a>
+                    }
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>
+
+

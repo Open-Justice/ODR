@@ -1,0 +1,29 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "ClauseCompromissoire";
+}
+
+<div class="container margin-top">
+
+    <h1 style="text-align:center">@Home.ArbClause</h1>
+    <p style="text-align:justify">@Home.ArbClauseInfo1 <b>@Home.ArbClauseInfo2</b>@Home.ArbClauseInfo3</p>
+
+    <p><b>@Home.ModClauseHeading </b></p>
+    <div class="card margin-bottom-small">
+        <div class="card-content" style="font-size:18px">
+            <i class="fa fa-quote-left" aria-hidden="true"></i><span>@Home.ModArbClause</span><i class="fa fa-quote-right" aria-hidden="true"></i>
+        </div>
+    </div>
+    <p>@Home.InfoArbAgreement</p>
+</div>
+
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}

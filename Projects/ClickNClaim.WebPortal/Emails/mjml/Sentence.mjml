@@ -1,0 +1,118 @@
+﻿<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Arial" />
+
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-container>
+
+      <mj-section background-color="#ffffff" padding="0">
+        <mj-column>
+          <mj-text align="center" font-size="10px">
+            Si vous ne visualisez pas correctement cet email, vous pouvez l'ouvrir dans votre navigateur en cliquant <a href="|*EMAILLINK*|">ici</a>.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-navbar background-color="rgb(243,124,46)">
+        <mj-column width="100%">
+          <mj-text>
+            <a style="text-decoration:none" href="http://cc-1.azurewebsites.net">
+              <h2 style="margin:0;width:150px;margin-top:5px">
+                <span style="color:black;font-weight:bold">Fast</span>
+                <span style="color:white">Arbitre</span>
+              </h2>
+            </a>
+          </mj-text>
+        </mj-column>
+        <!--<mj-column width="40%">
+          <mj-inline-links base-url="http://cc-1.azurewebsites.net/Account/Profil">
+            <mj-link href="/Account/Profil" color="#ffffff">Mes dossiers</mj-link>
+          
+          </mj-inline-links>
+        </mj-column>-->
+      </mj-navbar>
+
+
+      <!-- Image Header -->
+      <mj-section background-color="#f0f0f0">
+        <mj-column>
+          <mj-text align="center">
+            <h3 style="margin:0;padding:0">Mise à disposition de la sentence arbitrale</h3>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Introduction Text -->
+      <mj-section background-color="#fafafa">
+        <mj-column>
+          <mj-text align="justify">
+            <p>Bonjour |*TO*|,</p>
+            <p>Dans l'affaire : </p>
+            <p style="margin:3px 0">
+              <b>Dossier n° :</b>
+              |*REFDOSSIER*|
+            </p>
+            <p style="margin:3px 0">
+              <b>Demandeur : </b>|*ADVERSAIRE*|
+            </p>
+            <p style="margin:3px 0">
+              <b>Défendeur : </b>|*CLIENT*|
+            </p>
+            <p>
+              la sentence arbitrale a été rendue ce jour :
+            </p>
+            <div style="width:100%;text-align:center;font-size:20px;font-weight:bold;margin-top:20px;margin-bottom:20px">
+              <a href="http://|*URL*|">
+                VOIR LA SENTENCE
+              </a>
+            </div>
+
+            <p style="margin-top:15px;">
+              <b>Quelle est la valeur de la sentence ?</b>
+            </p>
+            <p style="margin-top:0;">La sentence rendue tranche le litige définitivement. Elle est obligatoire. Elle constitue une décision de justice. Elle peut être exécutée comme un jugement rendu par un tribunal étatique.</p>
+
+            <p style="margin-top:15px;">
+              <b>Que dois-je faire maintenant ?</b>
+            </p>
+            <p style="margin-top:0;">Vous devez d'abord prendre connaissance de la sentence. Si vous avez perdu, vous devez exécuter la sentence dès maintenant. Si vous avez gagné, vous pouvez demander à FastArbitre d'organiser l'exécution de la sentence si le perdant refuse de l'exécuter spontanément.</p>
+
+            <p style="margin-top:15px;">
+              <b>Quelles sont les voies de recours ?</b>
+            </p>
+            <p style="margin-top:0;">Conformément à l'article 12.2. du règlement d'arbitrage, la notification de la sentence arbitrale est effectuée par mise à disposition sur la Plateforme, à compter de laquelle courent les délais de recours.</p>
+            <p>Conformément à l'article 7.3 règlement d’arbitrage, la sentence est assortie de l’exécution provisoire, à moins que l’arbitre n’en décide autrement. Les parties s'engagent à exécuter la sentence dès notification et renoncent à tous les recours auxquels elles peuvent valablement renoncer, à l'exception du recours en annulation.</p>
+            <p>Conformément aux dispositions des articles 1494 et 1519 du code de procédure civile, vous avez la possibilité d'exercer un recours en annulation devant la Cour d'appel de Paris, dans le délai d'un mois à compter de la notification de la sentence. Si vous entendez exercer ce recours, vous devez charger un avocat exerçant dans le ressort de cette cour d'appel d'accomplir les formalités nécessaires avant l'expiration de ce délai qui est de rigueur.</p>
+            <p>Conformément à l'article 680 alinéa 1er du code de procédure civile, l'auteur d'un recours abusif ou dilatoire peut être condamné à une amende civile et au paiement d'une indemnité à l'autre partie.</p>
+
+            <p>
+              Cordialement,<br/>
+              Emmanuel Mouclier<br/>
+              Président de l'Institut digital d'arbitrage et de médiation
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+
+
+      <mj-section background-color="rgb(243,124,46)">
+        <mj-column width="100%">
+          <mj-text color="#fff" font-size="11px" padding-bottom="0">www.fast-arbitre.com est une plateforme éditée par l'institut digital d'arbitrage et de médiation</mj-text>
+          <mj-text color="#fff" font-size="11px" padding-bottom="0"  padding-top="0">
+            Idam 58 avenue de Wagram 75017 Paris. Tel : 01.86.95.47.61
+          </mj-text>
+        </mj-column>
+        <!--<mj-column width="30%">
+          <mj-inline-links base-url="http://cc-1.azurewebsites.net">
+            <mj-link href="/FAQ" align="right" color="#ffffff">FAQ</mj-link>
+          </mj-inline-links>
+        </mj-column>-->
+      </mj-section>
+
+    </mj-container>
+  </mj-body>
+</mjml>

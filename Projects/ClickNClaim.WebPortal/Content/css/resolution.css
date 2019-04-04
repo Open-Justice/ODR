@@ -1,0 +1,23 @@
+﻿  .small-cards {
+            height: 150px;
+            width: 150px;
+            cursor: pointer;
+            display: table;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+
+            .small-cards h2 {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .small-cards:hover {
+                background-color: lightgrey;
+            }
+
+
+
+            .small-cards.resolutionSelected:hover, .resolutionSelected {
+                background-color: #2196F3;
+            }

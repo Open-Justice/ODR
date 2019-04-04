@@ -1,0 +1,93 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Common
+@using ClickNClaim.Business
+@using ClickNClaim.WebPortal.Extensions
+
+    <h2>@Shared.Summary</h2>
+    <div class="card no-padding">
+        <div class="card-title-custom blue">
+            <div class="low-margin pos-relative">
+                <div class="card-title-line"></div>
+                <div class="card-title-custom-text">
+                    <div>
+                        <p class="blue">@Shared.CaseNo @Model.Conflict.Id</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            @{
+                ConflictResume resume = BLLConflicts.GetConflictResume(Model.Conflict.Id);
+                <p class="mini-title">Identification @if(resume.UserCanUpdate(User.Identity.GetId())) { <a href="@Url.Action("Identification", "Conflict", new { conflictId = Model.Conflict.Id })">@ButtonsAndRecurring.Modify</a>}</p>
+                foreach (var item in resume.UsersInConflicts)
+                {
+                    <div class="row" id="resume_uic_@item.IdUser">
+                        <div class="col s2" style="text-align:center">
+                            @if (String.IsNullOrWhiteSpace(item.User.PhotoPath))
+                            {
+                                <div class="img-presentation">
+                                    <i class="fa fa-user fa-2x"></i>
+                                </div>
+                            }
+                            else
+                            {
+                                <img src="@item.User.PhotoPath" class="circle" width="30" height="30" />
+                            }
+                        </div>
+                        <div class="col s9">
+                            <p>@( !String.IsNullOrWhiteSpace(item.CompanyName) ? item.CompanyName :  item.User.DisplayName) </p>
+                        </div>
+                    </div>
+                }
+
+                if (resume.UsersInConflicts != null && 
+                    resume.UsersInConflicts.Count > 0 && 
+                    resume.UsersInConflicts.Any(r => !String.IsNullOrWhiteSpace(r.UserDescriptionOfTheConflict)))
+                {
+                    <hr />
+                    <p class="mini-title">@Shared.Statements @if (resume.UserCanUpdate(User.Identity.GetId()))
+                    { <a href="@Url.Action("Declaration", "Conflict", new { conflictId = Model.Conflict.Id })">@ButtonsAndRecurring.Modify</a>}</p>
+                    foreach (var item in resume.UsersInConflicts)
+                    {
+                        if (!String.IsNullOrWhiteSpace(item.UserDescriptionOfTheConflict))
+                        {
+                            <div>
+                                <p>@( !String.IsNullOrWhiteSpace(item.CompanyName) ? item.CompanyName : item.User.DisplayName) @Shared.HasIndicated:</p>
+                                <p class="clamp">@item.UserDescriptionOfTheConflict</p>
+                            </div>
+                        }
+                    }
+                }
+
+                if (resume.Events != null && resume.Events.Count > 0)
+                {
+                    <hr />
+                    <p class="mini-title">@Shared.FactsExhibits @if (resume.UserCanUpdate(User.Identity.GetId()))
+                    { <a href="@Url.Action("Timeline", "Conflict", new { conflictId = Model.Conflict.Id })">@ButtonsAndRecurring.Modify</a>}</p>
+                    if (resume.Events.Count == 1)
+                    {
+                        <p>@Shared.OneEventFilledOut</p>
+                    }
+                    else
+                    {
+                        <p>@resume.Events.@Shared.XEventsFilledOut</p>
+                    }
+                }
+
+
+                if (resume.Resolutions != null && resume.Resolutions.Count > 0)
+                {
+                    <hr />
+                    <p class="mini-title">@Shared.Claims @if (resume.UserCanUpdate(User.Identity.GetId()))
+                    { <a href="@Url.Action("Resolution", "Conflict", new { conflictId = Model.Conflict.Id })">@ButtonsAndRecurring.Modify</a>}</p>
+                    foreach (var item in resume.Resolutions)
+                    {
+                        <p>@item.CreatedBy.DisplayName @Shared.Claim :</p>
+                        <i>@Html.Raw(item.Name)</i>
+                        <br/>
+                        <i>@Html.Raw(item.Description)</i>
+                    }
+                }
+            }
+        </div>
+    </div>

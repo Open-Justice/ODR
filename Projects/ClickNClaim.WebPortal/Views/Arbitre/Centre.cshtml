@@ -1,0 +1,123 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.WebPortal.Models.CentreModel
+@using ClickNClaim.WebPortal.Models
+@using ClickNClaim.WebPortal.Extensions
+@{
+    ViewBag.Title = Arbitre.Center;
+}
+
+<div class="container view-container">
+    <h1>@Arbitre.ArbitrationCenter</h1>
+
+    <div class="card">
+        <div class="card-content">
+            <h2>@Arbitre.DisputesReadyForArbitration</h2>
+            @Html.Partial("_ConflictList", new ConflictListModel() { Conflicts = Model.ConflictsToAssigned, ShouldShowArbiter = false })
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <h2>@Arbitre.AssignedDisputesWaitingArbConf</h2>
+            @Html.Partial("_ConflictList", new ConflictListModel(){ Conflicts = Model.ConflictsAssigned, ShouldShowArbiter = true, IsForArbiter = true })
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-content">
+            <h2>@Arbitre.DisputesUnderArbitration</h2>
+            @Html.Partial("_ConflictList", new ConflictListModel() { Conflicts =Model.ArbitrationStarted, ShouldShowArbiter = true })
+        </div>
+    </div>
+
+</div>
+
+<div class="modal" id="refuse-modal">
+    <form action="@Url.Action("Refuse","Arbitre")" method="post">
+        <input type="hidden" id="conflitId" name="conflictId" />
+      
+        <div class="modal-content">
+            <h4>@Arbitre.RefuseCase</h4>
+            <p>
+                @Arbitre.WarningAboutToRefuseCase
+            </p>
+            <div class="input-field">
+                <textarea id="refusal-comment" name="text" class="materialize-textarea"></textarea>
+                <label for="refusal-comment">@ButtonsAndRecurring.Comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue"  value="@ButtonsAndRecurring.Send" /></a>
+            <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.Cancel" /></a>
+        </div>
+    </form>
+</div>
+
+<div class="modal" id="refuse-case-modal">
+    <form action="@Url.Action("RefuseAssignation","Arbitre")" method="post">
+        <input type="hidden" id="conflitId" name="conflictId" />
+        <input type="hidden" id="whereFrom" name="whereFrom" value="@Arbitre.Center" />
+          <div class="modal-content">
+            <h4>@Arbitre.RefuseCase</h4>
+            <p>
+                @Arbitre.WarningAboutToRefuseCase2
+            </p>
+            <div class="input-field">
+                <textarea id="refusal-comment" name="text" class="materialize-textarea"></textarea>
+                <label for="refusal-comment">@ButtonsAndRecurring.Comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue" value="@ButtonsAndRecurring.Send" /></a>
+            <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.Cancel" /></a>
+        </div>
+    </form>
+</div>
+
+<div class="modal  modal-fixed-footer" id="arbiter-selection">
+   <div style="width:400px;height:400px; display:table" data-bind="visible : $root.arbitersLoading()">
+       <div style="display:table-cell;vertical-align:middle;text-align:center">
+           <div class="loader">
+               <div class="preloader-wrapper big active">
+                   <div class="spinner-layer spinner-blue-only">
+                       <div class="circle-clipper left">
+                           <div class="circle"></div>
+                       </div><div class="gap-patch">
+                           <div class="circle"></div>
+                       </div><div class="circle-clipper right">
+                           <div class="circle"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+    <div class="modal-content" data-bind="visible : !$root.arbitersLoading()">
+        @Html.Partial("_ArbiterList")
+    </div>
+     
+</div>
+
+
+@section css{
+<style type="text/css">
+    table tr td{
+        text-align:center;
+    }
+
+    table.lefty-table tr  td{
+        text-align:left;
+    }
+    </style>    
+}
+
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/viewModels/Arbitre/centreViewModel.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(), $("#wrapper")[0]);
+        })
+    </script>
+    
+}

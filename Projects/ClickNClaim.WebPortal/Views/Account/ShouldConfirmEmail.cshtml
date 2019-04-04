@@ -1,0 +1,38 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    
+}
+
+
+<div class="container root-container">
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <div class="card">
+                <h3>@Account.OneLastStep</h3>
+                <p>@Account.NotifEmailWillBeSentForConf</p>
+                <p>@Account.PleaseClickOnLinkInEmail</p>
+                <p>@Account.FastArbitreThankYou</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section css{
+    <style type="text/css">
+        .root-container {
+            margin-top: 40px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings({ data: '' }, $("#wrapper")[0]);
+
+        })
+
+    </script>
+}

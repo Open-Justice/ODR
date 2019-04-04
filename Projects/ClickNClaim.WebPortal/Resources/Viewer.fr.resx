@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessVideoConf" xml:space="preserve">
+    <value>Accéder à la visio-conférence</value>
+  </data>
+  <data name="Address1" xml:space="preserve">
+    <value>Adresse 1</value>
+  </data>
+  <data name="Address2" xml:space="preserve">
+    <value>Adresse 2</value>
+  </data>
+  <data name="Address3" xml:space="preserve">
+    <value>Adresse 3</value>
+  </data>
+  <data name="ArbitrationRequest" xml:space="preserve">
+    <value>Demande d'arbitrage</value>
+  </data>
+  <data name="ArbitrationRequestWarning1" xml:space="preserve">
+    <value>Vous allez formuler une demande d'arbitrage. Cette demande vous engage : elle constitue le premier acte de la procédure d'arbitrage.</value>
+  </data>
+  <data name="ArbitrationRequestWarning2" xml:space="preserve">
+    <value>Vous allez formuler une demande d'arbitrage. La procédure d'arbitrage sera engagée lorsque votre adversaire acceptera cette demande.</value>
+  </data>
+  <data name="ArbitrationRequestWarning3" xml:space="preserve">
+    <value>Votre adversaire a demandé un arbitrage. Merci de remplir vos informations officielles et de procéder au paiement de votre moitié des frais.</value>
+  </data>
+  <data name="CaseSituation" xml:space="preserve">
+    <value>Situation de l'affaire</value>
+  </data>
+  <data name="ChallengeBy" xml:space="preserve">
+    <value>Contestation de</value>
+  </data>
+  <data name="ChallengeDeclaration" xml:space="preserve">
+    <value>Contestez la déclaration de</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="CompanyID" xml:space="preserve">
+    <value>Informations officielle de votre entreprise</value>
+  </data>
+  <data name="CompanyRegistrationNo" xml:space="preserve">
+    <value>Siret</value>
+  </data>
+  <data name="CompanysForm" xml:space="preserve">
+    <value>Forme (SAS, SARL, etc)</value>
+  </data>
+  <data name="CompanysPhone" xml:space="preserve">
+    <value>Téléphone de l'entreprise</value>
+  </data>
+  <data name="ConfirmAndPay" xml:space="preserve">
+    <value>Valider et payer</value>
+  </data>
+  <data name="ConfirmationAndPayment" xml:space="preserve">
+    <value>Validation et paiement</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contacter</value>
+  </data>
+  <data name="ContactTheArbitrator" xml:space="preserve">
+    <value>Contacter l'arbitre</value>
+  </data>
+  <data name="CorporateName" xml:space="preserve">
+    <value>Raison sociale</value>
+  </data>
+  <data name="Cost1" xml:space="preserve">
+    <value>750€ HT</value>
+  </data>
+  <data name="Cost2" xml:space="preserve">
+    <value>1250€ HT</value>
+  </data>
+  <data name="Cost3" xml:space="preserve">
+    <value>1750€ HT</value>
+  </data>
+  <data name="Cost4" xml:space="preserve">
+    <value>2250€ HT</value>
+  </data>
+  <data name="CostOfArbitration1" xml:space="preserve">
+    <value>La résolution de votre conflit par l'arbitrage FastArbitre vous coûtera</value>
+  </data>
+  <data name="CostOfArbitration2" xml:space="preserve">
+    <value> par partie.</value>
+  </data>
+  <data name="CounselOf" xml:space="preserve">
+    <value>avocat de</value>
+  </data>
+  <data name="DeclarationBy" xml:space="preserve">
+    <value>Déclaration de</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description (optionel)</value>
+  </data>
+  <data name="DisputeTimeline" xml:space="preserve">
+    <value>Chronologie du litige</value>
+  </data>
+  <data name="EmailFor" xml:space="preserve">
+    <value>Mail pour</value>
+  </data>
+  <data name="EmailForArbitrator" xml:space="preserve">
+    <value>Mail pour l'arbitre</value>
+  </data>
+  <data name="EndOfStage" xml:space="preserve">
+    <value>Fin de l'étape dans</value>
+  </data>
+  <data name="HasYetToFillOutChallenge" xml:space="preserve">
+    <value>n'a pas encore renseigné de contestation</value>
+  </data>
+  <data name="HasYetToFillOutDeclaration" xml:space="preserve">
+    <value>n'a pas encore renseigné de déclaration</value>
+  </data>
+  <data name="InitiateIncidentalProceedings" xml:space="preserve">
+    <value>Lancer une procédure incidente</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>en cours</value>
+  </data>
+  <data name="MessageFor" xml:space="preserve">
+    <value>Message pour</value>
+  </data>
+  <data name="NameOfEntry" xml:space="preserve">
+    <value>Nom de l'événement</value>
+  </data>
+  <data name="NewEntry" xml:space="preserve">
+    <value>Nouvel événement</value>
+  </data>
+  <data name="NoCounsel" xml:space="preserve">
+    <value>Aucun représentant</value>
+  </data>
+  <data name="NoDeclarationFilledOut" xml:space="preserve">
+    <value>Aucune déclaration n'a été renseigné pour l'instant.</value>
+  </data>
+  <data name="NoEntryExistsForDispute" xml:space="preserve">
+    <value>Aucun événement n'existe pour l'instant pour ce conflit.</value>
+  </data>
+  <data name="NoExchanges" xml:space="preserve">
+    <value>Aucun débat en cours</value>
+  </data>
+  <data name="NoQuotation" xml:space="preserve">
+    <value>Votre conflit ne peut être chiffré pour l'instant. Nous allons le transmettre au conseil d'administration de FastArbitre afin d'étudier le type de litige que vous avez et nous vous ferons parvenir un devis sous 72h.</value>
+  </data>
+  <data name="NoVideoConfScheduled" xml:space="preserve">
+    <value>Aucune visio-conférence prévue pour l'instant</value>
+  </data>
+  <data name="OrganisationOfVideoConf" xml:space="preserve">
+    <value>Organisation de la visio-conférence en cours</value>
+  </data>
+  <data name="PartiesToTheDispute" xml:space="preserve">
+    <value>Les parties au litige</value>
+  </data>
+  <data name="PlanVideoConf" xml:space="preserve">
+    <value>Planifier une visio-conférence</value>
+  </data>
+  <data name="PleaseNameEntry" xml:space="preserve">
+    <value>Veuillez nommer cet événement</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Code postal</value>
+  </data>
+  <data name="PublicRegistryReport" xml:space="preserve">
+    <value>Rapport Bodacc</value>
+  </data>
+  <data name="ReasonForVideoConf" xml:space="preserve">
+    <value>Raison de votre demande de visio-conférence</value>
+  </data>
+  <data name="RequestArbitration" xml:space="preserve">
+    <value>Demander un arbitrage</value>
+  </data>
+  <data name="SeeVideoConf" xml:space="preserve">
+    <value>Voir la visio</value>
+  </data>
+  <data name="ShareCapital" xml:space="preserve">
+    <value>Capital</value>
+  </data>
+  <data name="SummaryOfCase" xml:space="preserve">
+    <value>Résumé du dossier</value>
+  </data>
+  <data name="TheArbitrator" xml:space="preserve">
+    <value>L'arbitre</value>
+  </data>
+  <data name="TheirCompanies" xml:space="preserve">
+    <value>Leurs entreprises</value>
+  </data>
+  <data name="TheirCounsel" xml:space="preserve">
+    <value>Leurs représentants</value>
+  </data>
+  <data name="UniqueIDNo" xml:space="preserve">
+    <value>Siren (*)</value>
+  </data>
+  <data name="UnknownAddress" xml:space="preserve">
+    <value>Adresse inconnue</value>
+  </data>
+  <data name="UnknownCorporateName" xml:space="preserve">
+    <value>Raison sociale inconnue</value>
+  </data>
+  <data name="UnknownUniqueID" xml:space="preserve">
+    <value>SIREN inconnue</value>
+  </data>
+  <data name="UpdateCompaniesInfo" xml:space="preserve">
+    <value>Mettre à jour les informations d'entreprises</value>
+  </data>
+  <data name="VideoConfDate" xml:space="preserve">
+    <value>Visio-conférence prévu le</value>
+  </data>
+  <data name="ViewMessages" xml:space="preserve">
+    <value>Voir les messages</value>
+  </data>
+  <data name="YouCanContactArbitrator" xml:space="preserve">
+    <value>Vous pouvez écrire à votre arbitre à tout moment. Une copie de votre message est automatiquement transmis à la partie adverse.</value>
+  </data>
+  <data name="YouCanContactParty" xml:space="preserve">
+    <value>Vous pouvez écrire à l'une des parties à tout moment. Une copie de votre message est automatiquement transmis à l'autre partie.</value>
+  </data>
+  <data name="YouWantVideoConf" xml:space="preserve">
+    <value>Vous souhaitez que l'arbitre organise une visio-conférence. Merci d'en précisez la raison. L'arbitre pourra accepter ou refuser votre demande. Si l'arbitre l'accepte, il vous proposera une série de date afin de faire cette visio-conférence.</value>
+  </data>
+  <data name="AddOtherDate" xml:space="preserve">
+    <value>Ajouter une autre date</value>
+  </data>
+  <data name="DateAndTimeVideoConf" xml:space="preserve">
+    <value>Date et heure de la visio-conférence</value>
+  </data>
+  <data name="DatesVideoConf" xml:space="preserve">
+    <value>Veuillez proposer vos dates pour la visio-conférence</value>
+  </data>
+  <data name="DescriptionIncidentalProceedings" xml:space="preserve">
+    <value>Description de la procédure</value>
+  </data>
+  <data name="DescriptionOfDiscussion" xml:space="preserve">
+    <value>Description du débat</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Durée de l'étape (en jours)</value>
+  </data>
+  <data name="DurationIncidentalProceedings" xml:space="preserve">
+    <value>Durée de la procédure (en jours)</value>
+  </data>
+  <data name="DurationOfDiscussion" xml:space="preserve">
+    <value>Durée du débat (en jours)</value>
+  </data>
+  <data name="DurationVideoConf" xml:space="preserve">
+    <value>Veuillez estimer la durée de votre visio-conférences</value>
+  </data>
+  <data name="GiveReasonForVideoConf" xml:space="preserve">
+    <value>Veuillez définir la raison de cette visio-conférence</value>
+  </data>
+  <data name="InitiateDiscussion" xml:space="preserve">
+    <value>Lancer un débat entre les parties</value>
+  </data>
+  <data name="InitiateDiscussion2" xml:space="preserve">
+    <value>Lancer le débat</value>
+  </data>
+  <data name="InitiateProceedings" xml:space="preserve">
+    <value>Lancer la procédure</value>
+  </data>
+  <data name="NameVideoConf" xml:space="preserve">
+    <value>Veuillez nommer cette visio-conférence</value>
+  </data>
+  <data name="ObjectOfDiscussion" xml:space="preserve">
+    <value>Objet du débat</value>
+  </data>
+  <data name="ObjectOfProceedings" xml:space="preserve">
+    <value>Objet de la procédure</value>
+  </data>
+  <data name="OrganizeVideoConf" xml:space="preserve">
+    <value>Organiser une visio-conférence</value>
+  </data>
+  <data name="StepRequirementsDays" xml:space="preserve">
+    <value>Cette étape requiert que vous définissiez un nombre de jours au bout desquelles le conflit passera automatiquement à l'étape suivante.</value>
+  </data>
+  <data name="SuggestDates" xml:space="preserve">
+    <value>Proposer les dates</value>
+  </data>
+  <data name="YouWantNextStep" xml:space="preserve">
+    <value>Vous souhaitez faire passer ce conflit à l'étape suivante</value>
+  </data>
+  <data name="ADocumentLinked" xml:space="preserve">
+    <value>Une pièce lié à cet événement</value>
+  </data>
+  <data name="ChallengeDocument" xml:space="preserve">
+    <value>Contester le document</value>
+  </data>
+  <data name="Claim" xml:space="preserve">
+    <value>Demande</value>
+  </data>
+  <data name="ConfirmationAndAccessCodes" xml:space="preserve">
+    <value>La confirmation de votre demande et vos codes d’accès à la procédure d’arbitrage seront envoyés au représentant légal de votre structure par courrier recommandé, à l’adresse du siège social de votre entreprise. Merci de bien vouloir vérifier ces éléments. Les codes d'accès a la phase d'arbitrage vous seront transmis dans cette LRAR.</value>
+  </data>
+  <data name="DateOfEvent" xml:space="preserve">
+    <value>La date de l'événement</value>
+  </data>
+  <data name="DescriptionOfChallenge" xml:space="preserve">
+    <value>Description de la contestation</value>
+  </data>
+  <data name="DetailReasonOfDisagreement" xml:space="preserve">
+    <value>Détaillez la raison de votre désaccord sur cet événement</value>
+  </data>
+  <data name="DisagreementOnEvent" xml:space="preserve">
+    <value>Désaccord sur l'événement</value>
+  </data>
+  <data name="DisagreementWith" xml:space="preserve">
+    <value>Désaccord(s) sur</value>
+  </data>
+  <data name="Disagrees" xml:space="preserve">
+    <value>n'est pas d'accord</value>
+  </data>
+  <data name="DisputeSentToAdversary" xml:space="preserve">
+    <value>Votre demande d’arbitrage a été soumise à votre adversaire. La procédure d’arbitrage débutera dès acceptation de sa part.</value>
+  </data>
+  <data name="DisputeSubmitted" xml:space="preserve">
+    <value>Votre litige vient d'être soumis à FastArbitre pour validation. Nous reviendrons vers vous très prochainement.</value>
+  </data>
+  <data name="EventAndDescription" xml:space="preserve">
+    <value>L'événement et sa description</value>
+  </data>
+  <data name="EventItself" xml:space="preserve">
+    <value>L'événement lui-même</value>
+  </data>
+  <data name="ExplainVideoConfRefusal" xml:space="preserve">
+    <value>Merci d'expliquer pourquoi vous refuser cette visio-conférence</value>
+  </data>
+  <data name="IDisagreeWith" xml:space="preserve">
+    <value>Je ne suis pas d'accord sur</value>
+  </data>
+  <data name="IndicateDateYouBelieve" xml:space="preserve">
+    <value>Précisez la date à laquelle vous estimez que cet événement a eu lieu</value>
+  </data>
+  <data name="IndicateDocument" xml:space="preserve">
+    <value>Précisez sur quelle pièce porte votre désaccord</value>
+  </data>
+  <data name="InitiateADiscussion" xml:space="preserve">
+    <value>Lancer un débat</value>
+  </data>
+  <data name="ObjectOfChallenge" xml:space="preserve">
+    <value>Objet de la contestation</value>
+  </data>
+  <data name="PaymentMade" xml:space="preserve">
+    <value>Paiement effectué</value>
+  </data>
+  <data name="ReasonForRefusing" xml:space="preserve">
+    <value>Raison du refus</value>
+  </data>
+  <data name="Said" xml:space="preserve">
+    <value>a écrit</value>
+  </data>
+  <data name="Section1Content" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</value>
+  </data>
+  <data name="Section1Title" xml:space="preserve">
+    <value>Section 1 titre</value>
+  </data>
+  <data name="SeeDiscussion" xml:space="preserve">
+    <value>Voir le débat</value>
+  </data>
+  <data name="SeeDisputeSummary" xml:space="preserve">
+    <value>Voir le résumé de mon litige</value>
+  </data>
+  <data name="TheExhibit" xml:space="preserve">
+    <value>La/les pièce(s)</value>
+  </data>
+  <data name="VideoConfLink" xml:space="preserve">
+    <value>Lien de la visio-conférence</value>
+  </data>
+  <data name="VideoConfRefusal" xml:space="preserve">
+    <value>Refus de Visio-conférence</value>
+  </data>
+  <data name="Award" xml:space="preserve">
+    <value>Sentence</value>
+  </data>
+  <data name="DownloadAndSign" xml:space="preserve">
+    <value>Téléchargez puis signez électroniquement le document</value>
+  </data>
+  <data name="PreAward" xml:space="preserve">
+    <value>Pré-sentence</value>
+  </data>
+  <data name="UpdloadSignedDoc" xml:space="preserve">
+    <value>Téléchargez le document signé électroniquement</value>
+  </data>
+</root>

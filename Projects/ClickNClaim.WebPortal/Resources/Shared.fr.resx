@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>A propos de FastArbitre</value>
+  </data>
+  <data name="AcceptCase" xml:space="preserve">
+    <value>Accepter le dossier</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Arbitration" xml:space="preserve">
+    <value>Arbitrage</value>
+  </data>
+  <data name="ArbitrationCenter" xml:space="preserve">
+    <value>Centre d'arbitrage</value>
+  </data>
+  <data name="ArbitrationClause" xml:space="preserve">
+    <value>Clause compromissoire</value>
+  </data>
+  <data name="ArbitrationRequest" xml:space="preserve">
+    <value>Demande d'arbitrage</value>
+  </data>
+  <data name="ArbitrationRequest1" xml:space="preserve">
+    <value>Si vous n'avez pas trouvé d'accord à l'amiable avec votre adversaire, vous pouvez alors faire une demande d'arbitrage.</value>
+  </data>
+  <data name="ArbitrationRequest2" xml:space="preserve">
+    <value>Le centre se saisira de votre dossier et désignera l'arbitre en charge de votre dossier.</value>
+  </data>
+  <data name="Arbitrator" xml:space="preserve">
+    <value>Arbitre</value>
+  </data>
+  <data name="Award" xml:space="preserve">
+    <value>Sentence</value>
+  </data>
+  <data name="BeforeStarting" xml:space="preserve">
+    <value>Avant de commencer, voici la procédure tel que vous allez la découvrir.</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>FastArbitre</value>
+  </data>
+  <data name="CaseNo" xml:space="preserve">
+    <value>Dossier n°</value>
+  </data>
+  <data name="ChallengeInfo1" xml:space="preserve">
+    <value>Lors de votre contestation, nous allons tout d'abord vous demander de confirmer les informations de contact qui nous ont été transmises à votre sujet, ou de les modifier ou compléter si nécessaire.</value>
+  </data>
+  <data name="ChallengeInfo2" xml:space="preserve">
+    <value>Vous pourrez ensuite donner votre version des faits en écrivant votre contestation sur la déclaration de votre adversaire.</value>
+  </data>
+  <data name="ChallengeInfo3" xml:space="preserve">
+    <value>Une fois votre propre déclaration écrite, vous aurez l'occasion de contester chaque fait ou pièce fourni par la partie adverse, ainsi qu'ajouter les faits et pièces qui vous semblent importants pour prouver vos dires.</value>
+  </data>
+  <data name="ChallengeInfo4" xml:space="preserve">
+    <value>Vos contestations apports personnels au dossier terminés, vous aurez la possibilité de faire vos propres demandes.</value>
+  </data>
+  <data name="ChallengeInfo5" xml:space="preserve">
+    <value>Enfin, après nous avoir confirmer que vous avez ou pas une clause compromissoire, votre dossier sera terminé et vous pourrez revoir le résumé du dossier complété de vos informations.</value>
+  </data>
+  <data name="ChallengeInfo6" xml:space="preserve">
+    <value>Plus qu'une chose à faire : trouver un accord amiable sur ce dossier et le cloturer, ou bien faire une demande d'arbitrage.</value>
+  </data>
+  <data name="ChangeSituation" xml:space="preserve">
+    <value>Changer la situation</value>
+  </data>
+  <data name="Claim" xml:space="preserve">
+    <value>demande</value>
+  </data>
+  <data name="Claims" xml:space="preserve">
+    <value>Demandes</value>
+  </data>
+  <data name="CodeOfEthics" xml:space="preserve">
+    <value>Charte éthique</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Nous contacter</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© 2016 Copyright IDAM</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Adresse mail</value>
+  </data>
+  <data name="EndOfDeclaration" xml:space="preserve">
+    <value>Fin de déclaration</value>
+  </data>
+  <data name="Error1" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="Error2" xml:space="preserve">
+    <value>Une erreur est survenue lors du traitement de votre demande.</value>
+  </data>
+  <data name="FactsExhibits" xml:space="preserve">
+    <value>Faits et Pièces</value>
+  </data>
+  <data name="Fast" xml:space="preserve">
+    <value>Fast</value>
+  </data>
+  <data name="FieldsOfExpertise" xml:space="preserve">
+    <value>Compétences</value>
+  </data>
+  <data name="FileAdministration" xml:space="preserve">
+    <value>Administration des dossiers</value>
+  </data>
+  <data name="FirstID" xml:space="preserve">
+    <value>Vous allez tout d'abord renseigner vos informations d'identification ainsi que celle de votre adversaire.</value>
+  </data>
+  <data name="HasIndicated" xml:space="preserve">
+    <value>a déclaré</value>
+  </data>
+  <data name="HowDoesItWork" xml:space="preserve">
+    <value>Comment ça marche ?</value>
+  </data>
+  <data name="Identification" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="Impersonate" xml:space="preserve">
+    <value>Incarner</value>
+  </data>
+  <data name="IUnderstand" xml:space="preserve">
+    <value>J'ai compris !</value>
+  </data>
+  <data name="Jobs" xml:space="preserve">
+    <value>Nous recrutons</value>
+  </data>
+  <data name="LawyerOptional" xml:space="preserve">
+    <value>Vous aurez par ailleurs l'occasion de déclarer un avocat si vous le souhaitez.</value>
+  </data>
+  <data name="LegalNotices" xml:space="preserve">
+    <value>Mentions légales</value>
+  </data>
+  <data name="LockedOut1" xml:space="preserve">
+    <value>Verrouillé</value>
+  </data>
+  <data name="LockedOut2" xml:space="preserve">
+    <value>Ce compte a été verouillé. Veuillez réessayer ultérieurement.</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="ModifyRole" xml:space="preserve">
+    <value>Modifier Rôles</value>
+  </data>
+  <data name="MyCases" xml:space="preserve">
+    <value>Mes dossiers</value>
+  </data>
+  <data name="MyClaims" xml:space="preserve">
+    <value>Mes demandes</value>
+  </data>
+  <data name="MyDeclaration" xml:space="preserve">
+    <value>Ma déclaration</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Mon profil</value>
+  </data>
+  <data name="NoArbitrator" xml:space="preserve">
+    <value>Aucun arbitre désigné</value>
+  </data>
+  <data name="NoDate" xml:space="preserve">
+    <value>Aucune date enregistrée</value>
+  </data>
+  <data name="NoOpposingParty" xml:space="preserve">
+    <value>Aucun adversaire renseigné</value>
+  </data>
+  <data name="NoType" xml:space="preserve">
+    <value>Type non renseigné</value>
+  </data>
+  <data name="OnceStatementFinished1" xml:space="preserve">
+    <value>Une fois votre déclaration terminée, vous pourrez la sauvegarder pour y revenir plus tard ou bien la transmettre à votre adversaire.</value>
+  </data>
+  <data name="OnceStatementFinished2" xml:space="preserve">
+    <value>Celle-ci pourra contester votre déclaration sur la plateforme. S'ouvre alors une phase d'échange entre vous qui peut aboutir à un accord amiable.</value>
+  </data>
+  <data name="OnceStatementFinished3" xml:space="preserve">
+    <value>Cette phase amiable est totalement gratuite, pour vous et votre adversaire.</value>
+  </data>
+  <data name="OnceStatementFinished4" xml:space="preserve">
+    <value>Aucun arbitre n'a été désigné et à ce stade aucun frais n'a été engagé.</value>
+  </data>
+  <data name="OneEventFilledOut" xml:space="preserve">
+    <value>1 événement a été renseigné</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>ouvert. Vous devez clore chacun d'entre eux pour passer à l'étape suivante.</value>
+  </data>
+  <data name="OpenFreeExchangePhase" xml:space="preserve">
+    <value>Ouvrir la phase de libre échange</value>
+  </data>
+  <data name="OpposingPartiesStatement" xml:space="preserve">
+    <value>Déclaration de la partie adverse</value>
+  </data>
+  <data name="PreAward" xml:space="preserve">
+    <value>Pré-sentence</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="Rates" xml:space="preserve">
+    <value>Tarifs</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Rôles</value>
+  </data>
+  <data name="RulesOfArbitration" xml:space="preserve">
+    <value>Réglement d'arbitrage</value>
+  </data>
+  <data name="Situation" xml:space="preserve">
+    <value>Situation</value>
+  </data>
+  <data name="StatementInstructions1" xml:space="preserve">
+    <value>Vient ensuite votre déclaration. Vous exprimerez de manière synthétique le litige que vous rencontrez.</value>
+  </data>
+  <data name="StatementInstructions2" xml:space="preserve">
+    <value>Vous renseignerez ensuite les faits de manière plus détaillée et transmettrez toutes les pièces que vous jugez utiles à votre situation.</value>
+  </data>
+  <data name="StatementOfClaims" xml:space="preserve">
+    <value>Déclaration</value>
+  </data>
+  <data name="Statements" xml:space="preserve">
+    <value>Déclarations</value>
+  </data>
+  <data name="Steps" xml:space="preserve">
+    <value>Etapes</value>
+  </data>
+  <data name="Still" xml:space="preserve">
+    <value>Encore</value>
+  </data>
+  <data name="SubscribeToNewsletter" xml:space="preserve">
+    <value>S'inscrire à la newsletter</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Résumé</value>
+  </data>
+  <data name="SummaryOfCase" xml:space="preserve">
+    <value>Résumé du dossier</value>
+  </data>
+  <data name="SummaryPage1" xml:space="preserve">
+    <value>Vous êtes actuellement sur la page de résumé du dossier.</value>
+  </data>
+  <data name="SummaryPage2" xml:space="preserve">
+    <value>Vous avez accès sur cette page aux informations que</value>
+  </data>
+  <data name="SummaryPage3" xml:space="preserve">
+    <value>nous a transmis. Vous avez tout d'abord le résumé général du dossier, c'est à dire son numéro ainsi que ses participants.</value>
+  </data>
+  <data name="SummaryPage4" xml:space="preserve">
+    <value>Vous retrouvez en dessous les déclarations de chacun, la votre étant encore grisée en attendant que vous passiez à l' étape suivante.</value>
+  </data>
+  <data name="SummaryPage5" xml:space="preserve">
+    <value>En dessous des déclarations, vous retrouvez l'arbre chronologique des faits et pièces. Relisez bien tout ce qu'il y est écrit, cette arbre est primordial à une bonne compréhension de la situation.</value>
+  </data>
+  <data name="SummaryPage6" xml:space="preserve">
+    <value>Si vous souhaitez répondre à ce dossier et potentiellement contester certaines informations, cliquer sur le bouton "Contester la déclaration de</value>
+  </data>
+  <data name="SummaryPage7" xml:space="preserve">
+    <value>en haut de la page.</value>
+  </data>
+  <data name="TechPltf" xml:space="preserve">
+    <value>Technologie et plateforme : Legal e-Services</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Conditions générales d'utilisation</value>
+  </data>
+  <data name="TransmissionToOpposingParty" xml:space="preserve">
+    <value>Transmission à la partie adverse</value>
+  </data>
+  <data name="UserAdministration" xml:space="preserve">
+    <value>Administration des utilisateurs</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bienvenu sur FastArbitre.</value>
+  </data>
+  <data name="Welcome1" xml:space="preserve">
+    <value>a déclaré un litige sur notre plateforme FastArbitre. Cette personne nous a demandé de vous en informer. A ce stade, il s’agit d’une phase purement amiable, gratuite et confidentielle. Aucun arbitre n’est saisi.</value>
+  </data>
+  <data name="Welcome2" xml:space="preserve">
+    <value>souhaite trouver avec vous la possibilité de résoudre son litige à l’amiable. FastArbitre lui a permis de l’exposer précisément, en vous présentant succinctement ce que cette personne vous reproche et ce qu’elle vous demande.</value>
+  </data>
+  <data name="Welcome3" xml:space="preserve">
+    <value>Nous allons maintenant rapidement vous montrer ce qui va suivre.</value>
+  </data>
+  <data name="XEventsFilledOut" xml:space="preserve">
+    <value>événements ont été renseignés</value>
+  </data>
+  <data name="YourChallenge" xml:space="preserve">
+    <value>Votre contestation</value>
+  </data>
+  <data name="YourClaims" xml:space="preserve">
+    <value>Vos demandes</value>
+  </data>
+  <data name="YourClaimsInstructions1" xml:space="preserve">
+    <value>Enfin, vous définirez ce que vous attendez de votre adversaire.</value>
+  </data>
+  <data name="YourClaimsInstructions2" xml:space="preserve">
+    <value>Vous renseignerez autant de demandes que vous le souhaitez en les motivant toutes.</value>
+  </data>
+  <data name="YourDeclaration" xml:space="preserve">
+    <value>Votre déclaration</value>
+  </data>
+  <data name="Arbitre" xml:space="preserve">
+    <value>Arbitre</value>
+  </data>
+</root>

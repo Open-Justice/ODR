@@ -1,0 +1,30 @@
+﻿@model ClickNClaim.WebPortal.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+@using ClickNClaim.WebPortal.Resources
+
+<h2>@Account.ViaSocialNetwork</h2>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0) {
+        <div>
+            <p>
+                @Account.ExtAuthenticationServices.
+            </p>
+        </div>
+    }
+    else {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
+              @foreach (AuthenticationDescription p in loginProviders)
+              {  <p style="text-align:center">
+                    
+                        <button type="submit" class="btn btn-default" style="width:90%" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="@Account.LoginUsingAccount">@Account.LoginVia @p.AuthenticationType</button>
+                   
+                </p>
+              }
+            </div>
+        }
+    }
+}

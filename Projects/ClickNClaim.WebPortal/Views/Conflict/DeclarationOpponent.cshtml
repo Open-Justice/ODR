@@ -1,0 +1,88 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Business
+@model ClickNClaim.WebPortal.Models.DeclarationModel
+@{
+    ViewBag.Title = "DeclarationOpponent";
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+}
+
+
+<form id="decla-form" action="@Url.Action("SaveOpponentDeclaration", "Conflict")" method="post">
+    <div class="container row">
+        <input type="hidden" name="conflictId" data-bind="value:data.Conflict.Id" />
+        <div class="col-md-8">
+            <div class="stepper-wrapper left  stepper-link-page-title">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                        <p class="stepper-content-text">2</p>
+                    </div>
+                </div>
+            </div><h1 style="color:rgb(243,124,46)">@Conflict.MyDispute</h1>
+            <div data-bind="foreach:data.PreviousDeclarations">
+              
+                <div class="card margin-bottom">
+                    <h5>@Conflict.StatementBy<span data-bind="text:User.DisplayName"></span> </h5>
+                    <p id="description"  data-bind="text:UserDescriptionOfTheConflict"></p>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-bottom:50px">
+                <h5>@Conflict.ChallengeStatement</h5>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="tip">
+                            <i class="fa fa-info-circle text-white fa-3x"></i>
+                            <p>@Conflict.ChallengeStatementInstructions</p>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="description" data-validation="required" data-bind="value:data.UserInConflict.UserDescriptionOfTheConflict" name="declaration" class="materialize-textarea"></textarea>
+                        <label for="description">@Conflict.WhatAreTheFacts</label>
+
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row last-row">
+                <div class="col s12">
+                    <input type="submit" class="btn btn-flat right blue" value="@ButtonsAndRecurring.NextStep" />
+                </div>
+            </div>
+         
+        </div>
+        <div class="col-md-4">
+            <div class="fixed-resume">
+                @Html.Partial("_ConflictResume")
+                </div>
+            </div>
+    </div>
+
+</form>
+
+
+
+@section css{
+    <link href="~/Content/css/declaration.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .card {
+            margin-bottom: 0px;
+        }
+    </style>
+}
+
+
+@section scripts{
+    <script src="~/Scripts/viewModels/declarationViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            loadComponents();
+
+        })
+    </script>
+}
+
+
+
+

@@ -1,0 +1,129 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Business
+@model ClickNClaim.WebPortal.Models.IdentificationForOpponentModel
+
+@{
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+<form action="@Url.Action("UpdateIdentificationForOpponent")" method="post">
+    @Html.HiddenFor(c => c.Conflict.Id)
+    <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+    <div class="container root-container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="stepper-wrapper left  stepper-link-page-title">
+                    <div class="stepper-white-ring">
+                        <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                            <p class="stepper-content-text">1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 style="color:rgb(243,124,46)">Identification</h1>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>@Conflict.WhatIsYourName</h2>
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input data-validation="required" class="validate"  type="text" name="Me.User.FirstName" data-bind="value:me.User.FirstName" id="firstName" />
+                                        <label for="firstName">@Conflict.Name :</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input data-validation="required" class="validate"  type="text" name="Me.User.LastName" data-bind="value:me.User.LastName" id="lastName" />
+                                        <label for="lastName">@Conflict.Surname :</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input type="text" name="Me.CompanyName" data-bind="text:me.CompanyName" id="social" />
+                                        <label for="social">@Conflict.CyName :</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input type="text" name="Me.UserFunction" data-bind="text:me.UserFunction" id="function" />
+                                        <label for="function">@Conflict.PositionInCy :</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input data-validation="required" class="validate"  type="text" name="Me.User.Email" data-bind="value:me.User.Email" id="email" />
+                                        <label for="email">@Conflict.Email :</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h2 style="display:inline-block">@Conflict.AreYouRepresentedByALawyer</h2>
+                                <p style="display:inline-block" data-bind="click:function(data,event){me.IsRepresented('true')}">
+                                    <input name="Me.IsRepresented" type="radio" value="true" data-bind="checked:toStr(me.IsRepresented())" id="isRepresented" />
+                                    <label for="isRepresented">@ButtonsAndRecurring.Yes</label>
+                                </p>
+                                <p style="display:inline-block" data-bind="click:function(data,event){me.IsRepresented('false')}">
+                                    <input name="Me.IsRepresented" type="radio" value="false" data-bind="checked:toStr(me.IsRepresented())" id="isNotRepresented" />
+                                    <label for="isNotRepresented">@ButtonsAndRecurring.No</label>
+                                </p>
+                                <div class="row" data-bind="visible:toStr(me.IsRepresented()) == 'false'">
+                                    <div class="col s12">
+                                        <div class="tip">
+                                            <i class="fa fa-info-circle text-white fa-3x"></i>
+                                            <p>@Conflict.IfLawyerReadOnly</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             
+                            <div class="row" data-bind="visible:toStr(me.IsRepresented()) == 'true'">
+                                <hr />
+                                <div class="tip">
+                                    <i class="fa fa-info-circle text-white fa-3x"></i>
+                                    <p>@Conflict.PartyWarning</p>
+                                </div>
+                                <h2>@Conflict.WhatIsTheNameOfTheLawyer</h2>
+                                <div class="input-field col s6">
+                                    <input type="text" data-validation="required" class="validate"  data-bind='value:$root.lawyer.FirstName' name="Lawyer.FirstName" id="lawyerFirstName" />
+                                    <label for="lawyerFirstName">@Conflict.LawyersName :</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" data-validation="required" class="validate"  data-bind='value:$root.lawyer.LastName' name="Lawyer.LastName" id="lawyerLastName" />
+                                    <label for="lawyerLastName">@Conflict.LawyersSurname:</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input type="text" data-validation="required" class="validate"  data-bind='value:$root.lawyer.Email' id="lawyerEmail" name="Lawyer.Email" />
+                                    <label for="lawyerEmail">@Conflict.Email :</label>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <input type="submit" class="btn btn-flat right blue" value="@ButtonsAndRecurring.NextStep" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="fixed-resume">
+                    @Html.Partial("_ConflictResume")
+                    </div>
+                </div>
+        </div>
+       
+    </div>
+</form>
+
+@section css{
+    <link href="~/Content/css/identification.css" type="text/css" rel="stylesheet" />
+}
+
+
+@section scripts{
+    <script src="~/Scripts/viewModels/identificationForOpponentViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            loadComponents();
+          
+        })
+    </script>
+}

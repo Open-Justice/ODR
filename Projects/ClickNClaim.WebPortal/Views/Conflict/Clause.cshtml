@@ -1,0 +1,124 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.WebPortal.Models.ClauseModel
+    @using ClickNClaim.WebPortal.Extensions
+
+@{ 
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+}
+
+<div class="container ">
+    <div class="row">
+
+        <div class="col s8">
+            <div class="stepper-wrapper left stepper-link-page-title no-margin " style="margin-right:10px !important">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                        <p class="stepper-content-text">5</p>
+                    </div>
+                </div>
+            </div>
+            <h5 style="color:rgb(243,124,46)">@Conflict.EndOfFiling</h5>
+            <div class="card">
+                <div>
+                    <div class="tip">
+                        <i class="fa fa-info-circle text-white fa-3x"></i>
+                        <p>@Conflict.FileNearlyComplete</p>
+                        <p>@Conflict.DoYouHaveArbitrationClause</p>
+                        <p>@Conflict.ArbitrationClauseExplanation</p>
+                        <p>@Conflict.WhereToDownloadClause</p>
+                    </div>
+                    <form id="accept-arbitrage" action="@Url.Action("Acceptance", "Conflict")" method="post" enctype="multipart/form-data">
+                        @Html.HiddenFor(c => c.Conflict.Id)
+                        <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+                        <h4>@Conflict.ExistenceArbClause</h4>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <p>@Conflict.DoYouHaveArbitrationClause2</p>
+                                <input type="hidden" name="conflict.HasArbitralClause" data-bind="value:data.HasArbitralClause" />
+                                <div class="mainSwitchDiv" data-bind="click:toggleClause">
+                                    <div class="sub">
+                                        <span class="values">@ButtonsAndRecurring.No</span>
+                                    </div>
+                                    <div class="sub">
+                                        <span class="values">@ButtonsAndRecurring.Yes</span>
+                                    </div>
+                                    <div id="notifThumb" data-bind="css:{notifOff: !data.HasArbitralClause()}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row " data-bind="visible:data.HasArbitralClause()">
+                            <div class="col s12">
+                                <p>@Conflict.DownloadDocArbClause</p>
+                                <div class="file-field input-field" data-bind="visible: clause == null">
+                                    <div class="btn">
+                                        <span>@Conflict.DownloadClause</span>
+                                        <input id="FileClause" name="FileClause" type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" data-validation="required" type="text" >
+                                    </div>
+                                </div>
+                                <div data-bind="visible : clause != null" class="input-field">
+                                    <a data-bind="href: clause != null ? clause.Url : '', visible:!shouldShowNewFile()" class="btn btn-flat blue">@Conflict.SeeDownloadedClause</a>
+                                    <a data-bind="click:updateClause" class="btn btn-flat blue">@Conflict.ModifyClause</a>
+                                    <p data-bind="visible:shouldShowNewFile"><b>@Conflict.NewClause</b> <span data-bind="text:clause != null ? clause.Filename : ''"></span> <br />@Conflict.WillBeSavedNextStep</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row last-row">
+                            <div class="col s12">
+                                @if (User.Identity.GetId() == Model.Conflict.IdCreationUser)
+                                {
+                                <input type="submit" class="btn btn-flat blue right" value="@ButtonsAndRecurring.NextStep" />
+                                }
+                                else
+                                {
+                                    <input type="submit" class="btn btn-flat blue right" value="@Conflict.EndFiling" />
+                                }
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="fixed-resume">
+                @Html.Partial("_ConflictResume")
+                </div>
+            </div>
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .error {
+            display: none;
+            color: red;
+        }
+
+            .error.invalid {
+                display: inline-block;
+                top: -3px;
+            }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Scripts/viewModels/clauseViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            $("#end-nav").addClass('active');
+            $("#end-nav").prev().css('display', 'inline-block');
+
+        })
+    </script>
+}
+
+
+
+

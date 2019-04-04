@@ -1,0 +1,192 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Models
+@using ClickNClaim.Common
+@using ClickNClaim.WebPortal.Helpers
+@model ClickNClaim.WebPortal.Models.AdminModels.CaseListModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container ">
+    <h1 class="center-align">@Admin.CaseList</h1>
+
+    <form action="@Url.Action("CaseList", "Admin")" method="post">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s3">
+                        <div class="input-field">
+                            <input type="text" id="id" name="id" value="@Model.id" />
+                            <label for="id">@Admin.CaseNo</label>
+                        </div>
+                    </div>
+                    <div class="col s3">
+                        <div class="input-field">
+                            <input type="text" id="text" name="text" value="@Model.text" />
+                            <label for="text">@Admin.AdvancedSearch</label>
+                        </div>
+                    </div>
+                    <div class="col s3">
+                        <div class="input-field">
+                            <select name="situation">
+                                <option value="" disabled @(String.IsNullOrWhiteSpace(Model.situation) ? "selected" :  "")>@Admin.SearchByStatus</option>
+                                @foreach (var item in Enum.GetNames(typeof(ConflictState)))
+                                {
+                                    <option id="@item" @(Model.situation == item ? "selected" :  "") value="@item">@MetadataHelper.GetEnumDisplayNAme((ConflictState)Enum.Parse(typeof(ConflictState),item))</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col s3">
+                        <input type="submit" value="@Admin.Search" class="btn btn-flat blue" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="card">
+        <div class="card-content">
+            @Html.Partial("_ConflictList", new ConflictListModel() { Conflicts = Model.Conflicts, ShouldShowArbiter = true, IsForArbiter = true, ShouldShowState = true })
+            <ul class="pagination">
+                <li @(Model.Page == 0 ? Html.Raw("class='disabled'") : Html.Raw("")) class="disabled"><a href="@Url.Action("CaseList", new { nbPage = Model.Page - 1, id= Model.id, text = Model.text })"><i class="material-icons">chevron_left</i></a></li>
+
+                @for (int i = 0; i < Model.TotalPages; i++)
+                {
+                    <li @( Model.Page == i ? Html.Raw("class=\"active\"") : Html.Raw(""))><a class="pagination-page" href="@Url.Action("CaseList", new { nbPage = i, id= Model.id, text = Model.text })">@(i + 1)</a></li>
+                }
+                <li @(Model.Page == Model.TotalPages ? Html.Raw("class=\"disabled\"") : Html.Raw(""))><a href="@Url.Action("CaseList", new { nbPage = Model.Page + 1, id= Model.id, text = Model.text })"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="modal modal-fixed-footer" id="change-situation-modal">
+    <form action="@Url.Action("UpdateSituation", "Admin")" method="post">
+        <input type="hidden" name="conflictId" id="situationChanged-conflictId" />
+        <div class="modal-content">
+            <h5>@Admin.ChangeStatus</h5>
+            <p>@Admin.WhatConflictStatus</p>
+            <div class="input-field ">
+                <select name="situation" id="changeSituation">
+                    @foreach (var item in Enum.GetNames(typeof(ConflictState)))
+                    {
+                        <option id="@item" value="@((int)Enum.Parse(typeof(ConflictState), item))">@MetadataHelper.GetEnumDisplayNAme((ConflictState)Enum.Parse(typeof(ConflictState), item))</option>
+                    }
+
+                </select>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-flat blue modal-close modal-action">@Admin.Cancel</a>
+            <input type="submit" value="@Admin.Confirm" class="btn btn-flat blue modal-action" />
+        </div>
+    </form>
+</div>
+
+<div class="modal" id="refuse-modal">
+    <form action="@Url.Action("Refuse","Arbitre")" method="post">
+        <input type="hidden" id="conflitId" name="conflictId" />
+
+        <div class="modal-content">
+            <h4>@Admin.RefuseThisCase</h4>
+            <p>
+                @Admin.RefusedCaseSpecifyWhy
+            </p>
+            <div class="input-field">
+                <textarea id="refusal-comment" name="text" class="materialize-textarea"></textarea>
+                <label for="refusal-comment">@Admin.Comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue" value="@Admin.Send" /></a>
+            <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue" value="@Admin.Cancel" /></a>
+        </div>
+    </form>
+</div>
+
+<div class="modal" id="refuse-case-modal">
+    <form action="@Url.Action("RefuseAssignation","Arbitre")" method="post">
+        <input type="hidden" id="conflitId" name="conflictId" />
+        <input type="hidden" id="whereFrom" name="whereFrom" value="Centre" />
+        <div class="modal-content">
+            <h4>@Admin.RefuseThisCase</h4>
+            <p>
+                @Admin.RefusedCaseSpecifyWhy
+            </p>
+            <div class="input-field">
+                <textarea id="refusal-comment" name="text" class="materialize-textarea"></textarea>
+                <label for="refusal-comment">@Admin.Comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue" value="@Admin.Send" /></a>
+            <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue" value="@Admin.Cancel" /></a>
+        </div>
+    </form>
+</div>
+
+<div class="modal  modal-fixed-footer" id="arbiter-selection">
+    <div style="width:400px;height:400px; display:table" data-bind="visible : $root.arbitersLoading()">
+        <div style="display:table-cell;vertical-align:middle;text-align:center">
+            <div class="loader">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-content" data-bind="visible : !$root.arbitersLoading()">
+        @Html.Partial("_ArbiterList")
+    </div>
+
+</div>
+
+
+
+@section css{
+    <style type="text/css">
+        .card{
+            overflow: visible;
+        }
+    </style>
+    
+    }
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/viewModels/Admin/caseListViewModel.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(), $("#wrapper")[0]);
+            $('select').material_select();
+        })
+
+        function openModalForSituation(modal, id, situationValue) {
+            $("#situationChanged-conflictId").val(id);
+            $("#changeSituation option[value=" + situationValue + "]").attr("selected", "selected");
+            $(modal).openModal();
+            $('select').material_select();
+           
+        }
+
+    </script>
+}
+
+
+
+
+

@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicableFrom" xml:space="preserve">
+    <value>applicables à compter du 1er septembre 2016</value>
+  </data>
+  <data name="ArbitrationRules" xml:space="preserve">
+    <value>Règlement</value>
+  </data>
+  <data name="ArbitrationRulesDef" xml:space="preserve">
+    <value>présente convention d’arbitrage déterminant les règles applicables à la résolution du Litige.</value>
+  </data>
+  <data name="Arbitrator" xml:space="preserve">
+    <value>Arbitre</value>
+  </data>
+  <data name="ArbitratorDef" xml:space="preserve">
+    <value>toute personne physique désignée par le Centre pour résoudre un Litige conformément au présent Règlement.</value>
+  </data>
+  <data name="Art1" xml:space="preserve">
+    <value>ARTICLE 1.	DEFINITIONS</value>
+  </data>
+  <data name="Art2" xml:space="preserve">
+    <value>ARTICLE 2.	CHAMP D’APPLICATION</value>
+  </data>
+  <data name="Art2Provisions" xml:space="preserve">
+    <value>&lt;p&gt;Les présentes conditions générales de service sont applicables à tous les Utilisateurs. La simple connexion au Site emporte acceptation pleine et entière des présentes conditions générales.&lt;/p&gt;
+                &lt;p&gt;Lors de l’inscription sur le Site, cette acceptation sera confirmée par le fait de cocher la case correspondant à la phrase suivante : &lt;i&gt;« Je reconnais avoir lu et accepté les conditions générales de service, le règlement d’arbitrage et le tarif applicable »&lt;/i&gt;. L'Utilisateur reconnaît du même fait en avoir pris pleinement connaissance et les accepter sans restriction. &lt;/p&gt;
+                &lt;p&gt;Le fait de cocher la case susvisée sera réputé avoir la même valeur qu'une signature manuscrite de la part de l’Utilisateur. L'Utilisateur reconnaît la valeur de preuve des systèmes d'enregistrement automatique du Centre et, sauf pour lui d'apporter preuve contraire, il renonce à les contester en cas de litige.&lt;/p&gt;
+                &lt;p&gt;Les présentes conditions générales sont applicables aux relations entre les parties à l’exclusion de toutes autres conditions, et notamment celles de l’Utilisateur. &lt;/p&gt;</value>
+  </data>
+  <data name="Art3" xml:space="preserve">
+    <value>ARTICLE 3.	OBJET DU SITE</value>
+  </data>
+  <data name="Art3Provisions" xml:space="preserve">
+    <value>&lt;p&gt;Le Site a pour objet de mettre à disposition des Utilisateurs une Plateforme pour la résolution de Litiges. &lt;/p&gt;
+                &lt;p&gt;Les Utilisateurs peuvent accéder gratuitement à l’espace de constitution de leur dossier. En revanche, l’accès à la procédure d’arbitrage est payant.&lt;/p&gt;</value>
+  </data>
+  <data name="Art4" xml:space="preserve">
+    <value>ARTICLE 4.	COMMANDE - ARBITRAGE</value>
+  </data>
+  <data name="Art4Provisions" xml:space="preserve">
+    <value>Le processus de commande et la procédure d’arbitrage sont régis par le règlement d’arbitrage de l’Institut digital d’arbitrage et de médiation.</value>
+  </data>
+  <data name="Art5" xml:space="preserve">
+    <value>ARTICLE 5.	PRIX - PAIEMENT</value>
+  </data>
+  <data name="Art5_1" xml:space="preserve">
+    <value>5.1.	Prix</value>
+  </data>
+  <data name="Art5_1Provisions" xml:space="preserve">
+    <value>Les prix applicables sont ceux mentionnés dans le Tarif au jour de la Demande d’Arbitrage. Ces prix peuvent être modifiés à tout moment par le Centre. Les prix indiqués sur le Site sont entendus en euros, hors taxes.</value>
+  </data>
+  <data name="Art5_2" xml:space="preserve">
+    <value>5.2.	Modalités de paiement</value>
+  </data>
+  <data name="Art5_2Provisions_L1" xml:space="preserve">
+    <value>La Partie peut effectuer son règlement par virement bancaire ou par carte bancaire au moyen de transactions sécurisées fournies par les organismes bancaires et financiers utilisés sur la plateforme FastArbitre.</value>
+  </data>
+  <data name="Art5_2Provisions_L2" xml:space="preserve">
+    <value>Dans le cadre des paiements par carte bancaire, le Centre n'a accès à aucune donnée relative aux moyens de paiement de la Partie. Le paiement est effectué directement entre les mains de l'établissement bancaire.</value>
+  </data>
+  <data name="Art5_3" xml:space="preserve">
+    <value>5.3.	Reversement des honoraires à l’Arbitre</value>
+  </data>
+  <data name="Art5_3Provisions_L1" xml:space="preserve">
+    <value>L’Arbitre confère au Centre un mandat aux fins de l’encaissement des sommes versées par les Parties au titre des honoraires lui revenant.</value>
+  </data>
+  <data name="Art5_3Provisions_L2" xml:space="preserve">
+    <value>Les honoraires de l’Arbitre lui seront reversés par le Centre par virement bancaire, dans le délai de 15 jours à compter de la publication de la Sentence sur le Site, déduction faite de la commission du Centre déterminée par le Tarif et sous réserve de l’émission de la facture correspondante par l’Arbitre. En cas de récusation de l’Arbitre, les honoraires sont reversés en totalité à l’Arbitre publiant la Sentence sur la Plateforme.</value>
+  </data>
+  <data name="Art5_4" xml:space="preserve">
+    <value>5.4.	Confirmation de paiement - Facturation</value>
+  </data>
+  <data name="Art5_4Provisions_L1" xml:space="preserve">
+    <value>Lorsqu’un paiement est effectivement reçu par le Centre, ce dernier s'engage à en accuser réception au Demandeur par voie électronique, dans un délai maximal de 24 heures. Dans le même délai, le Centre s'engage à adresser au Demandeur un courrier électronique récapitulatif de la commande et lui en confirmant le traitement, reprenant toutes les informations y afférant.</value>
+    <comment>à la Partie plutôt qu'au Demandeur non ?</comment>
+  </data>
+  <data name="Art5_4Provisions_L2" xml:space="preserve">
+    <value>Le Centre adressera ou mettra à disposition de la Partie une facture par voie électronique après chaque paiement. La Partie accepte expressément de recevoir les factures par voie électronique.</value>
+  </data>
+  <data name="Art5_5" xml:space="preserve">
+    <value>5.5.	Défaut de paiement</value>
+  </data>
+  <data name="Art5_5Provisions_L1" xml:space="preserve">
+    <value>Les dates de paiement convenues ne peuvent être retardées sous quelque prétexte que ce soit, y compris en cas de litige.</value>
+  </data>
+  <data name="Art5_5Provisions_L2" xml:space="preserve">
+    <value>Toute somme non payée à l’échéance donnera lieu, de plein droit et sans mise en demeure, à l’application de pénalités de retard calculées sur la base d’un taux égal à 3 fois le taux d’intérêt légal, sans que cette pénalité nuise à l’exigibilité des sommes dues en principal.</value>
+  </data>
+  <data name="Art5_5Provisions_L3" xml:space="preserve">
+    <value>En outre, tout retard de paiement aura pour conséquence la facturation à la Partie défaillante de frais de recouvrement d'un montant de 40 euros, l’exigibilité immédiate de toutes les sommes restant dues quels que soient les délais convenus, majorées d’une indemnité de 20 % du montant à titre de clause pénale, ainsi que la possibilité de résilier le contrat unilatéralement au tort de la Partie.</value>
+  </data>
+  <data name="Art6" xml:space="preserve">
+    <value>ARTICLE 6.	ESPACE PERSONNEL</value>
+  </data>
+  <data name="Art6_1" xml:space="preserve">
+    <value>6.1.	Création de l’espace personnel</value>
+  </data>
+  <data name="Art6_1Provisions_L1" xml:space="preserve">
+    <value>La création d'un espace personnel est un préalable indispensable à toute utilisation de la Plateforme. A cette fin, l’Utilisateur sera invité à fournir un certain nombre d'informations personnelles. Certaines de ces informations sont réputées indispensables à la création de l'espace personnel. Le refus par un Utilisateur de fournir lesdites informations aura pour effet d'empêcher la création de l'espace personnel ainsi que, incidemment, l’utilisation de la Plateforme.</value>
+  </data>
+  <data name="Art6_1Provisions_L2" xml:space="preserve">
+    <value>Lors de la création de l'espace personnel, l'Utilisateur est invité à choisir un mot de passe. Ce mot de passe constitue la garantie de la confidentialité des informations contenues dans l’espace personnel. L'Utilisateur s'interdit donc de le transmettre ou de le communiquer à un tiers. A défaut, Le Centre ne pourra être tenu pour responsable des accès non autorisés à l’espace personnel d'un Utilisateur.</value>
+  </data>
+  <data name="Art6_1Provisions_L3" xml:space="preserve">
+    <value>L’Utilisateur s’engage à procéder à une vérification régulière des données qui le concernent et à procéder en ligne, depuis son espace personnel, aux actualisations et modifications nécessaires.</value>
+  </data>
+  <data name="Art6_2" xml:space="preserve">
+    <value>6.2.	Contenu de l’espace personnel</value>
+  </data>
+  <data name="Art6_2Provisions_L1" xml:space="preserve">
+    <value>L’espace personnel permet aux Utilisateurs de constituer leur dossier, puis de participer à la procédure d’arbitrage sur la Plateforme.</value>
+  </data>
+  <data name="Art6_2Provisions_L2" xml:space="preserve">
+    <value>Les pages relatives aux espaces personnels sont librement imprimables par le titulaire du compte en question, mais ne constituent nullement une preuve admissible par un tribunal. Elles n'ont qu'un caractère informatif destiné à assurer une gestion efficace de ses commandes par l’Utilisateur.</value>
+  </data>
+  <data name="Art6_2Provisions_L3" xml:space="preserve">
+    <value>Le Centre s'engage à conserver de façon sécurisée tous les éléments contractuels dont la conservation est requise par la loi ou la réglementation en vigueur.</value>
+  </data>
+  <data name="Art6_3" xml:space="preserve">
+    <value>6.3.	Suppression de l’espace personnel</value>
+  </data>
+  <data name="Art6_3Provisions_L1" xml:space="preserve">
+    <value>Le Centre se réserve le droit de supprimer le compte de tout Utilisateur qui contrevient aux présentes conditions générales, notamment lorsque l’Utilisateur fournit des informations inexactes, incomplètes, mensongères ou frauduleuses, ainsi que lorsque l’espace personnel sera resté inactif depuis au moins une année. Ladite suppression ne sera pas susceptible de constituer une faute du Centre ou un dommage pour l’Utilisateur exclu, qui ne pourra prétendre à aucune indemnité de ce fait.</value>
+  </data>
+  <data name="Art6_3Provisions_L2" xml:space="preserve">
+    <value>Cette exclusion est sans préjudice de la possibilité pour le Centre d'entreprendre des poursuites d'ordre judiciaire à l'encontre de l’Utilisateur, lorsque les faits l'auront justifié.</value>
+  </data>
+  <data name="Art7" xml:space="preserve">
+    <value>ARTICLE 7.	RESPONSABILITE DU CENTRE</value>
+  </data>
+  <data name="Art7_1" xml:space="preserve">
+    <value>7.1.	Nature des obligations du Centre</value>
+  </data>
+  <data name="Art7_1_1" xml:space="preserve">
+    <value>7.1.1.	Fourniture de services d’organisation d’arbitrage</value>
+  </data>
+  <data name="Art7_1_1Provisions_L1" xml:space="preserve">
+    <value>Le Centre s'engage à apporter le soin et la diligence nécessaire à la fourniture de services d’organisation d’arbitrage au sens de l’article 1450 du code de procédure civile conforme aux spécifications des présentes conditions générales. Le Centre n’engagera pas sa responsabilité du fait des services d’arbitrage fournis par les Arbitres.</value>
+  </data>
+  <data name="Art7_1_1Provisions_L2" xml:space="preserve">
+    <value>Le Centre ne répond que d'une obligation de moyen concernant les services objets des présentes.</value>
+  </data>
+  <data name="Art7_1_2" xml:space="preserve">
+    <value>7.1.2.	Mise à disposition d’une plateforme électronique</value>
+  </data>
+  <data name="Art7_1_2Provisions_L1" xml:space="preserve">
+    <value>Le Centre agit dans le cadre des présentes en qualité de simple prestataire technique totalement neutre mettant à disposition des Utilisateurs une plateforme électronique en ligne. Le Centre bénéficiera en conséquence du statut d’hébergeur des données échangées entre les Utilisateurs sur la Plateforme sous leur propre responsabilité.</value>
+  </data>
+  <data name="Art7_1_2Provisions_L2" xml:space="preserve">
+    <value>Le Centre ne pourra donc voir sa responsabilité civile ou pénale engagée à raison de ces données, à moins que, dès le moment où il a eu connaissance de l'activité ou de l'information illicite, il n'ait agi promptement pour retirer ces informations ou en rendre l'accès impossible.</value>
+  </data>
+  <data name="Art7_2" xml:space="preserve">
+    <value>7.2.	Force majeure - Faute de l’Utilisateur</value>
+  </data>
+  <data name="Art7_2Provisions" xml:space="preserve">
+    <value>Le Centre n'engagera pas sa responsabilité en cas de force majeure ou de faute de l’Utilisateur, telles que définies au présent article :</value>
+  </data>
+  <data name="Art7_2_1" xml:space="preserve">
+    <value>7.2.1.	Force majeure</value>
+  </data>
+  <data name="Art7_2_1Provisions" xml:space="preserve">
+    <value>Au sens des présentes conditions générales, sera considéré comme un cas de force majeure opposable aux Utilisateurs tout empêchement, limitation ou dérangement du Service du fait d'incendie, d'épidémie, d'explosion, de tremblement de terre, de fluctuations de la bande passante, de manquement imputable au fournisseur d'accès, de défaillance des réseaux de transmission, d'effondrement des installations, d'utilisation illicite ou frauduleuse des mots de passe, codes ou références, de piratage informatique, d'une faille de sécurité imputable à l'hébergeur du Site ou aux développeurs, d'inondation, de panne d'électricité, de guerre, d'embargo, de loi, d'injonction, de demande ou d'exigence de tout gouvernement, de réquisition, de grève, de boycott, ou autres circonstances hors du contrôle raisonnable du Centre. Dans de telles circonstances, Le Centre sera dispensé de l'exécution de ses obligations dans la limite de cet empêchement, de cette limitation ou de ce dérangement.</value>
+  </data>
+  <data name="Art7_2_2" xml:space="preserve">
+    <value>7.2.2.	Faute de l’Utilisateur</value>
+  </data>
+  <data name="Art7_2_2Provisions" xml:space="preserve">
+    <value>Au sens des présentes conditions générales, sera considéré comme une faute de l'Utilisateur opposable à ce dernier toute mauvaise utilisation du Service, faute, négligence, omission ou défaillance de sa part ou de celle de ses préposés, non-respect des conseils donnés par Le Centre sur son Site, toute divulgation ou utilisation illicite du mot de passe, des codes et références, ainsi que le renseignement d’informations erronées ou l’absence de mise à jour de telles informations dans son espace personnel. Sera également considérée comme une faute de l’Utilisateur la mise en œuvre de tout procédé technique, tels que des robots, ou des requêtes automatiques, dont la mise en œuvre contreviendrait à la lettre ou à l’esprit des présentes conditions générales de service.</value>
+  </data>
+  <data name="Art7_3" xml:space="preserve">
+    <value>7.3.	Problèmes techniques - Liens hypertextes</value>
+  </data>
+  <data name="Art7_3Provisions_L1" xml:space="preserve">
+    <value>En cas d'impossibilité d'accès au Site, en raison de problèmes techniques de toutes natures, l’Utilisateur ne pourra se prévaloir d'un dommage et ne pourra prétendre à aucune indemnité. L'indisponibilité, même prolongée et sans aucune durée limitative, d'un ou plusieurs services en ligne, ne peut être constitutive d'un préjudice pour les utilisateurs et ne peut aucunement donner lieu à l'octroi de dommages et intérêts de la part du Centre.</value>
+  </data>
+  <data name="Art7_3Provisions_L2" xml:space="preserve">
+    <value>Les liens hypertextes présents sur le Site peuvent renvoyer sur d'autres sites internet. La responsabilité du Centre ne saurait être engagée si le contenu de ces sites contrevient aux législations en vigueur. De même la responsabilité du Centre ne saurait être engagée si la visite, par l'Internaute, de l'un de ces sites, lui causait un préjudice.</value>
+  </data>
+  <data name="Art7_4" xml:space="preserve">
+    <value>7.4.	Dommages-intérêts à la charge du Centre</value>
+  </data>
+  <data name="Art7_4Provisions" xml:space="preserve">
+    <value>La responsabilité du Centre est limitée au préjudice direct, personnel et certain subi par l’Utilisateur et lié à la défaillance en cause. Le Centre ne pourra en aucun cas être tenu responsable des dommages indirects tels que, notamment les pertes de données, les préjudices commerciaux, les pertes de commandes, les atteintes à l'image de marque, les troubles commerciaux et les pertes de bénéfices ou de clients. De même et dans les mêmes limites, le montant des dommages et intérêts mis à la charge du Centre ne pourra en tout état de cause excéder le prix acquitté par la Partie.</value>
+  </data>
+  <data name="Art8" xml:space="preserve">
+    <value>ARTICLE 8.	DISPOSITIONS GENERALES</value>
+  </data>
+  <data name="Art8_1" xml:space="preserve">
+    <value>8.1.	Droit applicable</value>
+  </data>
+  <data name="Art8_1Provisions" xml:space="preserve">
+    <value>Les présentes conditions générales sont soumises à l'application du droit français.</value>
+  </data>
+  <data name="Art8_2" xml:space="preserve">
+    <value>8.2.	Médiation</value>
+  </data>
+  <data name="Art8_2Provisions" xml:space="preserve">
+    <value>Tous litiges qui pourraient survenir dans le cadre de l'exécution des présentes conditions générales et dont la solution n’aura pu être trouvée préalablement à l’amiable entre les parties devra être soumis à une médiation préalable.</value>
+  </data>
+  <data name="Art8_3" xml:space="preserve">
+    <value>8.3.	Modifications des présentes conditions générales</value>
+  </data>
+  <data name="Art8_3Provisions" xml:space="preserve">
+    <value>Les présentes conditions générales peuvent être modifiées à tout moment par le Centre. Les conditions générales applicables aux Utilisateurs sont celles en vigueur au jour de sa connexion sur le présent Site, toute nouvelle connexion à l'espace personnel emportant acceptation le cas échéant des nouvelles conditions générales.</value>
+  </data>
+  <data name="Art8_4" xml:space="preserve">
+    <value>8.4.	Entièreté</value>
+  </data>
+  <data name="Art8_4Provisions" xml:space="preserve">
+    <value>La nullité d'une des clauses du présent contrat n'entraînera pas la nullité des autres clauses du contrat ou du contrat dans sa globalité, qui garderont leur plein effet et portée. Dans une telle hypothèse, les parties devront dans la mesure du possible remplacer la stipulation annulée par une stipulation valable correspondant à l'esprit et à l'objet des présentes.</value>
+  </data>
+  <data name="Art8_5" xml:space="preserve">
+    <value>8.5.	Non-renonciation</value>
+  </data>
+  <data name="Art8_5Provisions" xml:space="preserve">
+    <value>L'absence d'exercice par le Centre des droits qui lui sont reconnus par les présentes ne pourra en aucun cas être interprétée comme une renonciation à faire valoir lesdits droits.</value>
+  </data>
+  <data name="Art8_6" xml:space="preserve">
+    <value>8.6.	Langues des présentes conditions générales</value>
+  </data>
+  <data name="Art8_6Provisions" xml:space="preserve">
+    <value>Les présentes conditions générales sont proposées en français.</value>
+  </data>
+  <data name="Award" xml:space="preserve">
+    <value>Sentence</value>
+  </data>
+  <data name="AwardDef" xml:space="preserve">
+    <value>jugement arbitral rendu par l’Arbitre pour résoudre le Litige.</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Centre</value>
+  </data>
+  <data name="CenterDef" xml:space="preserve">
+    <value>Institut digital d’arbitrage et de médiation agissant en qualité d’organisateur de l’arbitrage au sens de l’article 1450 du code de procédure civile.</value>
+  </data>
+  <data name="CentersLiability" xml:space="preserve">
+    <value>RESPONSABILITE DU CENTRE</value>
+  </data>
+  <data name="Claimant" xml:space="preserve">
+    <value>Demandeur</value>
+  </data>
+  <data name="ClaimantDef" xml:space="preserve">
+    <value>Partie ayant la première constitué son dossier sur la Plateforme.</value>
+  </data>
+  <data name="Costs" xml:space="preserve">
+    <value>Tarif</value>
+  </data>
+  <data name="CostsDef" xml:space="preserve">
+    <value>stipulations contractuelles déterminant le montant des frais et honoraires de la résolution du Litige sur la Plateforme.</value>
+  </data>
+  <data name="Defendant" xml:space="preserve">
+    <value>Défendeur</value>
+  </data>
+  <data name="DefendantDef" xml:space="preserve">
+    <value>Partie contestant le dossier constitué par le Demandeur.</value>
+  </data>
+  <data name="Definitions" xml:space="preserve">
+    <value>DEFINITIONS</value>
+  </data>
+  <data name="Dispute" xml:space="preserve">
+    <value>Litige</value>
+  </data>
+  <data name="DisputeDef" xml:space="preserve">
+    <value>différend entre les Parties soumis à l’arbitrage du Centre.</value>
+  </data>
+  <data name="GCU" xml:space="preserve">
+    <value>CGU</value>
+  </data>
+  <data name="GeneralProvisions" xml:space="preserve">
+    <value>DISPOSITIONS GENERALES</value>
+  </data>
+  <data name="Jurisdiction" xml:space="preserve">
+    <value>Domaines de Compétence</value>
+  </data>
+  <data name="JurisdictionDef" xml:space="preserve">
+    <value>domaines juridiques dans lesquels le Centre organise la résolution de Litiges.</value>
+  </data>
+  <data name="ManagementArbitration" xml:space="preserve">
+    <value>COMMANDE - ARBITRAGE</value>
+  </data>
+  <data name="OnlineWorkspace" xml:space="preserve">
+    <value>ESPACE PERSONNEL</value>
+  </data>
+  <data name="Party" xml:space="preserve">
+    <value>Partie</value>
+  </data>
+  <data name="PartyDef" xml:space="preserve">
+    <value>Demandeur ou Défendeur.</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Plateforme</value>
+  </data>
+  <data name="PlatformDef" xml:space="preserve">
+    <value>espace virtuel de résolution du Litige mise à disposition des Utilisateurs par le Centre et accessible à l’adresse www.fast-arbitre.com, ainsi que les sous-sites, sites miroirs, portails et variations d’URL y afférant.</value>
+  </data>
+  <data name="PricePayment" xml:space="preserve">
+    <value>PRIX - PAIEMENT</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>OBJET DU SITE</value>
+  </data>
+  <data name="RequestForArbitration" xml:space="preserve">
+    <value>Demande d'Arbitrage</value>
+  </data>
+  <data name="RequestForArbitrationDef" xml:space="preserve">
+    <value>demande adressée au Centre par l’intermédiaire de la Plateforme par une Partie ou son représentant légal en vue de résoudre le Litige conformément au présent Règlement.</value>
+  </data>
+  <data name="Scope" xml:space="preserve">
+    <value>CHAMP D’APPLICATION</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Conditions générales de service
+        de FastArbitre</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="UserDef" xml:space="preserve">
+    <value>toute personne se connectant à la Plateforme à l’occasion de la résolution d’un Litige.</value>
+  </data>
+  <data name="WebUser" xml:space="preserve">
+    <value>Internaute</value>
+  </data>
+  <data name="WebUserDef" xml:space="preserve">
+    <value>toute personne, physique ou morale, de droit privé ou de droit public, se connectant au Site.</value>
+  </data>
+</root>

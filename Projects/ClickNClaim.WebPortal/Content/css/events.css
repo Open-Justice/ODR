@@ -1,0 +1,8 @@
+﻿
+input[type=radio]+label{
+    line-height:50px !important;
+}
+
+input[type=radio] + label::after, input[type=radio] + label::before{
+    top:12px;
+}

@@ -1,0 +1,68 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Common
+@using ClickNClaim.Business
+@using Microsoft.AspNet.Identity
+@model List<Message>
+@{
+    ViewBag.Title = Arbitre.Messages;
+}
+
+<div class="container view-container">
+    <h1>@Arbitre.Messages</h1>
+
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-content">
+
+                <h4> @Arbitre.WrittenBy : @item.AspNetUser.DisplayName</h4>
+                <i>@item.CreateDate.ToShortDateString() à @item.CreateDate.ToShortTimeString()</i>
+                <hr />
+                <p>
+                    @Html.Raw(item.Text.Replace("\r\n", "<br/>"))
+                </p>
+            </div>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-content">
+            <a href="@Url.Action("Conflict", "Viewer", new { conflictId = Model.First().IdConflict })"><input type="button" class="btn btn-flat blue" value="@Arbitre.ReturnToDispute" /></a>
+            <div class="right">
+                <input type="button" class="btn btn-flat modal-trigger blue" data-target="writeMail" value="@ButtonsAndRecurring.Answer" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="writeMail" class="modal">
+    <form action="@Url.Action("ContactArbitre", "Arbitre")" method="post">
+        <input type="hidden" name="conflictId" value="@Model.First().IdConflict" />
+
+        <div class="modal-content">
+            <h4>@Arbitre.RespondDebate</h4>
+
+            <div class="input-field">
+                <textarea class="materialize-textarea" name="text" cols="4" id="mail"></textarea>
+                <label for="text">@Arbitre.WriteAnsHere</label>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="modal-content">
+                <input type="submit" class="btn-flat right blue" value="@ButtonsAndRecurring.Answer" />
+                <input type="button" class="btn-flat right blue modal-close" value="@ButtonsAndRecurring.Cancel" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $('.modal-trigger').leanModal();
+        })
+    </script>
+}

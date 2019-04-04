@@ -1,0 +1,135 @@
+﻿@using ClickNClaim.WebPortal.Resources
+<div class="container margin-top">
+    <h1 style="text-align:center">
+        @Home.PrivacyPolicy
+    </h1>
+
+    <div class="row">
+        <div class="col s3 ">
+            <div style="width:100%;height:1px;"></div>
+            <div style="position:fixed;width:17%;" class="hidden-sm hidden-xs ">
+                <ul class="menu-links section table-of-contents">
+                    <li><a href="#definitions">@Home.Definitions</a></li>
+                    <li><a href="#application">@Home.ScopeOfApplication</a></li>
+                    <li><a href="#propintelectuelle">@Home.IntellectualProperty</a></li>
+                    <li><a href="#cookies">@Home.CookiesAndIPAddresses</a></li>
+                    <li><a href="#infoliberte">@Home.InformationTechnologiesAndLiberties</a></li>
+                    <li><a href="#securite">@Home.Security</a></li>
+                    <li><a href="#newsletter">@Home.CentersNewsletter</a></li>
+                    <li><a href="#newspartner">@Home.PartnersNewsletters</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col s9">
+            <div id="definitions" class="section scrollspy">
+                <h2>  @Home.PrivacyArt1</h2>
+                <p>« <b>@Home.PrivacyArt1_1</b> » : @Home.PrivacyArt1_2 </p>
+                <p>« <b>@Home.PrivacyArt1_3</b> » : @Home.PrivacyArt1_4 </p>
+                <p>« <b>@Home.PrivacyArt1_5</b> » : @Home.PrivacyArt1_6 </p>
+            </div>
+
+            <div id="application" class="section scrollspy">
+                <h2>@Home.PrivacyArt2</h2>
+                <p>@Home.PrivacyArt2_1</p>
+                <p>@Home.PrivacyArt2_2 </p>
+                <p>@Home.PrivacyArt2_3</p>
+                <p>@Home.PrivacyArt2_4</p>
+            </div>
+
+            <div id="propintelectuelle" class="section scrollspy">
+                <h2> @Home.PrivacyArt3</h2>
+                <p><b> @Home.PrivacyArt3_1</b></p>
+                <p>@Home.PrivacyArt3_2 </p>
+                <p><b>@Home.PrivacyArt3_3</b></p>
+                <p>@Home.PrivacyArt3_4</p>
+
+            </div>
+
+            <div id="cookies" class="section scrollspy">
+                <h2>@Home.PrivacyArt4</h2>
+                <p><b>@Home.PrivacyArt4_1</b></p>
+                <p style="text-decoration:underline">@Home.PrivacyArt4_2</p>
+                <p>@Home.PrivacyArt4_3</p>
+                <p style="text-decoration:underline">@Home.PrivacyArt4_4</p>
+                <p>@Home.PrivacyArt4_5 </p>
+                <p style="text-decoration:underline">@Home.PrivacyArt4_6</p>
+                <p>@Home.PrivacyArt4_7</p>
+                <p style="text-decoration:underline">@Home.PrivacyArt4_8</p>
+                <p>@Home.PrivacyArt4_9</p>
+                <p><b>@Home.PrivacyArt4_10</b></p>
+                <p style="text-decoration:underline">@Home.PrivacyArt4_11</p>
+                <p>@Home.PrivacyArt4_12 </p>
+                <p style="text-decoration:underline">@Home.PrivacyArt4_13</p>
+                <p>@Home.PrivacyArt4_14</p>
+
+            </div>
+
+            <div id="infoliberte" class="section scrollspy">
+                <h2>@Home.PrivacyArt5</h2>
+                <p><b>@Home.PrivacyArt5_1</b></p>
+                <p>@Home.PrivacyArt5_2</p>
+                <p><b>@Home.PrivacyArt5_3</b></p>
+                <p>@Home.PrivacyArt5_4 </p>
+                <p><b>@Home.PrivacyArt5_5</b></p>
+                <p>@Home.PrivacyArt5_6</p>
+                <p><b>@Home.PrivacyArt5_7</b></p>
+                <p>@Home.PrivacyArt5_8</p>
+                <p><b>@Home.PrivacyArt5_9</b></p>
+                <p>@Home.PrivacyArt5_10</p>
+                <p>@Home.PrivacyArt5_11 <a href="mailto:cnil@fast-arbitre.com">@Home.PrivacyArt5_12</a> @Home.PrivacyArt5_13</p>
+
+            </div>
+
+            <div id="securite" class="section scrollspy">
+                <h2>@Home.PrivacyArt6</h2>
+                <p>@Home.PrivacyArt6_1</p>
+                <p>@Home.PrivacyArt6_2</p>
+                <p>@Home.PrivacyArt6_3</p>
+                <p>@Home.PrivacyArt6_4</p>
+                <p>@Home.PrivacyArt6_5</p>
+            </div>
+
+            <div id="newsletter" class="section scrollspy">
+                <h2>@Home.PrivacyArt7</h2>
+                <p>@Home.PrivacyArt7_1</p>
+                <p>@Home.PrivacyArt7_2</p>
+
+            </div>
+
+            <div id="newspartner" class="section scrollspy">
+                <h2>@Home.PrivacyArt8</h2>
+                <p>@Home.PrivacyArt8_1</p>
+                <p>@Home.PrivacyArt8_2</p>
+                <p>@Home.PrivacyArt8_3</p>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $('.scrollspy').scrollSpy();
+        });
+    </script>
+}
+
+@section css{
+    <style>
+        .section {
+            padding-bottom: 0rem;
+            padding-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+}

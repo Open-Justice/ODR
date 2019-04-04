@@ -1,0 +1,20 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">@Shared.Error1</h1>
+<h2 class="text-danger">@Shared.Error2</h2>
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+
+        })
+    </script>
+}

@@ -1,0 +1,289 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Business
+@model ClickNClaim.WebPortal.Models.ResolutionModel
+@using ClickNClaim.WebPortal.Extensions
+@using ClickNClaim.Common.Enums
+@{
+    ViewBag.Title = "Resolution";
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
+    var DeclarantResolutions = Model.Conflict.Events.Where(c => c.IdUser == Model.Conflict.IdCreationUser && c.Type == (int)EventTypeEnum.Resolution).FirstOrDefault();
+}
+
+<input type="hidden" value="@Model.Conflict.Id" name="conflictId" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="error-div" data-bind="foreach:errors, visible: errors().length > 0">
+                <p class="red-text" data-bind="text:$data"></p>
+            </div>
+
+            
+
+            @if (Model.Conflict.IdCreationUser == User.Identity.GetId())
+            {
+                <div class="stepper-wrapper left stepper-link-page-title"  style="margin-right:10px !important">
+                    <div class="stepper-white-ring">
+                        <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                            <p class="stepper-content-text">4</p>
+                        </div>
+                    </div>
+                </div> 
+                <h5  style="color:rgb(243,124,46)">@Conflict.Claims</h5>
+
+                <div class="tip">
+                    <div class="sized-tip">
+                        <i class="fa fa-info-circle text-white fa-3x"></i>
+                        <p>
+                            @Conflict.ClaimsInstructions_L1<br />
+                            @Conflict.ClaimsInstructions_L2<br />
+                            @Conflict.ClaimsInstructions_L3<br />
+                            @Conflict.ClaimsInstructions_L4<br />
+                            @Conflict.ClaimsInstructions_L5
+                        </p>
+                    </div>
+                    <p><span>&hellip;</span> <a href="#" class="tip-accordion-action" style="float:right">@ButtonsAndRecurring.SeeMore</a></p>
+                </div>
+            }
+            else
+            {
+                <div class="stepper-wrapper no-margin left  stepper-link-page-title" style="margin-right:10px !important">
+                <div class="stepper-white-ring">
+                    <div class="stepper-content" style="background-color:rgb(243,124,46)">
+                        <p class="stepper-content-text">4</p>
+                    </div>
+                </div>
+            </div>
+            <h5 style="color:rgb(243,124,46)">@Conflict.Claims</h5>
+
+                <div class="tip">
+                    <div class="sized-tip">
+                        <i class="fa fa-info-circle text-white fa-3x"></i>
+                        <p>
+                            @Conflict.CounterClaimsInstructions_L1<br/>
+                            @Conflict.CounterClaimsInstructions_L2<br />
+                            @Conflict.CounterClaimsInstructions_L3<br />
+                            @Conflict.ClaimsInstructions_L3<br />
+                            @Conflict.ClaimsInstructions_L4<br />
+                            @Conflict.ClaimsInstructions_L5
+
+                        </p>
+                    </div>
+                    <p><span>&hellip;</span> <a href="#" class="tip-accordion-action" style="float:right">@ButtonsAndRecurring.SeeMore</a></p>
+                </div>
+                <h5>@Conflict.DoYouAlsoHaveClaim</h5>
+            }
+
+            
+
+            <form id="validation-form">
+                <div data-bind="foreach:resolutions">
+                    <div class="table list-item card pointer " data-bind="css:{'card-selected' : IsSelected}">
+                        <div class="center-align table-row ">
+                            <div class="table-cell valign" data-bind="click: $root.toggleResolution" style="width:20%;">
+                                <div style="width:100px;height:100px;padding:5px;background-color:rgba(22,22,22,0.2)">
+
+                                </div>
+                            </div>
+                            <div class="table-cell left-align" style="width:60%">
+                                <div data-bind="click: $root.toggleResolution">
+                                    <h2 class="no-margin" data-bind="text:Name"></h2>
+                                    <p data-bind="text:Suggestion"></p>
+                                </div>
+                                <div class="drop-area-div">
+                                    <input type="file" class="none" name="files" multiple="multiple" title="@ButtonsAndRecurring.AddExhibit">
+                                    <input type="hidden" class="uid" name="Id" data-bind="value:Id" />
+                                </div>
+                                <div class="resolutionItem" data-bind="visible:IsSelected">
+                                    <hr class="no-margin" />
+                                    <div class="input-field col s12">
+                                        <textarea data-validation="required" data-bind="value:ResolutionComment, id: 'textarea_'+$index()" class="materialize-textarea"></textarea>
+                                        <label data-bind="for:'textarea_'+$index()">@ButtonsAndRecurring.Specify</label>
+                                    </div>
+
+                                    <p>@Conflict.DoYouHaveExhibits</p>
+                                    <div class="input-field">
+                                        <input type="button" class="btn btn-flat blue" data-bind="click:$root.uploadFileToNewEvent" value="@ButtonsAndRecurring.Upload" />
+                                    </div>
+                                    <div class="row last-row" data-bind="visible:ProofFiles().length > 0">
+                                        <table class="striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>@ButtonsAndRecurring.File</td>
+                                                    <td>@ButtonsAndRecurring.Action</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach:ProofFiles">
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" data-bind='name: "Event.ProofFiles["+ $index() + "].Id", value:Id' />
+                                                        <span data-bind="text:$index()+1"></span>
+                                                    </td>
+                                                    <td width="90%">
+                                                        <a target="_blank" data-bind="href:FilePath">
+                                                            <p data-bind="text:Name" class="truncate"></p>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <span class="btn-floating waves-effect waves-light  red" data-bind="click:function(data,event){$root.deleteFileHandler(data, $parent)}"><i class="fa fa-trash"></i></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="progress" data-bind="visible:IsDownloading">
+                                        <div class="determinate" data-bind="style:{width : Percent()}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-cell valign" style="width:20%;">
+                                <div>
+                                    <input type="checkbox" class="filled-in" data-bind='id:"Resolution_" + $index(), checked:IsSelected, name: "myResolutions.ResolutionType.IsSelected"' />
+                                    <label class="center-align" style="margin-top:8px !important" data-bind='"for":"Resolution_" + $index()'></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col s12">
+                    <input type="button" class="btn btn-flat right blue" value="@ButtonsAndRecurring.NextStep" data-bind="click:sendData" />
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="fixed-resume">
+                @Html.Partial("_ConflictResume")
+                </div>
+            </div>
+    </div>
+
+
+</div>
+
+<div id="emitBox" class="modal">
+    <form id="saveReso" action="@Url.Action("SaveResolution", "Conflict")" method="post" data-bind="submit:validateForm">
+        <input type="hidden" name="myResolution.IdConflict" value="@ViewBag.conflictId" />
+        <input type="hidden" name="myResolution.IdUser" value="@User.Identity.GetId()" />
+        <input type="hidden" name="myResolution.Id" data-bind="value:myResolution.Id" />
+        <input type="hidden" name="myResolution.IdResolutionType" required data-bind="value:myResolution.IdResolutionType" />
+        <input type="hidden" name="myResolution.ResolutionValue" data-bind="value:myResolution.ResolutionValue" />
+        <input type="hidden" name="myResolution.ResolutionComment" required data-bind="value:myResolution.ResolutionComment" />
+        <div class="modal-content">
+            <h4>@Conflict.FinalizeMyFile</h4>
+            <p>@Conflict.ThanksForSubmission</p>
+            <p>
+                @Conflict.ConfirmationProcessExplanation
+            </p>
+            <p><b>@Conflict.IndicateAdversaries</b></p>
+            <div>
+                <input type="button" class="btn btn-flat blue" value="@Conflict.AddAnotherParty" data-bind="click:addTier" />
+                <table class="striped highlight centered">
+                    <thead>
+                        <tr>
+                            <th>@Conflict.Email</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:emailList">
+                        <tr>
+                            <td style="padding:0;">
+                                <div class="row" style="margin-bottom:0;">
+                                    <div class="col s3">
+                                        <p style="line-height:4em">@Conflict.MyDisputeIsWith:</p>
+                                    </div>
+                                    <div class="col s9">
+                                        <input type="text" data-bind="value:$data, name:'emails'" placeholder="@Conflict.GiveEmailOfAdversary" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-content">
+                <p>
+                    @Conflict.YourFileWillBeTransferredToFA
+                </p>
+                <input type="submit" value="@ButtonsAndRecurring.Finalize" class="btn-flat right blue" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="debatEventModal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>@Conflict.ChallengeApplication</h4>
+        <hr />
+        <div>
+            <h5>@Conflict.ExplainDisagreement:</h5>
+            <textarea id="disagreement" class="materialize-textarea" data-bind="value:disagreementText"></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" data-bind="click:$root.setDisagreement" class="modal-action modal-close waves-effect waves-green btn-flat ">@ButtonsAndRecurring.Validate</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">@ButtonsAndRecurring.Cancel</a>
+    </div>
+</div>
+
+@section css{
+    <link href="~/Content/css/resolution.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/timeline.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        input[type=checkbox] + label {
+            padding-left: 15px;
+            margin: 0;
+        }
+
+        .valign h2 {
+            margin: 0;
+        }
+
+        .action-div {
+            position: absolute;
+            top: -15px;
+            right: 5px;
+        }
+
+        li p {
+            margin: 0 !important;
+        }
+
+        .fa-quote-right, .fa-quote-left {
+            font-size: .7em;
+            color: rgba(0,0,0,0.3);
+        }
+
+        .fa-quote-right {
+            margin-left: 5px;
+        }
+
+        .fa-quote-left {
+            margin-right: 5px;
+        }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Scripts/dmuploader.js" type="text/javascript"></script>
+    <script src="~/Scripts/viewModels/resolutionViewModel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model), @JsonHelper.GetJson(DeclarantResolutions)), $("#wrapper")[0]);
+            $(".card").click(function (event) {
+                $(".card").removeClass("selected");
+                $(this).addClass("selected");
+            })
+            $('.modal-trigger').leanModal();
+            $("#resolution-nav").addClass('active');
+            $("#resolution-nav").prev().css('display', 'inline-block');
+            makeDownloadAvailable();
+        })
+    </script>
+}

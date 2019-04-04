@@ -1,0 +1,221 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using Microsoft.AspNet.Identity
+@using ClickNClaim.Common.Enums
+@using ClickNClaim.WebPortal.Helpers
+@model ClickNClaim.Common.AspNetUser
+@{
+    ViewBag.Title = Arbitre.Details;
+}
+
+<div class="container view-container">
+
+    <div class="row last-row">
+        <div class="col l6 m6 s12">
+            <h2>@Arbitre.Profile</h2>
+            <div class="card">
+                <div class="row last-row">
+                    <div class="col s6 text-center">
+                        <img src="@(Model.PhotoPath ?? Url.Content("~/Images/default-user.png"))" style="border-radius:100%;width:80%;max-width:180px;" />
+                        <p>@Model.DisplayName</p>
+                    </div>
+                    <div class="col s6 margin-top">
+                        @*<p>Sexe : <span>@(MetadataHelper.GetEnumDescription((GenderEnum)Model.ArbiterInformation.Gender))</span></p>*@
+                        <p>Nationalité : <span>@Model.ArbiterInformation.Nationality</span></p>
+                        @*<p>Age : <span>@(((DateTime.Now - Model.DateOfBirth.Value).TotalDays / 365).ToString("F0")) ans</span></p>*@
+                        @if (!String.IsNullOrWhiteSpace(Model.ArbiterInformation.LinkedIn))
+                        {
+                        <p><a href="@Model.ArbiterInformation.LinkedIn" target="_blank">@Arbitre.LinkedInProfile</a></p>
+                        }
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+
+        <div class="col l5 offset-l1 m5 offset-m1 s12">
+            <h2>@Arbitre.Qualifications</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s12">
+                            @foreach (var item in Model.ArbiterSkills)
+                            {
+                                <div class="chip">
+                                    <span>@item.Skill.Name</span>
+                                </div>
+                            }
+                            @if (Model.ArbiterSkills == null || Model.ArbiterSkills.Count() == 0)
+                            {
+                                <h4 class="watermark">@Arbitre.NoQualificationsFilledOut</h4>
+                            }
+                        </div>
+                    </div>
+                    @if (User.Identity.IsAuthenticated && Model.Id == User.Identity.GetUserId())
+                    {
+                        <input type="button" class="btn btn-flat blue hide-on-med-and-down " onclick="openModal('#skills-modal')" value="@Arbitre.AddNewQualifications" />
+                        <a class="btn-floating waves-effect waves-light  orange  tooltipped  hide-on-large-only card-button-top-right" onclick="openModal('#skills-modal')" data-position="top" data-tooltip="@ButtonsAndRecurring.Add" ><i class="fa fa-plus fa-3x "></i></a>
+
+                         @*<i class="fa fa-plus-circle  blue-text hide-on-large-only card-button-top-right"  aria-hidden="true"></i>*@
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row last-row">
+        <div class="col s12">
+            <h2>@Arbitre.Presentation</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s12">
+                            <div id="presentation">
+                                @Html.Raw(Model.ArbiterInformation.Presentation)
+                            </div>
+                            @if (User.Identity.IsAuthenticated && Model.Id == User.Identity.GetUserId())
+                            {
+                                <textarea id="presentationEditor" style="display:none;" rows="10" cols="80">@Html.Raw(Model.ArbiterInformation.Presentation)</textarea>
+                            }
+                        </div>
+                    </div>
+                   
+                    @if (User.Identity.IsAuthenticated && Model.Id == User.Identity.GetUserId())
+                    {
+                        <input type="button" id="presentationUpdate" class="btn btn-flat blue" onclick="toggleMod()" value="@ButtonsAndRecurring.Modify" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (User.Identity.IsAuthenticated && Model.Id == User.Identity.GetUserId())
+    {
+        <div class="row last-row">
+            <div class="col s12">
+                <h4>@Arbitre.MyCases</h4>
+                <div class="card ">
+                    <div class="card-content">
+                        @Html.Partial("_ConflictList", new ClickNClaim.WebPortal.Models.ConflictListModel() { Conflicts = Model.ConflictsAssigned.ToList(), ShouldShowArbiter = true, IsForArbiter = true })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+@if (User.Identity.IsAuthenticated && Model.Id == User.Identity.GetUserId())
+{
+    <div class="modal " id="skills-modal">
+        <form action="@Url.Action("SaveNewSkills", "Arbitre")" method="post">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col l9 m9 s12">
+                        <div class="input-field">
+                            <label for="skillText">@Arbitre.Qualification</label>
+                            <input type="text" id="skillText" data-bind="value:$root.skillToAdd" style="display:inline-block" />
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s12">
+                        <div class="input-field">
+                            <input type="button" class="btn btn-flat blue " data-bind="click:$root.addSkill" style="display:inline-block;margin-top:10px;" value="@ButtonsAndRecurring.Add" />
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col s12" data-bind="foreach:$root.skills">
+                        <div class="chip">
+                            <span data-bind="text:Skill.Name"></span><input type="hidden" data-bind="value:Skill.Name, attr:{name: 'skills'}" /><i class="material-icons" data-bind="click:$root.removeSkill">close</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue " value="@ButtonsAndRecurring.Save" /></a>
+                <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue " value="@ButtonsAndRecurring.Cancel" /></a>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="refuse-case-modal">
+        <form action="@Url.Action("RefuseAssignation","Arbitre")" method="post">
+            <input type="hidden" id="conflitId" name="conflictId"  data-bind="value:selectedConflictId" />
+            <input type="hidden" id="whereFrom" name="whereFrom" value="@Arbitre.Center" />
+            <div class="modal-content">
+                <h4>@Arbitre.RefuseCase</h4>
+                <p>
+                    @Arbitre.WarningAboutToRefuseCase2
+                </p>
+                <div class="input-field">
+                    <textarea id="refusal-comment" name="text" class="materialize-textarea"></textarea>
+                    <label for="refusal-comment">@ButtonsAndRecurring.Comment</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close"><input type="submit" class="btn btn-flat blue" value="@ButtonsAndRecurring.Send" /></a>
+                <a href="#!" class="modal-action modal-close"><input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.Cancel" /></a>
+            </div>
+        </form>
+    </div>
+
+    
+}
+
+@section css{
+    <style type="text/css">
+        table tr td {
+            text-align: center;
+        }
+
+        table.lefty-table tr td {
+            text-align: left;
+        }
+
+        .chip{
+            margin-bottom:5px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @if (User.Identity.IsAuthenticated && User.Identity.GetUserId() == Model.Id)
+    {
+        <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
+    }
+    <script type="text/javascript" src="~/Scripts/viewModels/Arbitre/detailViewModel.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+
+        })
+
+        function toggleMod() {
+            if ($("#presentation").is(":visible")) {
+                CKEDITOR.replace('presentationEditor');
+                $("#presentation").hide();
+                $("#presentationUpdate").val("Enregistrer");
+            }
+            else {
+                var data = CKEDITOR.instances.presentationEditor.getData();
+                $("#presentation").html(data);
+                //SAVE DATA
+                $.ajax({
+                    url : '@Url.Action("UpdateArbiterPresentation", "Arbitre",null,"https")',
+                    data : { Id :@Model.IdArbitrationInformations, Presentation : data },
+                    complete : function(data,event){
+
+                    }
+                })
+                CKEDITOR.instances.presentationEditor.destroy();
+                $("#presentationEditor").toggle();
+                $("#presentation").show();
+                $("#presentationUpdate").val("@ButtonsAndRecurring.Modify");
+            }
+        }
+
+
+    </script>
+
+}

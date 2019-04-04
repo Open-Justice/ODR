@@ -1,0 +1,33 @@
+﻿@using ClickNClaim.WebPortal.Resources
+<table data-bind="foreach:$root.arbiters" class="lefty-table striped highlight"  style="padding:20px">
+    <tr>
+        <td style="width:15%;text-align:center">
+            <img data-bind="src:PhotoPath != null ? PhotoPath : '@Url.Content("~/Images/default-user.png")'" width="100" />
+            <br />
+            <p data-bind="text:DisplayName"></p>
+        </td>
+        <td style="width:85%">
+            <div class="row last-row">
+                <div class="col s12">
+                    <h4>@*@FastArbitre.str_Presentation*@</h4>
+                    <p data-bind="text:BusinessFunction"></p>
+                </div>
+            </div>
+            <div class="row last-row">
+                <div class="col s12">
+                    <h4>@Shared.FieldsOfExpertise</h4>
+                    <div data-bind="foreach:ArbiterSkills">
+                        <div class="chip">
+                            <span data-bind="text:Skill.Name"></span>
+                        </div>
+                    </div>
+                    <form action="@Url.Action("Assign","Arbitre")">
+                        <input type="hidden" name="conflictId" data-bind="value: $root.selectedConflictId" />
+                        <input type="hidden" name="arbiterId" data-bind="value:Id" />
+                        <input type="submit" class="btn btn-flat blue right"  value="@ButtonsAndRecurring.Assign" />
+                    </form>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

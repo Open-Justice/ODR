@@ -1,0 +1,19 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "RefuseVisio";
+}
+
+<h2>@Viewer.VideoConfRefusal</h2>
+
+<form action="@Url.Action("SendRefus")" method="post">
+   
+    <div class="card">
+        <div class="card-content">
+            <h5>@Viewer.ExplainVideoConfRefusal</h5>
+            <div class="input-field">
+                <textarea id="refus" name="refus" rows="5"></textarea>
+                <label for="refus">@Viewer.ReasonForRefusing: </label>
+            </div>
+        </div>
+    </div>
+</form>

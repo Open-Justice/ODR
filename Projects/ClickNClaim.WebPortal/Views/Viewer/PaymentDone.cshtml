@@ -1,0 +1,33 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Common.Enums
+@model ClickNClaim.Common.Conflict
+@{
+    ViewBag.Title = "PaymentDone";
+}
+<div class="container">
+    <h5>@Viewer.PaymentMade</h5>
+    <div class="card">
+        <div class="card-content">
+            @if (Model.HasArbitralClause || Model.PaymentState == (int)PaymentStateEnum.Complete)
+            {
+                <p>@Viewer.DisputeSubmitted</p>
+            }
+            else
+            {
+                <p>@Viewer.DisputeSentToAdversary</p>
+            }
+            <p>"@Viewer.ConfirmationAndAccessCodes</p>
+            <a class="btn btn-flat blue margin-top" href="@Url.Action("Conflict", "Viewer", new { conflictId = Model.Id})">@Viewer.SeeDisputeSummary</a>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}
+

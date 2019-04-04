@@ -1,0 +1,63 @@
+﻿@using ClickNClaim.WebPortal.Resources
+
+@{
+    ViewBag.Title = "SimpleDeclaration";
+}
+
+<div class="container view-container">
+    <form action="@Url.Action("SaveSimpleDeclaration")" method="POST">
+        <div class="row">
+            <div class="col s8">
+                <h4>@Conflict.ExplanationOfYourConflict</h4>
+                <div class="card">
+                    <p>@Conflict.ExplainInYourOwnWordsDispute:</p>
+                    <textarea name="declaration" class="materialize-textarea"></textarea>
+                    <hr />
+                    <h4>@Conflict.ArbitrationClause</h4>
+                    <div>
+                        <p>@Conflict.DoYouHaveContractAndArbClause</p>
+                        <input type="hidden" name="hasArbitralClause" data-bind="value:conflict.HasArbitralClause" />
+                        <div class="mainSwitchDiv" data-bind="click:toggleClause">
+                            <div class="sub">
+                                <span class="values">@ButtonsAndRecurring.No</span>
+                            </div>
+                            <div class="sub">
+                                <span class="values">@ButtonsAndRecurring.Yes</span>
+                            </div>
+                            <div id="notifThumb" data-bind="css:{notifOff: !conflict.HasArbitralClause()}">
+                            </div>
+                        </div>
+                    </div>
+                    <div data-bind="visible:conflict.HasArbitralClause()">
+                        <p>@Conflict.IfYesUploadDoc</p>
+                        <input type="file" name="clauseFile" value="@Conflict.UploadClause" />
+                    </div>
+                    <div class="card-action">
+                        <input type="submit" class="btn btn-flat blue" value="@ButtonsAndRecurring.Continue" />
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section css{
+    <style type="text/css">
+      
+    </style>
+}
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+
+        })
+    </script>
+}

@@ -1,0 +1,39 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title =Account.EmailConfirmation ;
+}
+<div class="container root-container">
+    <div class="row">
+        <div class="col l6 offset-l3 m12 s12">
+            <div class="card">
+                <h2>@ViewBag.Title.</h2>
+                <div>
+                    <p>
+                       @Account.ThanksForConfirmingEmail
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .root-container {
+            margin-top: 40px;
+        }
+        a{
+            color:#2196F3;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings({ data: '' }, $("#wrapper")[0]);
+
+        })
+
+    </script>
+}

@@ -1,0 +1,71 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@model ClickNClaim.WebPortal.Models.ManageLoginsViewModel
+@using Microsoft.Owin.Security
+@{
+    ViewBag.Title = "Manage your external logins";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0) {
+        <div>
+            <p>
+                @Manage.ExtAuthentification1 <a href="http://go.microsoft.com/fwlink/?LinkId=313242">@Manage.TwoFactorAuthentification2</a>
+                @Manage.ExtAuthentification2
+            </p>
+        </div>
+    }
+    else
+    {
+        if (Model.CurrentLogins.Count > 0)
+        {
+            <h4>@Manage.RegisteredLogins</h4>
+            <table class="table">
+                <tbody>
+                    @foreach (var account in Model.CurrentLogins)
+                    {
+                        <tr>
+                            <td>@account.LoginProvider</td>
+                            <td>
+                                @if (ViewBag.ShowRemoveButton)
+                                {
+                                    using (Html.BeginForm("RemoveLogin", "Manage"))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div>
+                                            @Html.Hidden("loginProvider", account.LoginProvider)
+                                            @Html.Hidden("providerKey", account.ProviderKey)
+                                            <input type="submit" class="btn btn-default" value="@ButtonsAndRecurring.Remove" title="@Manage.RemoveThis @account.LoginProvider @Manage.LoginFromAccount" />
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    @: &nbsp;
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        if (Model.OtherLogins.Count > 0)
+        {
+            using (Html.BeginForm("LinkLogin", "Manage"))
+            {
+                @Html.AntiForgeryToken()
+                <div id="socialLoginList">
+                <p>
+                    @foreach (AuthenticationDescription p in Model.OtherLogins)
+                    {
+                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="@Manage.LogInUsing @p.Caption @Manage.Account">@p.AuthenticationType</button>
+                    }
+                </p>
+                </div>
+            }
+        }
+    }
+}

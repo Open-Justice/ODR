@@ -1,0 +1,104 @@
+﻿<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Arial" />
+      
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-container>
+
+      <mj-section background-color="#ffffff" padding="0">
+          <mj-column>
+          <mj-text align="center" font-size="10px">
+            Si vous ne visualisez pas correctement cet email, vous pouvez l'ouvrir dans votre navigateur en cliquant <a href="|*EMAILLINK*|">ici</a>.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      
+      <mj-navbar background-color="rgb(243,124,46)">
+        <mj-column width="100%">
+          <mj-text>
+            <a style="text-decoration:none" href="http://cc-1.azurewebsites.net">
+              <h2 style="margin:0;width:150px;margin-top:5px">
+                <span style="color:black;font-weight:bold">Fast</span>
+                <span style="color:white">Arbitre</span>
+              </h2>
+            </a>
+          </mj-text>
+        </mj-column>
+        <!--<mj-column width="40%">
+          <mj-inline-links base-url="http://cc-1.azurewebsites.net/Account/Profil">
+            <mj-link href="/Account/Profil" color="#ffffff">Mes dossiers</mj-link>
+          
+          </mj-inline-links>
+        </mj-column>-->
+      </mj-navbar>
+
+     
+      <!-- Image Header -->
+      <mj-section background-color="#f0f0f0">
+        <mj-column>
+          <mj-text align="center">
+            <h3 style="margin:0;padding:0">Une erreur est survenue!</h3>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Introduction Text -->
+      <mj-section background-color="#fafafa">
+        <mj-column>
+          <mj-text>
+            <h1>Parallel Datas</h1>
+            <p style="margin:0"><b>Utilisateur</b> : |*USER*|</p>
+            <p style="margin:0"><b>Date</b> : |*DATE*|</p>
+            <p style="margin:0"><b>Url</b> : |*URL*|</p>
+            <p style="margin:0">
+              <b>Browser</b> : |*BROWSER*|
+            </p>
+            <p style="margin:0">
+              <b>Encoding</b> : |*ENCODING*|
+            </p>
+            <h2>Form Values</h2>
+            <div style="margin:20px">
+            <p>
+              |*FORMKEYS*|
+            </p>
+            </div>
+            <h2>Headers</h2>
+            <div style="margin:20px">
+              <p>
+               |*HEADERS*|
+              </p>
+            </div>
+            <h2>QueryString</h2>
+            <div style="margin:20px">
+              <p>
+                |*QUERYSTRING*|
+              </p>
+            </div>
+            <h1>Exception</h1>
+            <div style="margin:10px;border: solid 2px red">
+              <p>
+                |*EXCEPTION*|
+              </p>
+            </div>
+            <p>Fin rapport d'erreur.</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+
+
+      <mj-section background-color="rgb(243,124,46)">
+        <mj-column width="100%">
+          <mj-text color="#fff" font-size="11px" padding-bottom="0">www.fast-arbitre.com est une plateforme éditée par l'institut digital d'arbitrage et de médiation</mj-text>
+          <mj-text color="#fff" font-size="11px" padding-bottom="0"  padding-top="0">
+            Idam 58 avenue de Wagram 75017 Paris. Tel : 01.86.95.47.61</mj-text>
+        </mj-column>
+      
+      </mj-section>
+      
+    </mj-container>
+  </mj-body>
+</mjml>

@@ -1,0 +1,188 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.Common
+@using ClickNClaim.Common.Enums
+@using ClickNClaim.Business
+@using Microsoft.AspNet.Identity
+
+@model Debate
+@{
+    ViewBag.Title = "MailDebate";
+}
+
+
+<div class="container view-container">
+    <h1>@Model.Title <span data-bind="visible:data.Closed">(@Arbitre.DebateClosed)</span> <span data-bind="visible:!data.Closed,text: duration.asSeconds() > 0 ? '(@Arbitre.EndOfDebateAtLatest ' + countDown()+ ')' : '(@Arbitre.DebateClosed)'"></span></h1>
+
+    @foreach (var item in Model.MailDebates)
+    {
+        <div class="card mail_@item.Id">
+            <div class="card-content">
+                @if (item.IdFile == null)
+                {
+                    <i class="fa fa-comments blue-text fa-3x left"></i>
+                }
+                else
+                {
+                    <i class="fa fa-file blue-text fa-3x left"></i>
+                }
+                <h4>@(item.IdFile != null ? "Transmis par" : "Ecrit par") : @item.AspNetUser.DisplayName</h4>
+                <i>@item.CreateDate.ToShortDateString() à @item.CreateDate.ToShortTimeString()</i>
+                <hr />
+                <p>
+                    @Html.Raw(item.Body.Replace("\r\n", "<br/>"))
+                </p>
+            </div>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-content">
+            <a href="@Url.Action("Conflict", "Viewer", new { conflictId = Model.Event.IdConflict })"><input type="button" class="btn btn-flat blue" value="@Arbitre.ReturnToDispute" /></a>
+            <div class="right">
+                @if (!Model.Closed)
+                {
+
+                    <input type="button" class="btn btn-flat modal-trigger blue" data-target="writeMail" value="@ButtonsAndRecurring.Answer" />
+                    <input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.SendAFile" onclick="$('#FileUpload').click()" />
+                    if (BLLUsers.IsArbiterForConflict(Model.Event.IdConflict, User.Identity.GetUserId()))
+                    {
+                        if (Model.Event.Type == (int)EventTypeEnum.OfficialDocuments)
+                        {
+                            <input type="button" class="btn btn-flat blue" value="@Arbitre.CloseProceeding" onclick="confirmprocedureClosure()" />
+                        }
+                        else
+                        {
+                        <input type="button" class="btn btn-flat blue" value="@Arbitre.CloseDebate" onclick="confirmClosure()" />
+                        }
+                    }
+                }
+                else
+                {
+                    if (BLLUsers.IsArbiterForConflict(Model.Event.IdConflict, User.Identity.GetUserId()))
+                    {
+                        <input type="button" class="btn btn-flat blue" value="@Arbitre.ReOpenDebate" onclick="reOpen()" />
+                    }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="hidden">
+    <form action="@Url.Action("Closure")" method="post">
+        <input type="hidden" id="id" name="id" value="@Model.Id" />
+        <input type="hidden" id="conflictId" name="conflictId" value="@Model.Event.IdConflict" />
+        <input type="submit" id="ClosureInput" />
+    </form>
+</div>
+
+
+<div class="hidden">
+    <form action="@Url.Action("MailDebateAdd", "Arbitre")" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="debatId" value="@Model.Id" />
+        <input type="file" name="FileUpload" id="FileUpload" />
+    </form>
+</div>
+
+<div class="hidden">
+    <form action="@Url.Action("ProcedureClosure")" method="post">
+        <input type="hidden" id="id" name="id" value="@Model.Id" />
+        <input type="hidden" id="conflictId" name="conflictId" value="@Model.Event.IdConflict" />
+        <input type="submit" id="procedureClosureInput" />
+    </form>
+</div>
+
+<div class="modal" id="reopen-modal">
+    <form action="@Url.Action("ReOpen")" method="post" id="reOpen-form" >
+        <input type="hidden" id="id" name="id" value="@Model.Id" />
+        <input type="hidden" id="conflictId" name="conflictId" value="@Model.Event.IdConflict" />
+         <div class="modal-content">
+             <p>@Arbitre.ReOpenHowLong</p>
+             <div class="input-field">
+                 <input type="number" required data-validation="required number" name="countDown" id="countDown" />
+                 <label for="countDown">@Arbitre.Duration</label>
+             </div>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-content">
+                <input type="submit" class="btn-flat right blue" value="@ButtonsAndRecurring.ReOpen" />
+                <input type="button" class="btn-flat right blue modal-close" value="@ButtonsAndRecurring.Cancel" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="writeMail" class="modal">
+    <form action="@Url.Action("MailDebateAdd")">
+        <input type="hidden" name="debatId" value="@Model.Id" />
+        <div class="modal-content">
+            <h4>@Arbitre.RespondDebate</h4>
+
+            <div class="input-field">
+                <textarea class="materialize-textarea" name="mailBody" cols="4" id="mail"></textarea>
+                <label for="mail">@Arbitre.TypeResponseHere</label>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="modal-content">
+                <input type="submit" class="btn-flat right blue" value="@ButtonsAndRecurring.Answer" />
+                <input type="button" class="btn-flat right blue modal-close" value="@ButtonsAndRecurring.Cancel" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section css{
+    <style type="text/css">
+        .card-content h4 {
+            margin-top: 0;
+        }
+    </style>
+
+}
+
+@section scripts{
+   <script src="~/Scripts/jquery.form-validator.min.js" type="text/javascript"></script>
+ <script type="text/javascript" src="~/Scripts/viewModels/Arbitre/mailDebateViewModel.js"></script>
+    <script type="text/javascript">
+        $.validate({
+            lang: 'fr',
+            modules: 'html5'
+        });
+        $(document).ready(function () {
+           
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            $('.modal-trigger').leanModal();
+            $("input[type=file]").change(function (event) {
+                $(event.target).closest('form').submit();
+            })
+        })
+
+        function confirmClosure() {
+            Layout.showConfirm({
+                header: "@Arbitre.EndOfDebate",
+                text: "@Arbitre.WarningEndOfDebate",
+                confirmYes: function () {
+                    $("#ClosureInput").click();
+                }
+            })
+        }
+
+        function confirmprocedureClosure() {
+            Layout.showConfirm({
+                header: "@Arbitre.TerminationOfProceedings",
+                text: "@Arbitre.WarningEndOfDebate",
+                confirmYes: function () {
+                    $("#procedureClosureInput").click();
+                }
+            })
+        }
+
+        function reOpen() {
+            $("#reopen-modal").openModal();
+            
+        }
+    </script>
+}

@@ -1,0 +1,25 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "NotFound";
+}
+
+
+<div class="container margin-top text-justified margin-bottom">
+
+    <div class="card no-padding margin-top-large">
+        <div class="card-content red white-text">
+            <p> @Error.NonExistentPage</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+        });
+    </script>
+}

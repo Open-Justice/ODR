@@ -1,0 +1,56 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@{
+    ViewBag.Title = "CaptchaConfirmEmail";
+    Session["Captcha"] = new Random().Next(100000, 999999).ToString();
+}
+
+
+
+<div class="container root-container">
+    <div class="row">
+        <form action="@Url.Action("ConfirmEmail","Account")" method="get">
+            <div class="col s8 offset-s2">
+                <div class="card">
+                    <div class="row">
+                        <div class="col s12">
+
+                            <input type="hidden" name="userId" value="@ViewBag.userId" />
+                            <input type="hidden" name="code" value="@ViewBag.code" />
+                            <h4>@Account.ConfirmationEmail.</h4>
+                            <p>@Account.AntiBotCaptcha</p>
+                            <img src="~/Handlers/Captcha.ashx" />
+                            <div class="input-field">
+                                <label for="confirmCaptcha">@Account.EnterCaptcha</label>
+                                <input type="text" id="confirmCaptcha" name="CaptchaConfirm" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row last-row">
+                        <div class="col s12">
+                            <input type="submit" class="btn btn-default right" value="@Account.Confirm" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .root-container {
+            margin-top: 40px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ko.applyBindings({ data: '' }, $("#wrapper")[0]);
+
+        })
+
+    </script>
+}

@@ -1,0 +1,204 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using ClickNClaim.WebPortal.Extensions
+@model ClickNClaim.WebPortal.Models.WritePreSentenceModel
+@{
+    var demandeur = Model.Conflict.UsersInConflicts.First(c => c.IdUser == Model.Conflict.IdCreationUser);
+    var defendeur = Model.Conflict.UsersInConflicts.Where(c => c.IdUser != Model.Conflict.IdCreationUser && (c.IsLawyer == null || !c.IsLawyer.Value)).First();
+}
+
+<div class="container view-container">
+    <form id="acceptance-form" action="@Url.Action("WriteSentence")" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+        <div class="row last-row">
+            <div class="col s12">
+                <h1 style="text-align:center">
+                    @Viewer.Award
+                    <br />
+                    <i style="font-size:16px">@ButtonsAndRecurring.CaseNo @Model.Conflict.Id</i>
+                    <br />
+                    <i style="font-size:16px">@(demandeur.CompanyName ?? demandeur.User.DisplayName) / @(defendeur.CompanyName ?? defendeur.User.DisplayName)</i>
+                </h1>
+
+
+                <div id="elts">
+                    <div class="row">
+                        <div class="col s3 pos-relative">
+                            <div class="vline"></div>
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card" id="generate">
+                                <div class="card-content">
+                                    <h3>@Viewer.DownloadAndSign</h3>
+                                    <a href="@Model.Url" onclick="openUpload()" class="btn btn-flat blue centered" id="fileLink">@ButtonsAndRecurring.DownloadDocument</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card disable-content" id="upload">
+                                <div class="card-content">
+                                    <h3>@Viewer.UpdloadSignedDoc</h3>
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>@ButtonsAndRecurring.UploadDoc</span>
+                                            <input id="FileClause" name="FileClause" type="file" accept=".pdf">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" data-validation="required" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="table">
+                                <div class="table-cell centered">
+                                    <div class="circles">
+                                        <div>
+                                            <span>3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div class="card disable-content" id="submission">
+                                <div class="card-content">
+                                    <h3>@ButtonsAndRecurring.Validation</h3>
+                                    <input type="submit" class="btn btn-flat blue " value="@ButtonsAndRecurring.ValidateAndSendDoc" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+@section css{
+    <style type="text/css">
+        label.invalid {
+            color: red;
+            font-size: 0.8rem;
+            left: 0;
+            position: relative;
+            top: -15px;
+            transform: none !important;
+        }
+
+        .error {
+            display: none;
+            color: red;
+        }
+
+            .error.invalid {
+                display: inline-block;
+                top: -3px;
+            }
+
+        .circles {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: solid 2px rgb(243,124,46);
+            display: table;
+            margin: 10px auto;
+            background-color: rgb(243,124,46);
+        }
+
+            .circles div {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 20px;
+                color: white;
+            }
+    </style>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.validator.setDefaults({
+            onkeyup: false,
+            errorClass: 'invalid',
+            validClass: 'valid',
+            submitHandler: function (form) {
+                $(form).find("input[type='submit']").prop('disabled', true);
+                $(form).find("button[type='submit']").addClass("disabled");
+                $(form).find("button[type='submit']").prop('disabled', true);
+                form.submit();
+            },
+            errorPlacement: function (error, element) {
+                //error.insertAfter($(element).siblings('label'));
+                $(element).siblings('label').children('.error').addClass('invalid');
+            }
+        });
+        $(document).ready(function () {
+            ko.applyBindings(null, $("#wrapper")[0]);
+            $("#acceptance-form").validate({
+
+            });
+            $(".vline").height($("#elts").height() - $("#elts .row").last().outerHeight());
+            $(window).resize(function () {
+                $(".vline").height($("#elts").height() - $("#elts .row").last().outerHeight());
+            });
+            generateDoc();
+
+        })
+
+
+
+        function smoothScroll(name) {
+            var target = $("#"+name);
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - (($(window).height() - 64)/2)
+                }, 1000);
+                return false;
+            }
+        }
+
+        function openUpload() {
+            $("#upload").removeClass("disable-content");
+            smoothScroll("upload");
+            $("input[type=file]").change(function (data, event) {
+                $("#submission").removeClass("disable-content");
+                smoothScroll("submission");
+            })
+        }
+    </script>
+
+
+}
+
+

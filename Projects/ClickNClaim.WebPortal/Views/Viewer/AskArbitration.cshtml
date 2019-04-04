@@ -1,0 +1,175 @@
+﻿@using ClickNClaim.WebPortal.Resources
+@using Microsoft.AspNet.Identity
+@model ClickNClaim.WebPortal.Models.AskArbitrationViewModel
+@{
+    ViewBag.Title = "AskArbitration";
+}
+
+<div class="container ">
+
+    <input type="hidden" name="conflictId" value="@Model.Conflict.Id" />
+    <input type="hidden" name="company.Id" value="@(Model.Company != null ? Model.Company.Id : 0)" />
+    <div class="row">
+        <div class="col s8">
+            <h2>@Viewer.ArbitrationRequest</h2>
+            <div class="card">
+                @if (Model.Conflict.AskedForArbitration == null || !Model.Conflict.AskedForArbitration.Value)
+                {
+                    if (Model.Conflict.HasArbitralClause)
+                    {
+                        <p>@Viewer.ArbitrationRequestWarning1</p>
+                    }
+                    else
+                    {
+                        <p>@Viewer.ArbitrationRequestWarning2</p>
+                    }
+                }
+                else
+                {
+                    <p>@Viewer.ArbitrationRequestWarning3</p>
+                }
+            </div>
+            <h5>@Viewer.CompanyID</h5>
+            <form action="@Url.Action("AskArbitrationValidation")" id="data-validation-form" method="post">
+                <div class="card">
+                    <div class="row last-row">
+                        <div class="col s6">
+                            <div class="input-field ">
+                                <input type="text" id="Siren" name="company.Siret" data-validation="required" data-bind="value:company.Siret" />
+                                <label for="Siren" data-bind="css:{active : company.Siret() != '' && company.Siret != null}">@Viewer.UniqueIDNo</label>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="input-field">
+                                <input type="text" id="Company" name="company.Name" data-validation="required" data-bind="value:company.Name" />
+                                <label for="Company" data-bind="css:{active : company.Name() != '' && company.Name != null}">@Viewer.Company</label>
+                            </div>
+                        </div>
+                        <div class="col s12 margin-top">
+                            <input type="button" class="btn btn-flat blue" value="@ButtonsAndRecurring.Save" data-bind="click:SaveOfficialCompanyInfo" />
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <div class="disable-content" id="validation">
+                <h5>@Viewer.ConfirmationAndPayment</h5>
+                <div class="card">
+                    <p data-bind="visible : conflict.IdConflictType() != 18 && conflict.IdConflictType() != 19 ">@Viewer.CostOfArbitration1 <span data-bind="visible:conflict.IdConflictType() == 3 || conflict.IdConflictType() == 4 || conflict.IdConflictType() == 6">@Viewer.Cost1</span><span data-bind="visible : conflict.IdConflictType() == 1 || conflict.IdConflictType() == 2 || conflict.IdConflictType() == 7">@Viewer.Cost2</span><span data-bind="visible : conflict.IdConflictType() == 10 || conflict.IdConflictType() == 12">@Viewer.Cost3</span><span data-bind="visible:conflict.IdConflictType() == 8 || conflict.IdConflictType() == 9 || conflict.IdConflictType() == 11|| conflict.IdConflictType() == 13">@Viewer.Cost4</span>@Viewer.CostOfArbitration2</p>
+                    <div>
+                        @if (Model.Conflict.IdConflictType == 3 || Model.Conflict.IdConflictType == 4 || Model.Conflict.IdConflictType == 6)
+                        {
+                            <div id="_750e">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="Y2PUBLQJDS93A">
+                                    <input type="hidden" name="on0" value="@ButtonsAndRecurring.NameAndSurname">
+                                    <input type="hidden" name="os0" value="@User.Identity.GetUserName()" />
+                                    <input type="hidden" name="on1" value="@ButtonsAndRecurring.CaseNo">
+                                    <input type="hidden" name="os1" value="@Model.Conflict.Id" />
+                                    <input type="submit" class="btn btn-flat blue" value="@Viewer.ConfirmAndPay" />
+                                </form>
+
+                            </div>
+                        }
+                        else if (Model.Conflict.IdConflictType == 1 || Model.Conflict.IdConflictType == 2 || Model.Conflict.IdConflictType == 7)
+                        {
+                            <div id="_1250e">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="Z825GU39GDZ8W">
+                                    <input type="hidden" name="on0" value="@ButtonsAndRecurring.NameAndSurname">
+                                    <input type="hidden" name="os0" value="@User.Identity.GetUserName()" />
+                                    <input type="hidden" name="on1" value="@ButtonsAndRecurring.CaseNo">
+                                    <input type="hidden" name="os1" value="@Model.Conflict.Id" />
+                                    <input type="submit" class="btn btn-flat blue" value="@Viewer.ConfirmAndPay" />
+                                </form>
+
+                            </div>
+                        }
+                        else if (Model.Conflict.IdConflictType == 10 || Model.Conflict.IdConflictType == 12)
+                        {
+                            <div id="_1750e" data-bind="visible : conflict.IdConflictType() == 10 || conflict.IdConflictType() == 12">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="TH4NT9DYTRRJC">
+                                    <input type="hidden" name="on0" value="@ButtonsAndRecurring.NameAndSurname">
+                                    <input type="hidden" name="os0" value="@User.Identity.GetUserName()" />
+                                    <input type="hidden" name="on1" value="@ButtonsAndRecurring.CaseNo">
+                                    <input type="hidden" name="os1" value="@Model.Conflict.Id" />
+                                    <input type="submit" class="btn btn-flat blue" value="@Viewer.ConfirmAndPay" />
+                                </form>
+                            </div>
+                        }
+                        else if (Model.Conflict.IdConflictType == 8 || Model.Conflict.IdConflictType == 9 || Model.Conflict.IdConflictType == 11 || Model.Conflict.IdConflictType == 13)
+                        {
+                            <div id="2250e">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="FQNHFUW7NNDD8">
+                                    <input type="hidden" name="on0" value="@ButtonsAndRecurring.NameAndSurname">
+                                    <input type="hidden" name="os0" value="@User.Identity.GetUserName()" />
+                                    <input type="hidden" name="on1" value="@ButtonsAndRecurring.CaseNo">
+                                    <input type="hidden" name="os1" value="@Model.Conflict.Id" />
+                                    <input type="submit" class="btn btn-flat blue" value="@Viewer.ConfirmAndPay" />
+                                </form>
+
+                            </div>
+                        }
+                        else if (Model.Conflict.IdConflictType == 18 || Model.Conflict.IdConflictType == 19)
+                        {
+                            <div id="quotation" data-bind="visible : conflict.IdConflictType() == 18 || conflict.IdConflictType() == 19 ">
+                                <p>@Viewer.NoQuotation</p>
+
+                                <a href="@Url.Action("Quotation", new { conflictId = Model.Conflict.Id })" class="btn btn-flat blue right">@ButtonsAndRecurring.Continue</a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            @Html.Partial("_ConflictResume")
+        </div>
+
+    </div>
+</div>
+
+@section css{
+    <style type="text/css">
+        .error {
+            /*display: none;*/
+            color: red;
+        }
+
+            .error.invalid {
+                display: inline-block;
+                top: -3px;
+            }
+    </style>
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery.form-validator.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/viewModels/viewer/askArbitrationViewModel.js"></script>
+    <script type="text/javascript">
+        $.validate({
+            lang: 'fr'
+        });
+        $(document).ready(function () {
+            ko.applyBindings(new viewModel(@JsonHelper.GetJson(Model)), $("#wrapper")[0]);
+            Cookies.set('conflictId', '@Model.Conflict.Id');
+
+        })
+    </script>
+}
+
+
+
+
+
+
+
+
+
